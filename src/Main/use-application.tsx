@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import * as selectors from '../store/selectors';
-import tenseDBRequest from './Tenses/Content/TensesDB';
+import tenseDBRequest from '../databases/TensesDB';
 import TenseContent from './Tenses/Body/TenseContent/presentational';
 import { SIDER_OPTIONS } from './constants';
 import Releases from './Releases/presentationa';
