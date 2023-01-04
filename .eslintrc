@@ -23,8 +23,7 @@
         "no-unused-vars": "warn",
         "no-console": "warn",
         "prefer-const": "error", 
-        "semi": ["warn", "always"],
-        "quotes": ["warn", "single"],
+        "@typescript-eslint/ban-ts-comment": "off"
     }
 }
  

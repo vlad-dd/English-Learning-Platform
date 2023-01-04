@@ -1,1 +1,5 @@
 @import 'antd/dist/antd.css'; 
+/* Please use that trick for css debugging */
+/* * {
+    outline: 1px solid pink;
+} */

@@ -11,6 +11,9 @@
 # production
 /build
 
+# api
+src/authentification/firebase.js
+
 # misc
 .DS_Store
 .env.local

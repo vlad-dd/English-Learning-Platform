@@ -1,0 +1,32 @@
+import React, { FormEvent } from "react";
+import { CarouselInput, FirstPart, SecondPart } from "./styled";
+
+const DefaultCarouselInput = ({
+  borderColor,
+  showLastBanner,
+  handleCheck,
+  sentences,
+  actualSentenceIndex,
+  value,
+  setValue,
+}: any) => {
+  return (
+    <>
+    <FirstPart>{sentences?.[actualSentenceIndex].partOne}</FirstPart>
+    <CarouselInput
+      id='practice-input'
+      data-testid='practice-input'
+      style={{ border: borderColor }}
+      disabled={showLastBanner}
+      onKeyDown={(e: any) =>
+        handleCheck(e, sentences?.[actualSentenceIndex].missed)
+      }
+      value={value}
+      onChange={(e: React.FormEvent<HTMLInputElement>) => setValue(e.currentTarget.value)}
+    />
+    <SecondPart>{sentences?.[actualSentenceIndex].partTwo}</SecondPart>
+  </>
+  );
+};
+
+export default DefaultCarouselInput;
