@@ -2,7 +2,7 @@ import React from 'react';
 import { List, Collapse } from 'antd';
 import { get } from 'lodash';
 import { IPanelProps, IResponse } from '../types';
-import { IResponseDataSentence } from '../../..';
+import { IResponseDataSentence } from '../..';
 import { useSentenceExamples } from './use-sentence-example';
 
 const { Panel } = Collapse;

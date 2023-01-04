@@ -1,6 +1,6 @@
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { BsQuestionCircle } from 'react-icons/bs';
-import { IPanelProps } from "../types";
+import { IPanelProps } from '../types';
 
 export const useSentenceExamples = () => {
     const sentenseExamples: IPanelProps[]  = [

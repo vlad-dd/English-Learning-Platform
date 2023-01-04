@@ -1,6 +1,6 @@
 import React from 'react';
-import { Title } from '../../../../Сommon';
-import CarouselQuiz from '../../Content/Practice/Carousel';
+import { Title } from '../../../Сommon';
+import CarouselQuiz from '../Carousel';
 
 const TensePractice = () => {
   return (

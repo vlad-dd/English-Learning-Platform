@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title } from '../../../../Сommon';
+import { Title } from '../../../Сommon';
 import ExamplePanels from '../Panels/presentational';
 
 const TenseExamplePanels = ({ configuration}: any) => {

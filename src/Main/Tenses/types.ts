@@ -1,10 +1,9 @@
 import {
   CheckOutlined,
   CloseOutlined,
-  QuestionOutlined,
 } from '@ant-design/icons';
 import { BsQuestionCircle } from 'react-icons/bs';
-import { IBFFResponse } from '../../types';
+import { IBFFResponse } from '../types';
 
 interface IPanelProps {
   header: string;
@@ -17,4 +16,4 @@ interface IResponse {
   configuration: IBFFResponse[];
 }
 
-export type { IPanelProps, IResponse };
+export type { IPanelProps, IResponse }; 
