@@ -1,5 +1,5 @@
 import React from "react";
-import { Title, CasesTabs } from "../../../../Сommon";
+import { Title, CasesTabs } from "../../../Сommon";
 
 
 const MostCommonCases = ({ tense, cases }: any) => {

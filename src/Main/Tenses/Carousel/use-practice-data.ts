@@ -1,6 +1,6 @@
 import { get } from "lodash";
 import { useContext } from "react";
-import { ResponseContext } from "../../../Body/TenseContent/presentational";
+import { ResponseContext } from "../TenseContent/presentational";
 
 export const usePracticeData = () => {
     const { practice } = useContext(ResponseContext);

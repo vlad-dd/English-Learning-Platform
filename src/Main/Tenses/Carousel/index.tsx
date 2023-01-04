@@ -6,8 +6,8 @@ import React, {
 import { useDispatch, useSelector } from 'react-redux';
 import { Carousel } from 'antd';
 import { size } from 'lodash';
-import * as selectors from '../../../../../store/selectors';
-import { setActualSentenceIndex, setEarnedPoints } from '../../../../../store/reducers/carousel';
+import * as selectors from '../../../store/selectors';
+import { setActualSentenceIndex, setEarnedPoints } from '../../../store/reducers/carousel';
 import { useAlertController } from './use-alert-controller';
 import { usePracticeData } from './use-practice-data';
 import QuestionCarouselInput from './question-carousel-input';

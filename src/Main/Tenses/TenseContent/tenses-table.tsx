@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import { Title } from '../../../../Сommon';
+import { Title } from '../../../Сommon';
 import { StyledTitle } from './styled';
 
 const TensesTable = ({ columns, table }: any) => {

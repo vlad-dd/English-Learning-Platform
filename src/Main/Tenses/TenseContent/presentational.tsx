@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
 import { Alert } from 'antd';
 import { AlertOutlined } from '@ant-design/icons';
-import { BreadcrumbPath } from '../../../../Сommon';
+import { BreadcrumbPath } from '../../../Сommon';
 import { ContentSection } from './styled';
 import TensesTable from './tenses-table';
 import { useTensesConfiguration } from './use-tenses-configuration';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IPracticeSentence } from '../../../..';
+import { IPracticeSentence } from '../..';
 
 interface IStatus {
     [key: string]: string
