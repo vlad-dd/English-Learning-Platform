@@ -2,11 +2,13 @@ import { combineReducers } from 'redux';
 import { reducer as breadCrumb } from './breadcrumb';
 import { reducer as registerSlice } from './registration';
 import { reducer as carouselSlice } from './carousel';
+import { reducer as tenseSlice } from './tenses';
 
 const root = combineReducers({
     tensesBreadCrumb: breadCrumb,
     registration: registerSlice,
-    carousel: carouselSlice
+    carousel: carouselSlice,
+    tense: tenseSlice
 });
 
 export default root;

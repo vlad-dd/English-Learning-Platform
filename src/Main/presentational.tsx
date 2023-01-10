@@ -6,7 +6,6 @@ import { StyledLayout, StyledContent, StyledFooter } from './styled';
 import useApplication from './use-application';
 import DefaultPage from './DefaultPage/presentational';
 
-
 const LayoutPage = () => {
 
   const { application } = useApplication();
