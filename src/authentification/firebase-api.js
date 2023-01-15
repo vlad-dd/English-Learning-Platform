@@ -1,4 +1,4 @@
-import { auth } from './firebase';
+import { auth, createUserWithEmailAndPassword , signInWithEmailAndPassword } from './firebase';
 import { message } from 'antd';
 import { register } from '../store/reducers/registration';
 import * as STRINGS from './Form/strings';
@@ -10,7 +10,7 @@ const FireBaseAPI = {
         }
         if (email.length > 0 && password.length > 0) {
           try {
-            await auth.signInWithEmailAndPassword(email, password)
+            await signInWithEmailAndPassword(auth, email, password)
             navigate(navigatePath)
           } 
           catch {
@@ -29,7 +29,7 @@ const FireBaseAPI = {
     
         if (email.length > 0 && password.length > 0) {
           try {
-            const user = await auth.createUserWithEmailAndPassword(email, password)
+            const user = await createUserWithEmailAndPassword(auth, email, password)
             dispatch(register(user));
             navigate(navigatePath);
           }

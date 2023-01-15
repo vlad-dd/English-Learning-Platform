@@ -1,22 +1,23 @@
 import React, { useCallback } from 'react';
-import { Tabs, List, Avatar } from 'antd';
-import { ICasesTabs } from '../types';
+import { Tabs, List } from 'antd';
+import { convertToArrayOfObjects } from '../../helpers';
+import { ICases } from '../../Tenses';
 
-const CasesTabs: React.FC<{ config: any }> = ({ config = [] }) => {
+const CasesTabs: React.FC<{ config: ICases[] }> = ({ config }) => {
   const renderCaseItems = useCallback(
-    ({ key, label, icon, titles }: ICasesTabs) => ({
+    ({ key, label, icon, titles }: ICases) => ({
       label,
       key,
       children: (
         <>
           <List
             itemLayout="horizontal"
-            dataSource={[...Object.values(titles)]}
-            renderItem={({ description }: any) => (
+            dataSource={convertToArrayOfObjects(titles)}
+            renderItem={({ description }: { description: string }) => (
               <List.Item>
                 <List.Item.Meta
                   //@ts-ignore
-                  avatar={<img src={icon} style={{objectFit: "cover", height: "16px", width: "16px"}} />}
+                  avatar={<img src={icon} style={{ objectFit: "cover", height: "16px", width: "16px" }} />}
                   description={description}
                 />
               </List.Item>
@@ -27,7 +28,7 @@ const CasesTabs: React.FC<{ config: any }> = ({ config = [] }) => {
     }),
     [config]
   );
-//@ts-ignore
+
   return <Tabs defaultActiveKey="1" items={config?.map(renderCaseItems)} />;
 };
 

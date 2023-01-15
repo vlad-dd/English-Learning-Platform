@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout } from 'antd';
 import * as Styled from './styled';
 import SiderMenu from '../Menu/presentational';
-import { useBoolean, useTheme } from '../../Hooks';
+import { useBoolean, useTheme } from '../Hooks';
 import './index.css';
 import CompanyLogo from './company-logo';
 

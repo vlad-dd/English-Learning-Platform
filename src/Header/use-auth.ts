@@ -1,6 +1,6 @@
 import { getAuth, signOut } from 'firebase/auth';
 import { useState, useEffect } from "react";
-import { auth } from '../../authentification/firebase';
+import { auth } from '../authentification/firebase';
 import { message } from 'antd';
 import { useNavigate } from 'react-router';
 

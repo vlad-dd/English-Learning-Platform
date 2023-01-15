@@ -6,12 +6,13 @@ type ImageProps = {
     width?: string
     marginLeft?: string
     className?: string
+    configurations: any
 }
 
-const Image: React.FC<ImageProps> = ({ url, height, width, marginLeft, className }) => {
+const Image: React.FC<any> = ({ url, height, width, className, configurations }) => {
   return (
     <React.Fragment>
-        <img src={url} height={height} width={width} style={{ marginLeft: marginLeft }} className={className} />
+        <img src={url} height={height} width={width} className={className} {...configurations} />
     </React.Fragment>
   );
 };

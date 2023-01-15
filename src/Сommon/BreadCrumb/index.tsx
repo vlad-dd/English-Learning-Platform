@@ -7,11 +7,12 @@ import * as selectors from '../../store/selectors';
 import { IBreadCrumbProps } from '../types';
 
 const BreadCrumbPath: React.FC<IBreadCrumbProps> = ({ mode }) => {
-  const config = {
-    //Add new mode here when needed
-    [MODES.TENSES]: useSelector(selectors.tensesBCState)
-  };
-  const { path }: { path: string[] } = config[mode];
+  // const config = {
+  //   //Add new mode here when needed
+  //   [MODES.TENSES]: useSelector(selectors.tensesBCState)
+  // };
+  const { path } =  useSelector(selectors.tensesBCState)
+  // const { path }: { path: string[] } = config[mode];
   return (
     <>
       <StyledBreadcrumb>
