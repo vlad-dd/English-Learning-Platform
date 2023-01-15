@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import SiderComponent from '../Sider/presentational';
 import Header from '../Header/presentational';
 import { StyledLayout, StyledContent, StyledFooter } from '../styled';
-import useApplication from './use-application';
+import { useApplication } from './use-application';
 import DefaultPage from '../DefaultPage/presentational';
 
 const ApplicationRoot = () => {
