@@ -6,7 +6,7 @@ import { SIDER_OPTIONS } from '../Tenses/constants';
 import Releases from '../Releases/presentationa';
 
 
-const useApplication = () => {
+export const useApplication = (): { application: JSX.Element | null | undefined } => {
     const { path } = useSelector(selectors.tensesBCState);
   
     const breadCrumbPath = path[0]?.toLowerCase();
@@ -21,5 +21,3 @@ const useApplication = () => {
     return { application: APPLICATIONS[breadCrumbPath] };
 
 }
-
-export default useApplication;

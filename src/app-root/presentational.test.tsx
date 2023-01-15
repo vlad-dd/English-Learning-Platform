@@ -6,6 +6,11 @@ import { Provider } from "react-redux";
 import { ThemeContext } from "../Contexts";
 import { BrowserRouter } from "react-router-dom";
 import ErrorBoundary from "../ErrorBoundary";
+import * as UseApplication from './use-application';
+
+jest.mock('./use-application.tsx', () => ({
+  useApplication: jest.fn()
+}))
 
 const StoreProvider = ({ children }: any) => {
   return (
@@ -20,7 +25,10 @@ const StoreProvider = ({ children }: any) => {
 };
 
 describe("ApplicationRoot", () => {
+  const useApplicationMock = jest.spyOn(UseApplication, 'useApplication')
   beforeEach(() => {
+    useApplicationMock.mockClear();
+    useApplicationMock.mockReturnValue({ application: <div>TenseComponent</div> });
     render(
       <StoreProvider>
         <ApplicationRoot />
@@ -28,16 +36,11 @@ describe("ApplicationRoot", () => {
     );
   })
 
-  it("should render default page if there is not application available", () => {
-    expect(screen.getByText("Default Page")).toBeInTheDocument();
-  });
+  afterEach(() => {
+    useApplicationMock.mockClear();
+  })
 
-  // it('qwe', () => {
-    // eslint-disable-next-line react/display-name
-
-    // const mockUseApplication = useApplication as jest.MockedFunction<typeof useApplication>
-    // mockUseApplication.mockReturnValue({ application: <div>MockTenseComponent</div> })
-
-  //   expect(screen.getByText("1")).toBeInTheDocument();
-  // })
+  it('should render component if application exists', () => {
+    expect(screen.getByText("TenseComponent")).toBeInTheDocument();
+  })
 });
