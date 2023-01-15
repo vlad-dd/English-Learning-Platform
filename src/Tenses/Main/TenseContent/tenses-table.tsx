@@ -1,18 +1,19 @@
 import React from 'react';
-import { Table } from 'antd';
 import { Title } from '../../../Сommon';
-import { StyledTitle } from './styled';
+import { StyledTable, StyledTitle } from './styled';
+import { IDataTable } from '../../types';
+import { COLUMNS } from '../../constants';
 
-const TensesTable = ({ columns, table }: any) => {
+const TensesTable = ({ table }: { table: IDataTable[] }) => {
+
   return (
     <>
       <StyledTitle>
         <Title>Sentence building</Title>
       </StyledTitle>
-      <Table
-        columns={columns}
+      <StyledTable
+        columns={COLUMNS}
         dataSource={table}
-        style={{ paddingBottom: '25px' }}
       />
     </>
   );

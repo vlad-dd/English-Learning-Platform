@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from '../../Hooks';
+import { useTheme } from '../Hooks';
 import { useAuth } from './use-auth';
 import HeaderLeftSide from './header-left-side';
 import HeaderRightSide from './header-right-side';

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import * as selectors from '../store/selectors';
-import TenseContent from './Tenses/TenseContent/presentational';
-import { SIDER_OPTIONS } from './constants';
-import Releases from './Releases/presentationa';
+import TenseContent from '../Tenses/Main/TenseContent/presentational';
+import { SIDER_OPTIONS } from '../Tenses/constants';
+import Releases from '../Releases/presentationa';
 
 
 const useApplication = () => {
