@@ -17,6 +17,10 @@ src/authentification/firebase.js
 #databases
 src/databases
 
+#bff
+../../bff/node_modules
+../bff/yarn.lock
+
 # misc
 .DS_Store
 .env.local
