@@ -1,0 +1,19 @@
+type Query {
+    info: String!
+    countOfTenses: [TestTense]!
+}
+
+type TestTense {
+    tense: String
+    tableData: AllTable
+}
+
+type AllTable {
+    tip: String
+    table: [TableThing]
+}
+
+type TableThing {
+    auxiliar: String
+}
+
