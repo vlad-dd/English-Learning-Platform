@@ -55,7 +55,10 @@ type IExamplePanel = {
   key: number;
   header: string;
   icon: string;
-  mappingKey: string;
+  sentences: {
+    id: number;
+    sentence: string;
+  }[]
 };
 
 type ExamplePanel = IExamplePanel & IExamples;
@@ -76,7 +79,7 @@ export type {
   IResponseDataSentence,
   IResponseData,
   IBFFResponse,
-  ExamplePanel,
+  IExamplePanel,
   IExamples,
   ICases
 };

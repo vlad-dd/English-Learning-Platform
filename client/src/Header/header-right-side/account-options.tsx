@@ -4,13 +4,13 @@ import {
     StarOutlined,
     SettingOutlined,
 } from '@ant-design/icons';
-import { Menu  } from 'antd';
-import { MenuItem } from './styled';
-
+import { Menu } from 'antd';
+import { MenuItem } from '../styled';
 
 const AccountOptions = ({ handleSignOut }: any) => {
-    return (
+  return (
     <Menu
+      data-testid="header-dropdown-menu"
       items={[
         {
           label: (

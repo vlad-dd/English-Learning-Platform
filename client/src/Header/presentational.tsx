@@ -6,6 +6,7 @@ import HeaderRightSide from './header-right-side';
 import { HeaderWrapper } from './styled';
 
 const Header = () => {
+  
   const { themeInHex } = useTheme();
 
   const { enteredUser, handleSignOut } = useAuth();

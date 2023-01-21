@@ -39,8 +39,9 @@ const database = getFirestore(firebaseApp);
 const resolvers = {
   Query: {
     info: () => '123',
-    countOfTenses: async() => {
-      const tweets = collection(database, 'Present-Perfect')
+    countOfTenses: async(root, { tense }) => {
+      console.log('param: ', tense)
+      const tweets = collection(database, tense)
       const data = await getDocs(tweets)
       // return (data.docs.map((doc) => ({...doc.data(), id: doc.id})))
       return (data.docs.map((doc) => ({...doc.data()})))

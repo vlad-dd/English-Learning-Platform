@@ -1,14 +1,16 @@
 import { useSelector } from "react-redux";
+import { useQuery } from "@apollo/client";
 import * as selectors from "../../../store/selectors";
-import { useDatabase } from "../../../Hooks";
+import { GET_TENSE } from "../../graphql";
 
 export const useTenseConfiguration = () => {
-    
+
   const { path } = useSelector(selectors.tensesBCState);
+  
+  const { data, loading, error } = useQuery(GET_TENSE, {
+    variables: { tense: path[0] },
+  });
 
-  const { isLoading, requestError } = useDatabase(path[path.length - 1]);
 
-  const configuration = useSelector(selectors.tenseConfiguration);
-
-  return { configuration, isLoading, requestError };
+  return { data, loading, error };
 };
