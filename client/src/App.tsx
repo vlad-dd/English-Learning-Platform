@@ -1,21 +1,17 @@
-import React, { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { LoadingSpinner } from './Сommon';
+import React, { Suspense } from "react";
+import { RouterProvider } from "react-router-dom";
+import { LoadingSpinner } from "./Сommon";
+import { useApplicationRouter } from "./Hooks";
 
-const LazyApplicationRoot = lazy(() => import('./app-root/presentational'));
-const LazyRegistration = lazy(() => import('./authentification/Registration/presentational'));
-const LazyLogin = lazy(() => import('./authentification/Login/presentational'));
+const Root: React.FC = (): JSX.Element => {
 
-const App: React.FC = (): JSX.Element => {
+  const { router } = useApplicationRouter();
+
   return (
-    <React.Suspense fallback={<LoadingSpinner size='large' />}>
-      <Routes>
-        <Route path='/' element={<LazyApplicationRoot />} />
-        <Route path='/registration' element={<LazyRegistration />} />
-        <Route path='/login' element={<LazyLogin />} />
-      </Routes>
-    </React.Suspense>
+    <Suspense fallback={<LoadingSpinner size="large" />}>
+      <RouterProvider router={router} />
+    </Suspense>
   );
 };
 
-export default App;
+export default Root;

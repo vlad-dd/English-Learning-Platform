@@ -1,20 +1,7 @@
-import React from 'react';
+import React from "react";
 
-type ImageProps = {
-    url: string
-    height?: string
-    width?: string
-    marginLeft?: string
-    className?: string
-    configurations: any
-}
-
-const Image: React.FC<any> = ({ url, height, width, className, configurations }) => {
-  return (
-    <React.Fragment>
-        <img src={url} height={height} width={width} className={className} {...configurations} />
-    </React.Fragment>
-  );
+const Image: React.FC<{ url: string; styles?: { [key: string]: string } }> = ({ url, styles }) => {
+  return <img src={url} style={styles} />;
 };
 
 export default Image;

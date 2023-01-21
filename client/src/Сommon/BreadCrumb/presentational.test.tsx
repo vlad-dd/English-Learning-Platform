@@ -2,17 +2,17 @@ import React from 'react';
 import * as Redux from 'react-redux';
 import { render, screen } from '@testing-library/react';
 import store from '../../store';
-import BreadCrumbPath from '.';
 import ErrorBoundary from '../../ErrorBoundary';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeContext } from '../../Contexts';
+import BreadCrumbPath from '.';
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useSelector: jest.fn()
 }))
 
-const StoreProvider = ({ children }: any) => {
+const StoreProvider = ({ children }: { children: JSX.Element }) => {
   return (
     <ErrorBoundary>
       <BrowserRouter>
@@ -32,7 +32,7 @@ describe('BreadCrumb', () => {
     useSelectorMock.mockReturnValue({ path: ['Present-Simple'] });
     render(
       <StoreProvider>
-        <BreadCrumbPath mode="tenses" />
+        <BreadCrumbPath />
       </StoreProvider>
     );
   });
@@ -48,5 +48,4 @@ describe('BreadCrumb', () => {
   it('should render path if exists', () => {
     expect(screen.getByText('Present-Simple')).toBeInTheDocument();
   })
-
 });

@@ -1,9 +1,4 @@
 import { ReactElement } from 'react';
-
-interface IBreadCrumbProps {
-    mode: string;
-}
-
 interface IProgressBarProps {
     type:  'circle' | 'line' | 'dashboard';
     width: number;
@@ -17,4 +12,4 @@ interface ICasesTabs {
   }
 
 
-export type { IBreadCrumbProps, IProgressBarProps, ICasesTabs };
+export type { IProgressBarProps, ICasesTabs };

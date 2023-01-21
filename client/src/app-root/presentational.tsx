@@ -3,12 +3,8 @@ import { Layout } from 'antd';
 import SiderComponent from '../Sider/presentational';
 import Header from '../Header/presentational';
 import { StyledLayout, StyledContent, StyledFooter } from '../styled';
-import { useApplication } from './use-application';
-import DefaultPage from '../DefaultPage/presentational';
 
-const ApplicationRoot = () => {
-
-  const { application } = useApplication();
+const ApplicationRoot = ({ children }: { children: JSX.Element }) => {
 
   return (
     <StyledLayout>
@@ -16,7 +12,7 @@ const ApplicationRoot = () => {
       <Layout>
         <Header />
         <StyledContent>
-          {application ?? <DefaultPage />}
+          {children}
         </StyledContent>
         <StyledFooter>
           English Learning Platform ©2022 Created by vsyrotiuk

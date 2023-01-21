@@ -1,12 +1,5 @@
 import React from 'react';
 
-const SIDER_OPTIONS = {
-    TENSES: 'tenses',
-    GRAMMAR_LEVELS: 'levels',
-    DICTIONARY: 'dictionary',
-    RELEASES: 'releases',
-};
-
 const COLUMNS = [
     {
       title: 'Type',
@@ -36,4 +29,4 @@ const COLUMNS = [
     },
   ];
 
-export { COLUMNS, SIDER_OPTIONS };
+export { COLUMNS };

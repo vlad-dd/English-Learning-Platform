@@ -1,11 +1,14 @@
 type Query {
     info: String!
-    countOfTenses: [TestTense]!
+    countOfTenses(tense: String!): [TestTense]!
 }
 
 type TestTense {
     tense: String
     tableData: AllTable
+    cases: [Cases]!
+    examples: [Examples]!
+    practice: [PracticeSentences!]
 }
 
 type AllTable {
@@ -14,6 +17,47 @@ type AllTable {
 }
 
 type TableThing {
+    key: String
+    type: String
+    noun: String
+    noun_1: String
     auxiliar: String
+    auxiliar_1: String
 }
 
+type Cases {
+    key: String
+    label: String
+    icon: String
+    titles: [CaseTitles]!
+
+}
+
+type CaseTitles {
+    description: String
+}
+
+type Examples {
+    key: Int
+    header: String
+    icon: String
+    sentences: [ExampleSentences]!
+}
+
+type ExampleSentences {
+    id: Int
+    sentence: String
+}
+
+type PracticeSentences {
+    sentences: [PracticeSentence!]
+
+}
+
+type PracticeSentence {
+    id: Int
+    label: String
+    missed: String
+    partOne: String
+    partTwo: String
+}

@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux"
 import { database } from "../authentification/firebase"
 import { setTenseConfiguration } from "../store/reducers/tenses"
 
-
 const useDatabase = (path: string) => {
     const dispatch = useDispatch();
     const [isLoading, setLoading] = useState(false);
