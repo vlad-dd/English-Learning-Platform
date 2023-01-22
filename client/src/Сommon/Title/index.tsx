@@ -14,6 +14,3 @@ const Title: React.FC<IProps> = ({ children, styles }) => {
 
 export default Title;
 
-{
-  /* <TitleContainer style={{paddingTop: '25px'}}>{children}</TitleContainer> */
-}

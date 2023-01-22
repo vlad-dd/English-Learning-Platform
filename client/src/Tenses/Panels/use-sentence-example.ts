@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import * as selectors from '../../../store/selectors';
+import * as selectors from '../../store/selectors';
 
 export const useSentenceExamples = () => {
 

@@ -67,9 +67,7 @@ interface ICases {
   icon: string;
   key: string;
   label: string;
-  titles: {
-    [key: number]: { description: string };
-  };
+  titles: { description: string }[]
 }
 
 export type {

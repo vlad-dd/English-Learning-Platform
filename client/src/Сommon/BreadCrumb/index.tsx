@@ -1,10 +1,10 @@
-import React from 'react';
 import { compact } from 'lodash';
+import React from 'react';
 import { StyledBreadcrumb } from './styled';
 
 const BreadCrumbPath = () => {
 
-  const path = window?.location.pathname.split('/');
+  const path = window?.location?.pathname.split('/');
 
   return (
       <StyledBreadcrumb>
