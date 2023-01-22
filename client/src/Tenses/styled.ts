@@ -1,6 +1,6 @@
 import { Table } from "antd";
 import styled from "styled-components";
-import { Title } from "../../../Сommon";
+import { Title } from "../Сommon";
 
 export const ContentSection = styled.div`
   background: #fbfcfa;

@@ -3,7 +3,6 @@ import * as Redux from 'react-redux';
 import { render, screen } from '@testing-library/react';
 import store from '../../store';
 import ErrorBoundary from '../../ErrorBoundary';
-import { BrowserRouter } from 'react-router-dom';
 import { ThemeContext } from '../../Contexts';
 import BreadCrumbPath from '.';
 
@@ -12,14 +11,12 @@ jest.mock('react-redux', () => ({
   useSelector: jest.fn()
 }))
 
-const StoreProvider = ({ children }: { children: JSX.Element }) => {
+const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
   return (
     <ErrorBoundary>
-      <BrowserRouter>
         <Redux.Provider store={store}>
           <ThemeContext>{children}</ThemeContext>
         </Redux.Provider>
-      </BrowserRouter>
     </ErrorBoundary>
   );
 };
@@ -31,9 +28,9 @@ describe('BreadCrumb', () => {
     useSelectorMock.mockClear();
     useSelectorMock.mockReturnValue({ path: ['Present-Simple'] });
     render(
-      <StoreProvider>
+      <ApplicationProviders>
         <BreadCrumbPath />
-      </StoreProvider>
+      </ApplicationProviders>
     );
   });
 

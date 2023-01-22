@@ -12,13 +12,13 @@ import { useAlertController } from './use-alert-controller';
 import { usePracticeData } from './use-practice-data';
 import QuestionCarouselInput from './question-carousel-input';
 import DefaultCarouselInput from './default-carousel-input';
-import { STATUS } from './constants';
+import { STATUS } from '../constants';
 import {
   AlertController,
   CarouselContainer,
   CarouselVariant,
   ContentBlock,
-} from './styled';
+} from '../styled';
 
 const CarouselQuiz = () => {
   const dispatch = useDispatch();

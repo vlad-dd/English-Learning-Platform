@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import { Tabs, List } from 'antd';
-import { convertToArrayOfObjects } from '../../helpers';
 import { ICases } from '../../Tenses';
 import Image from '../Image';
 
@@ -13,7 +12,7 @@ const CasesTabs: React.FC<{ config: ICases[] }> = ({ config }) => {
         <>
           <List
             itemLayout="horizontal"
-            dataSource={convertToArrayOfObjects(titles)}
+            dataSource={titles}
             renderItem={({ description }: { description: string }) => (
               <List.Item>
                 <List.Item.Meta
@@ -29,7 +28,7 @@ const CasesTabs: React.FC<{ config: ICases[] }> = ({ config }) => {
     [config]
   );
 
-  return <Tabs defaultActiveKey="1" items={config?.map(renderCaseItems)} />;
+  return <Tabs style={{ marginLeft: "8px" }} data-testid="cases-tabs-id" defaultActiveKey="1" items={config?.map(renderCaseItems)} />;
 };
 
 export default CasesTabs;

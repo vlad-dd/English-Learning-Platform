@@ -11,11 +11,13 @@ export const ContentBlock = styled.div`
 export const FirstPart = styled.span`
   font-family: Monaco;
   color: #fff;
+  margin-right: 5px;
 `;
 
 export const SecondPart = styled.span`
   font-family: Monaco;
   color: #fff;
+  margin-left: 5px;
 `;
 
 export const CarouselInput = styled.input`

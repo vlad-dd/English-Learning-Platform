@@ -1,8 +1,8 @@
 import React from 'react';
 import { List, Collapse } from 'antd';
-import { IExamplePanel, IResponseDataSentence } from '../..';
+import { IExamplePanel, IResponseDataSentence } from '..';
 import { useSentenceExamples } from './use-sentence-example';
-import { Image } from '../../../Сommon';
+import { Image } from '../../Сommon';
 
 const { Panel } = Collapse;
 

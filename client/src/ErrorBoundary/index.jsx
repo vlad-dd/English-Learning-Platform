@@ -38,7 +38,7 @@ class ErrorBoundary extends React.Component {
         if(hasError) {
             return (<>
             <Title>Something went wrong. Our team is already working on this problem.</Title>
-            <Image height={330} width={350} url="https://img.freepik.com/free-vector/oops-404-error-with-a-broken-robot-concept-illustration_114360-5529.jpg?w=2000" />
+            <Image styles={{ height: "330px", width: "350px" }} url="https://img.freepik.com/free-vector/oops-404-error-with-a-broken-robot-concept-illustration_114360-5529.jpg?w=2000" />
             </>);
         }
         return this.props.children;

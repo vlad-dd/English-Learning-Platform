@@ -2,13 +2,13 @@ import React, { createContext } from "react";
 import { Alert } from "antd";
 import { AlertOutlined } from "@ant-design/icons";
 import { get } from "lodash";
-import { BreadcrumbPath } from "../../../Сommon";
-import { ContentSection } from "./styled";
-import TensesTable from "./tenses-table";
-import MostCommonCases from "./cases-tabs";
-import TenseExamplePanels from "./example-panels";
-import TensePractice from "./carousel-practice";
-import { IPracticeSentence } from "../../types";
+import { BreadcrumbPath } from "../../Сommon";
+import { ContentSection } from "../styled";
+import TensesTable from "../Table/tenses-table";
+import MostCommonCases from "../Cases/cases-tabs";
+import TenseExamplePanels from "../Examples/example-panels";
+import TensePractice from "../Carousel/carousel-practice";
+import { IPracticeSentence } from "../types";
 import { useTenseConfiguration } from "./use-tense-configuration";
 
 export const ResponseContext = createContext<IPracticeSentence | object>({});
@@ -16,6 +16,8 @@ export const ResponseContext = createContext<IPracticeSentence | object>({});
 const TenseContent = (): JSX.Element | null => {
 
   const { data, loading, error } = useTenseConfiguration();
+
+  console.log('data, loading, error: ', data, loading, error)
 
   if (data && !loading && !error) {
     const {

@@ -1,6 +1,6 @@
 import React, { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import TenseContent from '../Tenses/Main/TenseContent/presentational';
+import TenseContent from '../Tenses/Main/presentational';
 
 const LazyTenseApplicationRoot = lazy(() => import("../app-root/presentational"));
 const LazyRegistration = lazy(() => import("../authentification/Registration/presentational"));

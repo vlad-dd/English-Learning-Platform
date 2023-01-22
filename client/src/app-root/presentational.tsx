@@ -7,7 +7,7 @@ import { StyledLayout, StyledContent, StyledFooter } from '../styled';
 const ApplicationRoot = ({ children }: { children: JSX.Element }) => {
 
   return (
-    <StyledLayout>
+    <StyledLayout data-testid='application-layout'>
       <SiderComponent />
       <Layout>
         <Header />

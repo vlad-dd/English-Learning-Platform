@@ -8,7 +8,7 @@ interface ILoadingSpinner {
 
 const LoadingSpinner: React.FC<ILoadingSpinner> = ({ size }) => {
   return (
-    <SpinnerWrapper>
+    <SpinnerWrapper data-testid="loading-spinner">
       <Space>
         <Spin size={size} />
       </Space>

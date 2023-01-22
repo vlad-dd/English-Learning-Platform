@@ -1,11 +1,11 @@
 import React from 'react';
-import { Title } from '../../../Сommon';
-import CarouselQuiz from '../Carousel';
+import { Title } from '../../Сommon';
+import CarouselQuiz from './components';
 
 const TensePractice = () => {
   return (
     <>
-      <Title>Practice</Title>
+      <Title styles={{ paddingTop: '25px' }}>Practice</Title>
       <CarouselQuiz />
     </>
   );

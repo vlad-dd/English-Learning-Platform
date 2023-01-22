@@ -1,5 +1,5 @@
 import React, { FormEvent } from "react";
-import { CarouselInput, FirstPart, SecondPart } from "./styled";
+import { CarouselInput, FirstPart, SecondPart } from "../styled";
 
 const QuestionCarouselInput = ({
   borderColor,
