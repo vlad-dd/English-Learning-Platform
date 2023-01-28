@@ -11,6 +11,7 @@
 # production
 /build
 
+/features.txt
 # api
 src/authentification/firebase.js
 

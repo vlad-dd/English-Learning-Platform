@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu } from 'antd';
 import { options } from './options';
-import { breadcrumbPath } from '../store/reducers/breadcrumb';
+import { breadcrumbPath } from '../store/reducers/bread-crumb';
 import { useDispatch } from 'react-redux';
 import { setActualSentenceIndex, setEarnedPoints } from '../store/reducers/carousel';
 import { useTheme } from '../Hooks';
