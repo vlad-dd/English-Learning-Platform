@@ -4,7 +4,7 @@ interface IinitialState {
     user: any
 }
 
-const initialState: IinitialState = {
+export const initialState: IinitialState = {
     user: []
 };
 

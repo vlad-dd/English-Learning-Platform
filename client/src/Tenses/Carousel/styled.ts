@@ -7,7 +7,7 @@ export const ContentBlock = styled.div`
   background: #364d79;
   text-align: center;
 `;
-
+// background: #1B1622;
 export const FirstPart = styled.span`
   font-family: Monaco;
   color: #fff;

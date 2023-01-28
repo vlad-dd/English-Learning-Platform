@@ -5,7 +5,7 @@ interface ICarouselInitialState {
     points: number
 }
 
-const initialState: ICarouselInitialState = {
+export const initialState: ICarouselInitialState = {
     actualSentenceIndex: 0,
     points: 0,
 };

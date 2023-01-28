@@ -4,7 +4,7 @@ interface IinitialState {
     path: string[]
 }
 
-const initialState: IinitialState = {
+export const initialState: IinitialState = {
     path: []
 };
 

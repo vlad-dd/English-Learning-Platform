@@ -4,7 +4,7 @@ interface ITenseInitialState {
     tenseConfiguration: any[]
 }
 
-const initialState: ITenseInitialState = {
+export const initialState: ITenseInitialState = {
     tenseConfiguration: []
 };
 
