@@ -1,11 +1,11 @@
 import React from 'react';
 import { Menu } from 'antd';
+import { useNavigate } from 'react-router';
 import { options } from './options';
 import { breadcrumbPath } from '../store/reducers/bread-crumb';
 import { useDispatch } from 'react-redux';
 import { setActualSentenceIndex, setEarnedPoints } from '../store/reducers/carousel';
 import { useTheme } from '../Hooks';
-import { useNavigate } from 'react-router';
 
 
 const SiderMenu = () => {
@@ -16,6 +16,7 @@ const SiderMenu = () => {
   return (
     <React.Fragment>
       <Menu
+        data-testid="options-menu"
         theme={theme}
         defaultSelectedKeys={['1']}
         mode="inline"

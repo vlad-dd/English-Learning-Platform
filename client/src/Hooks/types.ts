@@ -1,4 +1,4 @@
-import useBoolean from './useBoolean';
+import useBoolean from './use-boolean/useBoolean';
 
 type TUseBoolean = ReturnType<typeof useBoolean>;
 

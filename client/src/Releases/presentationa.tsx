@@ -2,7 +2,7 @@ import React from 'react'
 
 const Releases = () => {
   return (
-    <div>Releases hooray!</div>
+    <div data-testid="release-wrapper">Releases hooray!</div>
   )
 }
 

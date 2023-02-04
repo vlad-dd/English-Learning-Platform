@@ -26,7 +26,7 @@ const CarouselQuiz = () => {
   const [result, setResult] = useState<string>(STATUS.DEFAULT);
   const [alert, setAlert] = useState<string>('');
   const [showLastBanner, setShowLastBanner] = useState<boolean>(false);
-  const { actualSentenceIndex, points } = useSelector(selectors.carouselIndexAndPoints);
+  const { actualSentenceIndex = 0, points = 0 } = useSelector(selectors.carouselIndexAndPoints);
 
   const { sentences } = usePracticeData();
 
@@ -73,9 +73,9 @@ const CarouselQuiz = () => {
   };
 
   return (
-  <Carousel dotPosition='left'>
+  <Carousel data-testid="carousel-quiz" dotPosition='left'>
      <CarouselContainer>
-     <AlertController>{alertController}</AlertController>
+     <AlertController data-testid="alert-banner">{alertController}</AlertController>
         <ContentBlock>
          <CarouselVariant>{sentences?.[actualSentenceIndex].label}</CarouselVariant>
           {sentences?.[actualSentenceIndex].label == 'Question' ? 

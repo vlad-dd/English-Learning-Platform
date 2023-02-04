@@ -5,7 +5,6 @@ import { IDataTable } from '../types';
 import { COLUMNS } from '../constants';
 
 const TensesTable = ({ table }: { table: IDataTable[] }) => {
-
   return (
     <>
       <StyledTitle>

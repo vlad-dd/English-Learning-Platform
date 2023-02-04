@@ -12,8 +12,8 @@ const SiderComponent = () => {
   const [isCollapsed, setCollapsed] = useBoolean(false);
   const { theme, defaultTheme } = useTheme();
   return (
-    <React.Fragment>
       <Sider
+        data-testid="sider-menu"
         theme={theme}
         collapsible
         collapsed={isCollapsed}
@@ -24,7 +24,6 @@ const SiderComponent = () => {
         </Styled.LogoContainer>
         <SiderMenu  />
       </Sider>
-    </React.Fragment>
   );
 };
 
