@@ -2,9 +2,15 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Image from '.';
 
-const imageMock = 'anyImageUrl'
+const imageMock = 'anyImageUrl';
+const mockID = 'mock-id';
 
 describe('Image', () => {
+
+    it('should render image with test id', () => {
+        render(<Image id={mockID} url={imageMock} />)
+        expect(screen.getByTestId(mockID)).toBeInTheDocument();
+    })
 
     it('should render image', () => {
         render(<Image url={imageMock} />)

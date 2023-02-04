@@ -11,24 +11,24 @@ query getAllTenseConfiguration($tense: String!) {
         description
       }
     }
-    examples {
-      header
-      icon
-      key
-      sentences {
-        id
-        sentence
-      }
-    }
-    practice {
-      sentences {
-        id
-        label
-        partOne
-        missed
-        partTwo
-      }
-    }
+    # examples {
+    #   header
+    #   icon
+    #   key
+    #   sentences {
+    #     id
+    #     sentence
+    #   }
+    # }
+    # practice {
+    #   sentences {
+    #     id
+    #     label
+    #     partOne
+    #     missed
+    #     partTwo
+    #   }
+    # }
     tableData {
       table {
         auxiliar

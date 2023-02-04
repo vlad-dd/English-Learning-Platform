@@ -1,4 +1,4 @@
-import { State } from '.';
+import { State } from '..';
 
 const getState = (state: State) => state;
 

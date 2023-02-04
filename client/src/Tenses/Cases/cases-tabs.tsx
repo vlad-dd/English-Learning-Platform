@@ -5,7 +5,7 @@ import { ICases } from "../types";
 const MostCommonCases = ({ tense = '', cases = []}: { tense: string, cases: ICases[]}) => {
     return (
         <>
-        <Title styles={{ paddingTop: '25px' }}>What cases tell us that it is {tense}?</Title>
+        <Title  styles={{ paddingTop: '25px' }}>What cases tell us that it is {tense}?</Title>
         <CasesTabs config={cases} />
         </>
     )

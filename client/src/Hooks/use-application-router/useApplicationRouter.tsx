@@ -1,10 +1,11 @@
 import React, { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import TenseContent from '../Tenses/Main/presentational';
+import DefaultPage from '../../DefaultPage/presentational';
+import TenseContent from '../../Tenses/Main/presentational';
 
-const LazyTenseApplicationRoot = lazy(() => import("../app-root/presentational"));
-const LazyRegistration = lazy(() => import("../authentification/Registration/presentational"));
-const LazyLogin = lazy(() => import("../authentification/Login/presentational"));
+export const LazyTenseApplicationRoot = lazy(() => import("../../app-root/presentational"));
+const LazyRegistration = lazy(() => import("../../authentification/Registration/presentational"));
+const LazyLogin = lazy(() => import("../../authentification/Login/presentational"));
 
 const useApplicationRouter = () => {
 
@@ -13,7 +14,7 @@ const useApplicationRouter = () => {
       path: "/",
       element: (
         <LazyTenseApplicationRoot>
-          <div>Default App</div>
+         <DefaultPage />
         </LazyTenseApplicationRoot>
       ),
       errorElement: <div>Error</div>,

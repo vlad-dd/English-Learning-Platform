@@ -3,29 +3,29 @@ import { render, fireEvent, screen } from "@testing-library/react";
 import CasesTabs from ".";
 import { ICases } from "../../Tenses";
 
+const props: ICases[] = [
+  {
+    icon: "affirmative-img.jpg",
+    key: "1",
+    label: "Affirmative",
+    titles: [{ description: "Affirmative description" }],
+  },
+  {
+    icon: "question-img.jpg",
+    key: "2",
+    label: "Question",
+    titles: [{ description: "Question description" }],
+  },
+  {
+    icon: "negative-img.jpg",
+    key: "3",
+    label: "Negative",
+    titles: [{ description: "Negative description" }],
+  },
+];
+
 describe("CasesTabs", () => {
-  let props: ICases[];
   beforeEach(() => {
-    props = [
-      {
-        icon: "affirmative-img.jpg",
-        key: "1",
-        label: "Affirmative",
-        titles: [{ description: "Affirmative description" }],
-      },
-      {
-        icon: "question-img.jpg",
-        key: "2",
-        label: "Question",
-        titles: [{ description: "Question description" }],
-      },
-      {
-        icon: "negative-img.jpg",
-        key: "3",
-        label: "Negative",
-        titles: [{ description: "Negative description" }],
-      },
-    ];
     render(<CasesTabs config={props} />);
   });
   

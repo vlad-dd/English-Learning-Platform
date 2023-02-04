@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ThemeStateController } from '../Contexts';
+import { ThemeStateController } from '../../Contexts';
 
 
 const useTheme = () => {
