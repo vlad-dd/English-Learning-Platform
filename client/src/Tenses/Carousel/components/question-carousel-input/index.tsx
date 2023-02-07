@@ -25,7 +25,7 @@ const QuestionCarouselInput = ({
           setValue(e.currentTarget.value)
         }
       />
-      <FirstPart>{sentences?.[actualSentenceIndex].partOne}</FirstPart>{' '}
+      <FirstPart>{sentences?.[actualSentenceIndex]?.partOne}</FirstPart>{' '}
       <SecondPart>{sentences?.[actualSentenceIndex].partTwo}</SecondPart>
     </>
   );

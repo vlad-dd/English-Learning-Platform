@@ -1,14 +1,11 @@
 import React from 'react';
 import { List, Collapse } from 'antd';
 import { IExamplePanel, IResponseDataSentence } from '..';
-import { useSentenceExamples } from './use-sentence-example';
 import { Image } from '../../Сommon';
 
 const { Panel } = Collapse;
 
 const ExamplePanels = ({ examples }: any) => {
-
-  // const { examples } = useSentenceExamples();
 
   const renderPanel = ({ key, header, icon, sentences }: IExamplePanel) => {
     return (
@@ -27,7 +24,7 @@ const ExamplePanels = ({ examples }: any) => {
     );
   };
   return (
-      <Collapse defaultActiveKey={['1']}>
+      <Collapse>
         {examples?.map(renderPanel)}
       </Collapse>
   );
