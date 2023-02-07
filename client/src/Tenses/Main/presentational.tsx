@@ -22,11 +22,11 @@ const TenseContent = (): JSX.Element | null => {
       tense,
       tableData: { tip, table },
       cases,
-      // examples,
-      // practice,
+      examples,
+      practice,
     } = get(data?.countOfTenses, "[0]");
 
-    // const practiceConfiguration = get(practice, "[0].sentences");
+    const practiceConfiguration = get(practice, "[0].sentences");
 
     return (
       <>
@@ -36,10 +36,10 @@ const TenseContent = (): JSX.Element | null => {
           <Alert icon={<AlertOutlined />} message={tip} showIcon />
           <TensesTable table={table} />
           <MostCommonCases tense={tense} cases={cases} />
-          {/* <TenseExamplePanels examples={examples} />
+          <TenseExamplePanels examples={examples} />
           <ResponseContext.Provider value={practiceConfiguration}>
             <TensePractice />
-          </ResponseContext.Provider> */}
+          </ResponseContext.Provider>
         </ContentSection>
       </>
     );

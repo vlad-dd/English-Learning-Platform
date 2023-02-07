@@ -12,7 +12,7 @@ export const useAlertController = ({ points, sentences, alert }: IUseAlertContro
       <ProgressBar
         width={80}
         type='circle'
-        percent={alert === 'LAST' ? 100 : (points * 100) / size(sentences)}
+        percent={alert === 'LAST' ? 100 : Math.round((points * 100) / size(sentences))}
       />
     ), [alert, points, sentences]);
 
