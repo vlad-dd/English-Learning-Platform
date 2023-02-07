@@ -1,30 +1,23 @@
-const { collection } = require("firebase/firestore")
-const { database } = require("../firebase")
+const { default: axios } = require('axios');
+const { collection, getDocs } = require('firebase/firestore');
+const { database } = require("../../bff-base");
 
 const resolvers = {
-    Query: {
-     info: () => 'works'
-    //   async tweets() {
-    //     const tweets = await admin
-    //       .firestore()
-    //       .collection('tweets')
-    //       .get();
-    //     return tweets.docs.map(tweet => tweet.data()) as Tweet[];
-    //   },
-    //   async user(_: null, args: { id: string }) {
-    //     try {
-    //       const userDoc = await admin
-    //         .firestore()
-    //         .doc(`users/${args.id}`)
-    //         .get();
-    //       const user = userDoc.data() as User | undefined;
-    //       return user || new ValidationError('User ID not found');
-    //     } catch (error) {
-    //       throw new ApolloError(error);
-    //     }
-    //   }
+  Query: {
+    countOfTenses: async(root, { tense }) => {
+      console.log('param: ', tense)
+      const tweets = collection(database, tense)
+      const data = await getDocs(tweets)
+      // return (data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+      return (data.docs.map((doc) => ({...doc.data()})))
+    },
+    dictionary: async(root, { word }) => {
+      const { data } = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+      console.log('dictionary: ', data)
+      return data;
     }
-  };
+  }
+}
 
 module.exports = {
     resolvers

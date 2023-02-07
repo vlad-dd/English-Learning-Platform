@@ -1,7 +1,9 @@
 type Query {
-    info: String!
     countOfTenses(tense: String!): [TestTense]!
+    dictionary(word: String!): [Dictionary]!
 }
+
+# Tense
 
 type TestTense {
     tense: String
@@ -60,4 +62,41 @@ type PracticeSentence {
     missed: String
     partOne: String
     partTwo: String
+}
+
+# Dictionary
+
+type Dictionary {
+    word: String
+    phonetic: String
+    phonetics: [Phonetics]
+    meanings: [Meanings]
+    license: License
+    sourceUrls: [String]
+}
+
+type Phonetics {
+    text: String!
+    audio: String
+    sourceUrl: String
+    license: License
+}
+
+type Meanings {
+    partOfSpeech: String
+    definitions: [Definition]
+    synonyms: [String]
+    antonyms: [String]
+}
+
+type License {
+    name: String
+    url: String
+}
+
+type Definition {
+    definition: String
+    synonyms: [String]
+    antonyms: [String]
+    example: String
 }
