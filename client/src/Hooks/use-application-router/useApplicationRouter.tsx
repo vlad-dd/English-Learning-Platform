@@ -1,6 +1,8 @@
 import React, { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import DefaultPage from "../../DefaultPage/presentational";
+import DictionaryContext from "../../Dictionary/Context";
+import Dictionary from "../../Dictionary/presentational";
 import TenseContent from "../../Tenses/Main/presentational";
 
 export const LazyTenseApplicationRoot = lazy(() => import("../../app-root/presentational"));
@@ -37,9 +39,11 @@ const useApplicationRouter = () => {
     {
       path: "/Dictionary/Dictionary",
       element: (
+        <DictionaryContext>
         <LazyTenseApplicationRoot>
-          <div>Dictionary</div>
+         <Dictionary />
         </LazyTenseApplicationRoot>
+        </DictionaryContext>
       ),
     },
   ]);

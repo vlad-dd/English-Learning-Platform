@@ -11,10 +11,11 @@ export const useTenseConfiguration = () => {
 
   const { path } = useSelector(selectors.tensesBCState);
 
-  const windowLocation = window.location.pathname.split("/");
+  // const windowLocation = window.location.pathname.split("/");
 
   const { data, loading, error } = useQuery(GET_TENSE, {
-    variables: { tense: path[0] ?? windowLocation.at(-1) },
+    // variables: { tense: path[0] ?? windowLocation.at(-1) },
+    variables: { tense: path[0] },
   });
 
   return { data, loading, error };
