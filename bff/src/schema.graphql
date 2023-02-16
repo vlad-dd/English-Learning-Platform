@@ -1,6 +1,7 @@
 type Query {
     countOfTenses(tense: String!): [TestTense]!
     dictionary(word: String!): [Dictionary]!
+    releases: [Releases]!
 }
 
 # Tense
@@ -99,4 +100,13 @@ type Definition {
     synonyms: [String]
     antonyms: [String]
     example: String
+}
+
+type Releases {
+  id: String
+  date: String
+  version: String
+  isLastUpdate: Boolean
+  title: String
+  description: String
 }
