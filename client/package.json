@@ -24,6 +24,7 @@
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-vertical-timeline-component": "^3.6.0",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
     "styled-components": "^5.3.5",
@@ -58,6 +59,7 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.185",
+    "@types/react-vertical-timeline-component": "^3.3.3",
     "@types/redux-logger": "^3.0.9",
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.36.2",

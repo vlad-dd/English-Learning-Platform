@@ -60,9 +60,6 @@ type IExamplePanel = {
     sentence: string;
   }[]
 };
-
-type ExamplePanel = IExamplePanel & IExamples;
-
 interface ICases {
   icon: string;
   key: string;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Dropdown, Space } from 'antd';
+import { Dropdown, Space } from 'antd';
 import { FaMoon } from 'react-icons/fa';
 import { HeaderRight, UserEmail } from '../styled';
 import { AVATARS } from '../strings';

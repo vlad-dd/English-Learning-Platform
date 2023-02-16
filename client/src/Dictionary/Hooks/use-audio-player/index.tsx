@@ -5,13 +5,12 @@ import { DictionaryConfigurationContext } from "../../Context";
 import { AUDIO_PRONOUNCE, COUNTRIES_FLAGS } from "../../constants";
 import { IAudioPlayer } from "../../types";
 
-const renderAudioPlayer = (
+export const renderAudioPlayer = (
   audio: string,
   phonetic: string,
   flag: string
 ) => {
   return (
-    <div>
       <Card style={{ width: 350 }} cover={<img alt="example" src={flag} />}>
         <Card.Meta
           title={
@@ -22,7 +21,6 @@ const renderAudioPlayer = (
           description={<div>Transcription: {phonetic}</div>}
         />
       </Card>
-    </div>
   );
 };
 
@@ -50,6 +48,6 @@ export const useAudioPlayer = () => {
         const filteredAudios: IAudioPlayer[] = compact(phonetics.map(({ audio, text }: IAudioPlayer) => audio && ({ audio, text })))
         setFilteredAudioPlayer(filteredAudios);
       }, [word])
-
+      
     return { audioPlayers: audioPlayerFactory(filteredAudioPlayer) };    
 };
