@@ -2,7 +2,8 @@
 import React, { useContext } from "react";
 import { render, screen } from "@testing-library/react";
 import { get } from "lodash";
-import { DictionaryConfigurationContext } from ".";
+import DictionaryContext, { DictionaryConfigurationContext } from ".";
+
 
 const dictionaryMock = [{
     meanings: [{
@@ -10,11 +11,16 @@ const dictionaryMock = [{
     }]
 }];
 
-const contextConfiguration = {
-    data: {
-        dictionary: dictionaryMock
-    },
-};
+jest.mock('../Hooks/use-dictionary', () => ({
+    useDictionary: () => ({
+        data: {
+            dictionary: dictionaryMock
+        },
+        isLoading: false,
+        searchWordInDictionary: jest.fn()
+    })
+}))
+
 
 const MockComponent = () => {
     const { data } = useContext(DictionaryConfigurationContext);
@@ -30,10 +36,9 @@ describe('Dictionary Context', () => {
 
     it("should provide context to child component", () => {
       render(
-        //@ts-ignore
-        <DictionaryConfigurationContext.Provider value={contextConfiguration}>
+        <DictionaryContext>
           <MockComponent />
-        </DictionaryConfigurationContext.Provider>
+        </DictionaryContext>
       );
       expect(screen.getByTestId("mocked-context-child")).toBeInTheDocument();
       expect(screen.getByText("Mocked Part Of Speech")).toBeInTheDocument();

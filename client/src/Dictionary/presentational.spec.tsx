@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import Dictionary from "./presentational";
 import { DictionaryConfigurationContext } from "./Context";
@@ -63,8 +63,9 @@ describe('Dictionary', () => {
         });
     
         it('should render tip alert', () => {
-            expect(screen.getByText('Tip: You can`t search phrases here, only single words.')).toBeInTheDocument();
-            expect(screen.getByText('Tip: You can`t search phrases here, only single words.').getAttribute('class')).toBe('ant-alert-message');
+            const alertText = 'Tip: You can`t search phrases here, only single words.';
+            expect(screen.getByText(alertText)).toBeInTheDocument();
+            expect(screen.getByText(alertText).getAttribute('class')).toBe('ant-alert-message');
         });
     
         it('should render search input', () => {
@@ -93,6 +94,5 @@ describe('Dictionary', () => {
             expect(screen.getByTestId('dictionary-wrapper')).toBeInTheDocument();
             expect(screen.getByText('Loading...')).toBeInTheDocument();
         });
-
-    })
+    });
 })
