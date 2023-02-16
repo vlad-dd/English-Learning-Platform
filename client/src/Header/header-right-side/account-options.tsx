@@ -7,7 +7,7 @@ import {
 import { Menu } from 'antd';
 import { MenuItem } from '../styled';
 
-const AccountOptions = ({ handleSignOut }: any) => {
+const AccountOptions = ({ handleSignOut }: { handleSignOut: () => void }) => {
   return (
     <Menu
       data-testid="header-dropdown-menu"

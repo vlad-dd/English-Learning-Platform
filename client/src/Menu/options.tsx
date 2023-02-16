@@ -77,8 +77,8 @@ export const options: Option[] = [
   ]},
 
   //News
-  {label: 'Releases', key: 'releases', icon: <MdNewReleases />, children: [
-    {label: 'Releases', key: 'releases', icon: <TagOutlined />},
+  {label: 'Releases', key: 'Releases', icon: <MdNewReleases />, children: [
+    {label: 'Releases', key: 'Releases', icon: <TagOutlined />},
   ]},
 
   //To continue...

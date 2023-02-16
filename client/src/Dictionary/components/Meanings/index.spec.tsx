@@ -22,10 +22,9 @@ const dictionaryMock = [{
 describe('Meanings', () => {
     beforeEach(() => {
         render(
-        //@ts-ignore
-        <DictionaryConfigurationContext.Provider value={{data: { dictionary: dictionaryMock }}}>
-            <Meanings />
-        </DictionaryConfigurationContext.Provider>)
+            <DictionaryConfigurationContext.Provider value={{ data: { dictionary: dictionaryMock }, isLoading: false, searchWordInDictionary: jest.fn() }}>
+                <Meanings />
+            </DictionaryConfigurationContext.Provider>)
     });
 
     it('should render Meanings Table', () => {
