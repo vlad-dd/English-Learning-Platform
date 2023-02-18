@@ -1,5 +1,5 @@
 const { default: axios } = require('axios');
-const { collection, getDocs } = require('firebase/firestore');
+const { collection, getDocs, doc, getDoc } = require('firebase/firestore');
 const { get } = require('lodash');
 const { database } = require("../../bff-base");
 
@@ -24,6 +24,13 @@ const resolvers = {
       const releaseConfiguration = get(logged, '[0].releases').reverse();
       console.log('Releases: ', releaseConfiguration)
       return releaseConfiguration;
+    },
+    grammarByLevel: async(root, { level, theme }) => {
+      const grammarConfiguration = doc(database, level, theme)
+      const grammarDocument = await getDoc(grammarConfiguration)
+      console.log(grammarDocument.data())
+      return [grammarDocument.data()];
+
     }
   }
 }
