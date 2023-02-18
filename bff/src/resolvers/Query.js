@@ -21,7 +21,7 @@ const resolvers = {
       const tweets = collection(database, 'Releases')
       const data = await getDocs(tweets)
       const logged = data.docs.map((doc) => ({...doc.data()}));
-      const releaseConfiguration = get(logged, '[0].releases');
+      const releaseConfiguration = get(logged, '[0].releases').reverse();
       console.log('Releases: ', releaseConfiguration)
       return releaseConfiguration;
     }
