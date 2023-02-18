@@ -49,26 +49,27 @@ export const options: Option[] = [
 
   //Grammar Levels
 
-  {label: 'Grammar Levels', key: 'levels', icon: <ExperimentOutlined />, children: [
+  {label: 'Grammar Levels', key: 'Grammar-Levels', icon: <ExperimentOutlined />, children: [
     //A1
-    {label: 'A1', key: 'a1', icon: <TrophyOutlined />, children: [
-      {label: 'Test', key: 'test', icon: <ThunderboltOutlined />},
+    {label: 'A1', key: 'A1', icon: <TrophyOutlined />, children: [
+      // {label: 'Singular', key: 'Singular', icon: <ThunderboltOutlined />},
+      {label: 'Plural', key: 'Plural', icon: <ThunderboltOutlined />},
     ]},
 
     //A2
-    {label: 'A2', key: 'a2', icon: <TrophyOutlined />, children: [
-      {label: 'Test', key: 'test', icon: <ThunderboltOutlined />},
-    ]},
+    // {label: 'A2', key: 'A2', icon: <TrophyOutlined />, children: [
+    //   {label: 'Test', key: 'test1', icon: <ThunderboltOutlined />},
+    // ]},
     
     //B1
-    {label: 'B1', key: 'b1', icon: <TrophyOutlined />, children: [
-      {label: 'Test', key: 'test', icon: <ThunderboltOutlined />},
-    ]},
+    // {label: 'B1', key: 'B1', icon: <TrophyOutlined />, children: [
+    //   {label: 'Test', key: 'test2', icon: <ThunderboltOutlined />},
+    // ]},
 
     //B2
-    {label: 'B2', key: 'b2', icon: <TrophyOutlined />, children: [
-      {label: 'Test', key: 'test', icon: <ThunderboltOutlined />},
-    ]},
+    // {label: 'B2', key: 'B2', icon: <TrophyOutlined />, children: [
+    //   {label: 'Test', key: 'test3', icon: <ThunderboltOutlined />},
+    // ]},
   ]},
 
   //Dictionary

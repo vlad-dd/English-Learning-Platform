@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import DefaultPage from "../../DefaultPage/presentational";
 import DictionaryContext from "../../Dictionary/Context";
 import Dictionary from "../../Dictionary/presentational";
+import GrammarLevels from "../../GrammarLevels/presentational";
 import Releases from "../../Releases/presentational";
 import TenseContent from "../../Tenses/Main/presentational";
 
@@ -34,6 +35,14 @@ const useApplicationRouter = () => {
       element: (
         <LazyTenseApplicationRoot>
           <TenseContent />
+        </LazyTenseApplicationRoot>
+      ),
+    },
+    {
+      path: "/Grammar-Levels/:level/:theme",
+      element: (
+        <LazyTenseApplicationRoot>
+         <GrammarLevels />
         </LazyTenseApplicationRoot>
       ),
     },

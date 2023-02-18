@@ -14,7 +14,6 @@ const SiderMenu = () => {
   const navigate = useNavigate();
   
   return (
-    <React.Fragment>
       <Menu
         data-testid="options-menu"
         theme={theme}
@@ -28,7 +27,6 @@ const SiderMenu = () => {
           dispatch(setEarnedPoints(0));
         }}
       />
-    </React.Fragment>
   );
 };
 

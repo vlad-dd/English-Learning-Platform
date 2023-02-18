@@ -2,6 +2,7 @@ type Query {
     countOfTenses(tense: String!): [TestTense]!
     dictionary(word: String!): [Dictionary]!
     releases: [Releases]!
+    grammarByLevel(level: String!, theme: String!): [GrammarLevel]!
 }
 
 # Tense
@@ -109,4 +110,32 @@ type Releases {
   isLastUpdate: Boolean
   title: String
   description: String
+}
+
+#Grammar Levels
+
+type GrammarLevel {
+    title: String
+    tip: String
+    explanation: String
+    content: String
+    cases: [Cases]!
+    quiz: Quiz!
+}
+
+type Quiz {
+    quizSynopsis: String
+    questions: [QuizQuestion]!
+}
+
+type QuizQuestion {
+    question: String
+    questionType: String
+    answerSelectionType: String
+    answers: [String]
+    correctAnswer: String
+    messageForCorrectAnswer: String
+    messageForIncorrectAnswer: String
+    explanation: String
+    point: String
 }
