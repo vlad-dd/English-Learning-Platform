@@ -19,12 +19,6 @@ const BreadCrumbPath = () => {
             return <StyledBreadcrumb.Item key={index}>{item}</StyledBreadcrumb.Item>;
           })
         )}
-        {/* {compact(path)?.map((item: string, index: number) => {
-          return <StyledBreadcrumb.Item key={index}>{item}</StyledBreadcrumb.Item>;
-        })} */}
-        {/* {[...path].reverse()?.map((item: string, index: number) => {
-          return <StyledBreadcrumb.Item key={index}>{item}</StyledBreadcrumb.Item>;
-        })} */}
       </StyledBreadcrumb>
   );
 };
