@@ -1,21 +1,20 @@
 import React from "react";
 import { Alert, Divider } from "antd";
-//@ts-ignore
 import Quiz from 'react-quiz-component';
 import { AlertOutlined } from "@ant-design/icons";
 import { ContentSection } from "../Tenses/styled";
 import { BreadcrumbPath, CasesTabs, Title } from "../Сommon";
-import { useGrammarConfig } from "./use-grammar-config/useGrammarConfig";
+import { useGrammarConfig } from "./use-grammar-config";
 import { GrammarLevelDescription } from "./styles";
 
-const renderExample = ({ title, tip, content, explanation, cases, quiz }: any) => {
+const renderGrammarLevelContent = ({ title, tip, content, explanation, cases, quiz }: any) => {
     const quizConfiguration = { ...quiz, questions: [...quiz.questions] };
     return (
         <>
             <Title styles={{ fontSize: "2.5rem" }}>{title}</Title>
             <Alert icon={<AlertOutlined />} message={tip} showIcon />
-            <Title styles={{ paddingTop: '25px' }}>Explanation Of Plural Demonstrative Objective</Title>
-            <GrammarLevelDescription dangerouslySetInnerHTML={{__html: content}} style={{ fontSize: "1rem", fontFamily: 'inherit', paddingTop: "15px", paddingBottom: "15px" }}>
+            <Title styles={{ paddingTop: '25px' }}>Explanation Of {explanation}</Title>
+            <GrammarLevelDescription dangerouslySetInnerHTML={{__html: content}} style={{ fontSize: "1rem", fontFamily: 'inherit', paddingTop: "15px", paddingBottom: "15px" }} data-testid="grammar-level-content">
             </GrammarLevelDescription>
             <Title styles={{ paddingTop: '25px' }}>Use Cases For {explanation}</Title>
             <CasesTabs config={cases} />
@@ -31,8 +30,8 @@ const GrammarLevels = () => {
     return (
         <React.Fragment>
             <BreadcrumbPath />
-            <ContentSection>
-                {data && !isLoading && !error && data.grammarByLevel.map(renderExample)}
+            <ContentSection data-testid="grammar-levels-content-section">
+                {data && !isLoading && !error && data.grammarByLevel.map(renderGrammarLevelContent)}
                 {isLoading && <div>Loading...</div>}
                 {error && <div>We have some troubles with request...</div>}
             </ContentSection>
