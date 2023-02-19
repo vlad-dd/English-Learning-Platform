@@ -17,6 +17,7 @@ const CasesTabs: React.FC<{ config: ICases[] }> = ({ config }) => {
                 <List.Item.Meta
                   avatar={
                     <Image
+                      id="cases-tabs-icon"
                       url={icon}
                       styles={{
                         objectFit: "cover",
