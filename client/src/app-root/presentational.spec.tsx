@@ -29,15 +29,16 @@ const MockTree = () => {
 };
 
 describe("ApplicationRoot", () => {
-  beforeEach(() => {
-    render(
-      <ApplicationProviders>
-        <ApplicationRoot>
-          <MockTree />
-        </ApplicationRoot>
-      </ApplicationProviders>
-    );
-  });
+    beforeEach(() => {
+        render(
+            <ApplicationProviders>
+                <>
+                    <ApplicationRoot />
+                    <MockTree />
+                </>
+            </ApplicationProviders>
+        );
+    });
 
   it("should render sider menu", () => {
     expect(screen.getByTestId("application-layout")).toBeInTheDocument();
