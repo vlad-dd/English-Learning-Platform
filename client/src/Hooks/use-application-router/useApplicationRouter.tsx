@@ -14,13 +14,40 @@ const LazyLogin = lazy(() => import("../../authentification/Login/presentational
 const useApplicationRouter = () => {
   const router = createBrowserRouter([
     {
-      path: "/",
-      element: (
-        <LazyTenseApplicationRoot>
-          <DefaultPage />
-        </LazyTenseApplicationRoot>
-      ),
-      errorElement: <div>Error</div>,
+      element: <LazyTenseApplicationRoot />,
+      children: [{
+        path: "/",
+        element: (
+            <DefaultPage />
+        ),
+        errorElement: <div>Error</div>,
+      },
+      {
+        path: "/Tenses/:type/:tense",
+        element: (
+            <TenseContent />
+        ),
+      },
+      {
+        path: "/Grammar-Levels/:level/:theme",
+        element: (
+           <GrammarLevels />
+        ),
+      },
+      {
+        path: "/Dictionary/Dictionary",
+        element: (
+          <DictionaryContext>
+           <Dictionary />
+          </DictionaryContext>
+        ),
+      },
+      {
+        path: "/Releases/Releases",
+        element: (
+            <Releases />
+        ),
+      },]
     },
     {
       path: "/login",
@@ -29,40 +56,6 @@ const useApplicationRouter = () => {
     {
       path: "/registration",
       element: <LazyRegistration />,
-    },
-    {
-      path: "/Tenses/:type/:tense",
-      element: (
-        <LazyTenseApplicationRoot>
-          <TenseContent />
-        </LazyTenseApplicationRoot>
-      ),
-    },
-    {
-      path: "/Grammar-Levels/:level/:theme",
-      element: (
-        <LazyTenseApplicationRoot>
-         <GrammarLevels />
-        </LazyTenseApplicationRoot>
-      ),
-    },
-    {
-      path: "/Dictionary/Dictionary",
-      element: (
-        <DictionaryContext>
-        <LazyTenseApplicationRoot>
-         <Dictionary />
-        </LazyTenseApplicationRoot>
-        </DictionaryContext>
-      ),
-    },
-    {
-      path: "/Releases/Releases",
-      element: (
-        <LazyTenseApplicationRoot>
-          <Releases />
-        </LazyTenseApplicationRoot>
-      ),
     },
   ]);
 
