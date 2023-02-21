@@ -59,6 +59,7 @@ describe('Dictionary', () => {
             )
         })
         it('should render Dictionary root', () => {
+            expect(screen.getByTestId('content-section-wrapper')).toBeInTheDocument();
             expect(screen.getByTestId('dictionary-wrapper')).toBeInTheDocument();
         });
     

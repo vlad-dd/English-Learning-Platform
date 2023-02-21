@@ -6,6 +6,8 @@ import { DictionaryConfigurationContext } from "./Context";
 import AudioPlayer from "./components/AudioPlayer";
 import Meanings from "./components/Meanings";
 import { DictionaryWrapper, DictionaryContent } from "./styled";
+import { ContentSection } from "../Tenses/styled";
+import BreadCrumbPath from "../Сommon/BreadCrumb";
 
 const Dictionary = () => {
   const { data, isLoading } = useContext(DictionaryConfigurationContext);
@@ -13,17 +15,19 @@ const Dictionary = () => {
   const wordFromDictionary = get(data, "dictionary[0]");
 
   return (
-    <DictionaryWrapper data-testid="dictionary-wrapper">
-      <Alert message="Tip: You can`t search phrases here, only single words." type="info" showIcon />
-      <SearchInput />
-      {!!wordFromDictionary && !isLoading && (
-        <DictionaryContent>
-            <Meanings />  
-            <AudioPlayer />         
-        </DictionaryContent>
-      )}
-      <div>{isLoading && <div>Loading...</div>}</div>
-    </DictionaryWrapper>
+      <ContentSection data-testid="content-section-wrapper">
+        <DictionaryWrapper data-testid="dictionary-wrapper">
+          <Alert message="Tip: You can`t search phrases here, only single words." type="info" showIcon />
+          <SearchInput />
+          {!!wordFromDictionary && !isLoading && (
+            <DictionaryContent>
+              <Meanings />
+              <AudioPlayer />
+            </DictionaryContent>
+          )}
+          <div>{isLoading && <div>Loading...</div>}</div>
+        </DictionaryWrapper>
+      </ContentSection>
   );
 };
 

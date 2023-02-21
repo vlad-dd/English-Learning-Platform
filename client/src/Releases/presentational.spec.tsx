@@ -22,8 +22,9 @@ describe('Releases', () => {
     it('should render Release component with configuration', () => {
        spy.mockReturnValue(response)
        const releaseInformation = ['Version: 0.0.1', 'Last Update', 'Mocked Release', 'Release is on board!', '14.02.2023']; 
-       const { getByText } = render(<Releases />);
+       const { getByText, getByTestId } = render(<Releases />);
        releaseInformation.forEach((information) =>  expect(getByText(information)).toBeInTheDocument());
+       expect(getByTestId('content-section-wrapper')).toBeInTheDocument();
     });
 
     it('should waiting for releases response', () => {
