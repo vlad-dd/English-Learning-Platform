@@ -7,7 +7,6 @@ import AudioPlayer from "./components/AudioPlayer";
 import Meanings from "./components/Meanings";
 import { DictionaryWrapper, DictionaryContent } from "./styled";
 import { ContentSection } from "../Tenses/styled";
-import BreadCrumbPath from "../Сommon/BreadCrumb";
 
 const Dictionary = () => {
   const { data, isLoading } = useContext(DictionaryConfigurationContext);

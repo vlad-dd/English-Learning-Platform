@@ -4,7 +4,6 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import { useReleasesTimeLine } from './use-releases-timeline';
 import { ContentSection } from '../Tenses/styled';
-import BreadCrumbPath from '../Сommon/BreadCrumb';
 interface IVerticalTimelineElement {
   id: string
   date: string
