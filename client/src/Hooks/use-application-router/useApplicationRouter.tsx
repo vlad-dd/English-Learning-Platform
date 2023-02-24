@@ -5,6 +5,7 @@ import DictionaryContext from "../../Dictionary/Context";
 import Dictionary from "../../Dictionary/presentational";
 import GrammarLevels from "../../GrammarLevels/presentational";
 import Releases from "../../Releases/presentational";
+import TenseContextRoot from "../../Tenses/Context";
 import TenseContent from "../../Tenses/Main/presentational";
 
 export const LazyTenseApplicationRoot = lazy(() => import("../../app-root/presentational"));
@@ -25,7 +26,9 @@ const useApplicationRouter = () => {
       {
         path: "/Tenses/:type/:tense",
         element: (
-            <TenseContent />
+            <TenseContextRoot>
+              <TenseContent />
+            </TenseContextRoot>
         ),
       },
       {
