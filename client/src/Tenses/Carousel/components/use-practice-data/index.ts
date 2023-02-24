@@ -1,11 +1,12 @@
-// import { useContext } from "react";
-// import { convertToArrayOfObjects } from "../../../../helpers";
-// import { ResponseContext } from "../../../Main/presentational";
+import { get } from "lodash";
+import { useContext } from "react";
+import { TenseContext } from "../../../Context";
 
-// //Deprecated
-// export const usePracticeData = () => {
-//     const practiceSentences = useContext(ResponseContext);
+export const usePracticeData = () => {
 
-//     return { sentences: convertToArrayOfObjects(practiceSentences) };
-// }
-export {};
+    const { configuration: { practice } } = useContext(TenseContext);
+
+    const sentences = get(practice, '[0].sentences');
+
+    return { sentences };
+}

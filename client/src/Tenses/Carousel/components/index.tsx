@@ -2,15 +2,14 @@ import React, {
   useState,
   useEffect,
   KeyboardEvent,
-  useContext,
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Carousel } from 'antd';
-import { get, size } from 'lodash';
+import { size } from 'lodash';
 import * as selectors from '../../../store/selectors';
 import { setActualSentenceIndex, setEarnedPoints } from '../../../store/reducers/carousel';
 import { useAlertController } from './use-alert-controller';
-// import { usePracticeData } from './use-practice-data';
+import { usePracticeData } from './use-practice-data';
 import QuestionCarouselInput from './question-carousel-input';
 import DefaultCarouselInput from './default-carousel-input';
 import { STATUS } from '../constants';
@@ -20,7 +19,6 @@ import {
   CarouselVariant,
   ContentBlock,
 } from '../styled';
-import { TenseContext } from '../../Context';
 
 const CarouselQuiz = () => {
   const dispatch = useDispatch();
@@ -30,12 +28,7 @@ const CarouselQuiz = () => {
   const [showLastBanner, setShowLastBanner] = useState<boolean>(false);
   const { actualSentenceIndex = 0, points = 0 } = useSelector(selectors.carouselIndexAndPoints);
 
-  const { configuration: { practice } } = useContext(TenseContext);
-
-  const sentences = get(practice, '[0].sentences')
-  console.log('sent: ', sentences)
-
-  // const { sentences } = usePracticeData();
+  const { sentences } = usePracticeData();
 
   const alertController = useAlertController({ points, sentences, alert });
 
