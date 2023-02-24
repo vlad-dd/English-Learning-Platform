@@ -1,9 +1,11 @@
-import { useContext } from "react";
-import { convertToArrayOfObjects } from "../../../../helpers";
-import { ResponseContext } from "../../../Main/presentational";
+// import { useContext } from "react";
+// import { convertToArrayOfObjects } from "../../../../helpers";
+// import { ResponseContext } from "../../../Main/presentational";
 
-export const usePracticeData = () => {
-    const practiceSentences = useContext(ResponseContext);
+// //Deprecated
+// export const usePracticeData = () => {
+//     const practiceSentences = useContext(ResponseContext);
 
-    return { sentences: convertToArrayOfObjects(practiceSentences) };
-}
+//     return { sentences: convertToArrayOfObjects(practiceSentences) };
+// }
+export {};

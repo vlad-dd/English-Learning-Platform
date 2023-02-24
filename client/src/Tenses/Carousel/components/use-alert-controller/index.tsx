@@ -6,7 +6,7 @@ import { Alert } from 'antd';
 import { ProgressBar } from '../../../../Сommon';
 import { IAlerts, IPercentage, IUseAlertController } from '../../types';
 
-export const useAlertController = ({ points, sentences, alert }: IUseAlertController) => {
+export const useAlertController = ({ points, sentences, alert }: any) => {
   
     const CalculatedProgress = useCallback(() => (
       <ProgressBar
