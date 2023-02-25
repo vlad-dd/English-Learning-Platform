@@ -5,7 +5,6 @@ import { GET_TENSE } from "../../graphql";
 
 export const useTenseConfiguration = () => {
 
-
   // We have two ways how to handle getting data by verb:
   // 1) If user clicked on menu option - from state
   // 2) If user has typed the url - by url
