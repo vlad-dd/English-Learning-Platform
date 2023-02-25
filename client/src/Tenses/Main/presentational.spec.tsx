@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
+import { ApolloError } from "@apollo/client";
 import { render, screen, fireEvent } from "@testing-library/react";
 import TenseContent from "./presentational";
 import ErrorBoundary from "../../ErrorBoundary";
 import store from "../../store";
 import { ThemeContext } from "../../Contexts";
 import { TenseContext } from "../Context";
-import { ApolloError } from "@apollo/client";
 
 
 const mockedApolloResponse = {
