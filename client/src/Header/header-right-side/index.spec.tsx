@@ -1,7 +1,9 @@
+//@ts-nocheck
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { noop } from 'lodash';
 import ErrorBoundary from '../../ErrorBoundary';
 import store from '../../store';
 import { ThemeContext } from '../../Contexts';
@@ -49,7 +51,7 @@ describe('HeaderLeftSide', () => {
 
     describe('When user does not exist', () => {
         beforeEach(() => {
-            render(<ApplicationProviders><HeaderRightSide /></ApplicationProviders>)
+            render(<ApplicationProviders><HeaderRightSide enteredUser={null} handleSignOut={noop}/></ApplicationProviders>)
         })
     
         it('should render HeaderLeftSide', () => {
