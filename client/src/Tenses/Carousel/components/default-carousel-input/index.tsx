@@ -1,5 +1,6 @@
 import React, { KeyboardEvent } from "react";
 import { CarouselInput, FirstPart, SecondPart } from "../../styled";
+import { ICarouselInput } from "../../types";
 
 const DefaultCarouselInput = ({
   borderColor,
@@ -9,7 +10,7 @@ const DefaultCarouselInput = ({
   actualSentenceIndex,
   value,
   setValue,
-}: any) => {
+}: ICarouselInput) => {
   return (
     <>
     <FirstPart>{sentences?.[actualSentenceIndex].partOne}</FirstPart>

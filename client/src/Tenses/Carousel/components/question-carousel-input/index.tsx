@@ -1,5 +1,6 @@
 import React, { FormEvent, KeyboardEvent } from "react";
 import { CarouselInput, FirstPart, SecondPart } from "../../styled";
+import { ICarouselInput } from "../../types";
 
 const QuestionCarouselInput = ({
   borderColor,
@@ -9,7 +10,7 @@ const QuestionCarouselInput = ({
   actualSentenceIndex,
   value,
   setValue,
-}: any) => {
+}: ICarouselInput) => {
   return (
     <>
       <CarouselInput
