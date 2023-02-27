@@ -4,9 +4,12 @@ import ExamplePanels from './presentational';
 
 describe('ExamplePanels', () => { 
     const props = [{
+        __typename: 'typename',
+        key: 1,
         header: 'MockHeader',
         icon: 'mock.png',
         sentences: [{
+          __typename: 'sentences typename',
           id: 1,
           sentence: 'MockSentence',
     }]
