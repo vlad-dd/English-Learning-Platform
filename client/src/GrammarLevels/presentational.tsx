@@ -6,8 +6,9 @@ import { ContentSection } from "../Tenses/styled";
 import { BreadcrumbPath, CasesTabs, Title } from "../Сommon";
 import { useGrammarConfig } from "./use-grammar-config";
 import { GrammarLevelDescription } from "./styles";
+import { IGrammarLevelItem } from "./types";
 
-const renderGrammarLevelContent = ({ title, tip, content, explanation, cases, quiz }: any) => {
+const renderGrammarLevelContent = ({ title, tip, content, explanation, cases, quiz }: IGrammarLevelItem) => {
     const quizConfiguration = { ...quiz, questions: [...quiz.questions] };
     return (
         <>

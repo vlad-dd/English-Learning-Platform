@@ -1,11 +1,11 @@
 import React from 'react';
 import { List, Collapse } from 'antd';
-import { IExamplePanel, IResponseDataSentence } from '..';
 import { Image } from '../../Сommon';
+import { IExamplePanel, IResponseDataSentence } from '..';
 
 const { Panel } = Collapse;
 
-const ExamplePanels = ({ examples }: any) => {
+const ExamplePanels = ({ examples }: { examples: IExamplePanel[] }) => {
 
   const renderPanel = ({ key, header, icon, sentences }: IExamplePanel) => {
     return (

@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react";
+import React, { FormEvent, KeyboardEvent } from "react";
 import { CarouselInput, FirstPart, SecondPart } from "../../styled";
 
 const QuestionCarouselInput = ({
@@ -17,7 +17,7 @@ const QuestionCarouselInput = ({
         data-testid='question-input'
         style={{ border: borderColor }}
         disabled={showLastBanner}
-        onKeyDown={(e: any) =>
+        onKeyDown={(e: KeyboardEvent<HTMLElement>) =>
           handleCheck(e, sentences?.[actualSentenceIndex].missed)
         }
         value={value}
