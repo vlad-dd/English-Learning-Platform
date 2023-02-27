@@ -52,10 +52,12 @@ type IExamples = {
 };
 
 type IExamplePanel = {
+  __typename: string
   key: number;
   header: string;
   icon: string;
   sentences: {
+    __typename: string
     id: number;
     sentence: string;
   }[]

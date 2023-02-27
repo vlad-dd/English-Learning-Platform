@@ -1,4 +1,4 @@
-import React from "react";
+import React, { KeyboardEvent } from "react";
 import { CarouselInput, FirstPart, SecondPart } from "../../styled";
 
 const DefaultCarouselInput = ({
@@ -18,7 +18,7 @@ const DefaultCarouselInput = ({
       data-testid='practice-input'
       style={{ border: borderColor }}
       disabled={showLastBanner}
-      onKeyDown={(e: any) =>
+      onKeyDown={(e: KeyboardEvent<HTMLElement>) =>
         handleCheck(e, sentences?.[actualSentenceIndex].missed)
       }
       value={value}
