@@ -15,3 +15,7 @@ export const StyledTitle = styled(Title)`
 export const StyledTable = styled(Table)`
   padding-bottom: 25px;
 `;
+
+
+//for responsive UI
+//https://jsramblings.com/how-to-use-media-queries-with-styled-components

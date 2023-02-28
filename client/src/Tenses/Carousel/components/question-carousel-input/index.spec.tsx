@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { KeyboardEvent } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { STATUS } from '../../constants';
 import QuestionCarouselInput from '.';
 
 describe('QuestionCarouselInput', () => {
-    const handleCheck = jest.fn();
-    const setValue = jest.fn();
+    const handleCheck = jest.fn((e: KeyboardEvent<HTMLElement>, inputValue: string) => {});
+    const setValue = jest.fn((inputValue: string) => {});
 
     const mockedProps = {
         borderColor: STATUS['CORRECT'],
         showLastBanner: false,
         handleCheck,
         sentences: [{
+            __typename: 'typename',
             id: 1,
             label: 'MockLabel',
             partOne: 'MockPartOne',

@@ -4,9 +4,12 @@ import TenseExamplePanels from './example-panels';
 
 describe('TenseExamplePanels', () => {
     const props = [{
+        __typename: 'typename',
+        key: 1,
         header: 'MockHeader',
         icon: 'mock.png',
         sentences: [{
+            __typename: 'sentence typename',
           id: 1,
           sentence: 'MockSentence',
     }]

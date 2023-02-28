@@ -1,12 +1,10 @@
 import { ICasesTabs } from "../Сommon/types";
-
-interface IPracticeSentence {
-  0: {
-    id: number;
-    missed: string;
-    partOne: string;
-    partTwo: string;
-  };
+interface IPracticeSentences {
+  __typename: string
+  id: number;
+  missed: string;
+  partOne: string;
+  partTwo: string;
 }
 
 interface IResponseColumn {
@@ -41,7 +39,7 @@ interface IResponseData {
 interface IBFFResponse {
   columns: IResponseColumn[];
   data: IResponseData;
-  practice: IPracticeSentence[];
+  practice: IPracticeSentences[];
   cases: ICasesTabs[];
 }
 
@@ -70,10 +68,10 @@ interface ICases {
 }
 
 export type {
-  IPracticeSentence,
   IResponseColumn,
   IDataTable,
   IResponseDataSentence,
+  IPracticeSentences,
   IResponseData,
   IBFFResponse,
   IExamplePanel,

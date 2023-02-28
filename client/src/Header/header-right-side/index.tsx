@@ -1,14 +1,14 @@
 import React from 'react';
+import { User } from '@firebase/auth-types';
 import { Dropdown, Space } from 'antd';
 import { FaMoon } from 'react-icons/fa';
+import { Image } from '../../Сommon';
 import { HeaderRight, UserEmail } from '../styled';
 import { AVATARS } from '../strings';
 import { useTheme } from '../../Hooks';
 import AccountOptions from './account-options';
-import { Image } from '../../Сommon';
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
-const HeaderRightSide = ({ enteredUser, handleSignOut }: any) => {
+const HeaderRightSide = ({ enteredUser, handleSignOut }: { enteredUser: User, handleSignOut: () => void }) => {
 
 const { fonts, changeDefaultTheme } = useTheme();
 
