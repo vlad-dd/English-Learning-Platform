@@ -5,8 +5,13 @@ const { Content, Footer } = Layout;
 
 export const StyledLayout = styled(Layout)`
   min-height: 100vh;
-  @media (max-width: 760px) {
+  @media (max-width: 680px) {
     .ant-layout-sider {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 680px) {
+    .burger-menu {
       display: none;
     }
   }

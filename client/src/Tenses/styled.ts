@@ -28,16 +28,6 @@ export const StyledTable = styled(Table)`
     }
   }
 
-  @media (max-width: 575px) {
-    .ant-table-cell {
-      font-size: 0.459rem;
-    }
-  }
-
-  @media (max-width: 525px) {
-    .ant-table-cell {
-      font-size: 0.43rem;
-    }
   }
 `;
 
