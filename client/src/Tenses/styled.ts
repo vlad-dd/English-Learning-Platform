@@ -1,4 +1,4 @@
-import { Table } from "antd";
+import { Table, Alert } from "antd";
 import styled from "styled-components";
 import { Title } from "../Сommon";
 
@@ -13,7 +13,43 @@ export const StyledTitle = styled(Title)`
 `;
 
 export const StyledTable = styled(Table)`
+  overflow: scroll;
   padding-bottom: 25px;
+
+  @media (max-width: 830px) {
+    .ant-table-cell {
+      font-size: 0.759rem;
+    }
+  }
+
+  @media (max-width: 663px) {
+    .ant-table-cell {
+      font-size: 0.559rem;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .ant-table-cell {
+      font-size: 0.459rem;
+    }
+  }
+
+  @media (max-width: 525px) {
+    .ant-table-cell {
+      font-size: 0.43rem;
+    }
+  }
+`;
+
+export const StyledAlert = styled(Alert)`
+@media (max-width: 900px) {
+  font-size: 0.759rem;
+}
+
+@media (max-width: 623px) {
+  font-size: 0.7rem;
+
+}
 `;
 
 

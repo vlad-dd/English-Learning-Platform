@@ -11,13 +11,17 @@ export const HeaderWrapper = styled.div`
 
 export const HeaderLeft = styled.div`
   flex: 0.5;
-  min-width: 100px;
+  min-width: 5vw;
   background-color: white;
   color: gray;
   border-radius: 30px;
   display: flex;
   align-items: center;
   padding: 10px;
+
+  @media (max-width: 640px) {
+    display: none;
+  }
 `;
 
 export const HeaderInput = styled.input`
@@ -29,6 +33,10 @@ export const HeaderInput = styled.input`
 export const HeaderRight = styled.div`
   display: flex;
   align-items: center;
+  @media (max-width: 640px) {
+    flex: 1;
+    justify-content: flex-end;
+  }
 `;
 
 export const UserEmail = styled.h4`

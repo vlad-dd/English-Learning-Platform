@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
-import { Alert } from "antd";
 import { AlertOutlined } from "@ant-design/icons";
 import { TenseContext } from "../Context";
-import { BreadcrumbPath } from "../../Сommon";
-import { ContentSection } from "../styled";
+import { ApplicationTitle, BreadcrumbPath } from "../../Сommon";
+import { ContentSection, StyledAlert } from "../styled";
 import TensesTable from "../Table/tenses-table";
 import TensePractice from "../Carousel/presentational";
 import MostCommonCases from "../Cases/cases-tabs";
@@ -19,8 +18,8 @@ const TenseContent = (): JSX.Element | null => {
       <BreadcrumbPath />
       {configuration && (
         <ContentSection>
-          <h1 style={{ fontSize: "2.5rem" }}>{configuration.tense}</h1>
-          <Alert icon={<AlertOutlined />} message={configuration.tableData.tip} showIcon />
+          <ApplicationTitle>{configuration.tense}</ApplicationTitle>
+          <StyledAlert icon={<AlertOutlined />} message={configuration.tableData.tip} showIcon />
           <TensesTable table={configuration.tableData.table} />
           <MostCommonCases tense={configuration.tense} cases={configuration.cases} />
           <TenseExamplePanels examples={configuration.examples} />
