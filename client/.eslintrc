@@ -22,6 +22,7 @@
     "rules": {
         "no-unused-vars": "warn",
         "no-console": "warn",
+        "react/no-unescaped-entities": 0,
         "prefer-const": "error", 
         "@typescript-eslint/ban-ts-comment": "off"
     }
