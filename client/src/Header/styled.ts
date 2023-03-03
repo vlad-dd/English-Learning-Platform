@@ -19,7 +19,7 @@ export const HeaderLeft = styled.div`
   align-items: center;
   padding: 10px;
 
-  @media (max-width: 640px) {
+  @media (max-width: 680px) {
     display: none;
   }
 `;
