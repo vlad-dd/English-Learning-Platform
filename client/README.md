@@ -1,5 +1,5 @@
-🌎 English Learning Platform React Application 📚
-This project is a web application for learning English built with React. The aim of the project is to provide an intuitive and user-friendly platform for people who want to learn English.
+ <h1>🌎 English Learning Platform React Application 📚</h1>
+<p>This project is a web application for learning English built with React. The aim of the project is to provide an intuitive and user-friendly platform for people who want to learn English.</p>
 
 🚀 Getting Started
 To get started with the project, you can clone the repository to your local machine using the following command:
