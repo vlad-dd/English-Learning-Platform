@@ -12,7 +12,7 @@ npm install
 
 After installing the dependencies, you can start the development server using the following command:
 
-npm start
+<h1>npm start</h1>
 
 💻 Technologies Used
 React
