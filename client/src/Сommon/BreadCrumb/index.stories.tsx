@@ -11,7 +11,6 @@ export default {
   component: BreadCrumbPath,
   decorators: [
     (story) => (<Provider store={store}>{story()}</Provider>)
-    // or (Story) => (<Provider store={store}><Story /></Provider>)
   ]
 } as ComponentMeta<typeof BreadCrumbPath>;
 
