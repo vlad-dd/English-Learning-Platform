@@ -5,25 +5,30 @@ import ProgressBar from '.'
 export default {
     title: 'Common/ProgressBar',
     component: ProgressBar,
+    argTypes: {
+        type: {
+            type: 'string',
+            description: 'The view of Progress Bar',
+            options: ['circle', 'line', 'dashboard'],
+            defaultValue: "circle",
+            control: {
+                type: "radio"
+            }
+        },
+        percent: {
+            type: 'number',
+            description: 'Progress percentage',
+            defaultValue: 0,
+
+        },
+        width: {
+            type: "number",
+            description: 'The with of progress bar',
+            defaultValue: 150
+        }
+    }
 } as ComponentMeta<typeof ProgressBar>;
 
 const ProgressBarTemplate: ComponentStory<typeof ProgressBar> = (args) => <ProgressBar {...args}/>;
 
-export const CircleProgressBarTemplate = ProgressBarTemplate.bind({});
-CircleProgressBarTemplate.args = {
-    type: "circle",
-    percent: 35,
-}
-
-export const LineProgressBarTemplate = ProgressBarTemplate.bind({});
-LineProgressBarTemplate.args = {
-    type: "line",
-    percent: 65,
-}
-
-export const DashBoradProgressBarTemplate = ProgressBarTemplate.bind({});
-DashBoradProgressBarTemplate.args = {
-    type: "dashboard",
-    percent: 25,
-}
-
+export const ProgressBarStory = ProgressBarTemplate.bind({});
