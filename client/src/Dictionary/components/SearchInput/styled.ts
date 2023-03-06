@@ -10,5 +10,6 @@ export const StyledSpace = styled(Space)`
 
 export const StyledSearch = styled(Search)`
   padding-top: 30px;
-  width: 800px;
+  width: 80vw;
+
 `;

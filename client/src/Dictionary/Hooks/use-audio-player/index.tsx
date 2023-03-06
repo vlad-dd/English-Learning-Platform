@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { compact, get } from "lodash";
-import { Card } from 'antd';
 import { DictionaryConfigurationContext } from "../../Context";
 import { AUDIO_PRONOUNCE, COUNTRIES_FLAGS } from "../../constants";
 import { IAudioPlayer } from "../../types";
+import { FlagImage, StyledAudio, StyledCard, StyledMeta } from "./styled";
 
 export const renderAudioPlayer = (
   audio: string,
@@ -11,16 +11,16 @@ export const renderAudioPlayer = (
   flag: string
 ) => {
   return (
-      <Card style={{ width: 350 }} cover={<img alt="example" src={flag} />}>
-        <Card.Meta
+      <StyledCard cover={<FlagImage alt="example" src={flag} />}>
+        <StyledMeta
           title={
-            <audio controls key={audio}>
+            <StyledAudio id="country_audio" controls key={audio}>
               <source src={audio} />
-            </audio>
+            </StyledAudio>
           }
           description={<div>Transcription: {phonetic}</div>}
         />
-      </Card>
+      </StyledCard>
   );
 };
 

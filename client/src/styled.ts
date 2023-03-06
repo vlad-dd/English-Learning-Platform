@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 import { Layout } from 'antd';
+import { DEVICE_MINIMUM, DEVICE_MAXIMUM } from './mobile-view';
 
 const { Content, Footer } = Layout;
 
 export const StyledLayout = styled(Layout)`
   min-height: 100vh;
-  @media (max-width: 680px) {
+  @media ${DEVICE_MAXIMUM.tablet} {
     .ant-layout-sider {
       display: none;
     }
   }
-  @media screen and (min-width: 680px) {
+  
+  @media screen and ${DEVICE_MINIMUM.tablet} {
     .burger-menu {
       display: none;
     }
