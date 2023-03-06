@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DEVICE_MAXIMUM } from '../mobile-view';
 
 export const HeaderWrapper = styled.div`
   background: #131e31;
@@ -19,7 +20,7 @@ export const HeaderLeft = styled.div`
   align-items: center;
   padding: 10px;
 
-  @media (max-width: 680px) {
+  @media ${DEVICE_MAXIMUM.tablet} {
     display: none;
   }
 `;
@@ -33,7 +34,7 @@ export const HeaderInput = styled.input`
 export const HeaderRight = styled.div`
   display: flex;
   align-items: center;
-  @media (max-width: 640px) {
+  @media ${DEVICE_MAXIMUM.tablet}{
     flex: 1;
     justify-content: flex-end;
   }
