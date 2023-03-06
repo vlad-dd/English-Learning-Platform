@@ -12,7 +12,7 @@ export const StyledLayout = styled(Layout)`
     }
   }
   
-  @media screen and ${DEVICE_MINIMUM.tablet} {
+  @media screen and (min-width: 769px) {
     .burger-menu {
       display: none;
     }

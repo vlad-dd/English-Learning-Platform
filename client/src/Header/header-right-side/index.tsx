@@ -16,9 +16,9 @@ const { fonts, changeDefaultTheme } = useTheme();
     <HeaderRight>
     <FaMoon onClick={changeDefaultTheme} style={{ marginRight: '30px', color: fonts, cursor: 'pointer' }} />
       {enteredUser && enteredUser !== null ? (
-        <Image url={AVATARS.admin} styles={{ height: "32px", width: "32px" , borderRadius: "50%" }} />
+        <Image url={AVATARS.admin} styles={{ height: "32px", width: "32px" , borderRadius: "50%", objectFit: "cover" }} />
       ) : (
-        <Image url={AVATARS.visitor} styles={{ height: "32px", width: "32px" , borderRadius: "50%" }} />
+        <Image url={AVATARS.visitor} styles={{ height: "32px", width: "32px" , borderRadius: "50%", objectFit: "cover" }} />
       )}
       <Dropdown overlay={<AccountOptions handleSignOut={handleSignOut} />} trigger={['click']}>
         <Space>

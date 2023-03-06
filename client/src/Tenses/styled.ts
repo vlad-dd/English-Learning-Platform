@@ -1,5 +1,6 @@
 import { Table, Alert } from "antd";
 import styled from "styled-components";
+import { DEVICE_MAXIMUM } from "../mobile-view";
 import { Title } from "../Сommon";
 
 export const ContentSection = styled.div`
@@ -18,7 +19,13 @@ export const StyledTable = styled(Table)`
 
   @media (max-width: 830px) {
     .ant-table-cell {
-      font-size: 0.759rem;
+      font-size: 0.779rem;
+    }
+  }
+
+  @media ${DEVICE_MAXIMUM.tablet} {
+    .ant-table-cell {
+      font-size: 0.769rem;
     }
   }
 
@@ -33,7 +40,11 @@ export const StyledTable = styled(Table)`
 
 export const StyledAlert = styled(Alert)`
 @media (max-width: 900px) {
-  font-size: 0.759rem;
+  font-size: 0.76rem;
+}
+
+@media ${DEVICE_MAXIMUM.tablet} {
+  font-size: 0.75rem;
 }
 
 @media (max-width: 623px) {
@@ -41,7 +52,3 @@ export const StyledAlert = styled(Alert)`
 
 }
 `;
-
-
-//for responsive UI
-//https://jsramblings.com/how-to-use-media-queries-with-styled-components
