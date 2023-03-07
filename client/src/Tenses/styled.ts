@@ -17,21 +17,15 @@ export const StyledTable = styled(Table)`
   overflow: scroll;
   padding-bottom: 25px;
 
-  @media (max-width: 830px) {
-    .ant-table-cell {
-      font-size: 0.779rem;
-    }
-  }
-
   @media ${DEVICE_MAXIMUM.tablet} {
     .ant-table-cell {
       font-size: 0.769rem;
     }
   }
 
-  @media (max-width: 663px) {
+  @media ${DEVICE_MAXIMUM.mobileL} {
     .ant-table-cell {
-      font-size: 0.559rem;
+      font-size: 0.649rem;
     }
   }
 
@@ -39,16 +33,12 @@ export const StyledTable = styled(Table)`
 `;
 
 export const StyledAlert = styled(Alert)`
-@media (max-width: 900px) {
-  font-size: 0.76rem;
-}
 
 @media ${DEVICE_MAXIMUM.tablet} {
   font-size: 0.75rem;
 }
 
-@media (max-width: 623px) {
+@media ${DEVICE_MAXIMUM.mobileL} {
   font-size: 0.7rem;
-
 }
 `;
