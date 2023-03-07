@@ -5,7 +5,7 @@ import { AlertOutlined } from "@ant-design/icons";
 import { ContentSection } from "../Tenses/styled";
 import { BreadcrumbPath, CasesTabs, Title } from "../Сommon";
 import { useGrammarConfig } from "./use-grammar-config";
-import { GrammarLevelDescription } from "./styles";
+import { GrammarLevelDescription, QuizWrapper } from "./styles";
 import { IGrammarLevelItem } from "./types";
 
 const renderGrammarLevelContent = ({ title, tip, content, explanation, cases, quiz }: IGrammarLevelItem) => {
@@ -20,8 +20,10 @@ const renderGrammarLevelContent = ({ title, tip, content, explanation, cases, qu
             <Title styles={{ paddingTop: '25px' }}>Use Cases For {explanation}</Title>
             <CasesTabs config={cases} />
             <Divider />
+            <QuizWrapper>
             <Title>Consolidation Of Knowledge</Title>
             <Quiz quiz={quizConfiguration} shuffle />
+            </QuizWrapper>
         </>
     );
 }
