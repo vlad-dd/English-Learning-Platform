@@ -11,4 +11,8 @@ export const TitleContainer = styled.h2`
   @media ${DEVICE_MAXIMUM.mobileL} {
     font-size: 1.1rem;
   }
+
+  @media ${DEVICE_MAXIMUM.mobileM} {
+    font-size: 1rem;
+  }
 `;
