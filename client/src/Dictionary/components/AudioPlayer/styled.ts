@@ -8,7 +8,7 @@ export const AudioPlayerWrapper = styled.div`
   justify-content: center;
   gap: 3vw 20vw;
 
-  @media (max-width: 1190px) {
+  @media (max-width: 1090px) {
   flex-direction: column;
   gap: 5vw;
  }
