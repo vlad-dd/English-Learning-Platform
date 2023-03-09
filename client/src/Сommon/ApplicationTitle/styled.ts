@@ -11,4 +11,8 @@ font-size: 2.5rem;
   @media ${DEVICE_MAXIMUM.mobileL} {
     font-size: 1.67rem;
   }
+
+  @media ${DEVICE_MAXIMUM.mobileM} {
+    font-size: 1.66rem;
+  }
 `

@@ -29,7 +29,12 @@ export const StyledTable = styled(Table)`
     }
   }
 
+  @media ${DEVICE_MAXIMUM.mobileM} {
+    .ant-table-cell {
+      font-size: 0.659rem;
+    }
   }
+
 `;
 
 export const StyledAlert = styled(Alert)`
@@ -39,6 +44,10 @@ export const StyledAlert = styled(Alert)`
 }
 
 @media ${DEVICE_MAXIMUM.mobileL} {
-  font-size: 0.7rem;
+  font-size: 0.74rem;
+}
+
+@media ${DEVICE_MAXIMUM.mobileM} {
+  font-size: 0.73rem;
 }
 `;
