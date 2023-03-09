@@ -17,4 +17,8 @@ export const StyledBreadcrumb = styled(Breadcrumb)`
     font-size: 0.85rem;
   }
 
+  @media ${DEVICE_MAXIMUM.mobileS} {
+    font-size: 0.848rem;
+  }
+
 `;

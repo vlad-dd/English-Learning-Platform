@@ -35,6 +35,12 @@ export const StyledTable = styled(Table)`
     }
   }
 
+  @media ${DEVICE_MAXIMUM.mobileS} {
+    .ant-table-cell {
+      font-size: 0.669rem;
+    }
+  }
+
 `;
 
 export const StyledAlert = styled(Alert)`
@@ -49,5 +55,9 @@ export const StyledAlert = styled(Alert)`
 
 @media ${DEVICE_MAXIMUM.mobileM} {
   font-size: 0.73rem;
+}
+
+@media ${DEVICE_MAXIMUM.mobileS} {
+  font-size: 0.72rem;
 }
 `;
