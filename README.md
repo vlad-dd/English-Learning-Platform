@@ -1,14 +1,6 @@
  <h1>🌎 English Learning Platform React Application 📚</h1>
 <p>This project is a web application for learning English built with React. The aim of the project is to provide an intuitive and user-friendly platform for people who want to learn English.</p>
 
-<h2>🚀 Getting Started</h2>
-<p>To get started with the project, you can clone the repository to your local machine using the following command:</p>
-<code>git clone https://github.com/your-username/english-learning-platform.git</code>
-<p>Once you have cloned the repository, navigate to the project directory and install the dependencies using the following command:</p>
-<code>npm install</code>
-<p>After installing the dependencies, you can start the development server using the following command:</p>
-<code>npm start</code>
-
 <h2>💻 Technologies Used</h2>
 <ul>
     <li>React</li>
