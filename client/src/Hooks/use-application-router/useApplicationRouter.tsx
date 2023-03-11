@@ -7,6 +7,7 @@ import GrammarLevels from "../../GrammarLevels/presentational";
 import Releases from "../../Releases/presentational";
 import TenseContextRoot from "../../Tenses/Context";
 import TenseContent from "../../Tenses/Main/presentational";
+import TestApplication from "../../Tests/presentational";
 
 export const LazyTenseApplicationRoot = lazy(() => import("../../app-root/presentational"));
 const LazyRegistration = lazy(() => import("../../authentification/Registration/presentational"));
@@ -49,6 +50,12 @@ const useApplicationRouter = () => {
         path: "/Releases/Releases",
         element: (
             <Releases />
+        ),
+      },
+      {
+        path: "/Tests/:theme/:test",
+        element: (
+         <TestApplication />
         ),
       },]
     },
