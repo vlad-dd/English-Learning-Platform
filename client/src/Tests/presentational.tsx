@@ -1,18 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
+import { get } from "lodash";
 import { ContentSection } from "../Tenses/styled";
 import { BreadcrumbPath } from "../Сommon";
 import PartialTextInput from "./components/partial-text-input";
 import SelectInputQuiz from "./components/select-input";
 import TextInput from "./components/text-input";
+import { TestContext } from "./Context";
 
 const TestApplication = () => {
+    const { data, isLoading, error } = useContext(TestContext);
+    const configuration = get(data, 'getTests[0]');
+    const conditionGate = () => !!configuration && !isLoading && !error;
+
+    const renderParticularQuiz: any = {
+        default: <TextInput config={configuration?.config} />,
+        select: <SelectInputQuiz  />,
+        partial: <PartialTextInput />
+    }
     return (
         <React.Fragment>
             <BreadcrumbPath />
             <ContentSection>
-                {/* <TextInput /> */}
-                {/* <SelectInputQuiz /> */}
-                <PartialTextInput />
+                {conditionGate() && renderParticularQuiz[configuration.type]}
+                {isLoading && <div>Loading...</div>}
+                {error && <div>We have some troubles with request {error}</div>}
             </ContentSection>
         </React.Fragment>
     )
