@@ -3,6 +3,7 @@ type Query {
     dictionary(word: String!): [Dictionary]!
     releases: [Releases]!
     grammarByLevel(level: String!, theme: String!): [GrammarLevel]!
+    getTests(part: String!, theme: String!): [Tests]!
 }
 
 # Tense
@@ -138,4 +139,14 @@ type QuizQuestion {
     messageForIncorrectAnswer: String
     explanation: String
     point: String
+}
+
+type Tests {
+    type: String
+    config: [TestConfiguration]!
+}
+
+type TestConfiguration {
+    label: String
+    correctAnswer: String
 }
