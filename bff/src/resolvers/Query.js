@@ -30,7 +30,12 @@ const resolvers = {
       const grammarDocument = await getDoc(grammarConfiguration)
       console.log(grammarDocument.data())
       return [grammarDocument.data()];
-
+    },
+    getTests: async(root, { part = 'Verbs', theme = 'Mixed-Tenses' }) => {
+      const testConfiguration = doc(database, part, theme)
+      const testDocument = await getDoc(testConfiguration)
+      console.log(testDocument.data())
+      return [testDocument.data()];
     }
   }
 }
