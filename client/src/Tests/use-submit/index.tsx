@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { trim } from "lodash";
+import { ISubmitAnswer } from "../types";
 
-const useSubmit = () => {
-    const [submittedResult, setSubmittedResult] = useState<any>();
+const useSubmit = (): ISubmitAnswer => {
+    const [submittedResult, setSubmittedResult] = useState();
+    console.log()
 
-    const submitAnswer = (key: any, index: any, correctAnswer: any, answer: any) => {
-        if (key === 'Enter') setSubmittedResult((prevAnswers: any) => ({
-            ...prevAnswers,
-            [index]: trim(answer.toLowerCase()) === trim(correctAnswer.toLowerCase())
-        }));
+    const submitAnswer = (key: string, index: number, correctAnswer: string, answer: any, textInputRefs?: any) => {
+        const submitGate = () => trim(answer.toLowerCase()) === trim(correctAnswer.toLowerCase());
+        if (key === 'Enter') {
+            setSubmittedResult((prevAnswers: any) => ({
+                ...prevAnswers,
+                [index]: submitGate()
+            }));
+            submitGate() && textInputRefs.current[index + 1]?.focus();
+        }
     }
 
     return { submittedResult, submitAnswer }

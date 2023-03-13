@@ -6,17 +6,19 @@ import PartialTextInput from "./components/partial-text-input";
 import SelectInputQuiz from "./components/select-input";
 import TextInput from "./components/text-input";
 import { TestContext } from "./Context";
+import { ITestItems } from "./types";
 
 const TestApplication = () => {
-    const { data, isLoading, error } = useContext(TestContext);
-    const configuration = get(data, 'getTests[0]');
+    const { data, isLoading, error } = useContext(TestContext)!;
+    const configuration: ITestItems = get(data, 'getTests[0]');
     const conditionGate = () => !!configuration && !isLoading && !error;
 
-    const renderParticularQuiz: any = {
+    const renderParticularQuiz: { [key: string]: JSX.Element } = {
         default: <TextInput config={configuration?.config} />,
         select: <SelectInputQuiz  />,
         partial: <PartialTextInput />
     }
+
     return (
         <React.Fragment>
             <BreadcrumbPath />

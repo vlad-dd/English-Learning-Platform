@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Input } from 'antd';
-import { size, trim } from "lodash";
+import { isNil } from "lodash";
 import { BORDERS, PARTIAL_TEXT_INPUT_ID } from "../constants";
 import { focusNodeAfterMounting } from "../../utils";
 import { StyledPartialInputWrapper } from "./styled";
@@ -63,8 +63,9 @@ const PartialTextInput = () => {
                     <StyledPartialInputWrapper key={id}>
                         <Input
                             id={PARTIAL_TEXT_INPUT_ID}
-                            disabled={size(submittedResult) && submittedResult[index]}
-                            style={{ border: size(submittedResult) && BORDERS[submittedResult[index]] }}
+                            disabled={ !isNil(submittedResult) && submittedResult[index]}
+                            //@ts-ignore
+                            style={{ border: !isNil(submittedResult) && BORDERS[submittedResult[index]] }}
                             addonBefore={textBefore}
                             addonAfter={textAfter}
                             defaultValue={defaultValue}
