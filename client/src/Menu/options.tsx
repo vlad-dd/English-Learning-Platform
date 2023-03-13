@@ -12,7 +12,8 @@ import type { MenuProps } from 'antd';
 import { GiBookCover } from 'react-icons/gi';
 import { MdNewReleases } from 'react-icons/md';
 import { MdQuiz } from 'react-icons/md';
-import { GoFlame } from 'react-icons/go'
+import { GoFlame } from 'react-icons/go';
+import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -86,7 +87,7 @@ export const options: Option[] = [
 
   {label: 'Tests', key: 'Tests', icon: <MdQuiz />, children: [
     {label: 'Verbs', key: 'Verbs', icon: <GoFlame />, children: [
-      {label: 'Mixed Tenses', key: 'Mixed-Tenses', icon: <GoFlame />},
+      {label: 'Mixed Tenses', key: 'Mixed-Tenses', icon: <GiPerspectiveDiceSixFacesRandom />},
     ]},
   ]},
 
