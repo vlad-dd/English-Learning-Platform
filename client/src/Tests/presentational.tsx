@@ -17,7 +17,7 @@ const TestApplication = () => {
         default: <TextInput config={configuration?.config} />,
         select: <SelectInputQuiz  />,
         partial: <PartialTextInput />
-    }
+    };
 
     return (
         <React.Fragment>

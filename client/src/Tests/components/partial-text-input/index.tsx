@@ -6,7 +6,15 @@ import { focusNodeAfterMounting } from "../../utils";
 import { StyledPartialInputWrapper } from "./styled";
 import { useSubmit } from "../../use-submit";
 
-const props = [
+interface IPartialInput {
+    id: number,
+    textBefore: string,
+    textAfter: string,
+    defaultValue: string,
+    correctAnswer: string
+}
+
+const data = [
     {
         id: 1,
         textBefore: 'She',
@@ -45,7 +53,7 @@ const props = [
 ]
 
 const PartialTextInput = () => {
-    const [answerToSubmit, setAnswerToSubmit] = useState('');
+    const [answerToSubmit, setAnswerToSubmit] = useState<string>('');
     const { submittedResult, submitAnswer } = useSubmit();
 
     useEffect(() => {
@@ -58,7 +66,7 @@ const PartialTextInput = () => {
 
     return (
         <React.Fragment>
-            {props.map(({ id, textBefore, textAfter, defaultValue, correctAnswer }: any, index: any) => {
+            {data.map(({ id, textBefore, textAfter, defaultValue, correctAnswer }: IPartialInput, index: number) => {
                 return (
                     <StyledPartialInputWrapper key={id}>
                         <Input

@@ -8,7 +8,7 @@ import {
   StyledSelectInputWrapper
 } from "./styled";
 
-const props = [
+const data = [
   {
     id: 1,
     firstPart: 'She',
@@ -51,12 +51,20 @@ const props = [
   },
 ]
 
+export interface ISelectInput {
+  id: number,
+  firstPart: string,
+  options: Array<{ value: string, label: string }>,
+  secondPart: string,
+  correctAnswer: string
+}
+
 const SelectInputQuiz = () => {
 
-  const [selectedOptions, setSelectedOptions] = useState<any>();
+  const [selectedOptions, setSelectedOptions] = useState<{ [key: number]: boolean }>({});
 
   const handleChange = (value: string, correctAnswer: string, index: number) => {
-    setSelectedOptions((prevOptions: any) => ({
+    setSelectedOptions((prevOptions: { [key: number]: boolean } | undefined) => ({
       ...prevOptions,
       [index]: value === correctAnswer
     }))
@@ -64,7 +72,7 @@ const SelectInputQuiz = () => {
 
   return (
     <StyledSelectInputWrapper>
-      {props.map(({ id, firstPart, options, secondPart, correctAnswer }: any, index: number) => {
+      {data.map(({ id, firstPart, options, secondPart, correctAnswer }: ISelectInput, index: number) => {
         return (
           <StyledSelectInputContainer key={id}>
             <StyledFirstPart>{firstPart}</StyledFirstPart>

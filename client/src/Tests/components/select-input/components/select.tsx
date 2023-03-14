@@ -1,18 +1,18 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect } from "react";
 import { Select } from 'antd';
 import { size } from "lodash";
 import { BORDERS, SELECT_INPUT_ID } from "../../constants";
 import { focusNodeAfterMounting } from "../../../utils";
 
-interface ISelectInput {
-    index: any
-    correctAnswer: any
-    options: any
-    handleChange: any
-    selectedOptions: any
+interface ISelect {
+    index: number
+    correctAnswer: string
+    options: Array<{ value: string, label: string }>
+    handleChange: (value: string, correctAnswer: string, index: number) => void
+    selectedOptions: { [key: number]: boolean }
 }
 
-const SelectInput = ({ index, correctAnswer, options, handleChange, selectedOptions }: ISelectInput) => {
+const SelectInput = ({ index, correctAnswer, options, handleChange, selectedOptions }: ISelect) => {
 
     useLayoutEffect(() => {
         focusNodeAfterMounting(SELECT_INPUT_ID);
@@ -21,6 +21,7 @@ const SelectInput = ({ index, correctAnswer, options, handleChange, selectedOpti
     return (
         <Select
             id={SELECT_INPUT_ID}
+            //@ts-ignore
             style={{ width: 120, border: size(selectedOptions) ? BORDERS[selectedOptions[index]] : null }}
             onChange={(value) => handleChange(value, correctAnswer, index)}
             options={options}
