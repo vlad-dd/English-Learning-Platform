@@ -8,8 +8,8 @@ import {
 } from "../styled";
 
 interface IAnswerResult {
-    index: any
-    selectedOptions: any
+    index: number
+    selectedOptions: { [key: number]: boolean }
 }
 
 const AnswerResult = ({ index, selectedOptions }: IAnswerResult) => {

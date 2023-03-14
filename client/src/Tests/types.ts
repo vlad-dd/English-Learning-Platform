@@ -1,5 +1,7 @@
+import { ForwardedRef, RefObject } from "react"
+
 interface ITestItem {
-    __typename?: string 
+    __typename?: string
     label: string
     correctAnswer: string
 }
@@ -19,13 +21,19 @@ interface ITestContext {
 }
 
 interface ISubmitAnswer {
-    submitAnswer: any
+    submitAnswer: (
+        key: string,
+        index: number,
+        correctAnswer: string,
+        answerToSubmit: string,
+        textInputRefs?: ForwardedRef<RefObject<HTMLInputElement>[]>
+    ) => void
     submittedResult: { [key: number]: boolean } | undefined
 }
 
-export type { 
+export type {
     ITestItem,
     ITestItems,
     ITestContext,
     ISubmitAnswer
- }
+}

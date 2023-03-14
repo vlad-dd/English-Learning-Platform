@@ -1,11 +1,11 @@
-import React, { MutableRefObject, RefObject, useRef } from "react";
+import React, { RefObject, useRef } from "react";
 import { StyledLabel, StyledTextInputWrapper } from "./styled";
 import DefaultTextInput from "./default-input";
 import { ITestItems, ITestItem } from "../../types";
 
 
 const TextInput = ({ config }: Pick<ITestItems, 'config'>) => {
-    const textInputRefs = useRef<any>([]);
+    const textInputRefs = useRef<RefObject<HTMLInputElement>[]>([]);
 
     return (
         <React.Fragment>

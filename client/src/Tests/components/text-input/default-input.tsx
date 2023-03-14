@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useLayoutEffect, forwardRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, forwardRef, ForwardedRef, RefObject } from 'react';
 import { Input } from 'antd';
-import { isNil, size } from 'lodash';
+import { isNil } from 'lodash';
 import { BORDERS, TEXT_INPUT_ID } from '../constants';
 import { focusNodeAfterMounting } from '../../utils';
 import { useSubmit } from '../../use-submit';
 interface ITextInput {
     index: number
     correctAnswer: string
-    textInputRefs: any
+    textInputRefs: ForwardedRef<RefObject<HTMLInputElement>[]>
 }
 
-const DefaultTextInput = forwardRef(({ index, correctAnswer, textInputRefs }: ITextInput, ref: any) => {
+const DefaultTextInput = forwardRef(({ index, correctAnswer, textInputRefs }: ITextInput, ref: ForwardedRef<any>) => {
     const [answer, setAnswer] = useState<string>('');
     const { submittedResult, submitAnswer } = useSubmit();
 
