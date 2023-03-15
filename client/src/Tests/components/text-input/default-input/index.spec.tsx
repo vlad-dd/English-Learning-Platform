@@ -22,7 +22,13 @@ describe('Default Input', () => {
         expect(screen.getByTestId(TEXT_INPUT_ID).getAttribute('value')).toBe("");
     });
 
-    it('should set red border if input is equal to incorrect answer', () => {
+    it('should set green border if input value is equal to correct answer', () => {
+        fireEvent.change(screen.getByTestId(TEXT_INPUT_ID), { target: { value: 'Mock Answer' } })
+        fireEvent.keyDown(screen.getByTestId(TEXT_INPUT_ID), { key: 'Enter' })
+        expect(screen.getByTestId(TEXT_INPUT_ID).getAttribute('style')).toBe("border: 1px solid green;");
+    });
+
+    it('should set red border if input value is equal to incorrect answer', () => {
         fireEvent.change(screen.getByTestId(TEXT_INPUT_ID), { target: { value: '123' } })
         fireEvent.keyDown(screen.getByTestId(TEXT_INPUT_ID), { key: 'Enter' })
         expect(screen.getByTestId(TEXT_INPUT_ID).getAttribute('style')).toBe("border: 1px solid red;");
