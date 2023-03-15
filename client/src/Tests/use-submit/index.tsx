@@ -1,5 +1,5 @@
 import { ForwardedRef, RefObject, useState } from "react";
-import { trim } from "lodash";
+import { size, trim } from "lodash";
 import { ISubmitAnswer } from "../types";
 
 const useSubmit = (): ISubmitAnswer => {
@@ -13,7 +13,7 @@ const useSubmit = (): ISubmitAnswer => {
                 [index]: submitGate()
             }));
             //@ts-ignore
-            submitGate() && textInputRefs!.current[index + 1]?.focus();
+            submitGate() && size(textInputRefs) && textInputRefs.current[index + 1]?.focus();
         }
     }
 

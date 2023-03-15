@@ -25,7 +25,7 @@ const TestApplication = () => {
             <ContentSection>
                 {conditionGate() && renderParticularQuiz[configuration.type]}
                 {isLoading && <div>Loading...</div>}
-                {error && <div>We have some troubles with request {error}</div>}
+                {error && <div>We have some troubles with request...</div>}
             </ContentSection>
         </React.Fragment>
     )

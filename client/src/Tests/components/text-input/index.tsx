@@ -12,7 +12,7 @@ const TextInput = ({ config }: Pick<ITestItems, 'config'>) => {
             {config.map(({ label, correctAnswer }: ITestItem, index: number) => {
                 return (
                     <StyledTextInputWrapper key={label}>
-                        <StyledLabel aria-label="mixed verbs sentence">
+                        <StyledLabel data-testid="text-input-label" aria-label="mixed verbs sentence">
                             {label}
                         </StyledLabel>
                         <DefaultTextInput
