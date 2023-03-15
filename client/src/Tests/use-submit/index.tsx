@@ -13,7 +13,7 @@ const useSubmit = (): ISubmitAnswer => {
                 [index]: submitGate()
             }));
             //@ts-ignore
-            submitGate() && textInputRefs!.current[index + 1]?.focus();
+            submitGate() && textInputRefs.current[index + 1]?.focus();
         }
     }
 
