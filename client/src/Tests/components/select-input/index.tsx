@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SelectInput from "./components/select";
 import AnswerResult from "./components/result";
 import {
@@ -7,50 +7,8 @@ import {
   StyledSelectInputContainer,
   StyledSelectInputWrapper
 } from "./styled";
-
-const data = [
-  {
-    id: 1,
-    firstPart: 'She',
-    options: [
-      { value: 'Do', label: 'Do' },
-      { value: 'Does', label: 'Does' },
-    ],
-    secondPart: 'her homework every day.',
-    correctAnswer: 'Does'
-  },
-  {
-    id: 2,
-    firstPart: 'He',
-    options: [
-      { value: 'Do', label: 'Do' },
-      { value: 'Doess', label: 'Doess' },
-    ],
-    secondPart: 'her homework every day.',
-    correctAnswer: 'Doess'
-  },
-  {
-    id: 3,
-    firstPart: 'He',
-    options: [
-      { value: 'Do', label: 'Do' },
-      { value: 'Doess', label: 'Doess' },
-    ],
-    secondPart: 'her homework every day.',
-    correctAnswer: 'Doess'
-  },
-  {
-    id: 4,
-    firstPart: 'He',
-    options: [
-      { value: 'Do', label: 'Do' },
-      { value: 'Doess', label: 'Doess' },
-    ],
-    secondPart: 'her homework every day.',
-    correctAnswer: 'Doess'
-  },
-]
-
+import { TestContext } from "../../Context";
+import { get } from "lodash";
 export interface ISelectInput {
   id: number,
   firstPart: string,
@@ -60,8 +18,11 @@ export interface ISelectInput {
 }
 
 const SelectInputQuiz = () => {
+  const { data } = useContext(TestContext)!;
+  const { config }: any = get(data, 'getTests[0]');
 
   const [selectedOptions, setSelectedOptions] = useState<{ [key: number]: boolean }>({});
+
 
   const handleChange = (value: string, correctAnswer: string, index: number) => {
     setSelectedOptions((prevOptions: { [key: number]: boolean } | undefined) => ({
@@ -72,7 +33,7 @@ const SelectInputQuiz = () => {
 
   return (
     <StyledSelectInputWrapper>
-      {data.map(({ id, firstPart, options, secondPart, correctAnswer }: ISelectInput, index: number) => {
+      {config.map(({ id, firstPart, options, secondPart, correctAnswer }: ISelectInput, index: number) => {
         return (
           <StyledSelectInputContainer key={id}>
             <StyledFirstPart>{firstPart}</StyledFirstPart>

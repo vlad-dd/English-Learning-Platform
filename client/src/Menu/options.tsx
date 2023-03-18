@@ -88,6 +88,7 @@ export const options: Option[] = [
   {label: 'Tests', key: 'Tests', icon: <MdQuiz />, children: [
     {label: 'Verbs', key: 'Verbs', icon: <GoFlame />, children: [
       {label: 'Mixed Tenses', key: 'Mixed-Tenses', icon: <GiPerspectiveDiceSixFacesRandom />},
+      {label: 'Present', key: 'Present', icon: <GiPerspectiveDiceSixFacesRandom />},
     ]},
   ]},
 
