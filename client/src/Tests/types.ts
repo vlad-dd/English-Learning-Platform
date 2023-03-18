@@ -16,6 +16,7 @@ interface ITestConfiguration {
 }
 interface ITestContext {
     data: ITestConfiguration
+    type: string
     isLoading: boolean
     error: any
 }

@@ -147,6 +147,15 @@ type Tests {
 }
 
 type TestConfiguration {
+    id: String
     label: String
+    firstPart: String
+    secondPart: String
+    options: [SelectInputOptions]
     correctAnswer: String
+}
+
+type SelectInputOptions {
+    value: String
+    label: String
 }

@@ -6,7 +6,14 @@ query getTestConfiguration($part: String!, $theme: String!) {
       __typename
        type
        config {
+        id
         label
+        firstPart
+        secondPart
+        options {
+          value
+          label
+        }
         correctAnswer
        }
     }

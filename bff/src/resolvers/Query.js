@@ -31,7 +31,7 @@ const resolvers = {
       console.log(grammarDocument.data())
       return [grammarDocument.data()];
     },
-    getTests: async(root, { part = 'Verbs', theme = 'Mixed-Tenses' }) => {
+    getTests: async(root, { part, theme }) => {
       const testConfiguration = doc(database, part, theme)
       const testDocument = await getDoc(testConfiguration)
       console.log(testDocument.data())
