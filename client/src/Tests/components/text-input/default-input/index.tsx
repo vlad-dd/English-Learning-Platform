@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect, forwardRef, ForwardedRef, RefObject } from 'react';
 import { Input } from 'antd';
 import { isNil } from 'lodash';
-import { BORDERS, TEXT_INPUT_ID } from '../../constants';
+import { BORDERS, TEXT_INPUT_ID } from '../../../constants';
 import { focusNodeAfterMounting } from '../../../utils';
 import { useSubmit } from '../../../use-submit';
 interface ITextInput {
@@ -22,14 +22,15 @@ const DefaultTextInput = forwardRef(({ index, correctAnswer, textInputRefs }: IT
         focusNodeAfterMounting(TEXT_INPUT_ID);
     }, []);
 
+    const isDisabled = (!isNil(submittedResult) && submittedResult[index]) ? true : false;
+
     return (
         <Input
           id={TEXT_INPUT_ID}
           data-testid={TEXT_INPUT_ID}
           ref={ref}
-          //@ts-ignore
-          style={{border: !isNil(submittedResult) && BORDERS[submittedResult[index]] }}
-          disabled={ !isNil(submittedResult) && submittedResult[index] }
+          style={{ border: !isNil(submittedResult) && BORDERS[submittedResult[index]] }}
+          disabled={isDisabled}
           onKeyDown={({ key }) => submitAnswer(key, index, correctAnswer, answer, textInputRefs)}
           onChange={({ target: { value } }) => setAnswer(value)}
         />

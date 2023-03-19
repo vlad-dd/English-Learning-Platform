@@ -1,11 +1,17 @@
+import { ApolloError } from "@apollo/client"
 import { ForwardedRef, RefObject } from "react"
-
 interface ITestItem {
-    __typename?: string
+    id: number
+    textBefore: string
+    textAfter: string
+    defaultValue: string
+    firstPart: string
+    secondPart: string
+    options: Array<{ label: string, value: string }>
+    __typename: string
     label: string
     correctAnswer: string
 }
-
 interface ITestItems {
     __typename: string
     type: string
@@ -15,10 +21,9 @@ interface ITestConfiguration {
     getTests: Array<ITestItems>
 }
 interface ITestContext {
-    data: ITestConfiguration
-    type: string
+    data: ITestConfiguration,
     isLoading: boolean
-    error: any
+    error: ApolloError | undefined
 }
 
 interface ISubmitAnswer {
@@ -29,7 +34,7 @@ interface ISubmitAnswer {
         answerToSubmit: string,
         textInputRefs?: ForwardedRef<RefObject<HTMLInputElement>[]>
     ) => void
-    submittedResult: { [key: number]: boolean } | undefined
+    submittedResult: { [key: number]: number } | undefined
 }
 
 export type {

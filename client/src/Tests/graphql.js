@@ -10,6 +10,9 @@ query getTestConfiguration($part: String!, $theme: String!) {
         label
         firstPart
         secondPart
+        textBefore
+        textAfter
+        defaultValue
         options {
           value
           label

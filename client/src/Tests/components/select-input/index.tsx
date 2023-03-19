@@ -19,15 +19,13 @@ export interface ISelectInput {
 
 const SelectInputQuiz = () => {
   const { data } = useContext(TestContext)!;
-  const { config }: any = get(data, 'getTests[0]');
-
-  const [selectedOptions, setSelectedOptions] = useState<{ [key: number]: boolean }>({});
-
+  const { config } = get(data, 'getTests[0]');
+  const [selectedOptions, setSelectedOptions] = useState<{ [key: number]: number }>({});
 
   const handleChange = (value: string, correctAnswer: string, index: number) => {
-    setSelectedOptions((prevOptions: { [key: number]: boolean } | undefined) => ({
+    setSelectedOptions((prevOptions: { [key: number]: number } | undefined) => ({
       ...prevOptions,
-      [index]: value === correctAnswer
+      [index]: (value === correctAnswer) ? 1 : 0
     }))
   };
 
