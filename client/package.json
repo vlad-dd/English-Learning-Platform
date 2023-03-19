@@ -60,6 +60,13 @@
       }
     ]
   },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/index.stories.tsx",
+      "<rootDir>/src/presentational.stories.tsx",
+      "<rootDir>/src/reportWebVitals.ts"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
