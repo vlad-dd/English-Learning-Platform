@@ -149,6 +149,9 @@ type Tests {
 type TestConfiguration {
     id: String
     label: String
+    textBefore: String
+    textAfter: String
+    defaultValue: String
     firstPart: String
     secondPart: String
     options: [SelectInputOptions]
