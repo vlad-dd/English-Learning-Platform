@@ -80,18 +80,18 @@ export const options: Option[] = [
     {label: 'Dictionary', key: 'Dictionary', icon: <TagOutlined />},
   ]},
 
-  //News
-  {label: 'Releases', key: 'Releases', icon: <MdNewReleases />, children: [
-    {label: 'Releases', key: 'Releases', icon: <TagOutlined />},
-  ]},
-
   {label: 'Tests', key: 'Tests', icon: <MdQuiz />, children: [
     {label: 'Verbs', key: 'Verbs', icon: <GoFlame />, children: [
       {label: 'Mixed Tenses', key: 'Mixed-Tenses', icon: <GiPerspectiveDiceSixFacesRandom />},
       {label: 'Present', key: 'Present', icon: <GiPerspectiveDiceSixFacesRandom />},
+      {label: 'Past', key: 'Past', icon: <GiPerspectiveDiceSixFacesRandom />},
     ]},
   ]},
 
+  //News
+  {label: 'Releases', key: 'Releases', icon: <MdNewReleases />, children: [
+    {label: 'Releases', key: 'Releases', icon: <TagOutlined />},
+  ]},
   //To continue...
 
 ];

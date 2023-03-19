@@ -1,22 +1,22 @@
 import React from "react";
 import { size } from "lodash";
-import { Image } from "../../../../Сommon";
+import { Image } from "../../../../../Сommon";
 import { 
     StyledAnswersContainer, 
     StyledAnswerResultWrapper, 
     StyledAnswer 
-} from "../styled";
+} from "../../styled";
 
 interface IAnswerResult {
     index: number
-    selectedOptions: { [key: number]: boolean }
+    selectedOptions: { [key: number]: number }
 }
 
 const AnswerResult = ({ index, selectedOptions }: IAnswerResult) => {
-    const isVisible = size(selectedOptions) > 0 && (selectedOptions[index] === true || selectedOptions[index] === false);
+    const isVisible = size(selectedOptions) > 0 && (selectedOptions[index] === 1 || selectedOptions[index] === 0);
     return (
         <StyledAnswerResultWrapper>
-            {isVisible && (selectedOptions[index] === true ?
+            {isVisible && (selectedOptions[index] === 1 ?
                 <StyledAnswersContainer>
                     <StyledAnswer>Correct </StyledAnswer>
                     <Image styles={{ height: "15px" }} url="https://cdn-icons-png.flaticon.com/128/4315/4315445.png" />

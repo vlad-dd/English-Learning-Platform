@@ -6,7 +6,7 @@ const useSubmit = (): ISubmitAnswer => {
     const [submittedResult, setSubmittedResult] = useState({});
 
     const submitAnswer = (key: string, index: number, correctAnswer: string, answer: string, textInputRefs?: ForwardedRef<RefObject<HTMLInputElement>[]>) => {
-        const submitGate = () => trim(answer.toLowerCase()) === trim(correctAnswer.toLowerCase());
+        const submitGate = () => (trim(answer.toLowerCase()) === trim(correctAnswer.toLowerCase())) ? 1 : 0 ;
         if (key === 'Enter') {
             setSubmittedResult((prevAnswers: { [key: number]: boolean }) => ({
                 ...prevAnswers,

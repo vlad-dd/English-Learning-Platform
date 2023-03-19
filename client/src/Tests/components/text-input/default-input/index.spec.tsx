@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from '@testing-library/react'
 import DefaultTextInput from '.';
-import { TEXT_INPUT_ID } from "../../constants";
+import { TEXT_INPUT_ID } from "../../../constants";
 
 describe('Default Input', () => {
     const data =
