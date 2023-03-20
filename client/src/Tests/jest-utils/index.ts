@@ -1,0 +1,1 @@
+export { default as TestApplicationProviders } from './application-providers';

@@ -1,7 +1,6 @@
 import React from "react";
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import SelectInput, { ISelect } from ".";
-import { SELECT_INPUT_ID } from "../../../../constants";
 
 describe('SelectInput', () => {
     
