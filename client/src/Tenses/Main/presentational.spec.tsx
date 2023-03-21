@@ -1,14 +1,8 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
 import { ApolloError } from "@apollo/client";
 import { render, screen, fireEvent } from "@testing-library/react";
 import TenseContent from "./presentational";
-import ErrorBoundary from "../../ErrorBoundary";
-import store from "../../store";
-import { ThemeContext } from "../../Contexts";
-import { TenseContext } from "../Context";
-
+import { TenseApplicationProviders } from "../jest-utils";
 
 const mockedApolloResponse = {
   configuration: {
@@ -83,29 +77,13 @@ const tenseContentInnerHTML = [
   'Does'
 ];
 
-const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
-  return (
-    <ErrorBoundary>
-      <BrowserRouter>
-        <Provider store={store}>
-          <ThemeContext>
-            {children}
-          </ThemeContext>
-        </Provider>
-      </BrowserRouter>
-    </ErrorBoundary>
-  );
-};
-
 describe("TenseContent", () => {
   describe('when configuration exists', () => {
     beforeEach(() => {
       render(
-        <ApplicationProviders>
-          <TenseContext.Provider value={mockedApolloResponse}>
-            <TenseContent />
-          </TenseContext.Provider>
-        </ApplicationProviders>
+        <TenseApplicationProviders ownContextProps={mockedApolloResponse}>
+          <TenseContent />
+        </TenseApplicationProviders>
       );
     })
 
@@ -114,21 +92,21 @@ describe("TenseContent", () => {
       expect(screen.queryAllByText('Noun')[0]).toBeInTheDocument();
       expect(screen.queryAllByText('Auxiliar')[0]).toBeInTheDocument();
     });
-  
+
     it("should render cases", () => {
       expect(screen.getByText('MockLabel')).toBeInTheDocument();
       expect(screen.getByText('MockDescription')).toBeInTheDocument();
       fireEvent.click(screen.getByText('Another Mock Label'));
       expect(screen.getByText('Another Mock Description')).toBeInTheDocument();
     });
-  
+
     it("should render example panels", () => {
       expect(screen.getByText('Examples')).toBeInTheDocument();
       expect(screen.getByText('Example Header Mock')).toBeInTheDocument();
       fireEvent.click(screen.getByText('Example Header Mock'));
       expect(screen.getByText('Example Sentence Mock')).toBeInTheDocument();
     });
-  
+
     it("should render practice carousel", () => {
       expect(screen.getByText('Mocked Part One')).toBeInTheDocument();
       expect(screen.getByTestId('practice-input')).toBeInTheDocument();
@@ -141,22 +119,18 @@ describe("TenseContent", () => {
 
   it("should show loading", () => {
     render(
-      <ApplicationProviders>
-        <TenseContext.Provider value={{ ...mockedApolloResponse, isLoading: true }}>
-          <TenseContent />
-        </TenseContext.Provider>
-      </ApplicationProviders>
+      <TenseApplicationProviders ownContextProps={{ ...mockedApolloResponse, isLoading: true }}>
+        <TenseContent />
+      </TenseApplicationProviders>
     );
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
   it("should show error", () => {
     render(
-      <ApplicationProviders>
-        <TenseContext.Provider value={{ ...mockedApolloResponse, error: new ApolloError({}) }}>
-          <TenseContent />
-        </TenseContext.Provider>
-      </ApplicationProviders>
+      <TenseApplicationProviders ownContextProps={{ ...mockedApolloResponse, error: new ApolloError({}) }}>
+        <TenseContent />
+      </TenseApplicationProviders>
     );
     expect(screen.getByText('We have some troubles with request...')).toBeInTheDocument();
   });

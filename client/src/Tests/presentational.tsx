@@ -13,7 +13,7 @@ const TestApplication = () => {
     const conditionGate = (): boolean => !!data && !isLoading && !error;
     const type = get(data, 'getTests[0].type');
 
-    const renderParticularQuiz: { [key: string]: JSX.Element } = {
+    const renderParticularQuiz: Record<string, JSX.Element> = {
         [QUIZ_TYPE.DEFAULT]: <TextInput />,
         [QUIZ_TYPE.SELECT]: <SelectInputQuiz  />,
         [QUIZ_TYPE.PARTIAL]: <PartialTextInput />

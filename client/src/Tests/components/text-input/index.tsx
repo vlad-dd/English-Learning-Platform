@@ -1,9 +1,9 @@
 import React, { RefObject, useContext, useRef } from "react";
+import { get } from "lodash";
 import { TestContext } from "../../Context";
 import { StyledLabel, StyledTextInputWrapper } from "./styled";
 import DefaultTextInput from "./default-input";
 import { ITestItem } from "../../types";
-import { get } from "lodash";
 
 const TextInput = () => {
     const { data } = useContext(TestContext)!;
