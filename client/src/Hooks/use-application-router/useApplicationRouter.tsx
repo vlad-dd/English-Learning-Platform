@@ -1,6 +1,6 @@
 import React, { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import DefaultPage from "../../DefaultPage/presentational";
+import WelcomePage from "../../WelcomePage/presentational";
 import DictionaryContext from "../../Dictionary/Context";
 import Dictionary from "../../Dictionary/presentational";
 import GrammarLevels from "../../GrammarLevels/presentational";
@@ -21,7 +21,7 @@ const useApplicationRouter = () => {
       children: [{
         path: "/",
         element: (
-            <DefaultPage />
+            <WelcomePage />
         ),
         errorElement: <div>Error</div>,
       },

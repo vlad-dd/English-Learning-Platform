@@ -1,0 +1,1 @@
+export { default as SendReportModal } from './send-report';

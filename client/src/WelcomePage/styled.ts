@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const HeaderWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const StyledTitle = styled.h1`
   font-size: 5rem;
   background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
