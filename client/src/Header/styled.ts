@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { DEVICE_MAXIMUM } from '../mobile-view';
+import Autocomplete from '@mui/material/Autocomplete';
 
 export const HeaderWrapper = styled.div`
   background: #131e31;
@@ -8,27 +9,6 @@ export const HeaderWrapper = styled.div`
   margin-bottom: 30px;
   padding: 15px;
   border-bottom: 1px solid gainsboro;
-`;
-
-export const HeaderLeft = styled.div`
-  flex: 0.5;
-  min-width: 5vw;
-  background-color: white;
-  color: gray;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-
-  @media ${DEVICE_MAXIMUM.tablet} {
-    display: none;
-  }
-`;
-
-export const HeaderInput = styled.input`
-  border: none;
-  outline: none;
-  width: 100%;
 `;
 
 export const HeaderRight = styled.div`
@@ -50,3 +30,16 @@ export const UserEmail = styled.h4`
 export const MenuItem = styled.span`
   margin-left: 10px;
 `;
+
+export const StyledAutoComplete = styled(Autocomplete)`
+  background: white;
+  border-radius: 30px;
+
+  @media ${DEVICE_MAXIMUM.tablet} {
+    display: none;
+  }
+`;
+
+
+
+

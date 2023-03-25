@@ -2,8 +2,8 @@ import React, { useState, useEffect, useLayoutEffect, forwardRef, ForwardedRef, 
 import { Input } from 'antd';
 import { isNil } from 'lodash';
 import { BORDERS, TEXT_INPUT_ID } from '../../../constants';
-import { focusNodeAfterMounting } from '../../../utils';
 import { useSubmit } from '../../../use-submit';
+import { focusNodeAfterMounting } from '../../../../utils';
 interface ITextInput {
     index: number
     correctAnswer: string

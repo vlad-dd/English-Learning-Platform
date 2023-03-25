@@ -10,4 +10,9 @@ const uid = (length: number) => {
     return result;
 }
 
-export { uid };
+const focusNodeAfterMounting = (id: string) => document.getElementById(id)?.focus();
+
+export { 
+  uid,
+  focusNodeAfterMounting
+};
