@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button } from "antd";
+import { Button, Form } from "antd";
 
 export const StyledSendReportWrapper = styled.div`
   display: flex;
@@ -15,4 +15,23 @@ export const StyledServiceButton = styled(Button)`
   border-radius: 50%;
   height: 40px;
   width: 40px;
+`;
+
+export const SubmitButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+`;
+
+export const StyledSubmitButton = styled(Button)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const StyledSubmitInnerHTML = styled.span`
+  color: white;
+`;
+
+export const StyledForm = styled(Form)`
+  max-width: 600;
 `;
