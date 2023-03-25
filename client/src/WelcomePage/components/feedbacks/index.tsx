@@ -1,5 +1,6 @@
 import { Avatar, List } from "antd";
 import React, { useMemo } from "react";
+import { AVATARS } from "../../../Header/strings";
 import { Title } from "../../../Сommon";
 import { LEARNERS_FEEDBACK } from "../../constants";
 
@@ -9,7 +10,7 @@ const LearnerFeedbacks = () => {
         return (
             <List.Item key={id}>
                 <List.Item.Meta
-                    avatar={<Avatar src={`https://joesch.moe/api/v1/random?key=${index}`} />}
+                    avatar={<Avatar src={AVATARS.visitor} />}
                     title={<a href="https://ant.design">{title}</a>}
                     description={description}
                 />
