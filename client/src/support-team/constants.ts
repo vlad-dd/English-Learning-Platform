@@ -6,4 +6,11 @@ const ELP_APPLICATIONS = [
     {label: 'Releases', value: 'Releases'},
 ]
 
-export { ELP_APPLICATIONS };
+const MIN_TEXT_AREA_LENGTH = 10;
+const MAX_TEXT_AREA_LENGTH = 250;
+
+export { 
+    ELP_APPLICATIONS, 
+    MIN_TEXT_AREA_LENGTH,
+    MAX_TEXT_AREA_LENGTH
+};

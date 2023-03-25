@@ -1,41 +1,56 @@
-import React from "react";
-import { Form, Select, Upload, Input, Button } from "antd";
-import { PlusOutlined } from '@ant-design/icons';
-import { ELP_APPLICATIONS } from "../../../constants";
-
-const { TextArea } = Input;
+import React, { useState } from "react";
+import {
+    StyledForm,
+    StyledSubmitButton,
+    StyledSubmitInnerHTML,
+    SubmitButtonWrapper
+} from "../../styled";
+import { Form, Select } from "antd";
+import { ELP_APPLICATIONS, MAX_TEXT_AREA_LENGTH, MIN_TEXT_AREA_LENGTH } from "../../../constants";
+import TextArea from "antd/lib/input/TextArea";
+import useReportConfig from "./use-report-config";
 
 const SendReportForm = ({ isSubmitted, setSubmitted }: any) => {
+    const [touchedByMouse, setTouchedByMouse] = useState(false);
+    const { report, isDisabled, minLengthError, maxLengthError, selectApplication, handleTextArea } = useReportConfig();
+   
+    const isVisible = (!isDisabled && !isSubmitted);
+
     return (
-        <Form
-            labelCol={{ span: 6 }}
-            hidden={isSubmitted}
-            wrapperCol={{ span: 12 }}
-            layout="horizontal"
-            style={{ maxWidth: 600 }}
-        >
-            <Form.Item required label="Was found in">
-                <Select options={ELP_APPLICATIONS} />
-            </Form.Item>
-            <Form.Item required label="Description">
-                <TextArea rows={4} />
-            </Form.Item>
-            <Form.Item label="Upload" valuePropName="fileList">
-                <Upload action="/upload.do" listType="picture-card">
-                    <div>
-                        <PlusOutlined />
-                        <div style={{ marginTop: 8 }}>Upload</div>
-                    </div>
-                </Upload>
-            </Form.Item>
-            <Form.Item style={{ display: "flex", flexDirection: "row-reverse" }}>
-                <Button
-                    onClick={() => setSubmitted(true)}
-                    style={{ display: "flex", justifyContent: "center", alignItems: "center", background: '#1890ff' }}>
-                    <span style={{ color: "white" }}>Submit</span>
-                </Button>
-            </Form.Item>
-        </Form>
+        <>
+            <StyledForm
+                labelCol={{ span: 6 }}
+                hidden={isSubmitted}
+                wrapperCol={{ span: 12 }}>
+                <Form.Item required label="Was found in">
+                    <Select onSelect={selectApplication} options={ELP_APPLICATIONS} />
+                </Form.Item>
+                <Form.Item required label="Description">
+                    <TextArea 
+                      onBlur={() => setTouchedByMouse(true)}
+                      maxLength={MAX_TEXT_AREA_LENGTH}
+                      minLength={MIN_TEXT_AREA_LENGTH}
+                      onChange={({ target: { value } }) => handleTextArea(value)}  
+                      />
+                      {minLengthError && touchedByMouse ? <p style={{ color: 'red' }}>You should write at least 10 symbols!</p> : ''}
+                      {maxLengthError ? <p style={{ color: 'red' }}>You have reached max of symbols!</p> : ''}
+                </Form.Item>
+            </StyledForm>
+
+            <SubmitButtonWrapper>
+                <StyledSubmitButton
+                    {...(isVisible && { style: { background: "#1890ff" } })}
+                    disabled={isDisabled || isSubmitted}
+                    onClick={() => {
+                        console.log('Your report was submitted!', report)
+                        setSubmitted(true)
+                    }}>
+                    <StyledSubmitInnerHTML>
+                        Submit
+                    </StyledSubmitInnerHTML>
+                </StyledSubmitButton>
+            </SubmitButtonWrapper>
+        </>
     );
 };
 

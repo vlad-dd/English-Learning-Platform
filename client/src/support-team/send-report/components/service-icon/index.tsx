@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Button } from "antd";
 import { CustomerServiceOutlined } from '@ant-design/icons';
 import { openSendReportModal } from "../../../../store/reducers/send-report";
 import { StyledServiceButton } from "../../styled";
