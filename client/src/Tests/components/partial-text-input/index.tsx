@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import { Input } from 'antd';
 import { get, isNil } from "lodash";
 import { BORDERS, PARTIAL_TEXT_INPUT_ID } from "../../constants";
-import { focusNodeAfterMounting } from "../../utils";
+import { focusNodeAfterMounting } from "../../../utils";
 import { StyledPartialInputWrapper } from "./styled";
 import { useSubmit } from "../../use-submit";
 import { TestContext } from "../../Context";
