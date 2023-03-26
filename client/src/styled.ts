@@ -20,8 +20,12 @@ export const StyledLayout = styled(Layout)`
 `;
 
 export const StyledContent = styled(Content)`
-  margin: 0 16px;
 `;
+
+//PREVIOUS
+// export const StyledContent = styled(Content)`
+//   margin: 0 16px;
+// `;
 
 export const StyledDefault = styled.div``;
 

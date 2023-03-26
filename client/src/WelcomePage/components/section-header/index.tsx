@@ -5,7 +5,7 @@ import UserCount from "./user-count";
 const WelcomePageHeaderSection = () => {
     return (
         <HeaderWrapper>
-            <StyledTitle>English Learning Platform</StyledTitle>
+            <StyledTitle className="elp-title">English Learning Platform</StyledTitle>
             <UserCount />
         </HeaderWrapper>
     )

@@ -9,28 +9,28 @@ const CasesTabs: React.FC<{ config: ICases[] }> = ({ config }) => {
       label,
       key,
       children: (
-          <List
-            itemLayout="horizontal"
-            dataSource={titles}
-            renderItem={({ description }: { description: string }) => (
-              <List.Item>
-                <List.Item.Meta
-                  avatar={
-                    <Image
-                      id="cases-tabs-icon"
-                      url={icon}
-                      styles={{
-                        objectFit: "cover",
-                        height: "16px",
-                        width: "16px",
-                      }}
-                    />
-                  }
-                  description={description}
-                />
-              </List.Item>
-            )}
-          />
+        <List
+          itemLayout="vertical"
+          dataSource={titles}
+          renderItem={({ description }: { description: string }) => (
+            <List.Item>
+              <List.Item.Meta
+                avatar={
+                  <Image
+                    id="cases-tabs-icon"
+                    url={icon}
+                    styles={{
+                      objectFit: "cover",
+                      height: "16px",
+                      width: "16px",
+                    }}
+                  />
+                }
+                description={description}
+              />
+            </List.Item>
+          )}
+        />
       ),
     }),
     [config]
