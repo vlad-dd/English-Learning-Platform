@@ -7,7 +7,7 @@ const SingleCards = () => {
         <>
             {CARDS_INFORMATION.map(({ id, title, description }) => (
                 <Col key={id} span={8}>
-                    <Card title={title} bordered={false}>
+                    <Card title={title} bordered>
                         <p>{description}</p>
                     </Card>
                 </Col>

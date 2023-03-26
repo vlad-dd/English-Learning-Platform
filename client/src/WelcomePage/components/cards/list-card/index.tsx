@@ -8,7 +8,8 @@ import { CARDS_INFORMATION_LIST } from "../../../constants";
 const ListCard = () => {
     return (
         <Col span={8}>
-            <Card title="Platform Structure 🗂" bordered={false}>
+            <Card title="Platform Structure 🗂" bordered
+            >
                 <List
                     size="small">
                     <Space size={[0, 8]} wrap>
