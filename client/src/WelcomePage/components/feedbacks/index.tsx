@@ -6,7 +6,7 @@ import { LEARNERS_FEEDBACK } from "../../constants";
 
 const LearnerFeedbacks = () => {
 
-    const feedbacks = useMemo(() => LEARNERS_FEEDBACK.map(({ id, title, description }, index) => {
+    const feedbacks = useMemo(() => LEARNERS_FEEDBACK.map(({ id, title, description }) => {
         return (
             <List.Item key={id}>
                 <List.Item.Meta

@@ -3,3 +3,43 @@
 /* * {
     outline: 1px solid pink;
 } */
+
+  .ant-layout-content h1:not(.elp-title),
+  .ant-layout-content h2,
+  .ant-layout-content a,
+  .ant-layout-content:not(p),
+  .ant-layout-content div:not(.vertical-timeline-element),
+  .ant-layout-content .ant-table-cell,
+  .ant-layout-content td,
+  .ant-layout-content input,
+  .ant-layout-content .ant-input-wrapper > span,
+  .ant-layout-content:not(span)
+  .ant-layout-content .answerBtn,
+  .ant-layout-content .nextQuestionBtn,
+  .ant-layout-content .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description,
+  .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title,
+  .ant-layout-content .ant-tag,
+  .ant-layout-footer
+  {
+    background: rgb(0, 30, 60);
+    color: white;
+  }
+  
+  .ant-layout-content .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title ,
+  .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description {
+    color: darkturquoise;
+  }
+
+  .ant-layout-content .ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description,
+  .ant-layout-content .ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title  {
+    color: darkgray;
+  }
+
+  main {
+    background: rgb(0, 30, 60);
+  }
+
+.ant-table-cell {
+    pointer-events: none;
+  }
+  

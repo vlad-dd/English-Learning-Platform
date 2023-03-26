@@ -6,10 +6,17 @@ export const HeaderWrapper = styled.div`
   background: #131e31;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
   padding: 15px;
-  border-bottom: 1px solid gainsboro;
 `;
+
+//PREVIOUS
+// export const HeaderWrapper = styled.div`
+//   background: #131e31;
+//   display: flex;
+//   justify-content: space-between;
+//   margin-bottom: 30px;
+//   padding: 15px;
+// `;
 
 export const HeaderRight = styled.div`
   display: flex;

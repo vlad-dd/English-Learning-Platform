@@ -6,7 +6,7 @@ const UserCount = () => {
     return (
         <StyledRow>
             <Col>
-                <Statistic title="Active Users" value={Math.round(Math.random() * 15) + 1} />
+                <Statistic title="Active Users" value={1} />
             </Col>
         </StyledRow>
     )

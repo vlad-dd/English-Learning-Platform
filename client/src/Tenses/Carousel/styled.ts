@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const CarouselContainer = styled.div``;
+export const CarouselContainer = styled.div`
+border: 1px solid whitesmoke;
+`;
 
 export const ContentBlock = styled.div`
   height: 160px;
