@@ -16,7 +16,7 @@ const QuestionCarouselInput = ({
       <CarouselInput
         id='question-input'
         data-testid='question-input'
-        style={{ border: borderColor }}
+        style={{ border: borderColor ?? '1px solid white' }}
         disabled={showLastBanner}
         onKeyDown={(e: KeyboardEvent<HTMLElement>) =>
           handleCheck(e, sentences?.[actualSentenceIndex].missed)
