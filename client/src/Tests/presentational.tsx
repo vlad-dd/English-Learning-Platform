@@ -1,16 +1,16 @@
+import React from "react";
 import { get } from "lodash";
-import React, { useContext } from "react";
-import { ContentSection } from "../Tenses/styled";
+import { TestContext } from "./Context";
 import { BreadcrumbPath } from "../Сommon";
 import PartialTextInput from "./components/partial-text-input";
 import SelectInputQuiz from "./components/select-input";
 import TextInput from "./components/text-input";
+import useConfiguration from "../Hooks/use-configuration";
+import { ContentSection } from "../Tenses/styled";
 import { QUIZ_TYPE } from "./constants";
-import { TestContext } from "./Context";
 
 const TestApplication = () => {
-    const { data, isLoading, error } = useContext(TestContext)!;
-    const conditionGate = (): boolean => !!data && !isLoading && !error;
+    const { data, isLoading, error, renderApplicationGate } = useConfiguration(TestContext);
     const type = get(data, 'getTests[0].type');
 
     const renderParticularQuiz: Record<string, JSX.Element> = {
@@ -23,7 +23,7 @@ const TestApplication = () => {
         <React.Fragment>
             <BreadcrumbPath />
             <ContentSection>
-                {conditionGate() && renderParticularQuiz[type]}
+                {renderApplicationGate() && renderParticularQuiz[type]}
                 {isLoading && <div>Loading...</div>}
                 {error && <div>We have some troubles with request...</div>}
             </ContentSection>
