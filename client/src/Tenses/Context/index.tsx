@@ -9,10 +9,8 @@ const TenseContextRoot = ({ children }: { children: JSX.Element }) => {
 
     const { data, loading, error } = useTenseConfiguration();
 
-    const configuration = get(data?.countOfTenses, '[0]');
-
     return (
-        <TenseContext.Provider value={{ configuration, isLoading: loading, error }}>
+        <TenseContext.Provider value={{ data, isLoading: loading, error }}>
             {children}
         </TenseContext.Provider>
     )

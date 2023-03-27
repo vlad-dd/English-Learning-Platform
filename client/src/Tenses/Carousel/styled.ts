@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
-export const CarouselContainer = styled.div`
-border: 1px solid whitesmoke;
-`;
+export const CarouselContainer = styled.div``;
 
 export const ContentBlock = styled.div`
   height: 160px;
   background: #364d79;
   text-align: center;
+  border: 1px solid whitesmoke;
 `;
 // background: #1B1622;
 export const FirstPart = styled.span`

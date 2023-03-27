@@ -6,7 +6,6 @@ export const StyledSendReportWrapper = styled.div`
   flex-direction: row-reverse;
 `;
 
-
 export const StyledServiceButton = styled(Button)`
   display: flex;
   justify-content: center;
@@ -35,3 +34,9 @@ export const StyledSubmitInnerHTML = styled.span`
 export const StyledForm = styled(Form)`
   max-width: 600;
 `;
+
+export const StyledInputLengthError = styled.p`
+  color: red;
+`;
+
+export const StyledInputLengthContainer = styled.div``;

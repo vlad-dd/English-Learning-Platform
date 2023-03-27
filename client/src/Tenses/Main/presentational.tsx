@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { AlertOutlined } from "@ant-design/icons";
 import { TenseContext } from "../Context";
+import { useConfiguration } from "../../Hooks";
 import { ApplicationTitle, BreadcrumbPath } from "../../Сommon";
 import { ContentSection, StyledAlert } from "../styled";
 import TensesTable from "../Table/tenses-table";
@@ -8,15 +9,14 @@ import TensePractice from "../Carousel/presentational";
 import MostCommonCases from "../Cases/cases-tabs";
 import TenseExamplePanels from "../Examples/example-panels";
 
-
 const TenseContent = (): JSX.Element | null => {
-
-  const { configuration, isLoading, error } = useContext(TenseContext);
+  const { renderApplicationGate, extractValueByPath, isLoading, error} = useConfiguration(TenseContext);
+  const configuration = extractValueByPath('countOfTenses[0]');
 
   return (
     <>
       <BreadcrumbPath />
-      {configuration && (
+      {renderApplicationGate() && (
         <ContentSection>
           <ApplicationTitle>{configuration.tense}</ApplicationTitle>
           <StyledAlert icon={<AlertOutlined />} message={configuration.tableData.tip} showIcon />

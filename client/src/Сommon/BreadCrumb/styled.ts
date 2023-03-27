@@ -3,6 +3,7 @@ import { Breadcrumb } from 'antd';
 import { DEVICE_MAXIMUM } from '../../mobile-view';
 
 export const StyledBreadcrumb = styled(Breadcrumb)`
+  padding: 16px 16px;
   color: white;
   background: rgb(0, 30, 60);
 
