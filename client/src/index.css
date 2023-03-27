@@ -6,15 +6,19 @@
 
   .ant-layout-content h1:not(.elp-title),
   .ant-layout-content h2,
+  .ant-layout-content h3,
   .ant-layout-content a,
   .ant-layout-content:not(p),
   .ant-layout-content div:not(.vertical-timeline-element),
   .ant-layout-content .ant-table-cell,
+  .ant-layout-content, .ant-input[disabled],
   .ant-layout-content td,
+  .ant-layout-content path,
+  .ant-layout-content, .ant-collapse-header-text,
   .ant-layout-content input,
   .ant-layout-content .ant-input-wrapper > span,
-  .ant-layout-content:not(span)
-  .ant-layout-content .answerBtn,
+  .ant-layout-content:not(span),
+  .ant-layout-content .answerBtn:not(.incorrect),
   .ant-layout-content .nextQuestionBtn,
   .ant-layout-content .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description,
   .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title,
@@ -23,6 +27,18 @@
   {
     background: rgb(0, 30, 60);
     color: white;
+  }
+
+  .ant-layout-content .ant-progress-inner > span {
+    color: white;
+  }
+
+  .ant-layout-content .ant-breadcrumb-link {
+    color: whitesmoke
+  }
+
+  .ant-layout-content .ant-breadcrumb-separator {
+    color:darkgray
   }
   
   .ant-layout-content .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title ,
