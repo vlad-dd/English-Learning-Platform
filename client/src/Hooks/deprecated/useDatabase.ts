@@ -1,8 +1,8 @@
 import { collection, getDocs } from "firebase/firestore"
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
-import { database } from "../authentification/firebase"
-import { setTenseConfiguration } from "../store/reducers/tenses"
+import { database } from "../../authentification/firebase"
+import { setTenseConfiguration } from "../../store/reducers/tenses"
 
 const useDatabase = (path: string) => {
     const dispatch = useDispatch();
