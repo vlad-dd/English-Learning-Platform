@@ -11,7 +11,7 @@ const APPLICATION_PARTS = [
     { title: 'Future-Continuous', path: '/Tenses/Future/Future-Continuous' },
     { title: 'Future-Perfect', path: '/Tenses/Future/Future-Perfect' },
     { title: 'Future-Perfect-Continuous', path: '/Tenses/Future/Future-Perfect-Continuous' },
-    { title: 'Dictionary', path: '/Dictionary/Dictionary' },
+    { title: 'Dictionary', path: '/Dictionary' },
     { title: 'Grammar: Plural', path: '/Grammar-Levels/A1/Plural' },
     { title: 'Tests: Mixed Tenses', path: '/Tests/Verbs/Mixed-Tenses' },
     { title: 'Tests: Present', path: '/Tests/Verbs/Present' },

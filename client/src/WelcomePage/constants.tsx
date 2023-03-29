@@ -9,7 +9,7 @@ const CARDS_INFORMATION= [
 const CARDS_INFORMATION_LIST = [
     { id: 1, title: 'English verbs with tests for better understanding', link: '/Tenses/Present/Present-Simple'  },
     { id: 2, title: 'Grammar in details for each level of English', link: '/Grammar-Levels/A1/Plural'  },
-    { id: 3, title: 'Dictionary with listening options by native speakers', link: '/Dictionary/Dictionary', color: 'orange'  },
+    { id: 3, title: 'Dictionary with listening options by native speakers', link: '/Dictionary', color: 'orange'  },
     { id: 4, title: 'Separated tests for focusing on specific areas', link: '/Tests/Verbs/Mixed-Tenses', color: 'purple'  },
 ];
 

@@ -76,9 +76,7 @@ export const options: Option[] = [
   ]},
 
   //Dictionary
-  {label: 'Dictionary', key: 'Dictionary', icon: <GiBookCover />, children: [
-    {label: 'Dictionary', key: 'Dictionary', icon: <TagOutlined />},
-  ]},
+  {label: 'Dictionary', key: 'Dictionary', icon: <GiBookCover /> },
 
   {label: 'Tests', key: 'Tests', icon: <MdQuiz />, children: [
     {label: 'Verbs', key: 'Verbs', icon: <GoFlame />, children: [
@@ -89,9 +87,7 @@ export const options: Option[] = [
   ]},
 
   //News
-  {label: 'Releases', key: 'Releases', icon: <MdNewReleases />, children: [
-    {label: 'Releases', key: 'Releases', icon: <TagOutlined />},
-  ]},
+  {label: 'Releases', key: 'Releases', icon: <MdNewReleases /> },
   //To continue...
 
 ];
