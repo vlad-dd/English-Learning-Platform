@@ -9,6 +9,7 @@ describe("SearchInput", () => {
     data: {},
     isLoading: false,
     searchWordInDictionary: jest.fn(),
+    error: undefined 
   };
 
   beforeEach(() => {

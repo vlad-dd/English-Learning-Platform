@@ -40,7 +40,7 @@ const useApplicationRouter = () => {
         ),
       },
       {
-        path: "/Dictionary/Dictionary",
+        path: "/Dictionary",
         element: (
           <DictionaryContext>
            <Dictionary />
@@ -48,7 +48,7 @@ const useApplicationRouter = () => {
         ),
       },
       {
-        path: "/Releases/Releases",
+        path: "/Releases",
         element: (
             <Releases />
         ),

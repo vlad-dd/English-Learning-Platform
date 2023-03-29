@@ -53,7 +53,7 @@ describe('Dictionary', () => {
     describe('while isLoading false', () => {
         beforeEach(() => {
             render(
-                <DictionaryConfigurationContext.Provider value={{ data: responseMock, isLoading: false, searchWordInDictionary: jest.fn() }}>
+                <DictionaryConfigurationContext.Provider value={{ data: responseMock, isLoading: false, searchWordInDictionary: jest.fn(), error: undefined  }}>
                     <Dictionary />
                 </DictionaryConfigurationContext.Provider>
             )
@@ -88,7 +88,7 @@ describe('Dictionary', () => {
     describe('while isLoading true', () => {
         it('should render Dictionary root', () => {
             render(
-                <DictionaryConfigurationContext.Provider value={{ data: responseMock, isLoading: true, searchWordInDictionary: jest.fn() }}>
+                <DictionaryConfigurationContext.Provider value={{ data: responseMock, isLoading: true, searchWordInDictionary: jest.fn(), error: undefined }}>
                     <Dictionary />
                 </DictionaryConfigurationContext.Provider>
             )

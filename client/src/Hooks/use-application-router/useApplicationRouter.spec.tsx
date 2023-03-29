@@ -7,6 +7,6 @@ it('should return router configuration', () => {
     expect(result.current.router.routes[0].children[0].path).toBe('/');
     expect(result.current.router.routes[0].children[1].path).toBe('/Tenses/:type/:tense');
     expect(result.current.router.routes[0].children[2].path).toBe('/Grammar-Levels/:level/:theme');
-    expect(result.current.router.routes[0].children[3].path).toBe('/Dictionary/Dictionary');
-    expect(result.current.router.routes[0].children[4].path).toBe('/Releases/Releases');
+    expect(result.current.router.routes[0].children[3].path).toBe('/Dictionary');
+    expect(result.current.router.routes[0].children[4].path).toBe('/Releases');
 })

@@ -22,7 +22,7 @@ const dictionaryMock = [{
 describe('Meanings', () => {
     beforeEach(() => {
         render(
-            <DictionaryConfigurationContext.Provider value={{ data: { dictionary: dictionaryMock }, isLoading: false, searchWordInDictionary: jest.fn() }}>
+            <DictionaryConfigurationContext.Provider value={{ data: { dictionary: dictionaryMock }, isLoading: false, searchWordInDictionary: jest.fn(), error: undefined  }}>
                 <Meanings />
             </DictionaryConfigurationContext.Provider>)
     });
