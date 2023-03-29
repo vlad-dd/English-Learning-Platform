@@ -1,7 +1,7 @@
 import { get } from "lodash";
 import { useContext } from "react";
 
-const useConfiguration = (Context: React.Context<any>) => {
+function useConfiguration<T extends React.Context<any>> (Context: T){
 
     const { data, isLoading, error}: any = useContext(Context);
 

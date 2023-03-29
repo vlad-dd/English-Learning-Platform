@@ -5,6 +5,7 @@ import { DictionaryResponseType, useDictionary } from '../Hooks/use-dictionary';
 const DictionaryContextInitialState = {
     data: {},
     isLoading: false,
+    error: undefined,
     searchWordInDictionary: noop
 }
 
@@ -12,10 +13,10 @@ export const DictionaryConfigurationContext = createContext<DictionaryResponseTy
 
 const DictionaryContext = ({ children }: { children: JSX.Element }) => {
 
-    const { searchWordInDictionary, data, isLoading } = useDictionary();
-    
+    const { searchWordInDictionary, data, error, isLoading } = useDictionary();
+   
     return (
-        <DictionaryConfigurationContext.Provider value={{ data, searchWordInDictionary, isLoading }}>
+        <DictionaryConfigurationContext.Provider value={{ data, searchWordInDictionary, isLoading, error }}>
          {children}
         </DictionaryConfigurationContext.Provider>
     )
