@@ -12,7 +12,10 @@ const uid = (length: number) => {
 
 const focusNodeAfterMounting = (id: string) => document.getElementById(id)?.focus();
 
+const generateNicknameAvatars = (name: string) => ({ children: `${name.split(' ')[0][0] + name.split(' ')[1][0]}` });
+
 export { 
   uid,
-  focusNodeAfterMounting
+  focusNodeAfterMounting,
+  generateNicknameAvatars
 };

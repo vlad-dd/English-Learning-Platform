@@ -23,17 +23,30 @@
   .ant-layout-content .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description,
   .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title,
   .ant-layout-content .ant-tag,
+  .ant-layout-content .rsw-dd,
   .ant-layout-footer
   {
     background: rgb(0, 30, 60);
     color: white;
   }
 
-  .ant-layout-content .ant-progress-inner > span {
+  .ant-layout-content .anticon-check-circle > svg {
+    fill: springgreen;
+  }
+
+  .ant-layout-content .anticon-close-circle > svg {
+    fill: red;
+  }
+
+  .ant-layout-content .ant-progress-inner > span,
+  .ant-layout-content .MuiTypography-root
+   {
     color: white;
   }
 
-  .ant-layout-content .ant-breadcrumb-link {
+  .ant-layout-content .ant-breadcrumb-link,
+  .ant-layout-content .rsw-toolbar > button
+  {
     color: whitesmoke
   }
 
@@ -49,6 +62,18 @@
   .ant-layout-content .ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description,
   .ant-layout-content .ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title  {
     color: darkgray;
+  }
+
+  .ant-layout-content .rsw-dd {
+    border: none;
+  }
+  
+  .ant-layout-content .liked-button {
+    fill: chartreuse;
+  }
+
+  .ant-layout-content .disliked-button {
+    fill: red;
   }
 
   main {

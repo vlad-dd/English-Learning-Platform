@@ -73,7 +73,7 @@ const CarouselQuiz = () => {
   };
 
   return (
-  <Carousel data-testid="carousel-quiz" dotPosition='left'>
+  <Carousel adaptiveHeight data-testid="carousel-quiz" dotPosition='left'>
      <CarouselContainer>
      <AlertController data-testid="alert-banner">{alertController}</AlertController>
         <ContentBlock>
