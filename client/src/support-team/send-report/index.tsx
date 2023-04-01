@@ -22,7 +22,8 @@ const SendReportModal = () => {
           {isSubmitted && <ReportResult />}
           <SendReportForm
             isSubmitted={isSubmitted}
-            setSubmitted={setSubmitted} />
+            setSubmitted={setSubmitted} 
+          />
         </Modal>
         <ReportServiceIcon />
       </Tooltip>

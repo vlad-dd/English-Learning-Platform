@@ -1,35 +1,17 @@
-import React, { SyntheticEvent, useCallback, useState } from "react";
-import { AlertOutlined } from "@ant-design/icons";
-import RuleIcon from '@mui/icons-material/Rule';
-import { TenseContext } from "../Context";
-import { useConfiguration } from "../../Hooks";
-import { ApplicationTitle, BreadcrumbPath, Title } from "../../Сommon";
-import { ContentSection, StyledAlert } from "../styled";
-import TensesTable from "../Table/tenses-table";
-import TensePractice from "../Carousel/presentational";
-import MostCommonCases from "../Cases/cases-tabs";
-import TenseExamplePanels from "../Examples/example-panels";
-import { Avatar, Button, Link, Tooltip } from "@mui/material";
-import { generateNicknameAvatars, uid } from "../../utils";
-import SendIcon from '@mui/icons-material/Send';
-import Editor from 'react-simple-wysiwyg';
-import LoadingButton from '@mui/lab/LoadingButton';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ArchiveIcon from '@mui/icons-material/Archive';
-import Paper from '@mui/material/Paper';
-import List from '@mui/material/List';
-import IconButton from '@mui/material/IconButton';
-import Fingerprint from '@mui/icons-material/Fingerprint';
+import { Avatar, IconButton, Link, List, Tooltip } from "@mui/material";
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
-import { Tag } from "antd";
 import { size } from "lodash";
+import React, { useState } from "react";
+import RuleIcon from '@mui/icons-material/Rule';
+import { Title } from "../../Сommon";
+import Editor from 'react-simple-wysiwyg';
+import LoadingButton from '@mui/lab/LoadingButton';
+import SendIcon from '@mui/icons-material/Send';
+import { StyledCommentsCount, StyledCommentsHeader, StyledCount, StyledRuleSection, StyledSectionCommentsWrapper } from "./styled";
+import { generateNicknameAvatars, uid } from "../../utils";
+import { Button, Tag } from "antd";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import TextField from '@mui/material/TextField';
@@ -38,49 +20,49 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import SectionComments from "../Comments/presentational";
+import CommentsHeader from "./components/comments-header";
+import SendCommentEditor from "./components/send-comment";
 
-const TenseContent = (): JSX.Element | null => {
-  const { renderApplicationGate, extractValueByPath, isLoading, error } = useConfiguration(TenseContext);
-  const configuration = extractValueByPath('countOfTenses[0]');
-  const [html, setHtml] = useState('');
-  const [comments, setComment] = useState([]);
-  const [like, setLike] = useState(false);
-  const [dislike, setDislike] = useState(false);
 
-  const [open, setOpen] = React.useState(false);
+const SectionComments = () => {
+    const [comments, setComment] = useState([]);
+    const [html, setHtml] = useState('');
+    const [like, setLike] = useState(false);
+    const [dislike, setDislike] = useState(false);
+    const [open, setOpen] = React.useState(false);
+    const onChange = (e: any) => setHtml(e.target.value)
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+    console.log(comments)
 
-  const likeComment = () => {
-    setDislike(false);
-    setLike(true);
-  }
+    const addComment = () => {
+        const date = new Date();
+        const datetime = date.getDate() + "/"
+          + (date.getMonth() + 1) + "/"
+          + date.getFullYear()
+        //@ts-ignore
+        setComment([...comments, { id: uid(5), date: datetime, comment: html }])
+      }
 
-  const dislikeComment = () => {
-    setLike(false);
-    setDislike(true);
-  }
+      const handleClose = () => {
+        setOpen(false);
+      };
 
-  console.log('html: ', html)
-  console.log('Render')
+      const likeComment = () => {
+        setDislike(false);
+        setLike(true);
+      }
+    
+      const dislikeComment = () => {
+        setLike(false);
+        setDislike(true);
+      }
 
-  return (
-    <>
-      <BreadcrumbPath />
-      {renderApplicationGate() && (
-        <ContentSection>
-          <ApplicationTitle>{configuration.tense}</ApplicationTitle>
-          <StyledAlert icon={<AlertOutlined />} message={configuration.tableData.tip} showIcon />
-          <TensesTable table={configuration.tableData.table} />
-          <MostCommonCases tense={configuration.tense} cases={configuration.cases} />
-          <TenseExamplePanels examples={configuration.examples} />
-          <TensePractice />
-          <SectionComments />
+    return (
+        <StyledSectionCommentsWrapper>
+            <CommentsHeader comments={comments} />
+            <SendCommentEditor addComment={addComment} />
 
-          {/* <List style={{ overflow: "scroll" }}>
+          <List style={{ overflow: "scroll" }}>
             {!!comments && comments.map(({ id, date, comment }) => (
               <ListItem key={id} style={{ margin: "15px 0" }}>
                 <ListItemAvatar>
@@ -159,13 +141,10 @@ const TenseContent = (): JSX.Element | null => {
                 />
               </ListItem>
             ))}
-          </List> */}
-        </ContentSection>
-      )}
-      {isLoading && <div>Loading...</div>}
-      {error && <div>We have some troubles with request...</div>}
-    </>
-  );
-};
+          </List>
 
-export default TenseContent;
+        </StyledSectionCommentsWrapper>
+    )
+}
+
+export default SectionComments;
