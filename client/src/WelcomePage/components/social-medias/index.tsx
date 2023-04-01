@@ -8,8 +8,8 @@ const SocialMedias = () => {
         <StyledSpace wrap>
             {SOCIAL_MEDIAS.map(({ id, media, icon, color }) => {
                 return (
-                    <Tag key={id} icon={icon} color={color}>
-                        {media}
+                    <Tag style={{ display: "flex", justifyContent: "center", alignItems: "center"}} key={id} icon={icon} color={color}>
+                        <p style={{ margin: "3px" }}>{media}</p>
                     </Tag>
                 )
             })}
