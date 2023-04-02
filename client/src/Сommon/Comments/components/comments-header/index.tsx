@@ -2,7 +2,7 @@ import React from "react";
 import { size } from "lodash";
 import RuleIcon from '@mui/icons-material/Rule';
 import { Tooltip } from "@mui/material";
-import { Title } from "../../../../Сommon";
+import { Title } from "../../..";
 import { 
     StyledCommentsHeader,
     StyledCommentsCount,
