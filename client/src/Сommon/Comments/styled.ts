@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Tag } from "antd";
 import { Avatar, List, IconButton } from "@mui/material";
+import RuleIcon from '@mui/icons-material/Rule';
 import ListItem from '@mui/material/ListItem';
 
 export const StyledSectionCommentsWrapper = styled.div``;
@@ -79,3 +80,11 @@ export const StyledCommentReactions = styled.div`
 export const StyledIconButton = styled(IconButton)`
   margin-right: 30px;
 `;
+
+export const StyledRuleIcon = styled(RuleIcon)`
+  cursor: pointer;
+  margin-right: 15px;
+  border-bottom: 1px solid purple;
+`;
+
+export const StyledCommentRulesWrapper = styled.div``;

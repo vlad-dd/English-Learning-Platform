@@ -1,8 +1,8 @@
 import React from "react";
 import { size } from "lodash";
-import RuleIcon from '@mui/icons-material/Rule';
-import { Tooltip } from "@mui/material";
+import { useBoolean } from "../../../../Hooks";
 import { Title } from "../../..";
+import CommentRulesModal from "./rules-modal";
 import { 
     StyledCommentsHeader,
     StyledCommentsCount,
@@ -11,6 +11,7 @@ import {
 } from "../../styled";
 
 const CommentsHeader = ({ comments }: any) => {
+    const [isRulesModalOpen, setIsRulesModalOpen] = useBoolean();
     return (
         <StyledCommentsHeader>
         <StyledCommentsCount>
@@ -19,9 +20,7 @@ const CommentsHeader = ({ comments }: any) => {
         </StyledCommentsCount>
 
         <StyledRuleSection>
-            <Tooltip title='Rules'>
-                <RuleIcon style={{ marginRight: "15px" }} />
-            </Tooltip>
+            <CommentRulesModal open={isRulesModalOpen} setOpen={setIsRulesModalOpen}  />
         </StyledRuleSection>
 
     </StyledCommentsHeader>
