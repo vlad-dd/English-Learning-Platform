@@ -1,3 +1,5 @@
+import { message } from "antd";
+
 const uid = (length: number) => {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -14,8 +16,11 @@ const focusNodeAfterMounting = (id: string) => document.getElementById(id)?.focu
 
 const generateNicknameAvatars = (name: string) => ({ children: `${name.split(' ')[0][0] + name.split(' ')[1][0]}` });
 
+const successMessage = (text: string) => (() => message.success(text))();
+
 export { 
   uid,
   focusNodeAfterMounting,
-  generateNicknameAvatars
+  generateNicknameAvatars,
+  successMessage
 };
