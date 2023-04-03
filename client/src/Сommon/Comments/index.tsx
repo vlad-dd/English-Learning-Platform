@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { StyledSectionCommentsWrapper } from "./styled";
 import { uid } from "../../utils";
 import CommentsHeader from "./components/comments-header";
 import SendCommentEditor from "./components/send-comment";
 import CommentsList from "./components/comments-list";
+import { StyledSectionCommentsWrapper } from "./styled";
 
 const SectionComments = () => {
     const [comments, setComment] = useState<any[]>([]);
