@@ -6,6 +6,16 @@ type Query {
     getTests(part: String!, theme: String!): [Tests]!
 }
 
+type Comment {
+    id: String
+    date: String
+    comment: String
+}
+
+type Mutation {
+  addComment(collection: String!, id: String!, comment: String!): String
+}
+
 # Tense
 
 type TestTense {
@@ -14,6 +24,7 @@ type TestTense {
     cases: [Cases]!
     examples: [Examples]!
     practice: [PracticeSentences!]
+    comments: [Comment]
 }
 
 type AllTable {
@@ -122,6 +133,7 @@ type GrammarLevel {
     content: String
     cases: [Cases]!
     quiz: Quiz!
+    comments: [Comment]
 }
 
 type Quiz {
