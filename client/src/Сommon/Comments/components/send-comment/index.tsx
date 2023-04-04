@@ -3,13 +3,11 @@ import { size } from "lodash";
 import Editor from 'react-simple-wysiwyg';
 import LoadingButton from '@mui/lab/LoadingButton';
 import SendIcon from '@mui/icons-material/Send';
-import { generateNicknameAvatars, successMessage } from "../../../../utils";
+import { generateNicknameAvatars } from "../../../../utils";
 import { EditorContainer, StyledButtonInnerHTML, StyledEditor, StyledEditorAvatar } from "../../styled";
-import { useBoolean } from "../../../../Hooks";
 
-const SendCommentEditor= ({ addComment }: any) => {
+const SendCommentEditor= ({ addComment, isLoading }: any) => {
     const [html, setHtml] = useState('');
-    const [isCommentSending, setIsCommentSending] = useBoolean();
     const onChange = (e: any) => setHtml(e.target.value);
     return (
         <StyledEditor>
@@ -20,16 +18,9 @@ const SendCommentEditor= ({ addComment }: any) => {
             style={{ position: "absolute", right: "1px", bottom: "1px" }}
             size="small"
             color="secondary"
-            loading={isCommentSending}
+            loading={isLoading}
             disabled={size(html) === 0}
-            onClick={() => {
-              setIsCommentSending(true);
-              setTimeout(() => {
-                addComment(html);
-                setIsCommentSending(false);
-                successMessage('Comment has been added!');
-              }, 1500)
-            }}
+            onClick={() => addComment(html)}
             loadingPosition="start"
             startIcon={<SendIcon />}
             variant="contained"

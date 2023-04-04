@@ -11,9 +11,9 @@ export const useTenseConfiguration = () => {
 
   const { path } = useSelector(selectors.tensesBCState);
 
-  const { data, loading, error } = useQuery(GET_TENSE, {
+  const { data, loading, error, refetch } = useQuery(GET_TENSE, {
     variables: { tense: path[0] ?? window.location.pathname.split("/").at(-1) },
   });
 
-  return { data, loading, error };
+  return { data, loading, error, refetch };
 };

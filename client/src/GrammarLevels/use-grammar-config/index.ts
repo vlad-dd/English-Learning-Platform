@@ -9,7 +9,7 @@ export const useGrammarConfig = () => {
     const windowPath = compact(window?.location?.pathname.split('/'));
     console.log('requestConfig: ', path)
     console.log('windowPath: ', windowPath)
-    const { data, loading, error } = useQuery(GET_GRAMMAR_BY_LEVEL_AND_THEME, { variables: { level: path[1] ?? windowPath[1], theme: path[0] ?? windowPath[2] } });
+    const { data, loading, error, refetch } = useQuery(GET_GRAMMAR_BY_LEVEL_AND_THEME, { variables: { level: path[1] ?? windowPath[1], theme: path[0] ?? windowPath[2] } });
 
-    return { data, isLoading: loading, error }
+    return { data, isLoading: loading, error, refetch }
 }

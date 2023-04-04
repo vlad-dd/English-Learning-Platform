@@ -29,6 +29,11 @@ export const GET_GRAMMAR_BY_LEVEL_AND_THEME = gql`
         point
       }
     }
+    comments {
+      id
+      date
+      comment
+    }
     }
   }
 `;
