@@ -7,10 +7,10 @@ export const TenseContext = createContext<any>(null);
 
 const TenseContextRoot = ({ children }: { children: JSX.Element }) => {
 
-    const { data, loading, error } = useTenseConfiguration();
+    const { data, loading, error, refetch } = useTenseConfiguration();
 
     return (
-        <TenseContext.Provider value={{ data, isLoading: loading, error }}>
+        <TenseContext.Provider value={{ data, isLoading: loading, error, refetch }}>
             {children}
         </TenseContext.Provider>
     )

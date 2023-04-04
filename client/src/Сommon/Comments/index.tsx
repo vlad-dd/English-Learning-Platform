@@ -1,28 +1,32 @@
-import React, { useState } from "react";
-import { uid } from "../../utils";
+import React from "react";
 import CommentsHeader from "./components/comments-header";
 import SendCommentEditor from "./components/send-comment";
 import CommentsList from "./components/comments-list";
+import useUpdate from "./use-comment-update";
 import { StyledSectionCommentsWrapper } from "./styled";
 
-const SectionComments = () => {
-    const [comments, setComment] = useState<any[]>([]);
+interface ISectionComments {
+  renderComments: any
+  refetch: () => void
+  path1: string
+  path2: string
+}
 
-    const addComment = (html: any) => {
-        const date = new Date();
-        const datetime = date.getDate() + "/"
-          + (date.getMonth() + 1) + "/"
-          + date.getFullYear()
-        setComment([...comments, { id: uid(5), date: datetime, comment: html }])
-      }
+const SectionComments = ({ renderComments, refetch, path1, path2 }: ISectionComments) => {
 
-    return (
-        <StyledSectionCommentsWrapper>
-            <CommentsHeader comments={comments} />
-            <SendCommentEditor addComment={addComment} />
-            <CommentsList comments={comments} />
-        </StyledSectionCommentsWrapper>
-    )
+  const { addComment, isLoading, error } = useUpdate(refetch, path1, path2);
+
+  return (
+    <StyledSectionCommentsWrapper>
+      <CommentsHeader comments={renderComments} />
+      <SendCommentEditor isLoading={isLoading} addComment={addComment} />
+      {renderComments && !isLoading && !error && (
+        <>
+          <CommentsList comments={renderComments} />
+        </>
+      )}
+    </StyledSectionCommentsWrapper>
+  )
 }
 
 export default SectionComments;
