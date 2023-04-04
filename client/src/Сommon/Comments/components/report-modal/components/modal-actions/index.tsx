@@ -17,7 +17,7 @@ const ModalActions = ({ selectedReason, createUserAppeal, handleClose }: any) =>
             size="small"
             color="info"
             disabled={!selectedReason}
-            loading={false}
+            loading={showBackDrop}
             onClick={() => {
                 setShowBackDrop(true);
                 setTimeout(() => {

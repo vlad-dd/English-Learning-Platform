@@ -76,6 +76,10 @@
     fill: red;
   }
 
+  .ant-layout-content .MuiBackdrop-root {
+    opacity: 0.5 !important;
+  }
+
   main {
     background: rgb(0, 30, 60);
   }

@@ -40,6 +40,11 @@ query getAllTenseConfiguration($tense: String!) {
       }
       tip
     }
+    comments {
+      id
+      date
+      comment
+    }
     tense
   }
 }

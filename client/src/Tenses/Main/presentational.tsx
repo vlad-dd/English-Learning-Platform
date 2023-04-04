@@ -8,10 +8,16 @@ import TensesTable from "../Table/tenses-table";
 import TensePractice from "../Carousel/presentational";
 import MostCommonCases from "../Cases/cases-tabs";
 import TenseExamplePanels from "../Examples/example-panels";
+import { compact, get } from "lodash";
+import { useTenseConfiguration } from "./use-tense-configuration";
 
 const TenseContent = (): JSX.Element | null => {
-  const { renderApplicationGate, extractValueByPath, isLoading, error } = useConfiguration(TenseContext);
-  const configuration = extractValueByPath('countOfTenses[0]');
+  // const { renderApplicationGate, extractValueByPath, isLoading, error, refetch } = useConfiguration(TenseContext);
+  const { data, loading, error, refetch} = useTenseConfiguration();
+  const renderApplicationGate = () => !!data && !loading && !error;
+  // const configuration = extractValueByPath('countOfTenses[0]');
+  const configuration = get(data, 'countOfTenses[0]');
+  const path = compact(window.location.pathname.split('/'));
 
   return (
     <>
@@ -24,10 +30,10 @@ const TenseContent = (): JSX.Element | null => {
           <MostCommonCases tense={configuration.tense} cases={configuration.cases} />
           <TenseExamplePanels examples={configuration.examples} />
           <TensePractice />
-          <SectionComments />
+          <SectionComments renderComments={configuration.comments} refetch={refetch} path1={path[2]} path2={path[2]}/>
         </ContentSection>
       )}
-      {isLoading && <div>Loading...</div>}
+      {loading && <div>Loading...</div>}
       {error && <div>We have some troubles with request...</div>}
     </>
   );

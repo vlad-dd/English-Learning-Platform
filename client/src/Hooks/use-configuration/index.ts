@@ -1,9 +1,10 @@
-import { get } from "lodash";
 import { useContext } from "react";
+import { get } from "lodash";
+
 
 function useConfiguration<T extends React.Context<any>> (Context: T){
 
-    const { data, isLoading, error}: any = useContext(Context);
+    const { data, isLoading, error, refetch }: any = useContext(Context);
 
     const renderApplicationGate = (): boolean  => !!data && !isLoading && !error;
 
@@ -13,6 +14,7 @@ function useConfiguration<T extends React.Context<any>> (Context: T){
         data,
         isLoading,
         error,
+        refetch,
         renderApplicationGate,
         extractValueByPath
     }

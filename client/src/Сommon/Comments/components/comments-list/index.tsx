@@ -15,7 +15,7 @@ import {
 const CommentsList = ({ comments }: any) => {
     return (
         <StyledList>
-            {!!comments && comments.reverse().map(({ id, date, comment }: any) => (
+            {!!comments && [...comments].reverse().map(({ id, date, comment }: any) => (
                 <StyledListItem key={id}>
                     <ListItemAvatar>
                         <StyledCommentAvatar {...generateNicknameAvatars('V S')} />
