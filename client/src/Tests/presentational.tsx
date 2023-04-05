@@ -1,16 +1,16 @@
 import React from "react";
 import { get } from "lodash";
-import { TestContext } from "./Context";
 import { BreadcrumbPath } from "../Сommon";
 import PartialTextInput from "./components/partial-text-input";
 import SelectInputQuiz from "./components/select-input";
 import TextInput from "./components/text-input";
-import useConfiguration from "../Hooks/use-configuration";
 import { ContentSection } from "../Tenses/styled";
 import { QUIZ_TYPE } from "./constants";
+import { useTestConfiguration } from "./use-test-configuration";
 
 const TestApplication = () => {
-    const { data, isLoading, error, renderApplicationGate } = useConfiguration(TestContext);
+    const { data, isLoading, error } = useTestConfiguration();
+    const renderApplicationGate = () => !!data && !isLoading && !error;
     const type = get(data, 'getTests[0].type');
 
     const renderParticularQuiz: Record<string, JSX.Element> = {

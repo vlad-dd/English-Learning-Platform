@@ -29,7 +29,7 @@ const SearchInput = () => {
 
     return (
         <StyledAutoComplete
-            id="grouped-demo"
+            data-testid="header-autocomplete"
             style={{ width: '35vw' }}
             //@ts-ignore
             onChange={(e, elem) => setSelectedValue(elem)}
