@@ -3,6 +3,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import { generateNicknameAvatars } from "../../../../utils";
 import ParticularComment from "./particular-comment";
+import { IComment } from "../../types";
 import { 
     ListItemTextBody, 
     SendersNickname, 
@@ -12,10 +13,10 @@ import {
     StyledListItem 
 } from "../../styled";
 
-const CommentsList = ({ comments }: any) => {
+const CommentsList = ({ comments }: { comments: Array<IComment> }) => {
     return (
         <StyledList>
-            {!!comments && [...comments].reverse().map(({ id, date, comment }: any) => (
+            {!!comments && [...comments].reverse().map(({ id, date, comment }: IComment) => (
                 <StyledListItem key={id}>
                     <ListItemAvatar>
                         <StyledCommentAvatar {...generateNicknameAvatars('V S')} />

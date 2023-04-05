@@ -14,12 +14,13 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import WorkIcon from '@mui/icons-material/RuleSharp';
 import Divider from '@mui/material/Divider';
+import { ICommentRulesModal } from '../../../types';
 import {
     StyledCommentRulesWrapper,
     StyledRuleIcon
 } from '../../../styled';
 
-const CommentRulesModal = ({ open, setOpen }: any) => {
+const CommentRulesModal = ({ open, setOpen }: ICommentRulesModal) => {
 
     const closeRulesModal = () => {
         setOpen(false);
@@ -43,7 +44,7 @@ const CommentRulesModal = ({ open, setOpen }: any) => {
                         As part of our policy, <strong style={{ color: "black" }}>we do not give permission</strong> for comments that include any of the following:
                     </Typography>
                     <List>
-                        {POLICY_RULES.map((rule: any) => (
+                        {POLICY_RULES.map((rule: string) => (
                             <>
                                 <ListItem>
                                     <ListItemAvatar>

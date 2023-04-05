@@ -9,8 +9,9 @@ import {
     StyledCount,
     StyledRuleSection
 } from "../../styled";
+import { IComment } from "../../types";
 
-const CommentsHeader = ({ comments }: any) => {
+const CommentsHeader = ({ comments }: { comments: Array<IComment> }) => {
     const [isRulesModalOpen, setIsRulesModalOpen] = useBoolean();
     return (
         <StyledCommentsHeader>

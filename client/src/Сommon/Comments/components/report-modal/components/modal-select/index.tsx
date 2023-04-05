@@ -5,8 +5,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { POLICY_RULES } from "../../../../constants";
+import { ISelectReportReason } from "../../../../types";
 
-const SelectReportReason = ({ selectedReason, setSelectedReason }: any) => {
+const SelectReportReason = ({ selectedReason, setSelectedReason }: ISelectReportReason) => {
     return (
         <Box marginTop="20px" sx={{ minWidth: 120 }}>
             <FormControl fullWidth>

@@ -6,8 +6,9 @@ import { Backdrop, CircularProgress } from "@mui/material";
 import DialogActions from '@mui/material/DialogActions';
 import { useBoolean } from "../../../../../../Hooks";
 import { successMessage } from "../../../../../../utils";
+import { IModalActions } from "../../../../types";
 
-const ModalActions = ({ selectedReason, createUserAppeal, handleClose }: any) => {
+const ModalActions = ({ selectedReason, createUserAppeal, handleClose }: IModalActions) => {
     const [showBackDrop, setShowBackDrop] = useBoolean();
 
     return (

@@ -6,8 +6,9 @@ import DialogTitle from '@mui/material/DialogTitle';
 import SelectReportReason from "./components/modal-select";
 import AdditionalInput from "./components/additional-input";
 import ModalActions from "./components/modal-actions";
+import { IReportCommentModal } from "../../types";
 
-const ReportCommentModal = ({ isOpen, setOpen, commentID }: any) => {
+const ReportCommentModal = ({ isOpen, setOpen, commentID }: IReportCommentModal) => {
 
     const [additionalInformation, setAdditionalInformation] = useState('');
 
@@ -34,7 +35,6 @@ const ReportCommentModal = ({ isOpen, setOpen, commentID }: any) => {
                 </DialogContent>
                 <ModalActions
                     selectedReason={selectedReason}
-                    setSelectedReason={setSelectedReason}
                     createUserAppeal={createUserAppeal}
                     handleClose={handleClose}
                 />

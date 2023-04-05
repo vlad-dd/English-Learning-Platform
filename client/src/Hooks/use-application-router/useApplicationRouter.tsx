@@ -5,7 +5,6 @@ import DictionaryContext from "../../Dictionary/Context";
 import Dictionary from "../../Dictionary/presentational";
 import GrammarLevels from "../../GrammarLevels/presentational";
 import Releases from "../../Releases/presentational";
-import TenseContextRoot from "../../Tenses/Context";
 import TenseContent from "../../Tenses/Main/presentational";
 import TestApplicationContext from "../../Tests/Context";
 import TestApplication from "../../Tests/presentational";
@@ -28,9 +27,7 @@ const useApplicationRouter = () => {
       {
         path: "/Tenses/:type/:tense",
         element: (
-            <TenseContextRoot>
               <TenseContent />
-            </TenseContextRoot>
         ),
       },
       {

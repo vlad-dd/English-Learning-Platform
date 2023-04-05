@@ -2,8 +2,9 @@ import React from "react";
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import { useBoolean } from "../../../../../../Hooks";
+import { IAdditionalInput } from "../../../../types";
 
-const AdditionalInput = ({ setAdditionalInformation }: any) => {
+const AdditionalInput = ({ setAdditionalInformation }: IAdditionalInput) => {
     const [showAdditionalInput, setShowAdditionalInput] = useBoolean();
 
     return (

@@ -6,7 +6,6 @@ import { ContentSection } from "../Tenses/styled";
 import { BreadcrumbPath, CasesTabs, SectionComments, Title } from "../Сommon";
 import { useGrammarConfig } from "./use-grammar-config";
 import { GrammarLevelDescription, QuizWrapper } from "./styles";
-import { IGrammarLevelItem } from "./types"; //remove after clean up
 import { compact, get } from "lodash";
 
 
@@ -14,7 +13,6 @@ const GrammarLevels = () => {
     const { data, isLoading, error, refetch } = useGrammarConfig();
     const config = get(data, 'grammarByLevel[0]');
     const quiz = get(data, 'grammarByLevel[0].quiz');
-    console.log('config: ', config)
     const conditionGate = () => !!data && !isLoading && !error;
     const path = compact(window.location.pathname.split('/'));
 
