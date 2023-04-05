@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { size } from "lodash";
 import Editor from 'react-simple-wysiwyg';
 import LoadingButton from '@mui/lab/LoadingButton';
 import SendIcon from '@mui/icons-material/Send';
 import { generateNicknameAvatars } from "../../../../utils";
 import { EditorContainer, StyledButtonInnerHTML, StyledEditor, StyledEditorAvatar } from "../../styled";
+import { ISendCommentEditor } from "../../types";
 
-const SendCommentEditor= ({ addComment, isLoading }: any) => {
+const SendCommentEditor= ({ addComment, isLoading }: ISendCommentEditor) => {
     const [html, setHtml] = useState('');
-    const onChange = (e: any) => setHtml(e.target.value);
+    const onChange = (e: ChangeEvent<any>) => setHtml(e.target.value);
     return (
         <StyledEditor>
           <StyledEditorAvatar {...generateNicknameAvatars('V S')} />

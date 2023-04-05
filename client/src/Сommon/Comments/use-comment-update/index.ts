@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { successMessage } from "../../../utils";
 import { ADD_COMMENT } from "../graphql";
 
-const useUpdate = (refetch: any, path1: any, path2: any) => {
+const useUpdate = (refetch: () => void, path1: string, path2: string)  => {
     const [comment, setComment] = useState<string>('');
     const [mutateFunction, { loading, error }] = useMutation(ADD_COMMENT);
   

@@ -11,7 +11,7 @@ import {
     StyledIconButton
 } from "../../../styled";
 
-const ParticularComment = ({ commentID, comment }: any) => {
+const ParticularComment = ({ commentID, comment }: { commentID: string, comment: string }) => {
     const [isReportModalOpen, setReportModalOpen] = useBoolean();
     const [commentLike, setCommentLike] = useState(false);
     const [commentDislike, setCommentDislike] = useState(false);
@@ -63,7 +63,6 @@ const ParticularComment = ({ commentID, comment }: any) => {
                 </Tooltip>
             </StyledCommentReactions>
             <ReportCommentModal commentID={commentID} isOpen={isReportModalOpen} setOpen={setReportModalOpen} />
-
         </StyledCommentContainer>
     )
 }
