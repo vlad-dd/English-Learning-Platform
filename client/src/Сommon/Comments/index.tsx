@@ -11,7 +11,7 @@ const SectionComments = ({ renderComments, refetch, path1, path2 }: ISectionComm
   const { addComment, isLoading, error } = useUpdate(refetch, path1, path2);
 
   return (
-    <StyledSectionCommentsWrapper>
+    <StyledSectionCommentsWrapper data-testid="comment-section">
       <CommentsHeader comments={renderComments} />
       <SendCommentEditor isLoading={isLoading} addComment={addComment} />
       {renderComments && !isLoading && !error && (

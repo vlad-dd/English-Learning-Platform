@@ -12,7 +12,7 @@ import { ContentSection } from '../Tenses/styled';
 const WelcomePage = () => {
   return (
     <React.Fragment>
-      <ContentSection>
+      <ContentSection data-testid="welcome-page-section">
         <WelcomePageHeaderSection />
         <PlatformCards />
         <StepsGuideline />
