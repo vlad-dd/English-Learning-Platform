@@ -6,6 +6,7 @@ import { ApolloError } from "@apollo/client";
 import { PARTIAL_TEXT_INPUT_ID, SELECT_INPUT_ID, TEXT_INPUT_ID } from "./constants";
 import { get } from "lodash";
 import { TestApplicationProviders } from "./jest-utils";
+import * as TestConfig from './use-test-configuration';
 
 jest.mock('./components/text-input', () => () => <div data-testid='text-input'>Text Input</div>);
 jest.mock('./components/select-input', () => () => <div data-testid='select-input'>Select Input</div>);
@@ -29,12 +30,14 @@ const TestContextResponse = {
 
 describe('TestApplication', () => {
     const config = get(TestContextResponse, 'data.getTests[0]');
+    const spy = jest.spyOn(TestConfig, "useTestConfiguration");
 
     const changeConfigType = (type: string) => ({ getTests: [{ ...config, type }] });
 
     it('should render text input units', () => {
+        spy.mockReturnValue(TestContextResponse);
         render(
-            <TestApplicationProviders ownContextResponse={TestContextResponse}>
+            <TestApplicationProviders>
                 <TestApplication />
             </TestApplicationProviders>
         )
@@ -43,8 +46,9 @@ describe('TestApplication', () => {
     });
 
     it('should render select input units', () => {
+        spy.mockReturnValue({ ...TestContextResponse, data: changeConfigType('select')});
         render(
-            <TestApplicationProviders ownContextResponse={{ ...TestContextResponse, data: changeConfigType('select') }}>
+            <TestApplicationProviders>
                 <TestApplication />
             </TestApplicationProviders>)
         expect(screen.getByTestId(SELECT_INPUT_ID)).toBeInTheDocument();
@@ -52,8 +56,9 @@ describe('TestApplication', () => {
     });
 
     it('should render partial input units', () => {
+        spy.mockReturnValue({ ...TestContextResponse, data: changeConfigType('partial')});
         render(
-            <TestApplicationProviders ownContextResponse={{ ...TestContextResponse, data: changeConfigType('partial') }}>
+            <TestApplicationProviders>
                 <TestApplication />
             </TestApplicationProviders>);
         expect(screen.getByTestId(PARTIAL_TEXT_INPUT_ID)).toBeInTheDocument();
@@ -61,16 +66,18 @@ describe('TestApplication', () => {
     });
 
     it('should render loading sign', () => {
+        spy.mockReturnValue({ ...TestContextResponse, isLoading: true});
         render(
-            <TestApplicationProviders ownContextResponse={{ ...TestApplicationContext, isLoading: true }}>
+            <TestApplicationProviders>
                 <TestApplication />
             </TestApplicationProviders>)
         expect(screen.getByText("Loading...")).toBeInTheDocument();
     });
 
     it('should render error message', () => {
+        spy.mockReturnValue({ ...TestContextResponse, error: new ApolloError({})});
         render(
-            <TestApplicationProviders ownContextResponse={{ ...TestApplicationContext, error: new ApolloError({}) }}>
+            <TestApplicationProviders>
                 <TestApplication />
             </TestApplicationProviders>)
         expect(screen.getByText("We have some troubles with request...")).toBeInTheDocument();

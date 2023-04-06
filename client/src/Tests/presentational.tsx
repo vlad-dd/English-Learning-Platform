@@ -1,12 +1,12 @@
 import React from "react";
 import { get } from "lodash";
 import { BreadcrumbPath } from "../Сommon";
+import { useTestConfiguration } from "./use-test-configuration";
 import PartialTextInput from "./components/partial-text-input";
 import SelectInputQuiz from "./components/select-input";
 import TextInput from "./components/text-input";
 import { ContentSection } from "../Tenses/styled";
 import { QUIZ_TYPE } from "./constants";
-import { useTestConfiguration } from "./use-test-configuration";
 
 const TestApplication = () => {
     const { data, isLoading, error } = useTestConfiguration();

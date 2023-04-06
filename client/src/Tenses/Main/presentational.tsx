@@ -1,6 +1,7 @@
 import React from "react";
 import { AlertOutlined } from "@ant-design/icons";
 import { compact, get } from "lodash";
+import { TenseContext } from "../Context";
 import { ApplicationTitle, BreadcrumbPath, SectionComments } from "../../Сommon";
 import { ContentSection, StyledAlert } from "../styled";
 import TensesTable from "../Table/tenses-table";
@@ -8,7 +9,6 @@ import TensePractice from "../Carousel/presentational";
 import MostCommonCases from "../Cases/cases-tabs";
 import TenseExamplePanels from "../Examples/example-panels";
 import { useTenseConfiguration } from "./use-tense-configuration";
-import { TenseContext } from "../Context";
 
 const TenseContent = (): JSX.Element | null => {
   const { data, loading, error, refetch} = useTenseConfiguration();

@@ -11,7 +11,7 @@ const SendCommentEditor= ({ addComment, isLoading }: ISendCommentEditor) => {
     const [html, setHtml] = useState('');
     const onChange = (e: ChangeEvent<any>) => setHtml(e.target.value);
     return (
-        <StyledEditor>
+        <StyledEditor data-testid="rich-text-editor">
           <StyledEditorAvatar {...generateNicknameAvatars('V S')} />
         <EditorContainer>
           <Editor value={html} onChange={onChange} />

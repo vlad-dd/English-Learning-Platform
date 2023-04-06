@@ -15,12 +15,12 @@ const CommentsHeader = ({ comments }: { comments: Array<IComment> }) => {
     const [isRulesModalOpen, setIsRulesModalOpen] = useBoolean();
     return (
         <StyledCommentsHeader>
-        <StyledCommentsCount>
+        <StyledCommentsCount data-testid="comments-count">
             <Title>Comments</Title>
             <StyledCount>{size(comments)} Comment</StyledCount>
         </StyledCommentsCount>
 
-        <StyledRuleSection>
+        <StyledRuleSection data-testid="comments-rule-section">
             <CommentRulesModal open={isRulesModalOpen} setOpen={setIsRulesModalOpen}  />
         </StyledRuleSection>
 

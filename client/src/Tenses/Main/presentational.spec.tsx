@@ -1,68 +1,75 @@
 import React from "react";
 import { ApolloError } from "@apollo/client";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import TenseContent from "./presentational";
 import { TenseApplicationProviders } from "../jest-utils";
+import * as TenseConfig from './use-tense-configuration';
+
 
 const mockedApolloResponse = {
-  configuration: {
-    tense: "MockTense",
-    tableData: {
-      tip: "MockTip",
-      table: [
+  data: {
+    countOfTenses: [{
+      tense: "MockTense",
+      tableData: {
+        tip: "MockTip",
+        table: [
+          {
+            key: "1",
+            type: "Affirmative",
+            noun: "I/You/We/They",
+            auxiliar: "Do",
+            noun_1: "He/She/It",
+            auxiliar_1: "Does",
+          },
+        ],
+      },
+      cases: [
         {
+          icon: "mock.png",
           key: "1",
-          type: "Affirmative",
-          noun: "I/You/We/They",
-          auxiliar: "Do",
-          noun_1: "He/She/It",
-          auxiliar_1: "Does",
+          label: "MockLabel",
+          titles: [{ description: "MockDescription" }],
+        },
+        {
+          icon: "mock_1.png",
+          key: "2",
+          label: "Another Mock Label",
+          titles: [{ description: "Another Mock Description" }],
+        }
+      ],
+      examples: [
+        {
+          key: 1,
+          header: 'Example Header Mock',
+          icon: 'example-icon.png',
+          sentences: [
+            {
+              id: 1,
+              sentence: 'Example Sentence Mock'
+            }
+          ]
         },
       ],
-    },
-    cases: [
-      {
-        icon: "mock.png",
-        key: "1",
-        label: "MockLabel",
-        titles: [{ description: "MockDescription" }],
-      },
-      {
-        icon: "mock_1.png",
-        key: "2",
-        label: "Another Mock Label",
-        titles: [{ description: "Another Mock Description" }],
-      }
-    ],
-    examples: [
-      {
-        key: 1,
-        header: 'Example Header Mock',
-        icon: 'example-icon.png',
-        sentences: [
-          {
-            id: 1,
-            sentence: 'Example Sentence Mock'
-          }
-        ]
-      },
-    ],
-    practice: [
-      {
-        sentences: [
-          {
-            id: 1,
-            label: 'Affirmative',
-            partOne: 'Mocked Part One',
-            partTwo: 'Mocked Part Two',
-            missed: 'Mocked Missed Correct Value'
-          }
-        ]
-      }
-    ]
-  },
+      practice: [
+        {
+          sentences: [
+            {
+              id: 1,
+              label: 'Affirmative',
+              partOne: 'Mocked Part One',
+              partTwo: 'Mocked Part Two',
+              missed: 'Mocked Missed Correct Value'
+            }
+          ]
+        }
+      ],
+      comments: [
+        { __typename: 'Comments', id: '1', date: '5.03.2023', comment: "here is my comment"}
+      ]
+    }]},
   loading: false,
   error: undefined,
+  refetch: jest.fn()
 };
 
 const tenseContentInnerHTML = [
@@ -78,10 +85,14 @@ const tenseContentInnerHTML = [
 ];
 
 describe("TenseContent", () => {
+  const spy = jest.spyOn(TenseConfig, "useTenseConfiguration");
+
   describe('when configuration exists', () => {
+     
     beforeEach(() => {
+      spy.mockReturnValue(mockedApolloResponse)
       render(
-        <TenseApplicationProviders ownContextProps={mockedApolloResponse}>
+        <TenseApplicationProviders>
           <TenseContent />
         </TenseApplicationProviders>
       );
@@ -115,11 +126,19 @@ describe("TenseContent", () => {
       fireEvent.keyDown(screen.getByTestId('practice-input'), { key: 'Enter' });
       expect(screen.getByTestId('practice-input').getAttribute('disabled')).toBe("");
     });
+
+    it("should render comment section", () => {
+      expect(screen.getByTestId('comment-section')).toBeInTheDocument();
+      expect(screen.getByTestId('rich-text-editor')).toBeInTheDocument();
+      expect(screen.getByTestId('comments-count')).toBeInTheDocument();
+      expect(screen.getByTestId('comments-rule-section')).toBeInTheDocument();
+    });
   })
 
   it("should show loading", () => {
+    spy.mockReturnValue({ ...mockedApolloResponse, loading: true })
     render(
-      <TenseApplicationProviders ownContextProps={{ ...mockedApolloResponse, isLoading: true }}>
+      <TenseApplicationProviders>
         <TenseContent />
       </TenseApplicationProviders>
     );
@@ -127,12 +146,12 @@ describe("TenseContent", () => {
   });
 
   it("should show error", () => {
+    spy.mockReturnValue({ ...mockedApolloResponse, error: new ApolloError({})});
     render(
-      <TenseApplicationProviders ownContextProps={{ ...mockedApolloResponse, error: new ApolloError({}) }}>
+      <TenseApplicationProviders>
         <TenseContent />
       </TenseApplicationProviders>
     );
     expect(screen.getByText('We have some troubles with request...')).toBeInTheDocument();
   });
-
 });
