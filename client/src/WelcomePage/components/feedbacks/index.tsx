@@ -11,7 +11,7 @@ const LearnerFeedbacks = () => {
 
     const feedbacks = useMemo(() => LEARNERS_FEEDBACK.map(({ id, title, description }) => {
         return (
-            <List.Item key={id}>
+            <List.Item key={id} data-testid="learner-feedback">
                 <List.Item.Meta
                     avatar={<Avatar style={{ border: "1px solid white" }} {...generateNicknameAvatars(title)} />}
                     title={<a href="https://ant.design">{title}</a>}

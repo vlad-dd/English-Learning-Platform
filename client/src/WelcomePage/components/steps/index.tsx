@@ -11,6 +11,7 @@ const StepsGuideline = () => {
         <React.Fragment>
             <StyledTitle>How to use English Learning Platform? 🤔</StyledTitle>
             <StyledSteps
+              data-testid="steps-guideline"
               current={current}
               onChange={onChange}
               direction="horizontal"
