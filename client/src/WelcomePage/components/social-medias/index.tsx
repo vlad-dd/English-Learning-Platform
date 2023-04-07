@@ -5,7 +5,7 @@ import { SOCIAL_MEDIAS } from "../../constants";
 
 const SocialMedias = () => {
     return (
-        <StyledSpace wrap>
+        <StyledSpace wrap data-testid="social-medias-section">
             {SOCIAL_MEDIAS.map(({ id, media, icon, color }) => {
                 return (
                     <Tag style={{ display: "flex", justifyContent: "center", alignItems: "center"}} key={id} icon={icon} color={color}>
