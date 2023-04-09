@@ -55,7 +55,7 @@ describe('Welcome Page', () => {
     });
 
     it('should render learners feedbacks', () => {
-        expect(screen.queryAllByTestId("learner-feedback")[0]).toBeInTheDocument();
+        expect(screen.queryAllByTestId("learner-feedbacks")[0]).toBeInTheDocument();
         expect(screen.getByText("Our Learners Feedback🎓")).toBeInTheDocument();
     });
 

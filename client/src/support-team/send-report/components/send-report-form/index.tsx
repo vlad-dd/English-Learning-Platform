@@ -24,31 +24,40 @@ const SendReportForm = ({ isSubmitted, setSubmitted }: any) => {
     return (
         <>
             <StyledForm
+                data-testid="send-report-form"
                 labelCol={{ span: 6 }}
                 hidden={isSubmitted}
                 wrapperCol={{ span: 12 }}>
                 <Form.Item required label={REPORT_FORM_LABELS.FOUND_IN}>
-                    <Select onSelect={selectApplication} options={ELP_APPLICATIONS} />
+                    <Select
+                        value={report.application}
+                        data-testid="send-report-select-reason"
+                        onSelect={selectApplication}
+                        options={ELP_APPLICATIONS} />
                 </Form.Item>
                 <Form.Item required label={REPORT_FORM_LABELS.DESCRIPTION}>
                     <TextArea
+                        data-testid="send-report-textarea"
                         onBlur={() => setTouchedByMouse(true)}
                         maxLength={MAX_TEXT_AREA_LENGTH}
                         minLength={MIN_TEXT_AREA_LENGTH}
                         onChange={({ target: { value } }) => handleTextArea(value)}
                     />
-                    <StyledInputLengthContainer>
+                    <StyledInputLengthContainer data-testid="send-report-min-length-gate">
                         {minLengthGate}
                     </StyledInputLengthContainer>
 
-                    <StyledInputLengthContainer>
+                    <StyledInputLengthContainer data-testid="send-report-max-length-gate">
                         {maxLengthGate}
                     </StyledInputLengthContainer>
                 </Form.Item>
             </StyledForm>
 
             <SubmitButtonWrapper>
-                <Button variant="contained" endIcon={<SendIcon />}
+                <Button
+                    data-testid="send-report-submit"
+                    variant="contained"
+                    endIcon={<SendIcon />}
                     {...(isVisible && { style: { background: "#1890ff" } })}
                     disabled={isDisabled}
                     hidden={isSubmitted}

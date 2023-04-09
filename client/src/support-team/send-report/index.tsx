@@ -14,6 +14,7 @@ const SendReportModal = () => {
     <StyledSendReportWrapper>
       <Tooltip title="Report about the Problem">
         <Modal
+          data-testid="report-service-modal"
           title={<h3>Report about the Problem👷‍♂️</h3>}
           open={isOpen}
           onOk={() => dispatch(closeSendReportModal())}
