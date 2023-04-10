@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { size } from "lodash";
 import { useEffect, useState } from "react";
-import { successMessage } from "../../../utils";
+import { successMessage } from "../../../utils/utils";
 import { ADD_COMMENT } from "../graphql";
 
 const useUpdate = (refetch: () => void, path1: string, path2: string)  => {

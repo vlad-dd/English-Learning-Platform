@@ -33,7 +33,8 @@ const SendReportForm = ({ isSubmitted, setSubmitted }: any) => {
                         value={report.application}
                         data-testid="send-report-select-reason"
                         onSelect={selectApplication}
-                        options={ELP_APPLICATIONS} />
+                        options={ELP_APPLICATIONS}
+                    />
                 </Form.Item>
                 <Form.Item required label={REPORT_FORM_LABELS.DESCRIPTION}>
                     <TextArea

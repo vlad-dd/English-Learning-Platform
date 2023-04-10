@@ -1,8 +1,9 @@
 import React from "react";
-import { act, fireEvent, render, screen } from '@testing-library/react';
-import SendReportModal from ".";
 import { Provider } from "react-redux";
+import { fireEvent, render, screen } from '@testing-library/react';
 import store from "../../store";
+import SendReportModal from ".";
+import { ELP_APPLICATIONS } from "../constants";
 
 const SEND_REPORT_FORM_CONTENT = [
     "Report about the Problem👷‍♂️",
@@ -58,5 +59,18 @@ describe("SendReportModal", () => {
         fireEvent.blur(textarea);
         const error = screen.getByText('You should write at least 10 symbols!');
         expect(error).toBeInTheDocument();
+    });
+
+    it('should show length error when description is too long', () => {
+        const textarea = screen.getByTestId('send-report-textarea');
+        fireEvent.change(textarea, { target: { value: 'q'.repeat(250) } });
+        const error = screen.getByText('You have reached max of symbols!');
+        expect(error).toBeInTheDocument();
+    });
+
+    it('should render application dropdown after clicking on select input', () => {
+        const select = screen.getByRole("combobox");
+        fireEvent.mouseDown(select);
+        ELP_APPLICATIONS.forEach(({ label }) => expect(screen.getByText(label)).toBeInTheDocument());
     });
 });
