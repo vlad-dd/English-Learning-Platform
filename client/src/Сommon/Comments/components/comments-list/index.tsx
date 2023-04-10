@@ -1,7 +1,7 @@
 import React from "react";
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
-import { generateNicknameAvatars } from "../../../../utils";
+import { generateNicknameAvatars } from "../../../../utils/utils";
 import ParticularComment from "./particular-comment";
 import { IComment } from "../../types";
 import { 

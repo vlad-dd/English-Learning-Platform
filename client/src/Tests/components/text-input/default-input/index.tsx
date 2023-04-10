@@ -3,7 +3,7 @@ import { Input } from 'antd';
 import { isNil } from 'lodash';
 import { BORDERS, TEXT_INPUT_ID } from '../../../constants';
 import { useSubmit } from '../../../use-submit';
-import { focusNodeAfterMounting } from '../../../../utils';
+import { focusNodeAfterMounting } from '../../../../utils/utils';
 interface ITextInput {
     index: number
     correctAnswer: string

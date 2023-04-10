@@ -70,8 +70,14 @@
   },
   "jest": {
     "coveragePathIgnorePatterns": [
-      "<rootDir>/src/index.stories.tsx",
-      "<rootDir>/src/presentational.stories.tsx",
+      "/src/App.tsx",
+      "/src/index.tsx",
+      "/Hooks/deprecated/",
+      "\\.stories\\.tsx$",
+      "\\.stories\\.ts$",
+      "types\\.ts$",
+      "index\\.ts$",
+      "styled\\.ts$",
       "<rootDir>/src/reportWebVitals.ts"
     ]
   },

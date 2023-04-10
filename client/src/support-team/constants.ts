@@ -1,9 +1,9 @@
 const ELP_APPLICATIONS = [
-    {label: 'Tenses', value: 'Tenses'},
-    {label: 'Grammar-Levels', value: 'Grammar-Levels'},
-    {label: 'Dictionary', value: 'Dictionary'},
-    {label: 'Tests', value: 'Tests'},
-    {label: 'Releases', value: 'Releases'},
+    {label: 'Tenses', value: 'tenses'},
+    {label: 'Grammar-Levels', value: 'grammar-Levels'},
+    {label: 'Dictionary', value: 'dictionary'},
+    {label: 'Tests', value: 'tests'},
+    {label: 'Releases', value: 'releases'},
 ]
 
 const MIN_TEXT_AREA_LENGTH = 10;

@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from "react";
 import { Select } from 'antd';
 import { size } from "lodash";
 import { BORDERS, SELECT_INPUT_ID } from "../../../../constants";
-import { focusNodeAfterMounting } from "../../../../../utils";
+import { focusNodeAfterMounting } from "../../../../../utils/utils";
 
 export interface ISelect {
     index: number

@@ -1,6 +1,6 @@
 import React from "react";
 import { Result } from "antd";
-import { uid } from "../../../../utils";
+import { uid } from "../../../../utils/utils";
 
 const ReportResult = () => {
     return (

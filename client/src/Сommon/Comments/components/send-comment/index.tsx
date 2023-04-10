@@ -3,7 +3,7 @@ import { size } from "lodash";
 import Editor from 'react-simple-wysiwyg';
 import LoadingButton from '@mui/lab/LoadingButton';
 import SendIcon from '@mui/icons-material/Send';
-import { generateNicknameAvatars } from "../../../../utils";
+import { generateNicknameAvatars } from "../../../../utils/utils";
 import { EditorContainer, StyledButtonInnerHTML, StyledEditor, StyledEditorAvatar } from "../../styled";
 import { ISendCommentEditor } from "../../types";
 

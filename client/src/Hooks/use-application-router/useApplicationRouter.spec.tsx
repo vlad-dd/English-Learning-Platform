@@ -9,4 +9,5 @@ it('should return router configuration', () => {
     expect(result.current.router.routes[0].children[2].path).toBe('/Grammar-Levels/:level/:theme');
     expect(result.current.router.routes[0].children[3].path).toBe('/Dictionary');
     expect(result.current.router.routes[0].children[4].path).toBe('/Releases');
+    expect(result.current.router.routes[0].children[5].path).toBe('/Tests/:theme/:test');
 })
