@@ -1,10 +1,10 @@
 import { get } from "lodash";
-import { useConfiguration } from "../../../../Hooks";
+import { useConfigurationWidget } from "../../../../Hooks";
 import { TenseContext } from "../../../Context";
 
 export const usePracticeData = () => {
 
-    const { extractValueByPath } = useConfiguration(TenseContext);
+    const { extractValueByPath } = useConfigurationWidget(TenseContext);
 
     const { practice } = extractValueByPath('countOfTenses[0]');
     

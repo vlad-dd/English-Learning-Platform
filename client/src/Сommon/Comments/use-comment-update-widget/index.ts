@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { successMessage } from "../../../utils/utils";
 import { ADD_COMMENT } from "../graphql";
 
-const useUpdate = (refetch: () => void, path1: string, path2: string)  => {
+const useCommentUpdatingWidget = (refetch: () => void, path1: string, path2: string)  => {
     const [comment, setComment] = useState<string>('');
     const [mutateFunction, { loading, error }] = useMutation(ADD_COMMENT);
   
@@ -37,4 +37,4 @@ const useUpdate = (refetch: () => void, path1: string, path2: string)  => {
      }
 }
 
-export default useUpdate;
+export default useCommentUpdatingWidget;

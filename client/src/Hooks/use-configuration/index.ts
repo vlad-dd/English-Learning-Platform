@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { get } from "lodash";
 
 
-function useConfiguration<T extends React.Context<any>> (Context: T){
+function useConfigurationWidget<T extends React.Context<any>> (Context: T){
 
     const { data, isLoading, error, refetch }: any = useContext(Context);
 
@@ -21,4 +21,4 @@ function useConfiguration<T extends React.Context<any>> (Context: T){
 
 }
 
-export default useConfiguration;
+export default useConfigurationWidget;
