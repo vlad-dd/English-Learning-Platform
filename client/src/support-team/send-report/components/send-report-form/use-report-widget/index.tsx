@@ -1,11 +1,12 @@
-import { StyledInputLengthError } from '../../../styled';
 import { useState } from "react"
+import { StyledInputLengthError } from '../../../styled';
 import { MAX_TEXT_AREA_LENGTH, MIN_TEXT_AREA_LENGTH } from "../../../../constants";
+import { IReport, ReportWidget } from "../../../../types";
 
-const useReportWidget = () => {
+const useReportWidget = (): ReportWidget => {
     const [touchedByMouse, setTouchedByMouse] = useState(false);
-    const [report, setReport] = useState<Record<string, string>>({ application: '', description: '' });
-    
+    const [report, setReport] = useState<IReport>({ application: '', description: '' });
+
     const minLengthError = report.description.length < MIN_TEXT_AREA_LENGTH;
     const maxLengthError = report.description.length === MAX_TEXT_AREA_LENGTH;
 

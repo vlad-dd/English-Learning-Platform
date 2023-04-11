@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import TextArea from "antd/lib/input/TextArea";
 import useReportWidget from "./use-report-widget";
+import { ISendReportForm } from "../../../types";
 import { ELP_APPLICATIONS, MAX_TEXT_AREA_LENGTH, MIN_TEXT_AREA_LENGTH, REPORT_FORM_LABELS } from "../../../constants";
 import {
     StyledForm,
@@ -13,7 +14,7 @@ import {
 
 const { Item } = Form;
 
-const SendReportForm = ({ isSubmitted, setSubmitted }: any) => {
+const SendReportForm = ({ isSubmitted, setSubmitted }: ISendReportForm) => {
     const {
         report,
         isDisabled,
