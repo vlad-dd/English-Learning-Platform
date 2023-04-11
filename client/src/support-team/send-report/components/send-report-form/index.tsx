@@ -1,25 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Select } from "antd";
 import { Button } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import TextArea from "antd/lib/input/TextArea";
-import useReportConfig from "./use-report-config";
+import useReportWidget from "./use-report-widget";
 import { ELP_APPLICATIONS, MAX_TEXT_AREA_LENGTH, MIN_TEXT_AREA_LENGTH, REPORT_FORM_LABELS } from "../../../constants";
 import {
     StyledForm,
     StyledInputLengthContainer,
-    StyledInputLengthError,
     SubmitButtonWrapper
 } from "../../styled";
 
+const { Item } = Form;
+
 const SendReportForm = ({ isSubmitted, setSubmitted }: any) => {
-    const [touchedByMouse, setTouchedByMouse] = useState(false);
-    const { report, isDisabled, minLengthError, maxLengthError, selectApplication, handleTextArea } = useReportConfig();
+    const {
+        report,
+        isDisabled,
+        minLengthGate,
+        maxLengthGate,
+        selectApplication,
+        handleTextArea,
+        setTouchedByMouse
+    } = useReportWidget();
 
     const isVisible = (!isDisabled && !isSubmitted);
-
-    const minLengthGate = (minLengthError && touchedByMouse) ? <StyledInputLengthError>You should write at least 10 symbols!</StyledInputLengthError> : '';
-    const maxLengthGate = maxLengthError ? <StyledInputLengthError>You have reached max of symbols!</StyledInputLengthError> : '';
 
     return (
         <>
@@ -28,15 +33,15 @@ const SendReportForm = ({ isSubmitted, setSubmitted }: any) => {
                 labelCol={{ span: 6 }}
                 hidden={isSubmitted}
                 wrapperCol={{ span: 12 }}>
-                <Form.Item required label={REPORT_FORM_LABELS.FOUND_IN}>
+                <Item required label={REPORT_FORM_LABELS.FOUND_IN}>
                     <Select
                         value={report.application}
                         data-testid="send-report-select-reason"
                         onSelect={selectApplication}
                         options={ELP_APPLICATIONS}
                     />
-                </Form.Item>
-                <Form.Item required label={REPORT_FORM_LABELS.DESCRIPTION}>
+                </Item>
+                <Item required label={REPORT_FORM_LABELS.DESCRIPTION}>
                     <TextArea
                         data-testid="send-report-textarea"
                         onBlur={() => setTouchedByMouse(true)}
@@ -51,7 +56,7 @@ const SendReportForm = ({ isSubmitted, setSubmitted }: any) => {
                     <StyledInputLengthContainer data-testid="send-report-max-length-gate">
                         {maxLengthGate}
                     </StyledInputLengthContainer>
-                </Form.Item>
+                </Item>
             </StyledForm>
 
             <SubmitButtonWrapper>
