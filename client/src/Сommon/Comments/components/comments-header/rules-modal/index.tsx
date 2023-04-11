@@ -27,7 +27,7 @@ const CommentRulesModal = ({ open, setOpen }: ICommentRulesModal) => {
     };
 
     return (
-        <StyledCommentRulesWrapper>
+        <StyledCommentRulesWrapper data-testid="comment-rules-wrapper">
             <Tooltip title='Rules'>
                 <StyledRuleIcon onClick={() => setOpen(true)} />
             </Tooltip>
@@ -36,7 +36,7 @@ const CommentRulesModal = ({ open, setOpen }: ICommentRulesModal) => {
                 aria-labelledby="customized-dialog-title"
                 open={open}
             >
-                <DialogTitle id="customized-dialog-title">
+                <DialogTitle id="customized-dialog-title" data-testid="dialog-title">
                     English Learning Platform Policy 📜
                 </DialogTitle>
                 <DialogContent dividers>
