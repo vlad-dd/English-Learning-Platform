@@ -26,7 +26,7 @@ const ParticularComment = ({ commentID, comment }: { commentID: string, comment:
         setCommentDislike(true);
     }
     return (
-        <StyledCommentContainer>
+        <StyledCommentContainer data-testid="comments-container">
             <StyledComment dangerouslySetInnerHTML={{ __html: comment }} />
             <StyledCommentReactions>
                 <StyledIconButton

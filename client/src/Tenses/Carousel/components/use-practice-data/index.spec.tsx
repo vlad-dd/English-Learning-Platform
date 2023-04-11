@@ -23,7 +23,7 @@ const practice = [
 describe('usePracticeData', () => {
   it('should return practice data', () => {
 
-    const practiceDataSpy: any = jest.spyOn(Config, "useConfiguration");
+    const practiceDataSpy: any = jest.spyOn(Config, "useConfigurationWidget");
     const mockExtractValueByPath = jest.fn(() => ({ practice }));
     practiceDataSpy.mockReturnValue({ extractValueByPath: mockExtractValueByPath });
     const { result: { current } } = renderHook(() => usePracticeData());

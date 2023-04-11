@@ -7,10 +7,10 @@ import AudioPlayer from "./components/AudioPlayer";
 import Meanings from "./components/Meanings";
 import { DictionaryWrapper, DictionaryContent } from "./styled";
 import { ContentSection } from "../Tenses/styled";
-import { useConfiguration } from "../Hooks";
+import { useConfigurationWidget } from "../Hooks";
 
 const Dictionary = () => {
-  const { renderApplicationGate, isLoading, error} = useConfiguration(DictionaryConfigurationContext);
+  const { renderApplicationGate, isLoading, error } = useConfigurationWidget(DictionaryConfigurationContext);
 
   return (
       <ContentSection data-testid="content-section-wrapper">
