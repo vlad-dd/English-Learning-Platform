@@ -29,9 +29,10 @@ const CommentRulesModal = ({ open, setOpen }: ICommentRulesModal) => {
     return (
         <StyledCommentRulesWrapper data-testid="comment-rules-wrapper">
             <Tooltip title='Rules'>
-                <StyledRuleIcon onClick={() => setOpen(true)} />
+                <StyledRuleIcon data-testid="rules-icon" onClick={() => setOpen(true)} />
             </Tooltip>
             <Dialog
+                data-testid="dialog-rules"
                 onClose={closeRulesModal}
                 aria-labelledby="customized-dialog-title"
                 open={open}
@@ -39,11 +40,11 @@ const CommentRulesModal = ({ open, setOpen }: ICommentRulesModal) => {
                 <DialogTitle id="customized-dialog-title" data-testid="dialog-title">
                     English Learning Platform Policy 📜
                 </DialogTitle>
-                <DialogContent dividers>
+                <DialogContent dividers data-testid="dialog-content">
                     <Typography gutterBottom color="gray">
                         As part of our policy, <strong style={{ color: "black" }}>we do not give permission</strong> for comments that include any of the following:
                     </Typography>
-                    <List>
+                    <List data-testid="dialog-list">
                         {POLICY_RULES.map((rule: string) => (
                             <>
                                 <ListItem>
@@ -58,12 +59,15 @@ const CommentRulesModal = ({ open, setOpen }: ICommentRulesModal) => {
                             </>
                         ))}
                     </List>
-                    <Typography gutterBottom color="gray">
+                    <Typography gutterBottom color="gray" data-testid="dialog-description">
                         We take these rules seriously in order to maintain a safe and respectful community for all users. Comments that violate these rules may be removed, and repeat offenders may be banned from the platform. We encourage all users to review these rules and report any comments that violate them to our moderation team👩‍💻.
                     </Typography>
                 </DialogContent>
                 <DialogActions>
-                    <Button autoFocus onClick={closeRulesModal}>
+                    <Button 
+                       data-testid="dialog-submit-button"
+                       autoFocus 
+                       onClick={closeRulesModal}>
                         Got it!
                     </Button>
                 </DialogActions>

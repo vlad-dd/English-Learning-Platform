@@ -15,7 +15,7 @@ import {
 
 const CommentsList = ({ comments }: { comments: Array<IComment> }) => {
     return (
-        <StyledList>
+        <StyledList data-testid="comments-list">
             {!!comments && [...comments].reverse().map(({ id, date, comment }: IComment) => (
                 <StyledListItem key={id}>
                     <ListItemAvatar>
