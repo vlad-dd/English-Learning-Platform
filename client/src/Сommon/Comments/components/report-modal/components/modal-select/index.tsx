@@ -9,11 +9,11 @@ import { ISelectReportReason } from "../../../../types";
 
 const SelectReportReason = ({ selectedReason, setSelectedReason }: ISelectReportReason) => {
     return (
-        <Box marginTop="20px" sx={{ minWidth: 120 }}>
+        <Box marginTop="20px" sx={{ minWidth: 120 }} data-testid="select-reason-box">
             <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Reason</InputLabel>
                 <Select
-                    id="demo-simple-select"
+                    data-testid="reason-selector"
                     label="Reason"
                     value={selectedReason}
                     onChange={(e) => setSelectedReason(e.target.value)}
