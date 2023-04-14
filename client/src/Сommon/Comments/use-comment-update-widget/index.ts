@@ -9,7 +9,7 @@ const useCommentUpdatingWidget = (refetch: () => void, path1: string, path2: str
     const [mutateFunction, { loading, error }] = useMutation(ADD_COMMENT);
   
     useEffect(() => {
-      if (size(comment)) {
+      if (size(comment) && !error) {
         (async () => {
           try {
             await mutateFunction({ variables: { collection: path1, id: path2, comment } })

@@ -8,7 +8,6 @@ import { useGrammarConfig } from "./use-grammar-config";
 import { GrammarLevelDescription, QuizWrapper } from "./styles";
 import { compact, get } from "lodash";
 
-
 const GrammarLevels = () => {
     const { data, isLoading, error, refetch } = useGrammarConfig();
     const config = get(data, 'grammarByLevel[0]');

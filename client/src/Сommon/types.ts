@@ -9,7 +9,12 @@ interface ICasesTabs {
     key: string;
     icon: ReactElement,
     titles: { description: string }[];
-  }
+}
+interface ImageProps {
+  id?: string
+  url: string
+  styles?: { [key: string]: string }
+}
 
 
-export type { IProgressBarProps, ICasesTabs };
+export type { IProgressBarProps, ICasesTabs, ImageProps };
