@@ -1,4 +1,3 @@
-
 const POLICY_RULES = [
     'Spam or irrelevant content',
     'Hate speech or discrimination',

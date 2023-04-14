@@ -16,6 +16,7 @@ const SendCommentEditor= ({ addComment, isLoading }: ISendCommentEditor) => {
         <EditorContainer>
           <Editor value={html} onChange={onChange} />
           <LoadingButton
+            data-testid="add-comment-button"
             style={{ position: "absolute", right: "1px", bottom: "1px" }}
             size="small"
             color="secondary"

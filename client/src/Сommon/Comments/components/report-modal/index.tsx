@@ -23,23 +23,25 @@ const ReportCommentModal = ({ isOpen, setOpen, commentID }: IReportCommentModal)
     }
 
     return (
-        <>
-            <Dialog open={isOpen} onClose={handleClose}>
-                <DialogTitle>Report Inappropriate Comment👮‍♀️</DialogTitle>
-                <DialogContent>
-                    <DialogContentText>
-                        Our easy-to-use comment reporting feature allows you to quickly and easily report any comments that do not match our English Learning Platform policy. We want to ensure that our platform is a safe and respectful space for all users, and we rely on your help to achieve this goal.
-                    </DialogContentText>
-                    <SelectReportReason selectedReason={selectedReason} setSelectedReason={setSelectedReason} />
-                    <AdditionalInput setAdditionalInformation={setAdditionalInformation} />
-                </DialogContent>
-                <ModalActions
-                    selectedReason={selectedReason}
-                    createUserAppeal={createUserAppeal}
-                    handleClose={handleClose}
-                />
-            </Dialog>
-        </>
+        <Dialog
+            data-testid="report-modal-dialog"
+            open={isOpen}
+            onClose={handleClose}
+        >
+            <DialogTitle>Report Inappropriate Comment👮‍♀️</DialogTitle>
+            <DialogContent>
+                <DialogContentText>
+                    Our easy-to-use comment reporting feature allows you to quickly and easily report any comments that do not match our English Learning Platform policy. We want to ensure that our platform is a safe and respectful space for all users, and we rely on your help to achieve this goal.
+                </DialogContentText>
+                <SelectReportReason selectedReason={selectedReason} setSelectedReason={setSelectedReason} />
+                <AdditionalInput setAdditionalInformation={setAdditionalInformation} />
+            </DialogContent>
+            <ModalActions
+                selectedReason={selectedReason}
+                createUserAppeal={createUserAppeal}
+                handleClose={handleClose}
+            />
+        </Dialog>
     )
 
 };

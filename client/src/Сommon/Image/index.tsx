@@ -1,6 +1,7 @@
 import React from "react";
+import { ImageProps } from "../types";
 
-const Image: React.FC<{ id?: string, url: string, styles?: { [key: string]: string } }> = ({ id, url, styles }) => {
+const Image: React.FC<ImageProps> = ({ id, url, styles }) => {
   return <img data-testid={id ?? ''} src={url} style={styles} />;
 };
 

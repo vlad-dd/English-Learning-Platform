@@ -12,9 +12,10 @@ const ModalActions = ({ selectedReason, createUserAppeal, handleClose }: IModalA
     const [showBackDrop, setShowBackDrop] = useBoolean();
 
     return (
-        <DialogActions>
+        <DialogActions data-testid="dialog-actions">
         <Button onClick={handleClose}>Cancel</Button>
         <LoadingButton
+            data-testid="loading-button"
             size="small"
             color="info"
             disabled={!selectedReason}
@@ -35,6 +36,7 @@ const ModalActions = ({ selectedReason, createUserAppeal, handleClose }: IModalA
             <span>Send</span>
         </LoadingButton>
         <Backdrop
+            data-testid="backdrop-wrapper"
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
             open={showBackDrop}
             onClick={handleClose}
