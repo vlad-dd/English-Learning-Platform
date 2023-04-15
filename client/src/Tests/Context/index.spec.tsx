@@ -59,7 +59,7 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
 }
 
 describe('Test Application Context', () => {
-    const testSpy = jest.spyOn(TestConfiguration, 'useTestConfiguration');
+    const testSpy = jest.spyOn(TestConfiguration, 'useTestConfigurationWidget');
     it('should render data for wrapped component', () => {
         const testContent = ['Mocked Type', 'Mocked Label', 'Mocked Correct Answer'];
         testSpy.mockReturnValue(TestContextResponse)

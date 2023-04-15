@@ -17,7 +17,7 @@ const mockConfig = {
 }
 
 jest.mock('./use-form-configuration', () => ({
-    useFormConfiguration: () => mockConfig,
+  useFormConfigurationWidget: () => mockConfig,
 }))
 
 const ApplicationProviders = ({ children }: { children: JSX.Element }) => {

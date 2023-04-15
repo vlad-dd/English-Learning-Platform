@@ -22,7 +22,7 @@ jest.mock('react-redux', () => ({
 }))
 
 jest.mock('../Form/use-form-configuration', () => ({
-    useFormConfiguration: () => mockConfig,
+    useFormConfigurationWidget: () => mockConfig,
 }))
 
 const ApplicationProviders = ({ children }: { children: JSX.Element }) => {

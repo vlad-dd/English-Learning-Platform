@@ -12,7 +12,7 @@ const dictionaryMock = [{
 }];
 
 jest.mock('../Hooks/use-dictionary', () => ({
-    useDictionary: () => ({
+    useDictionaryWidget: () => ({
         data: {
             dictionary: dictionaryMock
         },

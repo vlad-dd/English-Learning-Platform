@@ -85,7 +85,7 @@ const tenseContentInnerHTML = [
 ];
 
 describe("TenseContent", () => {
-  const spy = jest.spyOn(TenseConfig, "useTenseConfiguration");
+  const spy = jest.spyOn(TenseConfig, "useTenseConfigurationWidget");
 
   describe('when configuration exists', () => {
      

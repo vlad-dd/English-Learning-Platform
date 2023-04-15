@@ -8,7 +8,7 @@ import ErrorBoundary from "../../ErrorBoundary";
 import store from "../../store";
 import { ThemeContext } from "../../Contexts";
 import FireBaseAPI from "../firebase-api";
-import { useFormConfiguration } from "./use-form-configuration";
+import { useFormConfigurationWidget } from "./use-form-configuration";
 
 const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
   return (
@@ -27,7 +27,7 @@ describe("Use Form Configuration", () => {
 
   describe("Login", () => {
     beforeEach(() => {
-      config = renderHook(() => useFormConfiguration("login", "/"), {
+      config = renderHook(() => useFormConfigurationWidget("login", "/"), {
         wrapper: ApplicationProviders,
       });
     });
@@ -72,7 +72,7 @@ describe("Use Form Configuration", () => {
   describe("Registration", () => {
     beforeEach(() => {
       config = renderHook(
-        () => useFormConfiguration("registration", "/login"),
+        () => useFormConfigurationWidget("registration", "/login"),
         {
           wrapper: ApplicationProviders,
         }

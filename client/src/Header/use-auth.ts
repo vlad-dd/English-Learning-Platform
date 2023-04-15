@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 
 type Auth = ReturnType<typeof getAuth>
 
-export const useAuth = () => {
+export const useAuthWidget = () => {
     const [enteredUser, setUser] = useState<any>(null);
     const [authError, setAuthError] = useState<any>(null);
     const navigate = useNavigate();

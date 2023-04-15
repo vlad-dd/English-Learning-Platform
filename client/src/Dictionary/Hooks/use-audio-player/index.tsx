@@ -37,7 +37,7 @@ const audioPlayerFactory = (audioPlayer: IAudioPlayer[]) => {
       }))
    }
 
-export const useAudioPlayer = () => {
+export const useAudioPlayerWidget = () => {
     const { data } = useContext(DictionaryConfigurationContext);
     const { word, phonetics } = get(data, "dictionary[0]");
 

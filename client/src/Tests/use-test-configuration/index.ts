@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import * as selectors from '../../store/selectors'
 import { GET_TEST_CONFIGURATION } from "../graphql";
 
-const useTestConfiguration = () => {
+const useTestConfigurationWidget = () => {
     const { path }: { path: Array<string> } = useSelector(selectors.tensesBCState)
     const windowPath: Array<string> = compact(window?.location?.pathname.split('/'));
     
@@ -13,4 +13,4 @@ const useTestConfiguration = () => {
     return { data, isLoading: loading, error };
 }
 
-export { useTestConfiguration };
+export { useTestConfigurationWidget };

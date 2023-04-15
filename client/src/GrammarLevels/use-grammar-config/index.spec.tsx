@@ -1,7 +1,7 @@
 import { MockedProvider } from "@apollo/client/testing";
 import { renderHook, waitFor } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { useGrammarConfig } from ".";
+import { useGrammarConfigWidget } from ".";
 import store from "../../store";
 import { GET_GRAMMAR_BY_LEVEL_AND_THEME } from "../graphql";
 
@@ -53,9 +53,9 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
   )
 }
 
-describe('useGrammarConfig', () => {
+describe('useGrammarConfigWidget', () => {
   it('should return config', async () => {
-    const { result } = renderHook(() => useGrammarConfig(), { wrapper: ApplicationProviders });
+    const { result } = renderHook(() => useGrammarConfigWidget(), { wrapper: ApplicationProviders });
     await waitFor(() => {
       expect(result.current.data.grammarByLevel[0].content).toBe(dataMock.grammarByLevel[0].content);
       expect(result.current.data.grammarByLevel[0].tip).toBe(dataMock.grammarByLevel[0].tip);

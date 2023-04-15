@@ -48,7 +48,7 @@ const dataMock = {
 }
 
 jest.mock('./use-grammar-config', () => ({
-    useGrammarConfig: jest.fn()
+    useGrammarConfigWidget: jest.fn()
 }));
 
 const client = new ApolloClient({
@@ -70,7 +70,7 @@ const ApplicationProviders = ({ children, ownContextResponse }: { children: JSX.
 
 
 describe('GrammarLevels', () => {
-    const grammarConfigSpy = jest.spyOn(GrammarConfigHook, 'useGrammarConfig');
+    const grammarConfigSpy = jest.spyOn(GrammarConfigHook, 'useGrammarConfigWidget');
     const refetch = jest.fn();
 
     describe('when data is defined', () => {

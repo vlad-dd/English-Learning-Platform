@@ -4,12 +4,12 @@ import Quiz from 'react-quiz-component';
 import { AlertOutlined } from "@ant-design/icons";
 import { ContentSection } from "../Tenses/styled";
 import { BreadcrumbPath, CasesTabs, SectionComments, Title } from "../Сommon";
-import { useGrammarConfig } from "./use-grammar-config";
+import { useGrammarConfigWidget } from "./use-grammar-config";
 import { GrammarLevelDescription, QuizWrapper } from "./styles";
 import { compact, get } from "lodash";
 
 const GrammarLevels = () => {
-    const { data, isLoading, error, refetch } = useGrammarConfig();
+    const { data, isLoading, error, refetch } = useGrammarConfigWidget();
     const config = get(data, 'grammarByLevel[0]');
     const quiz = get(data, 'grammarByLevel[0].quiz');
     const conditionGate = () => !!data && !isLoading && !error;
@@ -32,8 +32,8 @@ const GrammarLevels = () => {
                         <QuizWrapper>
                             <Title>Consolidation Of Knowledge</Title>
                             <Quiz quiz={{ ...quiz, questions: [...quiz.questions] }} shuffle />
-                            <SectionComments renderComments={config.comments} refetch={refetch} path1={path[1]} path2={path[2]} />
                         </QuizWrapper>
+                        <SectionComments renderComments={config.comments} refetch={refetch} path1={path[1]} path2={path[2]} />
                     </>
                 )}
                 {isLoading && <div>Loading...</div>}

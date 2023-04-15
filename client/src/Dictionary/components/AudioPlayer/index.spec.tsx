@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import AudioPlayer from '.';
 
 jest.mock('../../Hooks/use-audio-player', () => ({
-    useAudioPlayer: () => ({ audioPlayers: [<div>Audio 1</div>, <div>Audio 2</div>, <div>Audio 3</div>] })
+    useAudioPlayerWidget: () => ({ audioPlayers: [<div>Audio 1</div>, <div>Audio 2</div>, <div>Audio 3</div>] })
 }))
 
 describe('AudioPlayer', () => {
