@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 import { noop } from 'lodash';
-import { DictionaryResponseType, useDictionary } from '../Hooks/use-dictionary';
+import { DictionaryResponseType, useDictionaryWidget } from '../Hooks/use-dictionary';
 
 const DictionaryContextInitialState = {
     data: {},
@@ -13,7 +13,7 @@ export const DictionaryConfigurationContext = createContext<DictionaryResponseTy
 
 const DictionaryContext = ({ children }: { children: JSX.Element }) => {
 
-    const { searchWordInDictionary, data, error, isLoading } = useDictionary();
+    const { searchWordInDictionary, data, error, isLoading } = useDictionaryWidget();
    
     return (
         <DictionaryConfigurationContext.Provider value={{ data, searchWordInDictionary, isLoading, error }}>

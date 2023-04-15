@@ -8,10 +8,10 @@ import TensesTable from "../Table/tenses-table";
 import TensePractice from "../Carousel/presentational";
 import MostCommonCases from "../Cases/cases-tabs";
 import TenseExamplePanels from "../Examples/example-panels";
-import { useTenseConfiguration } from "./use-tense-configuration";
+import { useTenseConfigurationWidget } from "./use-tense-configuration";
 
 const TenseContent = (): JSX.Element | null => {
-  const { data, loading, error, refetch} = useTenseConfiguration();
+  const { data, loading, error, refetch} = useTenseConfigurationWidget();
   const renderApplicationGate = () => !!data && !loading && !error;
   const configuration = get(data, 'countOfTenses[0]');
   const path = compact(window.location.pathname.split('/'));

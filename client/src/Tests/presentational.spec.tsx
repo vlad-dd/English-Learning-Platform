@@ -30,7 +30,7 @@ const TestContextResponse = {
 
 describe('TestApplication', () => {
     const config = get(TestContextResponse, 'data.getTests[0]');
-    const spy = jest.spyOn(TestConfig, "useTestConfiguration");
+    const spy = jest.spyOn(TestConfig, "useTestConfigurationWidget");
 
     const changeConfigType = (type: string) => ({ getTests: [{ ...config, type }] });
 

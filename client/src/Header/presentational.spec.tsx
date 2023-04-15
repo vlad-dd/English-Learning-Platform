@@ -21,7 +21,7 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
 };
 
 describe('Header', () => {
-  const useAuthMock = jest.spyOn(Hook, 'useAuth');
+  const useAuthMock = jest.spyOn(Hook, 'useAuthWidget');
   beforeEach(() => {
     useAuthMock.mockClear();
     useAuthMock.mockReturnValue({

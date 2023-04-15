@@ -1,7 +1,7 @@
 import React from "react";
 import { get } from "lodash";
 import { BreadcrumbPath } from "../Сommon";
-import { useTestConfiguration } from "./use-test-configuration";
+import { useTestConfigurationWidget } from "./use-test-configuration";
 import PartialTextInput from "./components/partial-text-input";
 import SelectInputQuiz from "./components/select-input";
 import TextInput from "./components/text-input";
@@ -9,7 +9,7 @@ import { ContentSection } from "../Tenses/styled";
 import { QUIZ_TYPE } from "./constants";
 
 const TestApplication = () => {
-    const { data, isLoading, error } = useTestConfiguration();
+    const { data, isLoading, error } = useTestConfigurationWidget();
     const renderApplicationGate = () => !!data && !isLoading && !error;
     const type = get(data, 'getTests[0].type');
 

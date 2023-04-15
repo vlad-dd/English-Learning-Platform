@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import * as STRINGS from "./strings";
 import FireBaseAPI from "../firebase-api";
-import { useFormConfiguration } from "./use-form-configuration";
+import { useFormConfigurationWidget } from "./use-form-configuration";
 
 interface Props {
   action: "login" | "registration";
@@ -24,7 +24,7 @@ const AntForm: React.FC<Props> = ({ action, navigatePath }) => {
     handleEmail,
     handlePassword,
     onFormSubmit,
-  } = useFormConfiguration(action, navigatePath);
+  } = useFormConfigurationWidget(action, navigatePath);
 
   return (
       <Form

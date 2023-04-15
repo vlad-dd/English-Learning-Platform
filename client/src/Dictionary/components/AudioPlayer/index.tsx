@@ -1,11 +1,11 @@
 import React from "react";
 import { size } from "lodash";
 import { Title } from "../../../Сommon";
-import { useAudioPlayer } from "../../Hooks/use-audio-player";
+import { useAudioPlayerWidget } from "../../Hooks/use-audio-player";
 import { AudioPlayerWrapper } from "./styled";
 
 const AudioPlayer = () => {
-  const { audioPlayers } = useAudioPlayer();
+  const { audioPlayers } = useAudioPlayerWidget();
   return size(audioPlayers) ? (
     <>
       <Title styles={{ textAlign: "center" }}>Pronunciation</Title>

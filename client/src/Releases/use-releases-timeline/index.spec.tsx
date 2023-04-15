@@ -1,7 +1,7 @@
 import { MockedProvider } from "@apollo/client/testing";
 import { renderHook, waitFor } from "@testing-library/react";
 import { get } from "lodash";
-import { useReleasesTimeLine } from ".";
+import { useReleasesTimeLineWidget } from ".";
 import { GET_RELEASES_TIMELINE } from "../graphql";
 
 const response = {
@@ -32,7 +32,7 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
 
 describe('useReleasesTimeLine', () => {
     it('should return response', async() => {
-        const { result } = renderHook(() => useReleasesTimeLine(), { wrapper: ApplicationProviders })
+        const { result } = renderHook(() => useReleasesTimeLineWidget(), { wrapper: ApplicationProviders })
         await waitFor(() => {
             const releaseInformation = get(result, 'current.data.releases[0]');
             expect(releaseInformation.id).toBe('1');

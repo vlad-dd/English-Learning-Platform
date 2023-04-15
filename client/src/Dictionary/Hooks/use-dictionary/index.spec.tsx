@@ -2,7 +2,7 @@ import React from "react";
 import { MockedProvider } from "@apollo/client/testing";
 import { act, renderHook, waitFor } from "@testing-library/react";
 import { get } from "lodash";
-import { useDictionary } from ".";
+import { useDictionaryWidget } from ".";
 import { GET_WORD_FROM_DICTIONARY } from "../../graphql";
 
 const responseMock = {
@@ -76,7 +76,7 @@ const MockWrapper = ({ children }: { children: JSX.Element }) => {
 describe("Use Dictionary", () => {
   it("should return response after callind lazy query", async () => {
 
-    const { result } = renderHook(() => useDictionary(), {
+    const { result } = renderHook(() => useDictionaryWidget(), {
       wrapper: MockWrapper,
     });
 

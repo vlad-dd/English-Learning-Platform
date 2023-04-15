@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import * as selectors from "../../../store/selectors";
 import { GET_TENSE } from "../../graphql";
 
-export const useTenseConfiguration = () => {
+export const useTenseConfigurationWidget = () => {
 
   // We have two ways how to handle getting data by verb:
   // 1) If user clicked on menu option - from state

@@ -10,7 +10,7 @@ interface Props {
     navigatePath?: "/" | "/login";
   }
 
-export const useFormConfiguration = (action: "login" | "registration", navigatePath: "/" | "/login") => {
+export const useFormConfigurationWidget = (action: "login" | "registration", navigatePath: "/" | "/login") => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState<string>("");

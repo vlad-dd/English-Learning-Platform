@@ -1,7 +1,7 @@
 import { MockedProvider } from "@apollo/client/testing";
 import { act, renderHook, waitFor } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { useTenseConfiguration } from ".";
+import { useTenseConfigurationWidget } from ".";
 import store from "../../../store";
 import { GET_TENSE } from "../../graphql";
 
@@ -100,11 +100,11 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
 const getMockedTensePart = (mockedResponse: any) => mockedResponse.result.current.data.countOfTenses[0];
 
 
-describe('useTenseConfiguration', () => {
+describe('useTenseConfigurationWidget', () => {
   let config: any;
 
   beforeEach(() => {
-    config = renderHook(() => useTenseConfiguration(), { wrapper: ApplicationProviders });
+    config = renderHook(() => useTenseConfigurationWidget(), { wrapper: ApplicationProviders });
 
   });
 

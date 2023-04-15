@@ -2,7 +2,7 @@ import React from 'react'
 import { Tag } from 'antd';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { useReleasesTimeLine } from './use-releases-timeline';
+import { useReleasesTimeLineWidget } from './use-releases-timeline';
 import { ContentSection } from '../Tenses/styled';
 interface IVerticalTimelineElement {
   id: string
@@ -37,7 +37,7 @@ const renderVerticalTimelineElements = ({ id, date, version, isLastUpdate, title
 
 
 const Releases = () => {
-  const { data, isLoading, error } = useReleasesTimeLine();
+  const { data, isLoading, error } = useReleasesTimeLineWidget();
 
   return (
       <ContentSection data-testid="content-section-wrapper">

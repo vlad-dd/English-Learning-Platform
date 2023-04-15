@@ -14,11 +14,11 @@ const response = {
 }
 
 jest.mock('./use-releases-timeline', () => ({
-    useReleasesTimeLine: jest.fn()
+    useReleasesTimeLineWidget: jest.fn()
 }))
 
 describe('Releases', () => {
-    const spy = jest.spyOn(Hook, 'useReleasesTimeLine');
+    const spy = jest.spyOn(Hook, 'useReleasesTimeLineWidget');
     it('should render Release component with configuration', () => {
        spy.mockReturnValue(response)
        const releaseInformation = ['Version: 0.0.1', 'Last Update', 'Mocked Release', 'Release is on board!', '14.02.2023']; 

@@ -1,6 +1,6 @@
 import { renderHook, screen , waitFor } from "@testing-library/react";
 import DictionaryContext from "../../Context";
-import { renderAudioPlayer, useAudioPlayer } from ".";
+import { renderAudioPlayer, useAudioPlayerWidget } from ".";
 import { COUNTRIES_FLAGS } from "../../constants";
 
 const responseMock = {
@@ -61,7 +61,7 @@ const responseMock = {
 };
 
 jest.mock('../use-dictionary', () => ({
-    useDictionary: () => ({
+    useDictionaryWidget: () => ({
         data: {
             dictionary: responseMock.dictionary
         },
@@ -78,10 +78,10 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
     )
 }
 
-describe('useAudioPlayer', () => {
+describe('useAudioPlayerWidget', () => {
 
     it('should render audio card', () => {
-        const { result } = renderHook(() => useAudioPlayer(), { wrapper: ApplicationProviders });
+        const { result } = renderHook(() => useAudioPlayerWidget(), { wrapper: ApplicationProviders });
         const audioCard = renderAudioPlayer('pathToAudio-us.mp3', 'mocked text', COUNTRIES_FLAGS.US)
         expect(result.current.audioPlayers[0].type).toEqual(audioCard.type);
         expect(result.current.audioPlayers[0].key).toEqual(audioCard.key);

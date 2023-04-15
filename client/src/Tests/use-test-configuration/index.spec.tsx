@@ -2,7 +2,7 @@ import React from 'react';
 import { store } from '../../store/index';
 import { Provider } from 'react-redux';
 import { renderHook, waitFor } from "@testing-library/react";
-import { useTestConfiguration } from ".";
+import { useTestConfigurationWidget } from ".";
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import { GET_TEST_CONFIGURATION } from '../graphql';
@@ -59,9 +59,9 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
 
 }
 
-describe('useTestConfiguration', () => {
+describe('useTestConfigurationWidget', () => {
     it('should return config', async () => {
-        const { result } = renderHook(() => useTestConfiguration(), { wrapper: ApplicationProviders });
+        const { result } = renderHook(() => useTestConfigurationWidget(), { wrapper: ApplicationProviders });
         await waitFor(() => {
             expect(result.current.data.getTests[0].__typename).toBe('typename');
             expect(result.current.data.getTests[0].type).toBe('Mocked Type');
