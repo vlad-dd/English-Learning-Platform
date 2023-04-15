@@ -17,9 +17,15 @@ describe('ModalActions', () => {
     });
 
     it('should render component correctly', () => {
+        const loadingButton = screen.getByTestId("loading-button");
         expect(screen.getByTestId("dialog-actions")).toBeInTheDocument();
-        expect(screen.getByTestId("loading-button")).toBeInTheDocument();
+        expect(loadingButton).toBeInTheDocument();
+        expect(loadingButton).toBeEnabled();
     });
 
-    //Add tests for createUserAppeal once bff for report modal arrives.
-})
+    it('should render component correctly', async () => {
+        fireEvent.click(screen.getByTestId("loading-button"));
+        const backdrop = await waitFor(() => screen.getByTestId('backdrop-wrapper'));
+        expect(backdrop).toBeInTheDocument();
+    });
+});

@@ -14,5 +14,5 @@ describe('Pacticular comment', () => {
         expect(screen.getByTestId("comments-container")).toBeInTheDocument();
         expect(screen.getByText(comment)).toBeInTheDocument();
         screen.debug();
-    })
-})
+    });
+});

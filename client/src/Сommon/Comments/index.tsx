@@ -1,4 +1,5 @@
 import React from "react";
+import { size } from "lodash";
 import CommentsHeader from "./components/comments-header";
 import SendCommentEditor from "./components/send-comment";
 import CommentsList from "./components/comments-list";
@@ -14,11 +15,7 @@ const SectionComments = ({ renderComments, refetch, path1, path2 }: ISectionComm
     <StyledSectionCommentsWrapper data-testid="comment-section">
       <CommentsHeader comments={renderComments} />
       <SendCommentEditor isLoading={isLoading} addComment={addComment} />
-      {renderComments && !isLoading && !error && (
-        <>
-          <CommentsList comments={renderComments} />
-        </>
-      )}
+      {!!size(renderComments) && !isLoading && !error && <CommentsList comments={renderComments} />}
     </StyledSectionCommentsWrapper>
   )
 }
