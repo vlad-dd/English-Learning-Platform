@@ -10,6 +10,8 @@ describe('ModalActions', () => {
         render(
             <ModalActions
                 selectedReason={selectedReason}
+                error={undefined}
+                isLoading={false}
                 createUserAppeal={createUserAppeal}
                 handleClose={handleClose}
             />

@@ -1,3 +1,5 @@
+import { ApolloError } from "@apollo/client"
+
 interface IComment {
     __typename: string
     id: string
@@ -28,6 +30,8 @@ interface IAdditionalInput {
 
 interface IModalActions {
     selectedReason: string
+    isLoading: boolean
+    error: undefined | ApolloError
     createUserAppeal: () => void
     handleClose: () => void
 }
@@ -50,5 +54,5 @@ export type {
     IAdditionalInput,
     IModalActions,
     ISelectReportReason,
-    ISendCommentEditor
+    ISendCommentEditor,
 }
