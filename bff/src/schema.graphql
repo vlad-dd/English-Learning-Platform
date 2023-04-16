@@ -12,12 +12,25 @@ type Comment {
     comment: String
 }
 
+input Report {
+    comment: String
+    reason: String
+    additionalInformation: String
+}
+
+input ReportInput {
+  comment: ID!
+  reason: String!
+  additionalInformation: String
+}
+
+
 type Mutation {
   addComment(collection: String!, id: String!, comment: String!): String
+  reportComment(report: ReportInput!): String
 }
 
 # Tense
-
 type TestTense {
     tense: String
     tableData: AllTable
