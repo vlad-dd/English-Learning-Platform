@@ -31,6 +31,9 @@ const resolvers = {
     },
     reportComment: async (root, { report }) => {
       await BFF_MUTATIONS.reportComment(report);
+    },
+    reportApplication: async (root, { report }) => {
+      await BFF_MUTATIONS.reportApplication(report);
     }
   } 
 };

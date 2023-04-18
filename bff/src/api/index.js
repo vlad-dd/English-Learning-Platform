@@ -37,8 +37,10 @@ const BFF_MUTATIONS = {
         await mergeDataWithDocument(collection, id, { id: uid(9), date: generateDate() , comment }, "comments");
     },
     async reportComment(report) {
-        console.log('report: ', report)
         await mergeDataWithDocument("Support", "Report-Comment", { id: uid(9), report }, "reports");
+    },
+    async reportApplication(report) {
+        await mergeDataWithDocument("Support", "Report-App", { id: uid(9), report }, 'reports');
     }
 };
 
