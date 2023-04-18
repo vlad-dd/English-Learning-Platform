@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Select } from "antd";
-import { Button } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
 import SendIcon from '@mui/icons-material/Send';
 import TextArea from "antd/lib/input/TextArea";
 import useReportWidget from "./use-report-widget";
@@ -16,13 +16,14 @@ const { Item } = Form;
 
 const SendReportForm = ({ isSubmitted, setSubmitted }: ISendReportForm) => {
     const {
-        report,
         isDisabled,
         minLengthGate,
         maxLengthGate,
         selectApplication,
         handleTextArea,
-        setTouchedByMouse
+        setTouchedByMouse,
+        sendReport,
+        isLoading
     } = useReportWidget();
 
     const isVisible = (!isDisabled && !isSubmitted);
@@ -36,7 +37,6 @@ const SendReportForm = ({ isSubmitted, setSubmitted }: ISendReportForm) => {
                 wrapperCol={{ span: 12 }}>
                 <Item required label={REPORT_FORM_LABELS.FOUND_IN}>
                     <Select
-                        value={report.application}
                         data-testid="send-report-select-reason"
                         onSelect={selectApplication}
                         options={ELP_APPLICATIONS}
@@ -61,19 +61,21 @@ const SendReportForm = ({ isSubmitted, setSubmitted }: ISendReportForm) => {
             </StyledForm>
 
             <SubmitButtonWrapper>
-                <Button
+                <LoadingButton
                     data-testid="send-report-submit"
                     variant="contained"
                     endIcon={<SendIcon />}
+                    loading={isLoading}
                     {...(isVisible && { style: { background: "#1890ff" } })}
                     disabled={isDisabled}
                     hidden={isSubmitted}
                     onClick={() => {
-                        console.log('Your report was submitted!', report)
-                        setSubmitted(true)
-                    }}>
+                        sendReport();
+                        !isLoading && setSubmitted(true)
+                    }}
+                >
                     Send
-                </Button>
+                </LoadingButton>
             </SubmitButtonWrapper>
         </>
     );
