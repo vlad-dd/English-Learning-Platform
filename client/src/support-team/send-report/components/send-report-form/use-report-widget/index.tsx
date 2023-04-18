@@ -1,11 +1,14 @@
 import { useState } from "react"
-import { StyledInputLengthError } from '../../../styled';
-import { MAX_TEXT_AREA_LENGTH, MIN_TEXT_AREA_LENGTH } from "../../../../constants";
+import { useMutation } from "@apollo/client";
+import { SEND_APPLICATION_REPORT_MUTATION } from "../../../../graphql";
 import { IReport, ReportWidget } from "../../../../types";
+import { MAX_TEXT_AREA_LENGTH, MIN_TEXT_AREA_LENGTH } from "../../../../constants";
+import { StyledInputLengthError } from '../../../styled';
 
 const useReportWidget = (): ReportWidget => {
     const [touchedByMouse, setTouchedByMouse] = useState(false);
     const [report, setReport] = useState<IReport>({ application: '', description: '' });
+    const [sendApplicationReport, { loading: isLoading, error }] = useMutation(SEND_APPLICATION_REPORT_MUTATION);
 
     const minLengthError = report.description.length < MIN_TEXT_AREA_LENGTH;
     const maxLengthError = report.description.length === MAX_TEXT_AREA_LENGTH;
@@ -26,6 +29,11 @@ const useReportWidget = (): ReportWidget => {
         setReport({ ...report, description })
     };
 
+    const sendReport = () => {
+        const { application, description } = report;
+        sendApplicationReport({ variables: { application, description } });
+    }
+
     return {
         report,
         setReport,
@@ -36,7 +44,10 @@ const useReportWidget = (): ReportWidget => {
         maxLengthGate,
         selectApplication,
         handleTextArea,
-        setTouchedByMouse
+        setTouchedByMouse,
+        sendReport,
+        isLoading,
+        error
     };
 };
 

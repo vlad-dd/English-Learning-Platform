@@ -1,3 +1,5 @@
+import { ApolloError } from "@apollo/client"
+
 export interface IReport {
     application: string
     description: string
@@ -14,6 +16,9 @@ export interface ReportWidget {
     selectApplication: (application: string) => void
     handleTextArea: (description: string) => void
     setTouchedByMouse: (touched: boolean) => void
+    sendReport: () => void
+    isLoading: boolean,
+    error: ApolloError | undefined
 }
 
 export interface ISendReportForm {
