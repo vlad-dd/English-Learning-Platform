@@ -4,7 +4,7 @@
 <h2>💻 Technologies Used</h2>
 <ul>
     <li>⚛️ React (react)</li>
-    <li>📜 TypeScript (typescript)</li>
+    <li>🌀 TypeScript (typescript)</li>
     <li>🚀 Apollo Client (@apollo/client)</li>
     <li>💎 Material-UI (@mui/material)</li>
     <li>📖 Storybook (@storybook/react)</li>
