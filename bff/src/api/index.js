@@ -33,8 +33,8 @@ const BFF_API_QUERIES = {
 };
 
 const BFF_MUTATIONS = {
-    async addComment(collection, id, comment) {
-        await mergeDataWithDocument(collection, id, { id: uid(9), date: generateDate() , comment }, "comments");
+    async addComment(collection, id, comment, email) {
+        await mergeDataWithDocument(collection, id, { id: uid(9), date: generateDate() , comment, email }, "comments");
     },
     async reportComment(report) {
         await mergeDataWithDocument("Support", "Report-Comment", { id: uid(9), report }, "reports");
