@@ -16,7 +16,7 @@ import {
 const CommentsList = ({ comments }: { comments: Array<IComment> }) => {
     return (
         <StyledList data-testid="comments-list">
-            {!!comments && [...comments].reverse().map(({ id, date, comment }: IComment) => (
+            {!!comments && [...comments].reverse().map(({ id, date, comment, email }: IComment & { email?: string }) => (
                 <StyledListItem key={id}>
                     <ListItemAvatar>
                         <StyledCommentAvatar {...generateNicknameAvatars('V S')} />
@@ -24,7 +24,7 @@ const CommentsList = ({ comments }: { comments: Array<IComment> }) => {
                     <ListItemText
                         primary={
                             <ListItemTextBody>
-                                <SendersNickname>Vlad Syrotiuk</SendersNickname>
+                                <SendersNickname>{email ?? "Visitor"}</SendersNickname>
                                 <StyledDateTag color="purple">{date}</StyledDateTag>
                             </ListItemTextBody>}
                         secondary={<ParticularComment commentID={id} comment={comment} />}

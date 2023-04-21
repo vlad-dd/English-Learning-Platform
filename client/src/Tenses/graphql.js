@@ -44,6 +44,7 @@ query getAllTenseConfiguration($tense: String!) {
       id
       date
       comment
+      email
     }
     tense
   }
