@@ -26,8 +26,8 @@ const resolvers = {
     }
   },
   Mutation: {
-    addComment: async (root, { collection = 'Comments', id = 'Comments', comment }) => {
-      await BFF_MUTATIONS.addComment(collection, id, comment);
+    addComment: async (root, { collection = 'Comments', id = 'Comments', comment, email }) => {
+      await BFF_MUTATIONS.addComment(collection, id, comment, email);
     },
     reportComment: async (root, { report }) => {
       await BFF_MUTATIONS.reportComment(report);

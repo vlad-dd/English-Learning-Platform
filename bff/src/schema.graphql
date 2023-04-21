@@ -10,6 +10,7 @@ type Comment {
     id: String
     date: String
     comment: String
+    email: String
 }
 
 input Report {
@@ -31,7 +32,7 @@ input ReportApp {
 
 
 type Mutation {
-  addComment(collection: String!, id: String!, comment: String!): String
+  addComment(collection: String!, id: String!, comment: String!, email: String!): String
   reportComment(report: ReportInput!): String
   reportApplication(report: ReportApp!): String
 }
