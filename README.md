@@ -14,7 +14,7 @@
     <li>🔍 Prop Types (prop-types)</li>
     <li>🌍 React DOM (react-dom)</li>
     <li>💻 React Icons (react-icons)</li>
-    <li>📈 Chart.JS (react-chart)</li>
+    <li>📊 Chart.JS (react-chart)</li>
     <li>📝 React Quiz Component (react-quiz-component)</li>
     <li>🎨 Styled Components (styled-components)</li>
     <li>🚦 React Router (react-router)</li>
