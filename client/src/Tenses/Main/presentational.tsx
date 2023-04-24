@@ -10,7 +10,7 @@ import MostCommonCases from "../Cases/cases-tabs";
 import TenseExamplePanels from "../Examples/example-panels";
 import { useTenseConfigurationWidget } from "./use-tense-configuration";
 
-const TenseContent = (): JSX.Element | null => {
+const TenseContent = (): JSX.Element => {
   const { data, loading, error, refetch} = useTenseConfigurationWidget();
   const renderApplicationGate = () => !!data && !loading && !error;
   const configuration = get(data, 'countOfTenses[0]');
