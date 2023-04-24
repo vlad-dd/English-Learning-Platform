@@ -24,8 +24,7 @@ const GrammarLevels = () => {
                         <Title styles={{ fontSize: "2.5rem" }}>{config.title}</Title>
                         <Alert icon={<AlertOutlined />} message={config.tip} showIcon />
                         <Title styles={{ paddingTop: '25px' }}>Explanation Of {config.explanation}</Title>
-                        <GrammarLevelDescription dangerouslySetInnerHTML={{ __html: config.content }} style={{ fontSize: "1rem", fontFamily: 'inherit', paddingTop: "15px", paddingBottom: "15px" }} data-testid="grammar-level-content">
-                        </GrammarLevelDescription>
+                        <GrammarLevelDescription dangerouslySetInnerHTML={{ __html: config.content }} style={{ fontSize: "1rem", fontFamily: 'inherit', paddingTop: "15px", paddingBottom: "15px" }} data-testid="grammar-level-content" />
                         <Title styles={{ paddingTop: '25px' }}>Use Cases For {config.explanation}</Title>
                         <CasesTabs config={config.cases} />
                         <Divider />

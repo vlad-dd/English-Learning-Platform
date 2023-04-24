@@ -28,7 +28,7 @@ const TestApplication = () => {
                 {error && <div>We have some troubles with request...</div>}
             </ContentSection>
         </React.Fragment>
-    )
+    );
 }
 
 export default TestApplication;
