@@ -8,7 +8,7 @@ import Releases from "../../Releases/presentational";
 import TenseContent from "../../Tenses/Main/presentational";
 import TestApplicationContext from "../../Tests/Context";
 import TestApplication from "../../Tests/presentational";
-import AdminPage from "../../Admin/presentational";
+import AdminPage from "../../admin-panel/presentational";
 
 export const LazyTenseApplicationRoot = lazy(() => import("../../app-root/presentational"));
 const LazyRegistration = lazy(() => import("../../authentification/Registration/presentational"));
