@@ -13,13 +13,13 @@ describe('SectionComments', () => {
     const renderComments = [
         { __typename: 'Comment', id: '1', date: '01.01.2023', comment: 'my comment' }
     ]
-    const path1 = 'path1';
-    const path2 = 'path2';
+    const collection = 'path1';
+    const document = 'path2';
     const refetch = jest.fn();
     it('should render component correctly when renderComment exists', () => {
         render(
             <Providers>
-                <SectionComments renderComments={renderComments} path1={path1} path2={path2} refetch={refetch} />
+                <SectionComments renderComments={renderComments} collection={collection} document={document} refetch={refetch} />
             </Providers>
         );
         expect(screen.getByTestId("comment-section")).toBeInTheDocument();
@@ -30,7 +30,7 @@ describe('SectionComments', () => {
     it('should render component correctly when renderComment does not exist', () => {
         render(
             <Providers>
-                <SectionComments renderComments={[]} path1={path1} path2={path2} refetch={refetch} />
+                <SectionComments renderComments={[]} collection={collection} document={document} refetch={refetch} />
             </Providers>
         );
         expect(screen.getByTestId("comment-section")).toBeInTheDocument();

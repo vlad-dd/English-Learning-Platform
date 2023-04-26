@@ -1,19 +1,24 @@
 import React from "react";
 import { Alert, Divider } from "antd";
 import Quiz from 'react-quiz-component';
+import { useParams } from "react-router";
 import { AlertOutlined } from "@ant-design/icons";
+import { get } from "lodash";
 import { ContentSection } from "../Tenses/styled";
-import { BreadcrumbPath, CasesTabs, SectionComments, Title } from "../Сommon";
+import { BreadcrumbPath, CasesTabs, LoadingProgress, SectionComments, Title } from "../Сommon";
 import { useGrammarConfigWidget } from "./use-grammar-config";
 import { GrammarLevelDescription, QuizWrapper } from "./styles";
-import { compact, get } from "lodash";
 
 const GrammarLevels = () => {
+    const { level, theme } = useParams();
     const { data, isLoading, error, refetch } = useGrammarConfigWidget();
     const config = get(data, 'grammarByLevel[0]');
     const quiz = get(data, 'grammarByLevel[0].quiz');
     const conditionGate = () => !!data && !isLoading && !error;
-    const path = compact(window.location.pathname.split('/'));
+
+    if (!level || !theme) {
+        return <LoadingProgress />;
+    }
 
     return (
         <React.Fragment>
@@ -32,10 +37,10 @@ const GrammarLevels = () => {
                             <Title>Consolidation Of Knowledge</Title>
                             <Quiz quiz={{ ...quiz, questions: [...quiz.questions] }} shuffle />
                         </QuizWrapper>
-                        <SectionComments renderComments={config.comments} refetch={refetch} path1={path[1]} path2={path[2]} />
+                        <SectionComments renderComments={config.comments} refetch={refetch} collection={level} document={theme}/>
                     </>
                 )}
-                {isLoading && <div>Loading...</div>}
+                {isLoading && <LoadingProgress />}
                 {error && <div>We have some troubles with request...</div>}
             </ContentSection>
         </React.Fragment>
