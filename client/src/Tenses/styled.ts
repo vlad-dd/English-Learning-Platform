@@ -5,6 +5,7 @@ import { Title } from "../Сommon";
 
 export const ContentSection = styled.div`
   background: rgb(0, 30, 60);
+  position: relative;
   padding: 24px;
   min-height: 360px;
 `;

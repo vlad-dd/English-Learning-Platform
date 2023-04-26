@@ -9,8 +9,8 @@ interface IComment {
 interface ISectionComments {
     renderComments: Array<IComment>
     refetch: () => void
-    path1: string
-    path2: string
+    collection: string
+    document: string
 }
 
 interface ICommentRulesModal {

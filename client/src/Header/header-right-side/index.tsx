@@ -17,7 +17,7 @@ const { fonts, changeDefaultTheme } = useTheme();
 
   return (
     <HeaderRight>
-    {enteredUser?.email === 'adminelp@gmail.com' ? <Link to="/Admin"><FiDatabase style={{ marginRight: '30px', color: fonts, cursor: 'pointer' }} /></Link> : ''}
+    {enteredUser?.email === 'adminelp@gmail.com' ? <Link to="/admin-panel"><FiDatabase style={{ marginRight: '30px', color: fonts, cursor: 'pointer' }} /></Link> : ''}
     <FaMoon onClick={changeDefaultTheme} style={{ marginRight: '30px', color: fonts, cursor: 'pointer' }} />
       {enteredUser && enteredUser !== null ? (
         <Image url={AVATARS.admin} styles={{ height: "32px", width: "32px" , borderRadius: "50%", objectFit: "cover" }} />
