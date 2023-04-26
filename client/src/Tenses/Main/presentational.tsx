@@ -1,6 +1,7 @@
 import React from "react";
 import { AlertOutlined } from "@ant-design/icons";
-import { compact, get } from "lodash";
+import { useParams } from "react-router";
+import { get } from "lodash";
 import { TenseContext } from "../Context";
 import { ApplicationTitle, BreadcrumbPath, SectionComments } from "../../Сommon";
 import { ContentSection, StyledAlert } from "../styled";
@@ -11,10 +12,10 @@ import TenseExamplePanels from "../Examples/example-panels";
 import { useTenseConfigurationWidget } from "./use-tense-configuration";
 
 const TenseContent = (): JSX.Element => {
+  const { tense } = useParams();
   const { data, loading, error, refetch} = useTenseConfigurationWidget();
   const renderApplicationGate = () => !!data && !loading && !error;
   const configuration = get(data, 'countOfTenses[0]');
-  const path = compact(window.location.pathname.split('/'));
 
   return (
     <>
@@ -29,7 +30,7 @@ const TenseContent = (): JSX.Element => {
            <TenseContext.Provider value={{data, isLoading: loading, error}}>
             <TensePractice />
            </TenseContext.Provider>
-          <SectionComments renderComments={configuration.comments} refetch={refetch} path1={path[2]} path2={path[2]}/>
+          <SectionComments renderComments={configuration.comments} refetch={refetch} collection={tense!} document={tense!}/>
         </ContentSection>
       )}
       {loading && <div>Loading...</div>}

@@ -24,13 +24,13 @@ const wrapper = ({ children }: any) => <Apollo.ApolloProvider client={client}>{c
 describe('useCommentUpdatingWidget', () => {
   const refetch = jest.fn();
   const mutateFunction = jest.fn();
-  const path1 = 'posts';
-  const path2 = '1';
+  const collection = 'posts';
+  const document = '1';
   const mutationMock: any = (query: string) => jest.spyOn(Apollo, 'useMutation');
 
   it('should render default hook state', () => {
     mutationMock(ADD_COMMENT).mockReturnValue([mutateFunction, { loading: false, error: undefined }]);
-    const { result } = renderHook(() => useCommentUpdatingWidget(refetch, path1, path2), { wrapper })
+    const { result } = renderHook(() => useCommentUpdatingWidget(refetch, collection, document), { wrapper })
     expect(result.current.isLoading).toBe(false);
     expect(result.current.error).toBe(undefined);
     expect(result.current.addComment).toEqual(expect.any(Function));
@@ -38,7 +38,7 @@ describe('useCommentUpdatingWidget', () => {
 
   it('should test mutation process', async () => {
     mutationMock(ADD_COMMENT).mockReturnValue([mutateFunction, { loading: false, error: undefined }]);
-    const { result } = renderHook(() => useCommentUpdatingWidget(refetch, path1, path2), { wrapper })
+    const { result } = renderHook(() => useCommentUpdatingWidget(refetch, collection, document), { wrapper })
     act(() => {
       result.current.addComment('<div>some html text</div>')
     })
@@ -51,7 +51,7 @@ describe('useCommentUpdatingWidget', () => {
 
   it('should not call functions if error exists', async () => {
     mutationMock(ADD_COMMENT).mockReturnValue([mutateFunction, { loading: false, error: new Apollo.ApolloError({}) }]);
-    const { result } = renderHook(() => useCommentUpdatingWidget(refetch, path1, path2), { wrapper })
+    const { result } = renderHook(() => useCommentUpdatingWidget(refetch, collection, document), { wrapper })
     act(() => {
       result.current.addComment('<div>some html text</div>')
     })

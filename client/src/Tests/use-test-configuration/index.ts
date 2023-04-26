@@ -1,14 +1,14 @@
 import { useQuery } from "@apollo/client";
-import { compact } from "lodash";
 import { useSelector } from "react-redux";
 import * as selectors from '../../store/selectors'
 import { GET_TEST_CONFIGURATION } from "../graphql";
+import { useParams } from "react-router";
 
 const useTestConfigurationWidget = () => {
     const { path }: { path: Array<string> } = useSelector(selectors.tensesBCState)
-    const windowPath: Array<string> = compact(window?.location?.pathname.split('/'));
+    const { part, theme } = useParams();
     
-    const { data, loading, error } = useQuery(GET_TEST_CONFIGURATION, { variables: { part: path[1] ?? windowPath[1] , theme: path[0] ?? windowPath[2]} })
+    const { data, loading, error } = useQuery(GET_TEST_CONFIGURATION, { variables: { part: path[1] ?? part , theme: path[0] ?? theme} })
 
     return { data, isLoading: loading, error };
 }

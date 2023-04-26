@@ -52,7 +52,7 @@ const useApplicationRouter = () => {
         ),
       },
       {
-        path: "/Tests/:theme/:test",
+        path: "/Tests/:part/:theme",
         element: (
           <TestApplicationContext>
             <TestApplication />
@@ -60,7 +60,7 @@ const useApplicationRouter = () => {
         ),
       },
       {
-        path: "/Admin",
+        path: "/admin-panel",
         element: (
           <AdminPage />
         ),

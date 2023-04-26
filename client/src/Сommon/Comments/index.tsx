@@ -7,9 +7,9 @@ import useCommentUpdatingWidget from "./use-comment-update-widget";
 import { ISectionComments } from "./types";
 import { StyledSectionCommentsWrapper } from "./styled";
 
-const SectionComments = ({ renderComments, refetch, path1, path2 }: ISectionComments) => {
+const SectionComments = ({ renderComments, refetch, collection, document }: ISectionComments) => {
 
-  const { addComment, isLoading, error } = useCommentUpdatingWidget(refetch, path1, path2);
+  const { addComment, isLoading, error } = useCommentUpdatingWidget(refetch, collection, document);
 
   return (
     <StyledSectionCommentsWrapper data-testid="comment-section">
