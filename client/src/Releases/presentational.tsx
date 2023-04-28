@@ -4,6 +4,8 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import { useReleasesTimeLineWidget } from './use-releases-timeline';
 import { ContentSection } from '../Tenses/styled';
+import { LoadingProgress } from '../Сommon';
+import { size } from 'lodash';
 interface IVerticalTimelineElement {
   id: string
   date: string
@@ -35,18 +37,23 @@ const renderVerticalTimelineElements = ({ id, date, version, isLastUpdate, title
   );
 }
 
-
 const Releases = () => {
   const { data, isLoading, error } = useReleasesTimeLineWidget();
 
+  if (isLoading || !size(data.releases)) {
+    return <LoadingProgress />;
+  }
+
+  if (error) {
+    return <h1>Something happened with request, {error.name}</h1>
+  }
+
   return (
-      <ContentSection data-testid="content-section-wrapper">
-        <VerticalTimeline layout='1-column-left'>
-          {(data && !isLoading && !error) && data?.releases?.map(renderVerticalTimelineElements)}
-          {isLoading && <h1>Loading...</h1>}
-          {error && <h1>Something happened with request, {error.name}</h1>}
-        </VerticalTimeline>
-      </ContentSection>
+    <ContentSection data-testid="content-section-wrapper">
+      <VerticalTimeline layout='1-column-left'>
+        {data.releases.map(renderVerticalTimelineElements)}
+      </VerticalTimeline>
+    </ContentSection>
   )
 }
 
