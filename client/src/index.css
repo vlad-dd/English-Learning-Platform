@@ -80,7 +80,7 @@
     opacity: 0.5 !important;
   }
 
-  main {
+  .not-found-url-container {
     background: rgb(0, 30, 60);
   }
 

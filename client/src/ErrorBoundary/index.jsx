@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, Title } from '../Сommon';
-
+import ErrorPage from '../Сommon/error-handler-page/not-found-url';
+import { ELP_USER_EXPERIENCE_ERRORS } from '../Сommon/error-handler-page/constants';
 class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
@@ -17,29 +17,25 @@ class ErrorBoundary extends React.Component {
 
     static getDerivedStateFromError() {
         return { hasError: true };
-      }
+    }
 
     componentDidCatch(error, info) {
-       this.logError(error, info);
-
+        this.logError(error, info);
     }
 
     logError = (error, info) => {
         const { componentStack } = info;
         console.log('----------------------------------------------');
-        console.log('%c' + 'Error: ' +  error, 'color:black');
-        console.log('%c' + 'Path: ' +  componentStack, 'color:black',);
+        console.log('%c' + 'Error: ' + error, 'color:black');
+        console.log('%c' + 'Path: ' + componentStack, 'color:black',);
         console.log('----------------------------------------------');
     };
 
 
     render() {
         const { hasError } = this.state;
-        if(hasError) {
-            return (<>
-            <Title>Something went wrong. Our team is already working on this problem.</Title>
-            <Image styles={{ height: "330px", width: "350px" }} url="https://img.freepik.com/free-vector/oops-404-error-with-a-broken-robot-concept-illustration_114360-5529.jpg?w=2000" />
-            </>);
+        if (hasError) {
+            return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.UNEXPECTED_BREAK} />
         }
         return this.props.children;
     }
