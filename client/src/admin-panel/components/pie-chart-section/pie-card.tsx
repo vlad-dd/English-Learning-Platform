@@ -2,6 +2,7 @@ import { Card, CardContent, Typography } from "@mui/material"
 import { Tag } from "antd";
 import { Pie } from "react-chartjs-2"
 import { FaUserPlus } from "react-icons/fa";
+import { IPieCard } from "../../types";
 
 const data = {
     labels: ['Registered', 'Visitors'],
@@ -14,7 +15,7 @@ const data = {
 
 };
 
-const PieCard = ({ id, title, value }: any) => {
+const PieCard = ({ id, title, value }: IPieCard) => {
     return (
         <Card key={id} sx={{ minWidth: 275 }} style={{ border: "1px solid white", display: "flex" }}>
             <CardContent>
