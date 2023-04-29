@@ -1,13 +1,14 @@
-import { Button, Dialog, DialogActions, DialogContentText, DialogTitle, Portal } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContentText, DialogTitle } from "@mui/material";
 //@ts-ignore
 import statisicPDF from './elp-stat.pdf';
+import { ISubmitDownloadDialog } from "../../../types";
 
-const SubmitDownloadDialog = ({ isOpen, setIsOpen }: any) => {
+const SubmitDownloadDialog = ({ isOpen, setIsOpen }: ISubmitDownloadDialog) => {
     return (
         <>
             <Dialog
                 open={isOpen}
-                onClose={() => setIsOpen((prev: boolean) => !prev)}
+                onClose={() => setIsOpen(false)}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >

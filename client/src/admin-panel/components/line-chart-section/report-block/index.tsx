@@ -1,8 +1,9 @@
 import { Button } from "@mui/material"
 import { AiOutlineFilePdf } from 'react-icons/ai';
 import { StyledReportBlock } from "../styled"
+import { IApplicationReportBlock } from "../../../types";
 
-const ApplicationReportBlock = ({ setIsOpen, application, date }: any) => {
+const ApplicationReportBlock = ({ setIsOpen, application, date }: IApplicationReportBlock) => {
     return (
         <StyledReportBlock>
             <span>{application}</span>
