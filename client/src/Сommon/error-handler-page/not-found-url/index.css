@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+
+.svg-character > svg{
+    height: 50vh;
+}
+
+.svg-character > g{
+    height: 50vh;
+    fill: red;
+}
+
