@@ -1,7 +1,7 @@
 import * as ReactRedux from "react-redux";
 import { fireEvent, render, screen } from "@testing-library/react";
 import store from "../../../../store";
-import { openSendReportModal } from "../../../../store/reducers/send-report";
+import { openSendReportModal } from "../../../../store/reducers/send-report-modal";
 import ReportServiceIcon from './index';
 
 jest.mock('react-redux', () => ({

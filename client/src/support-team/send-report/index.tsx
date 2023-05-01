@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal, Tooltip } from "antd";
-import { closeSendReportModal } from "../../store/reducers/send-report";
+import { closeSendReportModal } from "../../store/reducers/send-report-modal";
 import { reportModalState } from "../../store/selectors";
 import { SendReportForm, ReportResult, ReportServiceIcon } from "./components";
 import { StyledSendReportWrapper } from "./styled";

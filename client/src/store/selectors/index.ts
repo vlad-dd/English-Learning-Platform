@@ -11,3 +11,5 @@ export const registeredUser = (state: State) => getState(state).registration.use
 export const tenseConfiguration = (state: State) => getState(state).tense.tenseConfiguration;
 
 export const reportModalState = (state: State) => getState(state).sendReport;
+
+export const userProfileModalState = (state: State) => getState(state).userProfile;

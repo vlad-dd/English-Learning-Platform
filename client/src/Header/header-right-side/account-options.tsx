@@ -1,22 +1,25 @@
-import React from 'react';
 import {
-    UserOutlined,
-    StarOutlined,
-    SettingOutlined,
+  UserOutlined,
+  StarOutlined,
+  SettingOutlined,
 } from '@ant-design/icons';
 import { Menu } from 'antd';
 import { MenuItem } from '../styled';
+import { useDispatch } from 'react-redux';
+import { openUserProfileModal } from '../../store/reducers/user-profile-modal';
 
 const AccountOptions = ({ handleSignOut }: { handleSignOut: () => void }) => {
+  const dispatch = useDispatch();
   return (
     <Menu
       data-testid="header-dropdown-menu"
+      style={{ cursor: "pointer" }}
       items={[
         {
           label: (
             <>
               <UserOutlined />
-              <MenuItem>Profile</MenuItem>
+              <MenuItem onClick={() => dispatch(openUserProfileModal())}>Profile</MenuItem>
             </>
           ),
           key: '0',
@@ -46,7 +49,7 @@ const AccountOptions = ({ handleSignOut }: { handleSignOut: () => void }) => {
         },
       ]}
     />
-    )
+  )
 }
 
 export default AccountOptions;
