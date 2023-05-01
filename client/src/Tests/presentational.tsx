@@ -7,6 +7,8 @@ import SelectInputQuiz from "./components/select-input";
 import TextInput from "./components/text-input";
 import { ContentSection } from "../Tenses/styled";
 import { QUIZ_TYPE } from "./constants";
+import ErrorPage from "../Сommon/error-handler-page/not-found-url";
+import { ELP_USER_EXPERIENCE_ERRORS } from "../Сommon/error-handler-page/constants";
 
 const TestApplication = () => {
     const { data, isLoading, error } = useTestConfigurationWidget();
@@ -18,12 +20,16 @@ const TestApplication = () => {
         [QUIZ_TYPE.PARTIAL]: <PartialTextInput />
     };
 
-    if (isLoading || !size(data)) {
+    if ((isLoading || !size(data) && !error)) {
         return <LoadingProgress />
     }
 
     if (error) {
-        return <div>We have some troubles with request...</div>
+        if (error.networkError) {
+            return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.BAD_CONNECTION} />
+        } else {
+            return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.SERVER_ERROR} />
+        }
     }
 
     return (

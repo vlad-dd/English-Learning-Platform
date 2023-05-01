@@ -8,6 +8,8 @@ import { ContentSection } from "../Tenses/styled";
 import { BreadcrumbPath, CasesTabs, LoadingProgress, SectionComments, Title } from "../Сommon";
 import { useGrammarConfigWidget } from "./use-grammar-config";
 import { GrammarLevelDescription, QuizWrapper } from "./styles";
+import ErrorPage from "../Сommon/error-handler-page/not-found-url";
+import { ELP_USER_EXPERIENCE_ERRORS } from "../Сommon/error-handler-page/constants";
 
 const GrammarLevels = () => {
     const { level, theme } = useParams();
@@ -19,6 +21,14 @@ const GrammarLevels = () => {
     if (!level || !theme) {
         return <LoadingProgress />;
     }
+
+    if (error) {
+        if(error.networkError) {
+          return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.BAD_CONNECTION} />
+        } else {
+          return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.SERVER_ERROR} />
+        }   
+      }
 
     return (
         <React.Fragment>

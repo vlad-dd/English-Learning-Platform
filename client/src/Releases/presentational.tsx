@@ -40,7 +40,7 @@ const renderVerticalTimelineElements = ({ id, date, version, isLastUpdate, title
 const Releases = () => {
   const { data, isLoading, error } = useReleasesTimeLineWidget();
 
-  if (isLoading || !size(data.releases)) {
+  if ((isLoading || !size(data.releases)) && !error) {
     return <LoadingProgress />;
   }
 
