@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { CustomerServiceOutlined } from '@ant-design/icons';
-import { openSendReportModal } from "../../../../store/reducers/send-report";
+import { openSendReportModal } from "../../../../store/reducers/send-report-modal";
 import { StyledServiceButton } from "../../styled";
 
 const ReportServiceIcon = () => {
