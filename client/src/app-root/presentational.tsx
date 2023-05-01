@@ -1,13 +1,14 @@
-import React from 'react';
 import { Layout } from 'antd';
 import { Outlet } from 'react-router';
 import SiderComponent from '../Sider/presentational';
 import Header from '../Header/presentational';
 import { StyledLayout, StyledContent, StyledFooter } from '../styled';
+import ModalRoot from './modals';
 
 const ApplicationRoot = () => {
   return (
     <StyledLayout data-testid='application-layout'>
+      <ModalRoot />
       <SiderComponent />
       <Layout>
         <Header />
