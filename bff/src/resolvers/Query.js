@@ -34,7 +34,10 @@ const resolvers = {
     },
     reportApplication: async (root, { report }) => {
       await BFF_MUTATIONS.reportApplication(report);
-    }
+    },
+    reportUser: async (root, { report }) => {
+      await BFF_MUTATIONS.reportUserProfile(report);
+    },
   } 
 };
 

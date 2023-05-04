@@ -30,11 +30,17 @@ input ReportApp {
     description: String
 }
 
+input ReportUser {
+    reason: String
+    additionalInformation: String
+}
+
 
 type Mutation {
   addComment(collection: String!, id: String!, comment: String!, email: String): String
   reportComment(report: ReportInput!): String
   reportApplication(report: ReportApp!): String
+  reportUser(report: ReportUser!): String
 }
 
 # Tense
