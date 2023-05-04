@@ -41,7 +41,10 @@ const BFF_MUTATIONS = {
     },
     async reportApplication(report) {
         await mergeDataWithDocument("Support", "Report-App", { id: uid(9), report }, 'reports');
-    }
+    },
+    async reportUserProfile(report) {
+        await mergeDataWithDocument("Support", "Report-User", { id: uid(9), report }, 'reports');
+    },
 };
 
 module.exports = {

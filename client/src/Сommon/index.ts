@@ -7,3 +7,4 @@ export { default as CasesTabs } from './cases-tabs';
 export { default as ApplicationTitle } from './ApplicationTitle';
 export { default as SectionComments } from './Comments';
 export { default as LoadingProgress } from './LoadingProgress';
+export { default as ReportDialog } from './report-dialog';
