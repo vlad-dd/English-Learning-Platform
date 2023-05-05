@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -6,7 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { POLICY_RULES } from "../../constants";
 
-const SelectReportReason = ({ selectedReason, setSelectedReason }: any) => {
+const SelectReportReason = memo(({ selectedReason, setSelectedReason }: any) => {
     return (
         <Box marginTop="20px" sx={{ minWidth: 120 }} data-testid="select-reason-box">
             <FormControl fullWidth>
@@ -22,6 +22,6 @@ const SelectReportReason = ({ selectedReason, setSelectedReason }: any) => {
             </FormControl>
         </Box>
     )
-};
+});
 
 export default SelectReportReason;

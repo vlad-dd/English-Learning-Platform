@@ -20,7 +20,7 @@ const CommunicationBlock = () => {
     return (
         <StyledCommunicationBlockWrapper>
             <ReportDialog
-                title="Report Inappropriate User"
+                title="Report Inappropriate User👮‍♀️"
                 description="Our user complaint feature allows you to report any behavior or content that you believe violates our English Learning Platform policies. We take all complaints seriously and strive to ensure that our platform is a safe and welcoming space for all users."
                 isOpen={isOpen}
                 handleClose={handleOpening}
@@ -31,7 +31,7 @@ const CommunicationBlock = () => {
             <StyledUserDetails>
                 <StyledUserNickname>
                     <span>Green Ogre</span>
-                    <AiOutlineUserAdd style={{ cursor: "pointer" }} />
+                    <AiOutlineUserAdd />
                 </StyledUserNickname>
                 <Tag style={{ borderRadius: "50px", fontSize: "0.8rem" }} color='green'>Online</Tag>
             </StyledUserDetails>

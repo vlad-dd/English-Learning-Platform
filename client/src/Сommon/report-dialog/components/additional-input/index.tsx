@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import { useBoolean } from "../../../../Hooks";
 // import { IAdditionalInput } from "../../../../types";
 
-const AdditionalInput = ({ setAdditionalInformation }: any) => {
+const AdditionalInput = memo(({ setAdditionalInformation }: any) => {
     const [showAdditionalInput, setShowAdditionalInput] = useBoolean();
     return (
         <React.Fragment>
@@ -21,6 +21,6 @@ const AdditionalInput = ({ setAdditionalInformation }: any) => {
             )}
         </React.Fragment>
     )
-}
+})
 
 export default AdditionalInput;
