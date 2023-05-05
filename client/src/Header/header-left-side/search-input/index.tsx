@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { noop, size } from "lodash";
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { compact, noop, size } from "lodash";
+import { useLocation, useNavigate } from "react-router-dom";
 import { TextField } from "@mui/material";
-import { StyledAutoComplete } from "../../styled";
+import { breadcrumbPath } from "../../../store/reducers/bread-crumb";
+import * as selectors from '../../../store/selectors'
 import { APPLICATION_PARTS } from "../../constants";
+import { StyledAutoComplete } from "../../styled";
 
 const SearchInput = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { pathname } = useLocation();
     const [selectedValue, setSelectedValue] = useState('');
+    const { path } = useSelector(selectors.tensesBCState);
 
     const transformedOptions = APPLICATION_PARTS.map((option) => {
         const firstLetter = option.title[0].toUpperCase();
@@ -26,6 +32,14 @@ const SearchInput = () => {
             noop()
         }
     }, [selectedValue])
+
+    useEffect(() => {
+        setSelectedValue("");
+        const URLPath = [...compact(pathname.split("/"))].reverse();
+        if(path.at(0) !== URLPath.at(0)) {
+            dispatch(breadcrumbPath(URLPath))
+        }
+    }, [pathname, path])
 
     return (
         <StyledAutoComplete
