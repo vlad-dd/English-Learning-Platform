@@ -12,4 +12,12 @@ const COUNTRIES_FLAGS = {
     AU: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1280px-Flag_of_Australia_%28converted%29.svg.png'
 };
 
-export { AUDIO_PRONOUNCE, COUNTRIES_FLAGS };
+const DICTIONARY_TIP = "Our dictionary search feature will suggest possible matches and alternatives, so you can easily find the word you're looking for.";
+const UNEXISTED_WORD_DESCRIPTION = "Unexisted word, please check the spelling";
+
+export { 
+    AUDIO_PRONOUNCE, 
+    COUNTRIES_FLAGS,
+    DICTIONARY_TIP,
+    UNEXISTED_WORD_DESCRIPTION
+};
