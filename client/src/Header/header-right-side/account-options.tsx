@@ -25,27 +25,18 @@ const AccountOptions = ({ handleSignOut }: { handleSignOut: () => void }) => {
           key: '0',
         },
         {
-          label: (
-            <>
-              <StarOutlined />
-              <MenuItem>Achievements</MenuItem>
-            </>
-          ),
-          key: '1',
-        },
-        {
           type: 'divider',
         },
         {
           label: (
             <>
-              <SettingOutlined />{' '}
+              <SettingOutlined />
               <MenuItem onClick={handleSignOut}>
                 Sign out
               </MenuItem>
             </>
           ),
-          key: '3',
+          key: '1',
         },
       ]}
     />

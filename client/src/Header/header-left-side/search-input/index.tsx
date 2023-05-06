@@ -34,7 +34,6 @@ const SearchInput = () => {
     }, [selectedValue])
 
     useEffect(() => {
-        setSelectedValue("");
         const URLPath = [...compact(pathname.split("/"))].reverse();
         if(path.at(0) !== URLPath.at(0)) {
             dispatch(breadcrumbPath(URLPath))
