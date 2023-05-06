@@ -18,17 +18,21 @@ const GrammarLevels = () => {
     const quiz = get(data, 'grammarByLevel[0].quiz');
     const conditionGate = () => !!data && !isLoading && !error;
 
-    if (!level || !theme) {
+    if (!level || !theme || isLoading) {
         return <LoadingProgress />;
     }
 
+    if (!window.navigator.onLine) {
+        return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.BAD_CONNECTION} />
+    }
+
     if (error) {
-        if(error.networkError) {
-          return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.BAD_CONNECTION} />
+        if (error.networkError) {
+            return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.SERVER_ERROR} />
         } else {
-          return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.SERVER_ERROR} />
-        }   
-      }
+            return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.UNEXPECTED_BREAK} />
+        }
+    }
 
     return (
         <React.Fragment>
@@ -47,11 +51,9 @@ const GrammarLevels = () => {
                             <Title>Consolidation Of Knowledge</Title>
                             <Quiz quiz={{ ...quiz, questions: [...quiz.questions] }} shuffle />
                         </QuizWrapper>
-                        <SectionComments renderComments={config.comments} refetch={refetch} collection={level} document={theme}/>
+                        <SectionComments renderComments={config.comments} refetch={refetch} collection={level!} document={theme!}/>
                     </>
                 )}
-                {isLoading && <LoadingProgress />}
-                {error && <div>We have some troubles with request...</div>}
             </ContentSection>
         </React.Fragment>
     )
