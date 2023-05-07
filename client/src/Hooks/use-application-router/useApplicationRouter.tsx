@@ -10,6 +10,7 @@ import TestApplicationContext from "../../Tests/Context";
 import TestApplication from "../../Tests/presentational";
 import AdminPage from "../../admin-panel/presentational";
 import { ELP_USER_EXPERIENCE_ERRORS } from "../../Сommon/error-handler-page/constants";
+import EnglishLevelRoot from "../../English Level/presentational";
 
 export const LazyTenseApplicationRoot = lazy(() => import("../../app-root/presentational"));
 const LazyRegistration = lazy(() => import("../../authentification/Registration/presentational"));
@@ -60,6 +61,10 @@ const useApplicationRouter = () => {
             <TestApplication />
           </TestApplicationContext>
         ),
+      },
+      {
+        path: "/english-level-test",
+        element: <EnglishLevelRoot />
       },
       {
         path: "/admin-panel",
