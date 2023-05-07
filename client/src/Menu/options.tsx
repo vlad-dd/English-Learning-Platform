@@ -2,7 +2,6 @@ import React from 'react';
 import {
     ThunderboltOutlined,
     PieChartOutlined,
-    TagOutlined,
     CrownOutlined,
     FireOutlined,
     ExperimentOutlined,
@@ -14,6 +13,7 @@ import { MdNewReleases } from 'react-icons/md';
 import { MdQuiz } from 'react-icons/md';
 import { GoFlame } from 'react-icons/go';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
+import { BsStars } from 'react-icons/bs'
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -77,6 +77,9 @@ export const options: Option[] = [
 
   //Dictionary
   {label: 'Dictionary', key: 'Dictionary', icon: <GiBookCover /> },
+
+  //Level Test
+  {label: 'English Level Test', key: 'english-level-test', icon: <BsStars /> },
 
   {label: 'Tests', key: 'Tests', icon: <MdQuiz />, children: [
     {label: 'Verbs', key: 'Verbs', icon: <GoFlame />, children: [
