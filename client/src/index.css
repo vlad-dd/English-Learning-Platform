@@ -24,10 +24,18 @@
   .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title,
   .ant-layout-content .ant-tag,
   .ant-layout-content .rsw-dd,
+  .ant-steps-item-container,
   .ant-layout-footer
   {
     background: rgb(0, 30, 60);
     color: white;
+  }
+
+  .ant-steps-item-tail {
+    display: none !important;
+  }
+  .ant-steps-icon {
+    color: white !important;
   }
 
   .ant-layout-content .anticon-check-circle > svg {
