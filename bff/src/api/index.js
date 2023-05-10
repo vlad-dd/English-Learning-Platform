@@ -30,6 +30,9 @@ const BFF_API_QUERIES = {
         const { data } = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
         return data;
     },
+    getEnglishLevelTest() {
+        return getDoc(doc(database, 'english-level-test', 'english-level-test'));
+    },
 };
 
 const BFF_MUTATIONS = {
