@@ -4,7 +4,28 @@ type Query {
     releases: [Releases]!
     grammarByLevel(level: String!, theme: String!): [GrammarLevel]!
     getTests(part: String!, theme: String!): [Tests]!
+    getEnglishLevelTest: [EnglishLevelTest]!
 }
+
+type EnglishLevelQuestion {
+    question: String
+    questionType: String
+    answers: [String]
+    correctAnswer: String
+    messageForCorrectAnswer: String
+    messageForIncorrectAnswer: String
+    explanation: String
+    point: String
+}
+
+# type EnglishLevelTestRoot {
+#     testing: EnglishLevelTest
+# }
+
+type EnglishLevelTest {
+    questions: [EnglishLevelQuestion]!
+}
+
 
 type Comment {
     id: String

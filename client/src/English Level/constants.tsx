@@ -10,7 +10,6 @@ export const ENGLISH_LEVEL_QUIZ = {
         {
             "question": "How can you access the state of a component from inside of a member function?",
             "questionType": "text",
-            "questionPic": "https://dummyimage.com/600x400/000/fff&text=X", // if you need to display Picture in Question
             "answerSelectionType": "single",
             "answers": [
                 "this.getState()",

@@ -23,6 +23,11 @@ const resolvers = {
     getTests: async(root, { part, theme }) => {
       const testDocument = await BFF_API_QUERIES.getTestsConfiguration(part, theme);
       return [testDocument.data()];
+    },
+    getEnglishLevelTest: async () => {
+      const data = await BFF_API_QUERIES.getEnglishLevelTest();
+      const configuration = get([data.data()], '[0].testing')
+      return [configuration];
     }
   },
   Mutation: {
