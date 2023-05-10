@@ -1,41 +1,36 @@
-import { useMemo, useState } from 'react';
 import Quiz from 'react-quiz-component';
-import { Steps } from 'antd';
 import { size } from 'lodash';
-import { ENGLISH_LEVEL_QUIZ } from './constants';
-import { ISubmittedAnswer, ISubmittedAnswers, IPreviousAnswer } from './types';
+import useEnglishLevelWidget from './use-english-level-widget';
+import { LoadingProgress } from '../Сommon';
+import ErrorPage from '../Сommon/error-handler-page/not-found-url';
+import { ELP_USER_EXPERIENCE_ERRORS } from '../Сommon/error-handler-page/constants';
 import { StyledEnglishLevelRootWrapper, StyledSteps, StyledTitle } from "./styled";
-import { useQuery } from '@apollo/client';
-import { GET_ENGLISH_LEVEL_TEST } from './graphql';
-
-const { Step } = Steps;
 
 const EnglishLevelRoot = () => {
-    const [stepIndex, setStepIndex] = useState<number>(0);
-    const [submittedAnswers, setSubmittedAnswer] = useState<ISubmittedAnswers[]>([])
-    const { data } = useQuery(GET_ENGLISH_LEVEL_TEST);
-    console.log('data: ', data)
-  
-    const submitCurrentAnswer = (submittedAnswer: ISubmittedAnswer) => {
-        const { userAnswer, question: { correctAnswer } } = submittedAnswer;
-        setSubmittedAnswer((prev: IPreviousAnswer[]) => ([
-            ...prev,
-            { title: JSON.stringify(stepIndex), [stepIndex]: userAnswer === parseInt(correctAnswer) }
-        ]));
-        setStepIndex((prev: number) => prev + 1)
+    const { quiz, submitCurrentAnswer, stepIndex, progressSteps, isLoading, error } = useEnglishLevelWidget();
+
+    if (isLoading || !size(quiz.questions)) {
+        return <LoadingProgress />
     }
 
-    const progressSteps = useMemo(() => new Array(size(ENGLISH_LEVEL_QUIZ.questions)).fill(0).map((_, i) => {
-        //@ts-ignore
-        return <Step status={submittedAnswers[i]?.[i] === false && "error"}>{i}</Step>
-    }), [stepIndex])
+    if (!window.navigator.onLine) {
+        return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.BAD_CONNECTION} />
+    }
+
+    if (error) {
+        if (error.networkError) {
+            return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.SERVER_ERROR} />
+        } else {
+            return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.UNEXPECTED_BREAK} />
+        }
+    }
 
     return (
         <>
             <StyledTitle className="elp-title">English Proficiency Level Test</StyledTitle>
             <StyledEnglishLevelRootWrapper>
                 <div>
-                    <Quiz quiz={ENGLISH_LEVEL_QUIZ} onQuestionSubmit={submitCurrentAnswer} />
+                    <Quiz quiz={{ ...quiz, questions: [...quiz.questions] }} onQuestionSubmit={submitCurrentAnswer} />
                 </div>
                 <StyledSteps
                     current={stepIndex}

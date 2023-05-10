@@ -26,8 +26,8 @@ const resolvers = {
     },
     getEnglishLevelTest: async () => {
       const data = await BFF_API_QUERIES.getEnglishLevelTest();
-      const configuration = get([data.data()], '[0].testing')
-      return [configuration];
+      const configuration = get([data.data()], '[0].testing.questions')
+      return configuration;
     }
   },
   Mutation: {
