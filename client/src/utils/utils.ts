@@ -1,4 +1,5 @@
 import { message } from "antd";
+import { get } from "lodash";
 
 const uid = (length: number) => {
     let result = '';
@@ -18,9 +19,12 @@ const generateNicknameAvatars = (name: string) => ({ children: `${name.split(' '
 
 const successMessage = (text: string) => (() => message.success(text))();
 
+const extractByPath = (data: any, path: string) => get(data, path);
+
 export { 
   uid,
   focusNodeAfterMounting,
   generateNicknameAvatars,
-  successMessage
+  successMessage,
+  extractByPath
 };
