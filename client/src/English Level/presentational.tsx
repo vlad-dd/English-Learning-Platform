@@ -7,7 +7,15 @@ import { ELP_USER_EXPERIENCE_ERRORS } from '../Сommon/error-handler-page/consta
 import { StyledEnglishLevelRootWrapper, StyledSteps, StyledTitle } from "./styled";
 
 const EnglishLevelRoot = () => {
-    const { quiz, submitCurrentAnswer, stepIndex, progressSteps, isLoading, error } = useEnglishLevelWidget();
+    const {
+        quiz,
+        submitCurrentAnswer,
+        generateLevelFeedback,
+        stepIndex,
+        progressSteps,
+        isLoading,
+        error
+    } = useEnglishLevelWidget();
 
     if (isLoading || !size(quiz.questions)) {
         return <LoadingProgress />
@@ -30,7 +38,12 @@ const EnglishLevelRoot = () => {
             <StyledTitle className="elp-title">English Proficiency Level Test</StyledTitle>
             <StyledEnglishLevelRootWrapper>
                 <div>
-                    <Quiz quiz={{ ...quiz, questions: [...quiz.questions] }} onQuestionSubmit={submitCurrentAnswer} />
+                    <Quiz
+                        shuffle
+                        quiz={{ ...quiz, questions: [...quiz.questions] }}
+                        onQuestionSubmit={submitCurrentAnswer}
+                        onComplete={({ numberOfCorrectAnswers }: any) => generateLevelFeedback(numberOfCorrectAnswers)}
+                    />
                 </div>
                 <StyledSteps
                     current={stepIndex}
