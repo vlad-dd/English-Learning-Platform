@@ -12,6 +12,7 @@ const { Step } = Steps;
 const useEnglishLevelWidget = () => {
     const [stepIndex, setStepIndex] = useState<number>(0);
     const [submittedAnswers, setSubmittedAnswer] = useState<ISubmittedAnswers[]>([])
+    const [classifiedLevel, setClassifiedLevel] = useState<string>();
     const { data, loading, error } = useQuery(GET_ENGLISH_LEVEL_TEST);
     const questions = extractByPath(data, 'getEnglishLevelTest');
 
@@ -31,7 +32,7 @@ const useEnglishLevelWidget = () => {
 
     const generateLevelFeedback = (correctPoints: number) => {
         const { label }: any = ENGLISH_LEVELS.find((level) => correctPoints >= level.min && correctPoints <= level.max);
-        console.log('level: ', label)
+        setClassifiedLevel(label);
     }
 
     return {
@@ -39,6 +40,7 @@ const useEnglishLevelWidget = () => {
         submitCurrentAnswer,
         progressSteps,
         generateLevelFeedback,
+        classifiedLevel,
         quiz: { ...ENGLISH_LEVEL_QUIZ, questions },
         isLoading: loading,
         error
