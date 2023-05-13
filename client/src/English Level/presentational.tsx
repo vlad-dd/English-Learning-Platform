@@ -1,5 +1,7 @@
 import Quiz from 'react-quiz-component';
-import { size } from 'lodash';
+import { isNil, size } from 'lodash';
+import { Tag } from 'antd';
+import { MdDone } from 'react-icons/md'
 import useEnglishLevelWidget from './use-english-level-widget';
 import { LoadingProgress } from '../Сommon';
 import ErrorPage from '../Сommon/error-handler-page/not-found-url';
@@ -11,6 +13,7 @@ const EnglishLevelRoot = () => {
         quiz,
         submitCurrentAnswer,
         generateLevelFeedback,
+        classifiedLevel,
         stepIndex,
         progressSteps,
         isLoading,
@@ -36,13 +39,21 @@ const EnglishLevelRoot = () => {
     return (
         <>
             <StyledTitle className="elp-title">English Proficiency Level Test</StyledTitle>
+            {!isNil(classifiedLevel) && (
+                <div style={{ paddingLeft: "25px", display: 'inline-block' }}>
+                    <Tag style={{ display: "flex", alignItems: "center", fontSize: "1rem" }}color='purple'>
+                       <span style={{ marginRight: "5px", color: "gainsboro" }}>Your english level is {classifiedLevel}</span>
+                        <MdDone fill='green' size={20} />
+                    </Tag>
+                </div>
+            )}
             <StyledEnglishLevelRootWrapper>
                 <div>
                     <Quiz
                         shuffle
                         quiz={{ ...quiz, questions: [...quiz.questions] }}
                         onQuestionSubmit={submitCurrentAnswer}
-                        onComplete={({ numberOfCorrectAnswers }: any) => generateLevelFeedback(numberOfCorrectAnswers)}
+                        onComplete={({ numberOfCorrectAnswers }: { numberOfCorrectAnswers: number }) => generateLevelFeedback(numberOfCorrectAnswers)}
                     />
                 </div>
                 <StyledSteps
