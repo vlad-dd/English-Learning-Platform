@@ -9,6 +9,7 @@ import {
 } from "./styled";
 import { TestContext } from "../../Context";
 import { get } from "lodash";
+import { extractByPath } from "../../../utils/utils";
 export interface ISelectInput {
   id: number,
   firstPart: string,
@@ -19,7 +20,7 @@ export interface ISelectInput {
 
 const SelectInputQuiz = () => {
   const { data } = useContext(TestContext)!;
-  const { config } = get(data, 'getTests[0]');
+  const { config } = extractByPath(data, 'getTests[0]');
   const [selectedOptions, setSelectedOptions] = useState<{ [key: number]: number }>({});
 
   const handleChange = (value: string, correctAnswer: string, index: number) => {

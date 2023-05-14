@@ -41,7 +41,7 @@ const EnglishLevelRoot = () => {
             <StyledTitle className="elp-title">English Proficiency Level Test</StyledTitle>
             {!isNil(classifiedLevel) && (
                 <div style={{ paddingLeft: "25px", display: 'inline-block' }}>
-                    <Tag style={{ display: "flex", alignItems: "center", fontSize: "1rem" }}color='purple'>
+                    <Tag style={{ display: "flex", alignItems: "center", fontSize: "1rem", padding: "10px" }}color='purple'>
                        <span style={{ marginRight: "5px", color: "gainsboro" }}>Your english level is {classifiedLevel}</span>
                         <MdDone fill='green' size={20} />
                     </Tag>

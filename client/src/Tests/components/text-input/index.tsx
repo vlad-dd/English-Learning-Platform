@@ -1,13 +1,13 @@
 import React, { RefObject, useContext, useRef } from "react";
-import { get } from "lodash";
 import { TestContext } from "../../Context";
 import { StyledLabel, StyledTextInputWrapper } from "./styled";
 import DefaultTextInput from "./default-input";
 import { ITestItem } from "../../types";
+import { extractByPath } from "../../../utils/utils";
 
 const TextInput = () => {
     const { data } = useContext(TestContext)!;
-    const { config } = get(data, 'getTests[0]')
+    const { config } = extractByPath(data, 'getTests[0]')
     const textInputRefs = useRef<RefObject<HTMLInputElement>[]>([]);
 
     return (

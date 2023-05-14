@@ -10,12 +10,13 @@ import { useGrammarConfigWidget } from "./use-grammar-config";
 import { GrammarLevelDescription, QuizWrapper } from "./styles";
 import ErrorPage from "../Сommon/error-handler-page/not-found-url";
 import { ELP_USER_EXPERIENCE_ERRORS } from "../Сommon/error-handler-page/constants";
+import { extractByPath } from "../utils/utils";
 
 const GrammarLevels = () => {
     const { level, theme } = useParams();
     const { data, isLoading, error, refetch } = useGrammarConfigWidget();
-    const config = get(data, 'grammarByLevel[0]');
-    const quiz = get(data, 'grammarByLevel[0].quiz');
+    const config = extractByPath(data, 'grammarByLevel[0]');
+    const quiz = extractByPath(data, 'grammarByLevel[0].quiz');
     const conditionGate = () => !!data && !isLoading && !error;
 
     if (!level || !theme || isLoading) {
