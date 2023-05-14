@@ -5,6 +5,7 @@ interface IComment {
     id: string
     date: string
     comment: string
+    email: string | undefined
 }
 interface ISectionComments {
     renderComments: Array<IComment>

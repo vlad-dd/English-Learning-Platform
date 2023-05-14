@@ -3,6 +3,9 @@ import useCommentUpdatingWidget from '.'
 import { MockedProvider } from '@apollo/client/testing'
 import { ADD_COMMENT } from '../graphql';
 import * as Apollo from '@apollo/client';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '../../../store';
 
 jest.mock("@apollo/client", () => ({
   ...jest.requireActual("@apollo/client"),
@@ -19,7 +22,7 @@ const EXPECTED_COLLECTION_ITEM = {
     { collection: "posts", comment: "<div>some html text</div>", id: "1" }
 }
 
-const wrapper = ({ children }: any) => <Apollo.ApolloProvider client={client}>{children}</Apollo.ApolloProvider>;
+const wrapper = ({ children }: any) => <Provider store={store}><Apollo.ApolloProvider client={client} children={children} /></Provider>;
 
 describe('useCommentUpdatingWidget', () => {
   const refetch = jest.fn();

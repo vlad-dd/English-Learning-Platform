@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-key */
 import React, { useContext } from "react";
 import { render, screen } from "@testing-library/react";
-import { get } from "lodash";
 import DictionaryContext, { DictionaryConfigurationContext } from ".";
+import { extractByPath } from "../../utils/utils";
 
 
 const dictionaryMock = [{
@@ -24,7 +24,7 @@ jest.mock('../Hooks/use-dictionary', () => ({
 
 const MockComponent = () => {
     const { data } = useContext(DictionaryConfigurationContext);
-    const { meanings } = get(data, 'dictionary[0]');
+    const { meanings } = extractByPath(data, 'dictionary[0]');
     return (
         <div data-testid="mocked-context-child">
             {meanings.map(({partOfSpeech }: { partOfSpeech: string }) => <p>{partOfSpeech}</p>)}

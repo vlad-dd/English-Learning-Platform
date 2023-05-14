@@ -1,9 +1,9 @@
 import React from "react";
 import { MockedProvider } from "@apollo/client/testing";
 import { act, renderHook, waitFor } from "@testing-library/react";
-import { get } from "lodash";
 import { useDictionaryWidget } from ".";
 import { GET_WORD_FROM_DICTIONARY } from "../../graphql";
+import { extractByPath } from "../../../utils/utils";
 
 const responseMock = {
   dictionary: [
@@ -86,8 +86,8 @@ describe("Use Dictionary", () => {
     });
 
     await waitFor(() => {
-      const response = get(result, "current.data.dictionary[0]");
-      const mock = get(responseMock, "dictionary[0]");
+      const response = extractByPath(result, "current.data.dictionary[0]");
+      const mock = extractByPath(responseMock, "dictionary[0]");
       expect(response.word).toBe(mock.word);
       expect(response.phonetic).toBe(mock.phonetic);
       expect(response.phonetics[0].audio).toBe(mock.phonetics[0].audio);

@@ -12,11 +12,12 @@ import {
     StyledList, 
     StyledListItem 
 } from "../../styled";
+import { size } from "lodash";
 
 const CommentsList = ({ comments }: { comments: Array<IComment> }) => {
     return (
         <StyledList data-testid="comments-list">
-            {!!comments && [...comments].reverse().map(({ id, date, comment, email }: IComment & { email?: string }) => (
+            {!!size(comments) && [...comments].reverse().map(({ id, date, comment, email }: IComment & { email?: string }) => (
                 <StyledListItem key={id}>
                     <ListItemAvatar>
                         <StyledCommentAvatar {...generateNicknameAvatars('V S')} />

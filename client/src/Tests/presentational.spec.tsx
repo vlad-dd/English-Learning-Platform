@@ -1,12 +1,10 @@
-import React from "react";
 import { render, screen } from '@testing-library/react'
 import TestApplication from "./presentational";
-import TestApplicationContext from "./Context";
 import { ApolloError } from "@apollo/client";
 import { PARTIAL_TEXT_INPUT_ID, SELECT_INPUT_ID, TEXT_INPUT_ID } from "./constants";
-import { get } from "lodash";
 import { TestApplicationProviders } from "./jest-utils";
 import * as TestConfig from './use-test-configuration';
+import { extractByPath } from "../utils/utils";
 
 jest.mock('./components/text-input', () => () => <div data-testid='text-input'>Text Input</div>);
 jest.mock('./components/select-input', () => () => <div data-testid='select-input'>Select Input</div>);
@@ -29,7 +27,7 @@ const TestContextResponse = {
 };
 
 describe('TestApplication', () => {
-    const config = get(TestContextResponse, 'data.getTests[0]');
+    const config = extractByPath(TestContextResponse, 'data.getTests[0]');
     const spy = jest.spyOn(TestConfig, "useTestConfigurationWidget");
 
     const changeConfigType = (type: string) => ({ getTests: [{ ...config, type }] });

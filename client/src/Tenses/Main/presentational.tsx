@@ -1,6 +1,6 @@
 import { AlertOutlined } from "@ant-design/icons";
 import { useParams } from "react-router";
-import { get, size } from "lodash";
+import { size } from "lodash";
 import { TenseContext } from "../Context";
 import { ApplicationTitle, BreadcrumbPath, LoadingProgress, SectionComments } from "../../Сommon";
 import ErrorPage from "../../Сommon/error-handler-page/not-found-url";
@@ -11,11 +11,12 @@ import MostCommonCases from "../Cases/cases-tabs";
 import TenseExamplePanels from "../Examples/example-panels";
 import { ELP_USER_EXPERIENCE_ERRORS } from "../../Сommon/error-handler-page/constants";
 import { ContentSection, StyledAlert } from "../styled";
+import { extractByPath } from "../../utils/utils";
 
 const TenseContent = (): JSX.Element => {
   const { tense } = useParams();
   const { data, loading, error, refetch } = useTenseConfigurationWidget();
-  const { tense: verb, tableData, cases, examples, comments } = get(data, 'countOfTenses[0]') || {};
+  const { tense: verb, tableData, cases, examples, comments } = extractByPath(data, 'countOfTenses[0]') || {};
 
   if ((loading || !size(data)) && !error) {
     return <LoadingProgress />

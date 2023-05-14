@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import { Input } from 'antd';
 import { get, isNil } from "lodash";
 import { BORDERS, PARTIAL_TEXT_INPUT_ID } from "../../constants";
-import { focusNodeAfterMounting } from "../../../utils/utils";
+import { extractByPath, focusNodeAfterMounting } from "../../../utils/utils";
 import { StyledPartialInputWrapper } from "./styled";
 import { useSubmit } from "../../use-submit";
 import { TestContext } from "../../Context";
@@ -17,7 +17,7 @@ interface IPartialInput {
 
 const PartialTextInput = () => {
     const { data } = useContext(TestContext)!;
-    const { config } = get(data, 'getTests[0]');
+    const { config } = extractByPath(data, 'getTests[0]');
     const [answerToSubmit, setAnswerToSubmit] = useState<string>('');
     const { submittedResult, submitAnswer } = useSubmit();
 

@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { compact, get } from "lodash";
+import { compact } from "lodash";
 import { DictionaryConfigurationContext } from "../../Context";
 import { AUDIO_PRONOUNCE, COUNTRIES_FLAGS } from "../../constants";
 import { IAudioPlayer } from "../../types";
 import { FlagImage, StyledAudio, StyledCard, StyledMeta } from "./styled";
+import { extractByPath } from "../../../utils/utils";
 
 export const renderAudioPlayer = (
   audio: string,
@@ -39,7 +40,7 @@ const audioPlayerFactory = (audioPlayer: IAudioPlayer[]) => {
 
 export const useAudioPlayerWidget = () => {
     const { data } = useContext(DictionaryConfigurationContext);
-    const { word, phonetics } = get(data, "dictionary[0]");
+    const { word, phonetics } = extractByPath(data, "dictionary[0]");
 
     const [filteredAudioPlayer, setFilteredAudioPlayer] = useState<IAudioPlayer[]>([]);
 

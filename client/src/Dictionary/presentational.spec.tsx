@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import Dictionary from "./presentational";
 import { DictionaryConfigurationContext } from "./Context";
+import { DICTIONARY_TIP } from "./constants";
 
 const responseMock = {
     dictionary: [
@@ -64,9 +65,8 @@ describe('Dictionary', () => {
         });
     
         it('should render tip alert', () => {
-            const alertText = 'Tip: You can`t search phrases here, only single words.';
-            expect(screen.getByText(alertText)).toBeInTheDocument();
-            expect(screen.getByText(alertText).getAttribute('class')).toBe('ant-alert-message');
+            expect(screen.getByText(DICTIONARY_TIP)).toBeInTheDocument();
+            expect(screen.getByText(DICTIONARY_TIP).getAttribute('class')).toBe('ant-alert-message');
         });
     
         it('should render search input', () => {
@@ -93,7 +93,7 @@ describe('Dictionary', () => {
                 </DictionaryConfigurationContext.Provider>
             )
             expect(screen.getByTestId('dictionary-wrapper')).toBeInTheDocument();
-            expect(screen.getByText('Loading...')).toBeInTheDocument();
+            expect(screen.getByTestId('loading-progress')).toBeInTheDocument();
         });
     });
 })
