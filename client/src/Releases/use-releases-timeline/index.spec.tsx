@@ -3,6 +3,7 @@ import { renderHook, waitFor } from "@testing-library/react";
 import { get } from "lodash";
 import { useReleasesTimeLineWidget } from ".";
 import { GET_RELEASES_TIMELINE } from "../graphql";
+import { extractByPath } from "../../utils/utils";
 
 const response = {
     data: {
@@ -34,7 +35,7 @@ describe('useReleasesTimeLine', () => {
     it('should return response', async() => {
         const { result } = renderHook(() => useReleasesTimeLineWidget(), { wrapper: ApplicationProviders })
         await waitFor(() => {
-            const releaseInformation = get(result, 'current.data.releases[0]');
+            const releaseInformation = extractByPath(result, 'current.data.releases[0]');
             expect(releaseInformation.id).toBe('1');
             expect(releaseInformation.date).toBe('14.02.2023');
             expect(releaseInformation.description).toBe('Release is on board!');
