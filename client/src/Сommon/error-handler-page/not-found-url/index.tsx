@@ -5,7 +5,7 @@ import './index.css'
 
 const ErrorPage = ({ error }: any) => {
     return (
-        <StyledNotFoundURLContainer className="not-found-url-container">
+        <StyledNotFoundURLContainer className="not-found-url-container" data-testid="error-page">
             <StyledNotFoundURLRow>
                <SVGAstronaut />
                <NotFoundURLErrorDefiniton error={error} />

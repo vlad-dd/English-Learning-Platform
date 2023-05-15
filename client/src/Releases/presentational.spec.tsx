@@ -1,7 +1,7 @@
 import React from 'react';
 import 'intersection-observer';
 import { ApolloError } from '@apollo/client/errors';
-import { render } from '@testing-library/react'
+import { screen, render } from '@testing-library/react'
 import Releases from './presentational'
 import * as Hook from './use-releases-timeline';
 
@@ -29,8 +29,8 @@ describe('Releases', () => {
 
     it('should waiting for releases response', () => {
         spy.mockReturnValue({...response, isLoading: true})
-        const { getByText } = render(<Releases />);
-        expect(getByText('Loading...')).toBeInTheDocument();
+        render(<Releases />);
+        expect(screen.getByTestId('loading-progress')).toBeInTheDocument();
      });
 
      it('should return error with request', () => {

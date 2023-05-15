@@ -69,7 +69,7 @@ describe('TestApplication', () => {
             <TestApplicationProviders>
                 <TestApplication />
             </TestApplicationProviders>)
-        expect(screen.getByText("Loading...")).toBeInTheDocument();
+        expect(screen.getByTestId("loading-progress")).toBeInTheDocument();
     });
 
     it('should render error message', () => {
@@ -78,6 +78,6 @@ describe('TestApplication', () => {
             <TestApplicationProviders>
                 <TestApplication />
             </TestApplicationProviders>)
-        expect(screen.getByText("We have some troubles with request...")).toBeInTheDocument();
+        expect(screen.getByTestId("error-page")).toBeInTheDocument();
     });
 });

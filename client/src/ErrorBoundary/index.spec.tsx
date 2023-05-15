@@ -1,7 +1,8 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ErrorBoundary from ".";
+import { BrowserRouter } from "react-router-dom";
+import { ELP_USER_EXPERIENCE_ERRORS } from "../Сommon/error-handler-page/constants";
 
 describe("Error Boundary", () => {
   it("Error Boundary", () => {
@@ -9,11 +10,13 @@ describe("Error Boundary", () => {
       throw new Error("Test");
     };
     render(
-      <ErrorBoundary>
-        <ThrowError />
-      </ErrorBoundary>
+      <BrowserRouter>
+        <ErrorBoundary>
+          <ThrowError />
+        </ErrorBoundary>
+      </BrowserRouter>
     );
-    expect(screen.getByText("Something went wrong. Our team is already working on this problem.")).toBeInTheDocument();
-    expect(screen.getByRole('img').getAttribute('src')).toBe('https://img.freepik.com/free-vector/oops-404-error-with-a-broken-robot-concept-illustration_114360-5529.jpg?w=2000');
+    expect(screen.getByTestId("error-page")).toBeInTheDocument();
+    expect(screen.getByText(ELP_USER_EXPERIENCE_ERRORS.UNEXPECTED_BREAK)).toBeInTheDocument();
   });
 });

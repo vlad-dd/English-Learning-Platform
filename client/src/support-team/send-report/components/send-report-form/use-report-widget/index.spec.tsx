@@ -1,6 +1,7 @@
 import { fireEvent, render, renderHook, screen } from "@testing-library/react";
 import useReportWidget from ".";
 import { MAX_TEXT_AREA_LENGTH } from "../../../../constants";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const TestComponent = () => {
     const {
@@ -36,39 +37,39 @@ const TestComponent = () => {
     );
 };
 
+const client = new ApolloClient({
+    uri: "http://localhost:4000",
+    cache: new InMemoryCache(),
+});
 
 describe('Report Widget', () => {
+    beforeEach(() => render(<ApolloProvider client={client} children={<TestComponent />} />));
+
     it('should render widget default values', () => {
-        render(<TestComponent />);
         const submitButton = screen.getByTestId('submit');
         expect(submitButton).toBeDisabled();
     });
 
     it('should enable the submit button when valid input is provided', () => {
-        render(<TestComponent />);
         fireEvent.change(screen.getByTestId('application'), { target: { value: 'app1' } });
         fireEvent.change(screen.getByTestId('description'), { target: { value: 'This is a valid description' } });
         const submitButton = screen.getByTestId('submit');
         expect(submitButton).not.toBeDisabled();
     });
 
-
     it('should display minLengthError when touched and description length is less than MIN_TEXT_AREA_LENGTH', () => {
-        render(<TestComponent />);
         fireEvent.blur(screen.getByTestId('description'));
         const minLengthError = screen.queryByTestId('minLengthError');
         expect(minLengthError).toBeInTheDocument();
     });
 
     it('should display maxLengthError when description length is equal to MAX_TEXT_AREA_LENGTH', () => {
-        render(<TestComponent />);
         fireEvent.change(screen.getByTestId('description'), { target: { value: 'a'.repeat(MAX_TEXT_AREA_LENGTH) } });
         const maxLengthError = screen.queryByTestId('maxLengthError');
         expect(maxLengthError).toBeInTheDocument();
     });
 
     it('should not display maxLengthError when description length is less than MAX_TEXT_AREA_LENGTH', () => {
-        render(<TestComponent />);
         fireEvent.change(screen.getByTestId('description'), { target: { value: 'This is a valid description' } });
         const maxLengthError = screen.queryByTestId('maxLengthError');
         expect(maxLengthError).not.toBeInTheDocument();
