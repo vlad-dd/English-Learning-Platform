@@ -142,7 +142,7 @@ describe("TenseContent", () => {
         <TenseContent />
       </TenseApplicationProviders>
     );
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    expect(screen.getByTestId('loading-progress')).toBeInTheDocument();
   });
 
   it("should show error", () => {
@@ -152,6 +152,6 @@ describe("TenseContent", () => {
         <TenseContent />
       </TenseApplicationProviders>
     );
-    expect(screen.getByText('We have some troubles with request...')).toBeInTheDocument();
+    expect(screen.getByTestId('error-page')).toBeInTheDocument();
   });
 });

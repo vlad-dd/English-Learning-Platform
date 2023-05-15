@@ -3,7 +3,6 @@ import { Alert, Divider } from "antd";
 import Quiz from 'react-quiz-component';
 import { useParams } from "react-router";
 import { AlertOutlined } from "@ant-design/icons";
-import { get } from "lodash";
 import { ContentSection } from "../Tenses/styled";
 import { BreadcrumbPath, CasesTabs, LoadingProgress, SectionComments, Title } from "../Сommon";
 import { useGrammarConfigWidget } from "./use-grammar-config";

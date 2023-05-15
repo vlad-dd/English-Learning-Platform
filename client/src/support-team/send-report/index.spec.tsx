@@ -4,6 +4,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import store from "../../store";
 import SendReportModal from ".";
 import { ELP_APPLICATIONS } from "../constants";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const SEND_REPORT_FORM_CONTENT = [
     "Report about the Problem👷‍♂️",
@@ -24,13 +25,12 @@ const SEND_REPORT_FORM_ENTITIES = [
     "send-report-submit",
 ];
 
-const SendReportModalProviders = ({ children }: { children: JSX.Element }) => {
-    return (
-        <Provider store={store}>
-            {children}
-        </Provider>
-    );
-};
+const client = new ApolloClient({
+    uri: "http://localhost:4000",
+    cache: new InMemoryCache(),
+});
+
+const SendReportModalProviders = ({ children }: { children: JSX.Element }) => <ApolloProvider client={client} children={<Provider store={store} children={children} />} />
 
 describe("SendReportModal", () => {
     const openSendReportModal = () => fireEvent.click(screen.getByTestId("report-service-icon"));

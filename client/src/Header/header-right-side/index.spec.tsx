@@ -1,5 +1,4 @@
 //@ts-nocheck
-import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -35,7 +34,7 @@ describe('HeaderLeftSide', () => {
         })
 
         it('should render header dropdown menu', () => {
-            const menuItems = ['Profile', 'Achievements', 'Sign out'];
+            const menuItems = ['Profile', 'Sign out'];
             fireEvent.click(screen.getByText('test@gmail.com'))
             expect(screen.getByTestId("header-dropdown-menu")).toBeInTheDocument();
             menuItems.forEach((menuItem) => expect(screen.getByText(menuItem)).toBeInTheDocument())

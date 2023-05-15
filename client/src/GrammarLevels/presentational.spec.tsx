@@ -6,6 +6,16 @@ import ErrorBoundary from "../ErrorBoundary";
 import { Provider } from "react-redux";
 import store from "../store";
 import { ApolloClient, ApolloError, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { BrowserRouter } from "react-router-dom";
+
+jest.mock('react-router', () => ({
+    ...jest.requireActual('react-router'),
+    useParams: () => ({ level: 'level', theme: 'theme' })
+}))
+
+jest.mock('./use-grammar-config', () => ({
+    useGrammarConfigWidget: jest.fn()
+}));
 
 const dataMock = {
     grammarByLevel: [
@@ -47,10 +57,6 @@ const dataMock = {
     ]
 }
 
-jest.mock('./use-grammar-config', () => ({
-    useGrammarConfigWidget: jest.fn()
-}));
-
 const client = new ApolloClient({
     uri: "http://localhost:4000",
     cache: new InMemoryCache(),
@@ -58,13 +64,15 @@ const client = new ApolloClient({
 
 const ApplicationProviders = ({ children, ownContextResponse }: { children: JSX.Element, ownContextResponse?: any }) => {
     return (
-        <ErrorBoundary>
-            <ApolloProvider client={client}>
-                <Provider store={store}>
-                    {children}
-                </Provider>
-            </ApolloProvider>
-        </ErrorBoundary>
+        <BrowserRouter>
+            <ErrorBoundary>
+                <ApolloProvider client={client}>
+                    <Provider store={store}>
+                        {children}
+                    </Provider>
+                </ApolloProvider>
+            </ErrorBoundary>
+        </BrowserRouter>
     );
 };
 
@@ -76,14 +84,14 @@ describe('GrammarLevels', () => {
     describe('when data is defined', () => {
 
         beforeEach(() => {
-            grammarConfigSpy.mockReturnValue({ data: dataMock, isLoading: false, error: undefined, refetch})
+            grammarConfigSpy.mockReturnValue({ data: dataMock, isLoading: false, error: undefined, refetch })
             render(<ApplicationProviders><GrammarLevels /></ApplicationProviders>);
         });
 
         it('should render GrammarLevels root', () => {
             expect(screen.getByTestId("grammar-levels-content-section")).toBeInTheDocument();
         });
-    
+
         it('should render titles', () => {
             const titles = ['Plural', 'Explanation Of Plural Demonstrative Objective', 'Use Cases For Plural Demonstrative Objective', 'Consolidation Of Knowledge']
             expect(screen.queryAllByTestId("title-component-id").length).toBe(5);
@@ -140,7 +148,7 @@ describe('GrammarLevels', () => {
         it('should return Loading sign', () => {
             grammarConfigSpy.mockReturnValue({ data: [], isLoading: true, error: undefined, refetch })
             render(<ApplicationProviders><GrammarLevels /></ApplicationProviders>);
-            expect(screen.getByText('Loading...')).toBeInTheDocument();
+            expect(screen.getByTestId('loading-progress')).toBeInTheDocument();
         });
     })
 
@@ -148,7 +156,7 @@ describe('GrammarLevels', () => {
         it('should return Loading sign', () => {
             grammarConfigSpy.mockReturnValue({ data: [], isLoading: false, error: new ApolloError({}), refetch })
             render(<ApplicationProviders><GrammarLevels /></ApplicationProviders>);
-            expect(screen.getByText('We have some troubles with request...')).toBeInTheDocument();
+            expect(screen.getByTestId('error-page')).toBeInTheDocument();
         });
     });
 })
