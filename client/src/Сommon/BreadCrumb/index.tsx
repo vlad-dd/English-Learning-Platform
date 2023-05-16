@@ -1,11 +1,10 @@
 import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import { compact } from 'lodash';
 import * as selectors from '../../store/selectors/index'
 import { StyledBreadcrumb } from './styled';
 
 const BreadCrumbPath = () => {
-
   const { path }: { path: string[] } = useSelector(selectors.tensesBCState);
   const { pathname } = useLocation();
   

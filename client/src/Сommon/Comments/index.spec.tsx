@@ -13,7 +13,7 @@ const Providers = ({ children }: { children: JSX.Element }) => <Provider store={
 
 describe('SectionComments', () => {
     const renderComments = [
-        { __typename: 'Comment', id: '1', date: '01.01.2023', comment: 'my comment' }
+        { __typename: 'Comment', id: '1', date: '01.01.2023', comment: 'my comment', email: "" }
     ]
     const collection = 'path1';
     const document = 'path2';

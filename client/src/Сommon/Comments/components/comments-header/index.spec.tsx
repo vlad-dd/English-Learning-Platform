@@ -9,7 +9,7 @@ const COMMENT_NODES_IDS = [
 ];
 
 const COMMENT_MOCK = [
-    { __typename: 'Comment' ,id: '1', date: '1.01.2023', comment: 'test comment'}
+    { __typename: 'Comment' ,id: '1', date: '1.01.2023', comment: 'test comment', email: ""}
 ];
 
 describe('Comments Header', () => {
