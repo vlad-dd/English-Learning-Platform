@@ -1,7 +1,6 @@
-import React from "react";
 import { StyledApplicationTitle } from "./styled";
 
-const ApplicationTitle = ({ children }: { children: JSX.Element }) => {
+const ApplicationTitle = ({ children }: { children: JSX.Element | string }) => {
     return (
         <StyledApplicationTitle>
             {children}
