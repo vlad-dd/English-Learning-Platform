@@ -7,3 +7,5 @@ export const POLICY_RULES = [
     'Misinformation or fake news',
     'Self-promotion or advertising',
 ];
+
+export const REPORT_DIALOG_ERROR_MESSAGE = "We are having some problems with sending your report...";

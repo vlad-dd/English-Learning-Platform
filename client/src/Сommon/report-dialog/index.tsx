@@ -7,6 +7,7 @@ import SelectReportReason from './components/select-report-reason';
 import AdditionalInput from './components/additional-input';
 import ModalActions from './components/dialog-actions';
 import { IReportDialog } from './types';
+import { REPORT_DIALOG_ERROR_MESSAGE } from './constants';
 
 const ReportDialog = ({ isOpen, error, handleClose, isLoading, createReportAppeal, title, description }: IReportDialog) => {
     const [selectedReason, setSelectedReason] = useState('');
@@ -25,7 +26,7 @@ const ReportDialog = ({ isOpen, error, handleClose, isLoading, createReportAppea
             <DialogTitle>{title}</DialogTitle>
             {!(!!error) ?
                 <>
-                    <DialogContent>
+                    <DialogContent data-testid="report-dialog-content">
                         <DialogContentText>
                            {description}
                         </DialogContentText>
@@ -43,7 +44,7 @@ const ReportDialog = ({ isOpen, error, handleClose, isLoading, createReportAppea
                 </>
 
                 :
-                <div>We are having some problems with sending your report...</div>
+                <div>{REPORT_DIALOG_ERROR_MESSAGE}</div>
             }
         </Dialog>
     )
