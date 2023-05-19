@@ -5,10 +5,10 @@ import { AdminPanelHeaderWrapper, StyledButtonBody } from "./styled";
 
 const AdminPanelHeader = () => {
     return (
-        <AdminPanelHeaderWrapper>
+        <AdminPanelHeaderWrapper data-testid="admin-panel-header">
             <Title styles={{ fontSize: "2.5rem", margin: "20px" }}>Admin Control Dashboard</Title>
             <Button style={{ border: "1px solid purple", height: "40px", margin: "40px" }}>
-                <StyledButtonBody>
+                <StyledButtonBody data-testid="download-button">
                     <HiOutlineDownload size={18} />
                     Download Report
                 </StyledButtonBody>

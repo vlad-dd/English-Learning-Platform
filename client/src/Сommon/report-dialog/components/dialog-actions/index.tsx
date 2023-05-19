@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "antd";
 import LoadingButton from '@mui/lab/LoadingButton';
 import SendIcon from '@mui/icons-material/Send';
@@ -9,9 +8,9 @@ import { successMessage } from "../../../../utils/utils";
 const ModalActions = ({ selectedReason, additionalInformation, createReportAppeal, isLoading, handleClose }: any) => {
     return (
         <DialogActions data-testid="dialog-actions">
-            <Button onClick={handleClose}>Cancel</Button>
+            <Button data-testid="dialog-actions-cancel-button" onClick={handleClose}>Cancel</Button>
             <LoadingButton
-                data-testid="loading-button"
+                data-testid="dialog-actions-loading-button"
                 size="small"
                 color="info"
                 disabled={!selectedReason}
@@ -28,7 +27,7 @@ const ModalActions = ({ selectedReason, additionalInformation, createReportAppea
                 <span>Send</span>
             </LoadingButton>
             <Backdrop
-                data-testid="backdrop-wrapper"
+                data-testid="dialog-actions-backdrop-wrapper"
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={isLoading}
                 onClick={handleClose}

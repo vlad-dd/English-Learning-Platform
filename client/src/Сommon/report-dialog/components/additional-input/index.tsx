@@ -12,8 +12,8 @@ const AdditionalInput = memo(({ setAdditionalInformation }: any) => {
             <Switch checked={showAdditionalInput} onClick={() => setShowAdditionalInput((prev: boolean) => !prev)} />
             {showAdditionalInput && (
                 <TextField
-                  data-testid="additional-report-modal-input"
                   label="Additional information"
+                  inputProps={{ "data-testid": "additional-report-modal-input" }}
                   fullWidth
                   autoFocus
                   onChange={(e) => setAdditionalInformation(e.target.value)}

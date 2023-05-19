@@ -1,5 +1,7 @@
 import { uid } from "../utils/utils";
 
+export const DOWNLOAD_ALL_REPORTS_BUTTON_ID = "download-all-reports-button";
+
 const admin_dashboard_blocks = [
     { id: 1, title: 'Total users ', value: 4 },
     { id: 2, title: 'TBD ', value: 'TBD' },
