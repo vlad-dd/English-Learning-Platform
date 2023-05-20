@@ -13,7 +13,7 @@ const SubmitDownloadDialog = ({ isOpen, setIsOpen }: ISubmitDownloadDialog) => {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    Do you really want to download reports for [Application Name] ?
+                    Do you really want to download reports for [Application Name]?
                 </DialogTitle>
                 <DialogTitle>
                     <DialogContentText id="alert-dialog-description">

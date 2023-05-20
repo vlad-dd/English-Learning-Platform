@@ -1,6 +1,9 @@
 import { uid } from "../utils/utils";
 
 export const DOWNLOAD_ALL_REPORTS_BUTTON_ID = "download-all-reports-button";
+export const APPLICATION_REPORT_BLOCK_ID = "application-report-block";
+export const LINE_CHART_SECTION = "line-chart-section";
+export const PIE_CARD_ID = "pie-card-container";
 
 const admin_dashboard_blocks = [
     { id: 1, title: 'Total users ', value: 4 },
