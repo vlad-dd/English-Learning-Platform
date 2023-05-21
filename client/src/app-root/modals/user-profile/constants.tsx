@@ -7,6 +7,10 @@ import {
     TabActionLabel
 } from "./components";
 
+export const COMMUNICATION_BLOCK_ID = "communication-block";
+export const MAIN_INFORMATION_BLOCK_ID = "main-information-block";
+export const PROFILE_MODAL_ID = "profile-modal";
+
 const TAB_ACHIEVEMENTS = [
     { id: uid(5), achievement: 'A0 Level Passed', color: 'green' },
     { id: uid(5), achievement: 'A1 Level Passed', color: 'orange' },
