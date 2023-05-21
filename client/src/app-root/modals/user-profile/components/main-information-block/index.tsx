@@ -1,10 +1,11 @@
 import { Avatar, Divider } from "@mui/material";
 import { Tag } from "antd";
 import { StyledInformationTag, StyledMainInformationBlock, StyledUserAvatarWrapper } from "../../styled";
+import { MAIN_INFORMATION_BLOCK_ID } from "../../constants";
 
 const MainInformationBlock = () => {
     return (
-        <StyledMainInformationBlock>
+        <StyledMainInformationBlock data-testid={MAIN_INFORMATION_BLOCK_ID}>
             <StyledUserAvatarWrapper>
                 <Avatar
                     style={{ height: "200px", width: "200px", objectFit: "cover", cursor: "pointer" }}

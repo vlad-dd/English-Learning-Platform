@@ -5,6 +5,7 @@ import * as selectors from '../../../store/selectors'
 import MainInformationBlock from './components/main-information-block';
 import CommunicationBlock from './components/communication-block';
 import { StyledDialogActions, StyledUserProfileBox, StyledUserProfileWrapper } from './styled';
+import { PROFILE_MODAL_ID } from './constants';
 
 const ProfileModal = () => {
     const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const ProfileModal = () => {
     return (
         <Modal
             open={isOpen}
+            data-testid={PROFILE_MODAL_ID}
             onClose={() => dispatch(closeUserProfileModal())}
         >
             <StyledUserProfileBox>
@@ -21,6 +23,7 @@ const ProfileModal = () => {
                 </StyledUserProfileWrapper>
                 <StyledDialogActions>
                     <Button
+                     data-testid="close-profile-modal-button"
                      onClick={() => dispatch(closeUserProfileModal())}
                     >
                         Close

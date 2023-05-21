@@ -3,8 +3,8 @@ import { Tabs, Tag } from 'antd'
 import { AiOutlineUserAdd, AiFillMessage } from 'react-icons/ai'
 import { MdOutlineReportGmailerrorred } from 'react-icons/md';
 import { ReportDialog } from '../../../../../Сommon';
-import useCommunicationBlockWidget from '../../use-communication-widget';
-import { PROFILE_TAB_ACTIONS } from '../../constants';
+import { useCommunicationBlockWidget } from '../../use-communication-widget';
+import { COMMUNICATION_BLOCK_ID, PROFILE_TAB_ACTIONS } from '../../constants';
 import {
     StyledCommunicationBlockWrapper,
     StyledActionText,
@@ -18,7 +18,7 @@ const CommunicationBlock = () => {
     const { isOpen, handleOpening, createReportAppeal, isLoading, error } = useCommunicationBlockWidget();
     
     return (
-        <StyledCommunicationBlockWrapper>
+        <StyledCommunicationBlockWrapper data-testid={COMMUNICATION_BLOCK_ID}>
             <ReportDialog
                 title="Report Inappropriate User👮‍♀️"
                 description="Our user complaint feature allows you to report any behavior or content that you believe violates our English Learning Platform policies. We take all complaints seriously and strive to ensure that our platform is a safe and welcoming space for all users."
@@ -28,7 +28,7 @@ const CommunicationBlock = () => {
                 isLoading={isLoading}
                 error={error}
             />
-            <StyledUserDetails>
+            <StyledUserDetails data-testid="user-details-block">
                 <StyledUserNickname>
                     <span>Green Ogre</span>
                     <AiOutlineUserAdd />
@@ -37,11 +37,11 @@ const CommunicationBlock = () => {
             </StyledUserDetails>
 
             <StyledUserProfileActionsWrapper>
-                <Button variant="outlined">
+                <Button variant="outlined" data-testid="send-message-button">
                     <StyledActionText>Send Message</StyledActionText>
                     <AiFillMessage size={19} />
                 </Button>
-                <Button variant="outlined" onClick={handleOpening}>
+                <Button variant="outlined" onClick={handleOpening} data-testid="report-user-button">
                     <StyledActionText>Report User</StyledActionText>
                     <MdOutlineReportGmailerrorred size={19} />
                 </Button>
