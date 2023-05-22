@@ -9,7 +9,7 @@ import { extractByPath } from "../../utils/utils";
 
 const { Step } = Steps;
 
-const useEnglishLevelWidget = () => {
+export const useEnglishLevelWidget = () => {
     const [stepIndex, setStepIndex] = useState<number>(0);
     const [submittedAnswers, setSubmittedAnswer] = useState<ISubmittedAnswers[]>([])
     const [classifiedLevel, setClassifiedLevel] = useState<string>();
@@ -46,5 +46,3 @@ const useEnglishLevelWidget = () => {
         error
     }
 }
-
-export default useEnglishLevelWidget;

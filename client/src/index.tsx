@@ -6,25 +6,19 @@ import ErrorBoundary from "./ErrorBoundary";
 import store from "./store";
 import { ThemeContext } from "./Contexts";
 import "./index.css";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-} from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
 import Root from "./App";
+import { buildApolloClientInstance } from "./test-utils";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-const client = new ApolloClient({
-  uri: "http://localhost:4000",
-  cache: new InMemoryCache(),
-});
+const ApolloClientInstance = buildApolloClientInstance();
 
 root.render(
   <ErrorBoundary>
-      <ApolloProvider client={client}>
+      <ApolloProvider client={ApolloClientInstance}>
         <Provider store={store}>
           <ThemeContext>
             <Root />
