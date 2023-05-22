@@ -2,10 +2,11 @@ import Quiz from 'react-quiz-component';
 import { isNil, size } from 'lodash';
 import { Tag } from 'antd';
 import { MdDone } from 'react-icons/md'
-import useEnglishLevelWidget from './use-english-level-widget';
+import { useEnglishLevelWidget } from './use-english-level-widget';
 import { LoadingProgress } from '../Сommon';
 import ErrorPage from '../Сommon/error-handler-page/not-found-url';
 import { ELP_USER_EXPERIENCE_ERRORS } from '../Сommon/error-handler-page/constants';
+import { ENGLISH_LEVEL_ID } from './constants';
 import { StyledEnglishLevelRootWrapper, StyledSteps, StyledTitle } from "./styled";
 
 const EnglishLevelRoot = () => {
@@ -40,14 +41,14 @@ const EnglishLevelRoot = () => {
         <>
             <StyledTitle className="elp-title">English Proficiency Level Test</StyledTitle>
             {!isNil(classifiedLevel) && (
-                <div style={{ paddingLeft: "25px", display: 'inline-block' }}>
+                <div style={{ paddingLeft: "25px", display: 'inline-block' }} data-testid="classified-level-container">
                     <Tag style={{ display: "flex", alignItems: "center", fontSize: "1rem", padding: "10px" }}color='purple'>
                        <span style={{ marginRight: "5px", color: "gainsboro" }}>Your english level is {classifiedLevel}</span>
                         <MdDone fill='green' size={20} />
                     </Tag>
                 </div>
             )}
-            <StyledEnglishLevelRootWrapper>
+            <StyledEnglishLevelRootWrapper data-testid={ENGLISH_LEVEL_ID}>
                 <div>
                     <Quiz
                         shuffle

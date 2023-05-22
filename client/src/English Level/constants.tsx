@@ -1,3 +1,6 @@
+
+export const ENGLISH_LEVEL_ID = "english-level-wrapper";
+
 export const ENGLISH_LEVEL_QUIZ = {
     quizTitle: <h1>Greetings and welcome to the English proficiency assessment! 🌍</h1>,
     quizSynopsis:
