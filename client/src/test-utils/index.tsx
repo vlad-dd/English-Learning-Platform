@@ -5,4 +5,4 @@ export const buildApolloClientInstance = () => {
         uri: "http://localhost:4000",
         cache: new InMemoryCache(),
     });
-}
+};
