@@ -2,10 +2,9 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import ProfileModal from '.';
 import * as ReactRedux from 'react-redux';
-import { ApolloProvider } from '@apollo/client';
 import { COMMUNICATION_BLOCK_ID, MAIN_INFORMATION_BLOCK_ID, PROFILE_MODAL_ID } from './constants';
 import { closeUserProfileModal } from '../../../store/reducers/user-profile-modal';
-import { buildApolloClientInstance } from '../../../test-utils';
+import { withApolloProvider } from '../../../test-utils/hocs';
 
 jest.mock("react-redux", () => ({
     ...jest.requireActual("react-redux"),
@@ -16,14 +15,14 @@ jest.mock("react-redux", () => ({
 jest.mock("./components/main-information-block", () => () => <div data-testid="main-information-block" />);
 jest.mock("./components/communication-block", () => () => <div data-testid="communication-block" />);
 
-const ApolloClientInstance = buildApolloClientInstance();
+const ProfileModalWithProvider = withApolloProvider(ProfileModal);
 
 describe('Profile modal', () => {
     const dispatch = jest.fn();
     const useDispatch = jest.spyOn(ReactRedux, "useDispatch");
     beforeEach(() => {
         useDispatch.mockReturnValue(dispatch);
-        render(<BrowserRouter children={<ApolloProvider client={ApolloClientInstance} children={<ProfileModal />} />} /> );
+        render(<BrowserRouter children={<ProfileModalWithProvider />} />);
     })
 
     it('should render profile', () => {

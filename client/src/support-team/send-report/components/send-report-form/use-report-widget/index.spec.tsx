@@ -1,7 +1,8 @@
-import { fireEvent, render, renderHook, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import useReportWidget from ".";
 import { MAX_TEXT_AREA_LENGTH } from "../../../../constants";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
+import { buildApolloClientInstance } from "../../../../../test-utils";
 
 const TestComponent = () => {
     const {
@@ -37,13 +38,10 @@ const TestComponent = () => {
     );
 };
 
-const client = new ApolloClient({
-    uri: "http://localhost:4000",
-    cache: new InMemoryCache(),
-});
+const apolloClient = buildApolloClientInstance();
 
 describe('Report Widget', () => {
-    beforeEach(() => render(<ApolloProvider client={client} children={<TestComponent />} />));
+    beforeEach(() => render(<ApolloProvider client={apolloClient} children={<TestComponent />} />));
 
     it('should render widget default values', () => {
         const submitButton = screen.getByTestId('submit');

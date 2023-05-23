@@ -1,22 +1,19 @@
 
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import React from "react";
+import { ApolloProvider } from "@apollo/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeContext } from "../../../Contexts";
 import ErrorBoundary from "../../../ErrorBoundary";
+import { buildApolloClientInstance } from "../../../test-utils";
 import store from "../../../store";
 
-const client = new ApolloClient({
-  uri: "http://localhost:4000",
-  cache: new InMemoryCache(),
-});
+const apolloClient = buildApolloClientInstance();
 
 const TenseApplicationProviders = ({ children, ownContextProps }: { children: JSX.Element, ownContextProps?: any }) => {
   return (
     <ErrorBoundary>
       <BrowserRouter>
-        <ApolloProvider client={client}>
+        <ApolloProvider client={apolloClient}>
           <Provider store={store}>
             <ThemeContext>
               {children}

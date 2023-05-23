@@ -14,11 +14,11 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-const ApolloClientInstance = buildApolloClientInstance();
+const apolloClientInstance = buildApolloClientInstance();
 
 root.render(
   <ErrorBoundary>
-      <ApolloProvider client={ApolloClientInstance}>
+      <ApolloProvider client={apolloClientInstance}>
         <Provider store={store}>
           <ThemeContext>
             <Root />

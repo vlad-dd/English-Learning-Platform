@@ -1,13 +1,11 @@
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
 import { render, screen } from "@testing-library/react";
+import { buildApolloClientInstance } from "../../../../../test-utils";
 import ParticularComment from ".";
 
-const client = new ApolloClient({
-    uri: "http://localhost:4000",
-    cache: new InMemoryCache(),
-  });
+const apolloClientInstance = buildApolloClientInstance();
 
-const Providers = ({ children }: { children: JSX.Element }) => <ApolloProvider client={client} children={children} />
+const Providers = ({ children }: { children: JSX.Element }) => <ApolloProvider client={apolloClientInstance} children={children} />
 
 describe('Pacticular comment', () => {
     const commentID = "testid";

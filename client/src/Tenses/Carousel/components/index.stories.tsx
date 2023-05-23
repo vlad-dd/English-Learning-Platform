@@ -1,10 +1,10 @@
-import React from 'react';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { ApolloProvider } from '@apollo/client';
 import { Provider } from 'react-redux';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TenseContext } from '../../Context'
 import store from '../../../store';
 import CarouselQuiz from '.';
+import { buildApolloClientInstance } from '../../../test-utils';
 
 const SentencesMock = {
     configuration: {
@@ -32,17 +32,14 @@ const SentencesMock = {
     }
 }
 
-const client = new ApolloClient({
-    uri: "http://localhost:4000",
-    cache: new InMemoryCache(),
-});
+const apolloClientInstance = buildApolloClientInstance();
 
 export default {
     title: 'Tenses/CarouselQuiz',
     component: CarouselQuiz,
     decorators: [
         (story) => (
-            <ApolloProvider client={client}>
+            <ApolloProvider client={apolloClientInstance}>
                 <Provider store={store}>
                     <TenseContext.Provider value={SentencesMock}>{story()}</TenseContext.Provider>
                 </Provider>

@@ -1,11 +1,11 @@
-import React from 'react';
 import { store } from '../../store/index';
 import { Provider } from 'react-redux';
 import { renderHook, waitFor } from "@testing-library/react";
 import { useTestConfigurationWidget } from ".";
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { ApolloProvider } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import { GET_TEST_CONFIGURATION } from '../graphql';
+import { buildApolloClientInstance } from '../../test-utils';
 
 jest.mock('react-redux', () => ({
     ...jest.requireActual('react-redux'),
@@ -41,14 +41,11 @@ const mocks = [
     },
 ];
 
-const client = new ApolloClient({
-    uri: "http://localhost:4000",
-    cache: new InMemoryCache(),
-});
+const apolloClientInstance = buildApolloClientInstance();
 
 const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
     return (
-        <ApolloProvider client={client}>
+        <ApolloProvider client={apolloClientInstance}>
             <MockedProvider mocks={mocks}>
                 <Provider store={store}>
                     {children}

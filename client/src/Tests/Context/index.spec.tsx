@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { ApolloClient, ApolloError, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloError, ApolloProvider } from "@apollo/client";
 import { Provider } from "react-redux";
 import { render, screen } from "@testing-library/react";
 import store from "../../store";
 import TestApplicationContext, { TestContext } from ".";
 import * as TestConfiguration from "../use-test-configuration";
 import { get } from "lodash";
+import { buildApolloClientInstance } from "../../test-utils";
 
 const TestContextResponse = {
     data: {
@@ -40,14 +41,11 @@ const MockComponent = () => {
     )
 }
 
-const client = new ApolloClient({
-    uri: "http://localhost:4000",
-    cache: new InMemoryCache(),
-});
+const apolloClient = buildApolloClientInstance();
 
 const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
     return (
-        <ApolloProvider client={client}>
+        <ApolloProvider client={apolloClient}>
             <Provider store={store}>
                 <TestApplicationContext>
                     {children}
@@ -55,7 +53,6 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
             </Provider>
         </ApolloProvider>
     )
-
 }
 
 describe('Test Application Context', () => {

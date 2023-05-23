@@ -1,18 +1,16 @@
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
 import { render, screen } from "@testing-library/react";
 import { size } from "lodash";
 import CommentsList from ".";
+import { buildApolloClientInstance } from "../../../../test-utils";
 
 const COMMENT_MOCK = [
     { __typename: 'Comment' ,id: '1', date: '1.01.2023', comment: 'test comment', email: "mock@gmail.com"}
 ];
 
-const client = new ApolloClient({
-    uri: "http://localhost:4000",
-    cache: new InMemoryCache(),
-  });
+const apolloClientInstance = buildApolloClientInstance();
 
-const Providers = ({ children }: { children: JSX.Element }) => <ApolloProvider client={client} children={children} />
+const Providers = ({ children }: { children: JSX.Element }) => <ApolloProvider client={apolloClientInstance} children={children} />
 
 describe('Comments list', () => {
     it('should render component with logged user', () => {
