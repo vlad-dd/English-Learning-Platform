@@ -1,12 +1,12 @@
-import React from "react";
 import { fireEvent, render, screen } from '@testing-library/react';
 import GrammarLevels from "./presentational";
 import * as GrammarConfigHook from "./use-grammar-config";
 import ErrorBoundary from "../ErrorBoundary";
 import { Provider } from "react-redux";
 import store from "../store";
-import { ApolloClient, ApolloError, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloError, ApolloProvider } from "@apollo/client";
 import { BrowserRouter } from "react-router-dom";
+import { buildApolloClientInstance } from "../test-utils";
 
 jest.mock('react-router', () => ({
     ...jest.requireActual('react-router'),
@@ -57,16 +57,13 @@ const dataMock = {
     ]
 }
 
-const client = new ApolloClient({
-    uri: "http://localhost:4000",
-    cache: new InMemoryCache(),
-});
+const apolloClientInstance = buildApolloClientInstance();
 
 const ApplicationProviders = ({ children, ownContextResponse }: { children: JSX.Element, ownContextResponse?: any }) => {
     return (
         <BrowserRouter>
             <ErrorBoundary>
-                <ApolloProvider client={client}>
+                <ApolloProvider client={apolloClientInstance}>
                     <Provider store={store}>
                         {children}
                     </Provider>

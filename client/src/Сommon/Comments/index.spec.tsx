@@ -1,15 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import SectionComments from ".";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
 import { Provider } from "react-redux";
 import store from "../../store";
+import { buildApolloClientInstance } from "../../test-utils";
 
-const client = new ApolloClient({
-    uri: "http://localhost:4000",
-    cache: new InMemoryCache(),
-});
+const apolloClientInstance = buildApolloClientInstance();
 
-const Providers = ({ children }: { children: JSX.Element }) => <Provider store={store}><ApolloProvider client={client} children={children} /></Provider>;
+const Providers = ({ children }: { children: JSX.Element }) => <Provider store={store}><ApolloProvider client={apolloClientInstance} children={children} /></Provider>;
 
 describe('SectionComments', () => {
     const renderComments = [

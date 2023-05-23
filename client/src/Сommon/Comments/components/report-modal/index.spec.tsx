@@ -1,18 +1,13 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+import { withApolloProvider } from "../../../../test-utils/hocs";
 import ReportCommentModal from ".";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const NODE_ENTITIES_CONTENT = [
     'Report Inappropriate Comment👮‍♀️',
     'Our easy-to-use comment reporting feature allows you to quickly and easily report any comments that do not match our English Learning Platform policy. We want to ensure that our platform is a safe and respectful space for all users, and we rely on your help to achieve this goal.'
-]
+];
 
-const client = new ApolloClient({
-    uri: "http://localhost:4000",
-    cache: new InMemoryCache(),
-});
-
-const Providers = ({ children }: { children: JSX.Element }) => <ApolloProvider client={client} children={children} />
+const ReportCommentModalWithProvider = withApolloProvider(ReportCommentModal);
 
 describe('ReportCommentModal', () => {
     const commentID = 'testID';
@@ -24,7 +19,7 @@ describe('ReportCommentModal', () => {
 
     describe('should work with opened modal correctly', () => {
         beforeEach(() => {
-            render(<Providers><ReportCommentModal commentID={commentID} isOpen setOpen={setOpen} /></Providers>)
+            render(<ReportCommentModalWithProvider commentID={commentID} isOpen setOpen={setOpen} />)
         });
 
         it('should render opened component correctly', () => {

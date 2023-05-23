@@ -1,18 +1,16 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Releases from './presentational';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { ApolloProvider } from '@apollo/client';
+import { buildApolloClientInstance } from '../test-utils';
 
-const client = new ApolloClient({
-    uri: "http://localhost:4000",
-    cache: new InMemoryCache(),
-  });
+const apolloClientInstance = buildApolloClientInstance();
 
 export default {
     title: 'Application/Releases',
     component: Releases,
     decorators: [
-        (story) => (<ApolloProvider client={client}>{story()}</ApolloProvider>)
+        (story) => (<ApolloProvider client={apolloClientInstance} children={story()} />)
     ]
 } as ComponentMeta<typeof Releases>;
 

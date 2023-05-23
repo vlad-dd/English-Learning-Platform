@@ -1,15 +1,10 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import * as CommunicationBlockWidget from '../../use-communication-widget';
 import { COMMUNICATION_BLOCK_ID } from '../../constants';
 import CommunicationBlock from '.';
+import { withApolloProvider } from '../../../../../test-utils/hocs';
 
 jest.mock("../../use-communication-widget");
-
-const client = new ApolloClient({
-    uri: "http://localhost:4000",
-    cache: new InMemoryCache(),
-});
 
 const REPORT_DIALOG_TEXT = [
     "Report Inappropriate User👮‍♀️",
@@ -30,10 +25,11 @@ describe('Communication Block', () => {
         isLoading: false,
         error: undefined
     };
+    const CommunicationBlockWithProvider = withApolloProvider(CommunicationBlock);
     const widgetSpy = jest.spyOn(CommunicationBlockWidget, "useCommunicationBlockWidget");
     it('should render component with opened report dialog', () => {
         widgetSpy.mockReturnValue(props);
-        render(<ApolloProvider client={client} children={<CommunicationBlock />} />);
+        render(<CommunicationBlockWithProvider />);
         expect(screen.getByTestId(COMMUNICATION_BLOCK_ID)).toBeInTheDocument();
         expect(screen.getByTestId("report-modal-dialog")).toBeInTheDocument();
         REPORT_DIALOG_TEXT.forEach((text: string) => expect(screen.getByText(text)).toBeInTheDocument());
@@ -41,13 +37,13 @@ describe('Communication Block', () => {
 
     it('should render component without report dialog', () => {
         widgetSpy.mockReturnValue({...props, isOpen: false});
-        render(<ApolloProvider client={client} children={<CommunicationBlock />} />);
+        render(<CommunicationBlockWithProvider />);
         COMMUNICATION_BLOCK_TEST_IDS.forEach((id: string) => expect(screen.getByTestId(id)).toBeInTheDocument());
     });
 
     it('should call handleOpening if user pressed report button ', () => {
         widgetSpy.mockReturnValue({...props, isOpen: false});
-        render(<ApolloProvider client={client} children={<CommunicationBlock />} />);
+        render(<CommunicationBlockWithProvider />);
         fireEvent.click(screen.getByTestId("report-user-button"));
         expect(props.handleOpening).toBeCalledTimes(1);
     });
