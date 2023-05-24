@@ -1,33 +1,12 @@
-import { BrowserRouter } from 'react-router-dom';
-import { ApolloProvider } from '@apollo/client';
-import { Provider } from 'react-redux';
 import { render, screen } from '@testing-library/react'
-import store from '../store';
-import ErrorBoundary from '../ErrorBoundary';
-import WelcomePage from './presentational';
+import { withApolloProvider, withReduxProvider, withRouterProvider } from '../test-utils/hocs';
 import { CARDS_INFORMATION_LIST } from './constants';
-import { buildApolloClientInstance } from '../test-utils';
-
-const apolloClientInstance = buildApolloClientInstance();
-  
-  const TenseApplicationProviders = ({ children, ownContextProps }: { children: JSX.Element, ownContextProps?: any }) => {
-    return (
-      <ErrorBoundary>
-        <BrowserRouter>
-          <ApolloProvider client={apolloClientInstance}>
-            <Provider store={store}>
-                {children}
-            </Provider>
-          </ApolloProvider>
-        </BrowserRouter>
-      </ErrorBoundary>
-    );
-  };
-
+import WelcomePage from './presentational';
 
 describe('Welcome Page', () => {
+   const WelcomePageWithProvider = withRouterProvider(withApolloProvider(withReduxProvider(WelcomePage)));
     beforeEach(() => {
-        render(<TenseApplicationProviders><WelcomePage /></TenseApplicationProviders>)
+        render(<WelcomePageWithProvider />)
     });
 
     it('should render Welcome Page root', () => {

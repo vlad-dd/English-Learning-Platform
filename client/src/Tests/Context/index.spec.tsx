@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { ApolloError, ApolloProvider } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
 import { Provider } from "react-redux";
 import { render, screen } from "@testing-library/react";
 import store from "../../store";
 import TestApplicationContext, { TestContext } from ".";
 import * as TestConfiguration from "../use-test-configuration";
 import { get } from "lodash";
-import { buildApolloClientInstance } from "../../test-utils";
+import { buildApolloClientInstance, buildApolloError } from "../../test-utils";
 
 const TestContextResponse = {
     data: {
@@ -41,11 +41,11 @@ const MockComponent = () => {
     )
 }
 
-const apolloClient = buildApolloClientInstance();
+const apolloClientInstance = buildApolloClientInstance();
 
 const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
     return (
-        <ApolloProvider client={apolloClient}>
+        <ApolloProvider client={apolloClientInstance}>
             <Provider store={store}>
                 <TestApplicationContext>
                     {children}
@@ -53,6 +53,7 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
             </Provider>
         </ApolloProvider>
     )
+
 }
 
 describe('Test Application Context', () => {
@@ -73,7 +74,7 @@ describe('Test Application Context', () => {
     });
 
     it('should return error sign if it fails', () => {
-        testSpy.mockReturnValue({ ...TestContextResponse, error: new ApolloError({}) });
+        testSpy.mockReturnValue({ ...TestContextResponse, error: buildApolloError() });
         render(<ApplicationProviders><MockComponent /></ApplicationProviders>)
         expect(screen.getByText("Something happened with request...")).toBeInTheDocument();
     });

@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import TestApplication from "./presentational";
-import { ApolloError } from "@apollo/client";
 import { PARTIAL_TEXT_INPUT_ID, SELECT_INPUT_ID, TEXT_INPUT_ID } from "./constants";
 import { TestApplicationProviders } from "./jest-utils";
 import * as TestConfig from './use-test-configuration';
 import { extractByPath } from "../utils/utils";
+import { buildApolloError } from '../test-utils';
 
 jest.mock('./components/text-input', () => () => <div data-testid='text-input'>Text Input</div>);
 jest.mock('./components/select-input', () => () => <div data-testid='select-input'>Select Input</div>);
@@ -73,7 +73,7 @@ describe('TestApplication', () => {
     });
 
     it('should render error message', () => {
-        spy.mockReturnValue({ ...TestContextResponse, error: new ApolloError({})});
+        spy.mockReturnValue({ ...TestContextResponse, error: buildApolloError()});
         render(
             <TestApplicationProviders>
                 <TestApplication />

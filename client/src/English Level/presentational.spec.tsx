@@ -1,9 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import { ApolloError, ApolloProvider } from '@apollo/client';
-import { buildApolloClientInstance } from '../test-utils';
 import * as EnglishLevelWidget from './use-english-level-widget';
 import EnglishLevelRoot from './presentational';
+import { buildApolloError } from '../test-utils';
+import { withApolloProvider, withRouterProvider } from '../test-utils/hocs';
 
 jest.mock("react-quiz-component", () => () => <div data-testid="level-quiz-component" />);
 jest.mock("./styled", () => ({
@@ -15,7 +14,7 @@ const TEST_IDS = [
     "progress-steps-component",
 ];
 
-const ApolloClientInstance = buildApolloClientInstance();
+const EnglishLevelRootWithProvider = withRouterProvider(withApolloProvider(EnglishLevelRoot));
 
 describe('English Level', () => {
     const widget = jest.spyOn(EnglishLevelWidget, "useEnglishLevelWidget");
@@ -32,7 +31,7 @@ describe('English Level', () => {
 
     it('should render component after completing the condition', () => {
         widget.mockReturnValue(props);
-        render(<ApolloProvider client={ApolloClientInstance} children={<EnglishLevelRoot />} />);
+        render(<EnglishLevelRootWithProvider />);
         TEST_IDS.forEach((id: string) => expect(screen.getByTestId(id)).toBeInTheDocument());
         expect(screen.getByText("English Proficiency Level Test")).toBeInTheDocument();
         expect(screen.getByText("Your english level is B1")).toBeInTheDocument();
@@ -41,21 +40,21 @@ describe('English Level', () => {
 
     it('should render component after completing the condition but without the level', () => {
         widget.mockReturnValue({ ...props, classifiedLevel: null });
-        render(<ApolloProvider client={ApolloClientInstance} children={<EnglishLevelRoot />} />);
+        render(<EnglishLevelRootWithProvider />);
         TEST_IDS.forEach((id: string) => expect(screen.getByTestId(id)).toBeInTheDocument());
         expect(screen.queryByTestId("classified-level-container")).not.toBeInTheDocument();
     });
 
     it('should return loading circle if component is loading', () => {
         widget.mockReturnValue({ ...props, isLoading: true });
-        render(<ApolloProvider client={ApolloClientInstance} children={<EnglishLevelRoot />} />);
+        render(<EnglishLevelRootWithProvider />);
         expect(screen.getByTestId("loading-progress")).toBeInTheDocument();
         TEST_IDS.forEach((id: string) => expect(screen.queryByTestId(id)).not.toBeInTheDocument());
     });
 
     it('should return error page if error exists', () => {
-        widget.mockReturnValue({ ...props, error: new ApolloError({}) });
-        render(<BrowserRouter children={<ApolloProvider client={ApolloClientInstance} children={<EnglishLevelRoot />} />} />);
+        widget.mockReturnValue({ ...props, error: buildApolloError() });
+        render(<EnglishLevelRootWithProvider />);
         expect(screen.getByTestId("error-page")).toBeInTheDocument();
     });
 });

@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloClient, ApolloError, InMemoryCache } from "@apollo/client";
 
 export const buildApolloClientInstance = () => {
     return new ApolloClient({
@@ -6,3 +6,5 @@ export const buildApolloClientInstance = () => {
         cache: new InMemoryCache(),
     });
 };
+
+export const buildApolloError = (errorMessage?: string) => new ApolloError({ errorMessage });

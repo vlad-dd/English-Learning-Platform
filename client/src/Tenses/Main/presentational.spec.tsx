@@ -1,9 +1,8 @@
-import React from "react";
-import { ApolloError } from "@apollo/client";
 import { fireEvent, render, screen } from "@testing-library/react";
 import TenseContent from "./presentational";
 import { TenseApplicationProviders } from "../jest-utils";
 import * as TenseConfig from './use-tense-configuration';
+import { buildApolloError } from "../../test-utils";
 
 
 const mockedApolloResponse = {
@@ -146,7 +145,7 @@ describe("TenseContent", () => {
   });
 
   it("should show error", () => {
-    spy.mockReturnValue({ ...mockedApolloResponse, error: new ApolloError({})});
+    spy.mockReturnValue({ ...mockedApolloResponse, error: buildApolloError() });
     render(
       <TenseApplicationProviders>
         <TenseContent />
