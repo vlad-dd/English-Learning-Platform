@@ -1,9 +1,8 @@
-import React from 'react';
 import 'intersection-observer';
-import { ApolloError } from '@apollo/client/errors';
 import { screen, render } from '@testing-library/react'
 import Releases from './presentational'
 import * as Hook from './use-releases-timeline';
+import { buildApolloError } from '../test-utils';
 
 const response = {
     data: {
@@ -34,7 +33,7 @@ describe('Releases', () => {
      });
 
      it('should return error with request', () => {
-        spy.mockReturnValue({...response, error: new ApolloError({}) })
+        spy.mockReturnValue({...response, error: buildApolloError() })
         const { getByText } = render(<Releases />);
         expect(getByText('Something happened with request, ApolloError')).toBeInTheDocument();
      });

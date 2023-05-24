@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import ReportDialog from '.';
-import { ApolloError } from '@apollo/client';
 import { REPORT_DIALOG_ERROR_MESSAGE } from './constants';
+import { buildApolloError } from '../../test-utils';
 
 export const DATA_TEST_IDS = [
     "report-modal-dialog",
@@ -34,7 +34,7 @@ describe('Report Dialog', () => {
     });
 
     it('should render component with content' , () => {
-        render(<ReportDialog {...{...props, error: new ApolloError({})}} />);
+        render(<ReportDialog {...{...props, error: buildApolloError()}} />);
         expect(screen.getByText(REPORT_DIALOG_ERROR_MESSAGE)).toBeInTheDocument();
     });  
 });

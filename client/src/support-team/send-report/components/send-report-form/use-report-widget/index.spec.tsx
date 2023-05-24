@@ -1,13 +1,11 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import useReportWidget from ".";
 import { MAX_TEXT_AREA_LENGTH } from "../../../../constants";
-import { ApolloProvider } from "@apollo/client";
-import { buildApolloClientInstance } from "../../../../../test-utils";
+import { withApolloProvider } from "../../../../../test-utils/hocs";
 
 const TestComponent = () => {
     const {
         report,
-        setReport,
         isDisabled,
         minLengthError,
         maxLengthError,
@@ -38,10 +36,10 @@ const TestComponent = () => {
     );
 };
 
-const apolloClient = buildApolloClientInstance();
+const TestComponentWithProvider = withApolloProvider(TestComponent);
 
 describe('Report Widget', () => {
-    beforeEach(() => render(<ApolloProvider client={apolloClient} children={<TestComponent />} />));
+    beforeEach(() => render(<TestComponentWithProvider/>));
 
     it('should render widget default values', () => {
         const submitButton = screen.getByTestId('submit');

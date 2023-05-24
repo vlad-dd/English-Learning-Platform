@@ -1,10 +1,7 @@
-import { Provider } from "react-redux";
 import { fireEvent, render, screen } from '@testing-library/react';
-import store from "../../store";
-import SendReportModal from ".";
+import { withApolloProvider, withReduxProvider } from "../../test-utils/hocs";
 import { ELP_APPLICATIONS } from "../constants";
-import { ApolloProvider } from "@apollo/client";
-import { buildApolloClientInstance } from "../../test-utils";
+import SendReportModal from ".";
 
 const SEND_REPORT_FORM_CONTENT = [
     "Report about the Problem👷‍♂️",
@@ -25,14 +22,12 @@ const SEND_REPORT_FORM_ENTITIES = [
     "send-report-submit",
 ];
 
-const apolloClient = buildApolloClientInstance();
-
-const SendReportModalProviders = ({ children }: { children: JSX.Element }) => <ApolloProvider client={apolloClient} children={<Provider store={store} children={children} />} />
+const SendReportModalWithProvider = withApolloProvider(withReduxProvider(SendReportModal));
 
 describe("SendReportModal", () => {
     const openSendReportModal = () => fireEvent.click(screen.getByTestId("report-service-icon"));
     beforeEach(() => {
-        render(<SendReportModalProviders><SendReportModal /></SendReportModalProviders>);
+        render(<SendReportModalWithProvider />);
     });
 
     it('should render the modal icon', () => {

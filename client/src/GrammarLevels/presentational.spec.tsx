@@ -1,12 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import GrammarLevels from "./presentational";
 import * as GrammarConfigHook from "./use-grammar-config";
-import ErrorBoundary from "../ErrorBoundary";
-import { Provider } from "react-redux";
-import store from "../store";
-import { ApolloError, ApolloProvider } from "@apollo/client";
-import { BrowserRouter } from "react-router-dom";
-import { buildApolloClientInstance } from "../test-utils";
+import { withApolloProvider, withReduxProvider, withRouterProvider } from '../test-utils/hocs';
+import { buildApolloError } from '../test-utils';
 
 jest.mock('react-router', () => ({
     ...jest.requireActual('react-router'),
@@ -57,22 +53,7 @@ const dataMock = {
     ]
 }
 
-const apolloClientInstance = buildApolloClientInstance();
-
-const ApplicationProviders = ({ children, ownContextResponse }: { children: JSX.Element, ownContextResponse?: any }) => {
-    return (
-        <BrowserRouter>
-            <ErrorBoundary>
-                <ApolloProvider client={apolloClientInstance}>
-                    <Provider store={store}>
-                        {children}
-                    </Provider>
-                </ApolloProvider>
-            </ErrorBoundary>
-        </BrowserRouter>
-    );
-};
-
+const GrammarLevelsWithProvider = withRouterProvider(withApolloProvider(withReduxProvider(GrammarLevels)));
 
 describe('GrammarLevels', () => {
     const grammarConfigSpy = jest.spyOn(GrammarConfigHook, 'useGrammarConfigWidget');
@@ -82,7 +63,7 @@ describe('GrammarLevels', () => {
 
         beforeEach(() => {
             grammarConfigSpy.mockReturnValue({ data: dataMock, isLoading: false, error: undefined, refetch })
-            render(<ApplicationProviders><GrammarLevels /></ApplicationProviders>);
+            render(<GrammarLevelsWithProvider />);
         });
 
         it('should render GrammarLevels root', () => {
@@ -144,16 +125,16 @@ describe('GrammarLevels', () => {
     describe('should return Loading sign if isLoading is true', () => { 
         it('should return Loading sign', () => {
             grammarConfigSpy.mockReturnValue({ data: [], isLoading: true, error: undefined, refetch })
-            render(<ApplicationProviders><GrammarLevels /></ApplicationProviders>);
+            render(<GrammarLevelsWithProvider />);
             expect(screen.getByTestId('loading-progress')).toBeInTheDocument();
         });
     })
 
     describe('should return error message if error exists', () => { 
         it('should return Loading sign', () => {
-            grammarConfigSpy.mockReturnValue({ data: [], isLoading: false, error: new ApolloError({}), refetch })
-            render(<ApplicationProviders><GrammarLevels /></ApplicationProviders>);
+            grammarConfigSpy.mockReturnValue({ data: [], isLoading: false, error: buildApolloError(), refetch })
+            render(<GrammarLevelsWithProvider />);
             expect(screen.getByTestId('error-page')).toBeInTheDocument();
         });
     });
-})
+});
