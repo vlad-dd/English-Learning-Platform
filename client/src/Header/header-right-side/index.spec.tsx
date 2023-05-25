@@ -10,13 +10,13 @@ import HeaderRightSide from '.';
 
 const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
     return (
-      <ErrorBoundary>
-        <BrowserRouter>
-          <Provider store={store}>
-            <ThemeContext>{children}</ThemeContext>
-          </Provider>
-        </BrowserRouter>
-      </ErrorBoundary>
+        <ErrorBoundary>
+            <BrowserRouter>
+                <Provider store={store}>
+                    {children}
+                </Provider>
+            </BrowserRouter>
+        </ErrorBoundary>
     );
 };
 
@@ -25,9 +25,9 @@ describe('HeaderLeftSide', () => {
     describe('When user exists', () => {
         const handleSignOut = jest.fn();
         beforeEach(() => {
-            render(<ApplicationProviders><HeaderRightSide enteredUser={{email: 'test@gmail.com'}} handleSignOut={handleSignOut} /></ApplicationProviders>)
+            render(<ApplicationProviders><HeaderRightSide enteredUser={{ email: 'test@gmail.com' }} handleSignOut={handleSignOut} /></ApplicationProviders>)
         })
-    
+
         it('should render HeaderLeftSide', () => {
             expect(screen.getByText('test@gmail.com')).toBeInTheDocument();
             expect(screen.getByRole('img')).toBeInTheDocument();
@@ -50,9 +50,9 @@ describe('HeaderLeftSide', () => {
 
     describe('When user does not exist', () => {
         beforeEach(() => {
-            render(<ApplicationProviders><HeaderRightSide enteredUser={null} handleSignOut={noop}/></ApplicationProviders>)
+            render(<ApplicationProviders><HeaderRightSide enteredUser={null} handleSignOut={noop} /></ApplicationProviders>)
         })
-    
+
         it('should render HeaderLeftSide', () => {
             expect(screen.getByText('Guest')).toBeInTheDocument();
             expect(screen.getByRole('img')).toBeInTheDocument();

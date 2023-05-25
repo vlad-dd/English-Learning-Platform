@@ -34,6 +34,7 @@ const Dictionary = () => {
           {error && (
             error.message === APOLLO_GRAPHQL_ERRORS["REQUEST_FAILED_404"] ?
               <Empty
+                data-testid="error-empty-space"
                 description={UNEXISTED_WORD_DESCRIPTION}
                 imageStyle={{ height: "40vh" }}
               />

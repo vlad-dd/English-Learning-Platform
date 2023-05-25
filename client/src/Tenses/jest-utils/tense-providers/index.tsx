@@ -15,9 +15,7 @@ const TenseApplicationProviders = ({ children, ownContextProps }: { children: JS
       <BrowserRouter>
         <ApolloProvider client={apolloClient}>
           <Provider store={store}>
-            <ThemeContext>
-              {children}
-            </ThemeContext>
+            {children}
           </Provider>
         </ApolloProvider>
       </BrowserRouter>

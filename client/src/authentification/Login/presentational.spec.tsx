@@ -30,7 +30,7 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
       <ErrorBoundary>
         <BrowserRouter>
           <ReactRedux.Provider store={store}>
-            <ThemeContext>{children}</ThemeContext>
+            {children}
           </ReactRedux.Provider>
         </BrowserRouter>
       </ErrorBoundary>

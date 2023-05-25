@@ -20,9 +20,7 @@ root.render(
   <ErrorBoundary>
       <ApolloProvider client={apolloClientInstance}>
         <Provider store={store}>
-          <ThemeContext>
             <Root />
-          </ThemeContext>
         </Provider>
       </ApolloProvider>
   </ErrorBoundary>

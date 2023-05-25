@@ -1,8 +1,8 @@
 import { useQuery } from "@apollo/client";
+import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import * as selectors from '../../store/selectors'
 import { GET_TEST_CONFIGURATION } from "../graphql";
-import { useParams } from "react-router";
 
 const useTestConfigurationWidget = () => {
     const { path }: { path: Array<string> } = useSelector(selectors.tensesBCState)

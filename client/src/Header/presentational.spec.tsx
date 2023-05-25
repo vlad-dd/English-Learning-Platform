@@ -13,7 +13,7 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
     <ErrorBoundary>
       <BrowserRouter>
         <Provider store={store}>
-          <ThemeContext>{children}</ThemeContext>
+          {children}
         </Provider>
       </BrowserRouter>
     </ErrorBoundary>

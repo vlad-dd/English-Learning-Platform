@@ -1,9 +1,7 @@
-import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import AntForm from '.';
-import { ThemeContext } from '../../Contexts';
 import ErrorBoundary from '../../ErrorBoundary';
 import store from '../../store';
 
@@ -25,7 +23,7 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
       <ErrorBoundary>
         <BrowserRouter>
           <Provider store={store}>
-            <ThemeContext>{children}</ThemeContext>
+            {children}
           </Provider>
         </BrowserRouter>
       </ErrorBoundary>

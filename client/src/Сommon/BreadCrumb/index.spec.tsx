@@ -22,7 +22,7 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
     <ReactRouterDOM.BrowserRouter>
       <ErrorBoundary>
         <ReactRedux.Provider store={store}>
-          <ThemeContext>{children}</ThemeContext>
+          {children}
         </ReactRedux.Provider>
       </ErrorBoundary>
     </ReactRouterDOM.BrowserRouter>
@@ -55,7 +55,7 @@ describe("BreadCrumb", () => {
         <BreadCrumbPath />
       </ApplicationProviders>
     );
-    stringURLParts.split('/').forEach((part: string) =>  expect(screen.getByText(part)).toBeInTheDocument())
+    stringURLParts.split('/').forEach((part: string) => expect(screen.getByText(part)).toBeInTheDocument())
   });
 
 });
