@@ -6,7 +6,6 @@ import { act } from "react-dom/test-utils";
 import { noop } from "lodash";
 import ErrorBoundary from "../../ErrorBoundary";
 import store from "../../store";
-import { ThemeContext } from "../../Contexts";
 import FireBaseAPI from "../firebase-api";
 import { useFormConfigurationWidget } from "./use-form-configuration";
 
@@ -15,7 +14,7 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
     <ErrorBoundary>
       <BrowserRouter>
         <Provider store={store}>
-          <ThemeContext>{children}</ThemeContext>
+          {children}
         </Provider>
       </BrowserRouter>
     </ErrorBoundary>

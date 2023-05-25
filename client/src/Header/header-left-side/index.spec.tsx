@@ -12,9 +12,7 @@ export const HeaderProviders = ({ children }: { children: JSX.Element }) => {
         <BrowserRouter>
             <ErrorBoundary>
                 <Provider store={store}>
-                    <ThemeContext>
-                        {children}
-                    </ThemeContext>
+                    {children}
                 </Provider>
             </ErrorBoundary>
         </BrowserRouter>

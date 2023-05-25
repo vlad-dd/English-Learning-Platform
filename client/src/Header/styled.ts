@@ -3,7 +3,7 @@ import { DEVICE_MAXIMUM } from '../mobile-view';
 import Autocomplete from '@mui/material/Autocomplete';
 
 export const HeaderWrapper = styled.div`
-  background: #131e31;
+  background: #001529;
   display: flex;
   justify-content: space-between;
   padding: 15px;

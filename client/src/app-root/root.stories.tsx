@@ -3,14 +3,13 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ApplicationRoot from './presentational';
-import { ThemeContext } from '../Contexts';
 import store from '../store';
 
 export default {
     title: 'Application/RootLayout',
     component: ApplicationRoot,
     decorators: [
-        (story) => (<BrowserRouter><Provider store={store}><ThemeContext>{story()}</ThemeContext></Provider></BrowserRouter>)
+        (story) => (<BrowserRouter><Provider store={store}>{story()}</Provider></BrowserRouter>)
     ]
 } as ComponentMeta<typeof ApplicationRoot>;
 

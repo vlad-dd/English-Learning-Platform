@@ -4,7 +4,6 @@ import { render, screen } from "@testing-library/react";
 import store from "../store";
 import ApplicationRoot from "./presentational";
 import { Provider } from "react-redux";
-import { ThemeContext } from "../Contexts";
 import ErrorBoundary from "../ErrorBoundary";
 
 const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
@@ -12,7 +11,7 @@ const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
     <ErrorBoundary>
       <BrowserRouter>
         <Provider store={store}>
-          <ThemeContext>{children}</ThemeContext>
+          {children}
         </Provider>
       </BrowserRouter>
     </ErrorBoundary>
