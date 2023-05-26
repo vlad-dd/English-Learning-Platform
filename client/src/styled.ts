@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Layout } from 'antd';
-import { DEVICE_MINIMUM, DEVICE_MAXIMUM } from './mobile-view';
+import { DEVICE_MAXIMUM } from './mobile-view';
 
 const { Content, Footer } = Layout;
 
