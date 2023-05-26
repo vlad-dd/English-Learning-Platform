@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import WelcomePage from "../../WelcomePage/presentational";
 import DictionaryContext from "../../Dictionary/Context";
@@ -12,7 +12,7 @@ import AdminPage from "../../admin-panel/presentational";
 import { ELP_USER_EXPERIENCE_ERRORS } from "../../Сommon/error-handler-page/constants";
 import EnglishLevelRoot from "../../English Level/presentational";
 
-export const LazyTenseApplicationRoot = lazy(() => import("../../app-root/presentational"));
+export const LazyApplicationRoot = lazy(() => import("../../app-root/presentational"));
 const LazyRegistration = lazy(() => import("../../authentification/Registration/presentational"));
 const LazyLogin = lazy(() => import("../../authentification/Login/presentational"));
 const LazyErrorPage = lazy(() => import("../../Сommon/error-handler-page/not-found-url"));
@@ -20,7 +20,7 @@ const LazyErrorPage = lazy(() => import("../../Сommon/error-handler-page/not-fo
 const useApplicationRouter = () => {
   const router = createBrowserRouter([
     {
-      element: <LazyTenseApplicationRoot />,
+      element: <LazyApplicationRoot />,
       errorElement: <LazyErrorPage error={ELP_USER_EXPERIENCE_ERRORS.UNEXPECTED_BREAK} />,
       children: [{
         path: "/",

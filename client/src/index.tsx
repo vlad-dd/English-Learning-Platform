@@ -4,7 +4,6 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import ErrorBoundary from "./ErrorBoundary";
 import store from "./store";
-import { ThemeContext } from "./Contexts";
 import "./index.css";
 import { ApolloProvider } from "@apollo/client";
 import Root from "./App";
