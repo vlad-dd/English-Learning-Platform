@@ -1,9 +1,10 @@
 import React from 'react';
 import { BsFacebook, BsLinkedin, BsTwitter, BsYoutube } from 'react-icons/bs';
+import { FormattedMessage } from 'react-intl';
 
 const CARDS_INFORMATION= [
-    { id: 1, title: 'Our Goal 🎯', description: 'Our platform is designed to provide comprehensive resources and tools that will help you enhance your English language proficiency.' },
-    { id: 2, title: 'Always Up-to-Date 🔄', description: 'Our grammar information and dictionary are regularly updated to ensure that you have access to the latest and most accurate information.' },
+    { id: 1, title: <FormattedMessage id="platform_goal_title" />, description: <FormattedMessage id="goal_card_body" /> },
+    { id: 2, title: <FormattedMessage id="card_up_to_date_title" />, description: <FormattedMessage id="up_to_date_card_body" /> },
 ];
 
 const CARDS_INFORMATION_LIST = [
