@@ -13,3 +13,5 @@ export const tenseConfiguration = (state: State) => getState(state).tense.tenseC
 export const reportModalState = (state: State) => getState(state).sendReport;
 
 export const userProfileModalState = (state: State) => getState(state).userProfile;
+
+export const languageTranslations = (state: State) => getState(state).translation;

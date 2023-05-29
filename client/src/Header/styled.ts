@@ -27,6 +27,13 @@ export const HeaderRight = styled.div`
   }
 `;
 
+export const StyledLanguageSelector = styled.div`
+  display: flex;
+  margin-top: 8px;
+  align-items: center;
+`;
+
+
 export const UserEmail = styled.h4`
   color: whitesmoke;
   margin-left: 15px;
