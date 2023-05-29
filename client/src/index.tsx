@@ -12,17 +12,16 @@ import { buildApolloClientInstance } from "./test-utils";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-
 const apolloClientInstance = buildApolloClientInstance();
 
 root.render(
-  <ErrorBoundary>
+    <ErrorBoundary>
       <ApolloProvider client={apolloClientInstance}>
         <Provider store={store}>
-            <Root />
+          <Root />
         </Provider>
       </ApolloProvider>
-  </ErrorBoundary>
+    </ErrorBoundary>
 );
 
 // If you want to start measuring performance in your app, pass a function

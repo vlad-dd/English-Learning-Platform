@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useState } from "react";
 import { size } from "lodash";
 import { GUIDELINE_STEPS } from "../../constants";
 import { StyledSteps, StyledTitle } from "./styled";
+import { FormattedMessage } from "react-intl";
 
 const StepsGuideline = () => {
   const [current, setCurrent] = useState(0);
@@ -13,7 +14,9 @@ const StepsGuideline = () => {
 
   return (
     <React.Fragment>
-      <StyledTitle>How to use English Learning Platform? 🤔</StyledTitle>
+      <StyledTitle>
+        <FormattedMessage id="steps_guideline_title" />
+      </StyledTitle>
       <StyledSteps
         data-testid="steps-guideline"
         current={current}

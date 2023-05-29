@@ -1,14 +1,15 @@
 import React, { Suspense } from "react";
+import { useSelector } from "react-redux";
+import { IntlProvider } from "react-intl";
 import { RouterProvider } from "react-router-dom";
 import { LoadingSpinner } from "./Сommon";
 import { useApplicationRouter } from "./Hooks";
-import { IntlProvider } from "react-intl";
 import { TRANSLATIONS } from "./translations";
-import { useSelector } from "react-redux";
+import * as selectors from "./store/selectors/index";
 
 const Root: React.FC = (): JSX.Element => {
-  //@ts-ignore
-  const { language } = useSelector(state => state.translation);
+  
+  const { language } = useSelector(selectors.languageTranslations);
 
   const { router } = useApplicationRouter();
   //@ts-ignore

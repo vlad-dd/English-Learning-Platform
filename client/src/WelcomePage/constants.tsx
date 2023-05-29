@@ -15,7 +15,7 @@ const CARDS_INFORMATION_LIST = [
 ];
 
 const LEARNERS_FEEDBACK = [
-    { id: '1', title: 'Jack Smith', description: 'Hi, I just wanted to say that the English Learning Platform has been a lifesaver for me. The grammar information is clear and easy to understand, and the tests have helped me to identify my weaknesses and improve my English skills.' },
+    { id: '1', title: 'Jack Smith', description: <FormattedMessage id="welcome_page_feedback_1" /> },
     { id: '2', title: 'Sarah Garcia', description: 'The dictionary with word listening options has been really helpful for me, as it allows me to hear how words are pronounced by native speakers. I would definitely recommend this platform to anyone looking to improve their English.' },
     { id: '3', title: 'Michael Lee', description: "I've been using the English Learning Platform for a few weeks now. The tests for each theme are really useful, as they allow me to practice what I've learned and track my progress. I appreciate the effort that has gone into creating this platform." },
     { id: '4', title: 'Anna Kim', description: "The fact that there are tests for learning is also a great feature, as it allows me to focus on specific areas that I struggle with. Overall, I'm very satisfied with this platform." },
@@ -30,20 +30,20 @@ const SOCIAL_MEDIAS = [
 
 const GUIDELINE_STEPS = [
     {
-        title: 'Step 1',
-        description: 'Identify your level',
+        title: <FormattedMessage id="welcome_page_step_1" />,
+        description: <FormattedMessage id="description_step_one" />,
     },
     {
-        title: 'Step 2',
-        description: 'Explore the grammar'
+        title: <FormattedMessage id="welcome_page_step_2" />,
+        description: <FormattedMessage id="description_step_two" />
     },
     {
-        title: 'Step 3',
-        description: 'Pass the tests'
+        title: <FormattedMessage id="welcome_page_step_3" />,
+        description: <FormattedMessage id="description_step_three" />
     },
     {
-        title: 'Step 4',
-        description: 'Use the dictionary with word listening options',
+        title: <FormattedMessage id="welcome_page_step_4" />,
+        description: <FormattedMessage id="description_step_four" />,
     }
 ]
 

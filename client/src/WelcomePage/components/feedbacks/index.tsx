@@ -3,6 +3,7 @@ import React, { useMemo } from "react";
 import Avatar from '@mui/material/Avatar';
 import { Title } from "../../../Сommon";
 import { LEARNERS_FEEDBACK } from "../../constants";
+import { FormattedMessage } from "react-intl";
 
 const generateNicknameAvatars = (name: string) => ({ children: `${name.split(' ')[0][0] + name.split(' ')[1][0]}` });
   
@@ -21,7 +22,7 @@ const LearnerFeedbacks = () => {
 
     return (
         <React.Fragment>
-            <Title styles={{ paddingTop: "50px" }}>Our Learners Feedback🎓</Title>
+            <Title styles={{ paddingTop: "50px" }}><FormattedMessage id="welcome_page_feedbacks" /></Title>
            <div data-testid="learner-feedbacks">{feedbacks}</div>
         </React.Fragment>
     )

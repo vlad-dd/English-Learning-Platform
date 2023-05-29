@@ -1,3 +1,5 @@
+import { uid } from "../utils/utils";
+
 const APPLICATION_PARTS = [
     { title: 'Present-Simple', path: '/Tenses/Present/Present-Simple' },
     { title: 'Present-Continuous', path: '/Tenses/Present/Present-Continuous' },
@@ -16,6 +18,15 @@ const APPLICATION_PARTS = [
     { title: 'Tests: Mixed Tenses', path: '/Tests/Verbs/Mixed-Tenses' },
     { title: 'Tests: Present', path: '/Tests/Verbs/Present' },
     { title: 'Tests: Past', path: '/Tests/Verbs/Past' },
-]
+];
 
-export { APPLICATION_PARTS };
+const LANGUAGES = [
+    { id: uid(5), key: "US", icon: "https://t4.ftcdn.net/jpg/00/65/12/49/360_F_65124908_UpNHzTdQn2HNAIT8yYqybMQeGfsRmVc7.jpg" },
+    { id: uid(5), key: "UA", icon: "https://www.countryflags.com/wp-content/uploads/ukraine-flag-png-large.png" },
+    { id: uid(5), key: "JP", icon: "https://www.countryflags.com/wp-content/uploads/japan-flag-png-xl.png" },
+    { id: uid(5), key: "ESP", icon: "https://www.countryflags.com/wp-content/uploads/spain-flag-png-large.png" },
+    { id: uid(5), key: "FR", icon: "https://www.countryflags.com/wp-content/uploads/france-flag-png-large.png" },
+    { id: uid(5), key: "GER", icon: "https://www.countryflags.com/wp-content/uploads/germany-flag-png-large.png" },
+];
+
+export { APPLICATION_PARTS, LANGUAGES };
