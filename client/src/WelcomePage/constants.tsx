@@ -16,9 +16,9 @@ const CARDS_INFORMATION_LIST = [
 
 const LEARNERS_FEEDBACK = [
     { id: '1', title: 'Jack Smith', description: <FormattedMessage id="welcome_page_feedback_1" /> },
-    { id: '2', title: 'Sarah Garcia', description: 'The dictionary with word listening options has been really helpful for me, as it allows me to hear how words are pronounced by native speakers. I would definitely recommend this platform to anyone looking to improve their English.' },
-    { id: '3', title: 'Michael Lee', description: "I've been using the English Learning Platform for a few weeks now. The tests for each theme are really useful, as they allow me to practice what I've learned and track my progress. I appreciate the effort that has gone into creating this platform." },
-    { id: '4', title: 'Anna Kim', description: "The fact that there are tests for learning is also a great feature, as it allows me to focus on specific areas that I struggle with. Overall, I'm very satisfied with this platform." },
+    { id: '2', title: 'Sarah Garcia', description: <FormattedMessage id="welcome_page_feedback_2" /> },
+    { id: '3', title: 'Michael Lee', description: <FormattedMessage id="welcome_page_feedback_3" /> },
+    { id: '4', title: 'Anna Kim', description: <FormattedMessage id="welcome_page_feedback_4" /> },
 ]
 
 const SOCIAL_MEDIAS = [
