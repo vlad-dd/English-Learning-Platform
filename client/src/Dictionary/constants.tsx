@@ -1,3 +1,4 @@
+import { FormattedMessage } from 'react-intl';
 const AUDIO_PRONOUNCE = { 
     US: '-us.mp3',
     UK: '-uk.mp3',
@@ -12,8 +13,8 @@ const COUNTRIES_FLAGS = {
     AU: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1280px-Flag_of_Australia_%28converted%29.svg.png'
 };
 
-const DICTIONARY_TIP = "Our dictionary search feature will suggest possible matches and alternatives, so you can easily find the word you're looking for.";
-const UNEXISTED_WORD_DESCRIPTION = "Unexisted word, please check the spelling";
+const DICTIONARY_TIP = <FormattedMessage id="dictionary_tip" />;
+const UNEXISTED_WORD_DESCRIPTION = <FormattedMessage id="unexisted_word" />;
 
 export { 
     AUDIO_PRONOUNCE, 

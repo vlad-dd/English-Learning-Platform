@@ -1,5 +1,5 @@
 import { BuildAllTranslationPages } from "../translation-builders";
-import { WELCOME_PAGE } from "../constants";
+import { DICTIONARY_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 
 const welcome_page = {
     [WELCOME_PAGE.TITLE]: "Plataforma de aprendizaje de inglés",
@@ -25,6 +25,22 @@ const welcome_page = {
     [WELCOME_PAGE.FEEDBACK_FOUR]: "El hecho de que haya pruebas para el aprendizaje también es una gran característica, ya que me permite concentrarme en áreas específicas con las que tengo problemas. En general, estoy muy satisfecho con esta plataforma.",
 };
 
-const ESP_TRANSLATION_BUILD = new BuildAllTranslationPages(welcome_page, "ESP").buildTranslationObject();
+const tenses_page = {
+    [TENSES_PAGE.COMMON_TENSES_TITLE]: "¿Qué casos nos dicen que es",
+    [TENSES_PAGE.EXAMPLES_TITLE]: "Ejemplos",
+    [TENSES_PAGE.SENTENCE_BUILDING]: "Construcción de oraciones",
+    [TENSES_PAGE.PRACTICE_TITLE]: "Práctica",
+    [TENSES_PAGE.СOMMENTS_TITLE]: "Comentarios",
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_TITLE]: "Política de la plataforma de aprendizaje de inglés 📜",
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_ONE]: "Como parte de nuestra política, no damos permiso para comentarios que incluyan alguno de los siguientes:",
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "Tomamos estas reglas en serio para mantener una comunidad segura y respetuosa para todos los usuarios. Los comentarios que violen estas reglas pueden eliminarse y los infractores reincidentes pueden ser expulsados de la plataforma. Alentamos a todos los usuarios a revisar estas reglas y reportar cualquier comentario que las viole a nuestro equipo de moderación👩‍💻."
+};
+
+const dictionary_page = { 
+    [DICTIONARY_PAGE.TIP]: "Nuestra función de búsqueda de diccionario sugerirá posibles coincidencias y alternativas, para que pueda encontrar fácilmente la palabra que está buscando.",
+    [DICTIONARY_PAGE.UNEXISTED_WORD]: "Palabra inexistente, por favor revise la ortografía.",
+};
+
+const ESP_TRANSLATION_BUILD = new BuildAllTranslationPages(welcome_page, tenses_page, dictionary_page, "ESP").buildTranslationObject();
 
 export default ESP_TRANSLATION_BUILD;

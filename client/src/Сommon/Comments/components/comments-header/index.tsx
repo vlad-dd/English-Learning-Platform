@@ -4,27 +4,30 @@ import { useBoolean } from "../../../../Hooks";
 import { Title } from "../../..";
 import CommentRulesModal from "./rules-modal";
 import { IComment } from "../../types";
-import { 
+import {
     StyledCommentsHeader,
     StyledCommentsCount,
     StyledCount,
     StyledRuleSection
 } from "../../styled";
+import { FormattedMessage } from "react-intl";
 
 const CommentsHeader = ({ comments }: { comments: Array<IComment> }) => {
     const [isRulesModalOpen, setIsRulesModalOpen] = useBoolean();
     return (
         <StyledCommentsHeader data-testid="comments-header">
-        <StyledCommentsCount data-testid="comments-count">
-            <Title>Comments</Title>
-            <StyledCount>{size(comments)} Comment</StyledCount>
-        </StyledCommentsCount>
+            <StyledCommentsCount data-testid="comments-count">
+                <Title>
+                    <FormattedMessage id="tense_comments_title" />
+                </Title>
+                <StyledCount>{size(comments)} Comment</StyledCount>
+            </StyledCommentsCount>
 
-        <StyledRuleSection data-testid="comments-rule-section">
-            <CommentRulesModal open={isRulesModalOpen} setOpen={setIsRulesModalOpen}  />
-        </StyledRuleSection>
+            <StyledRuleSection data-testid="comments-rule-section">
+                <CommentRulesModal open={isRulesModalOpen} setOpen={setIsRulesModalOpen} />
+            </StyledRuleSection>
 
-    </StyledCommentsHeader>
+        </StyledCommentsHeader>
     );
 };
 
