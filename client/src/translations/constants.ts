@@ -21,4 +21,20 @@ export const WELCOME_PAGE = {
     FEEDBACK_TWO: "welcome_page_feedback_2",
     FEEDBACK_THREE: "welcome_page_feedback_3",
     FEEDBACK_FOUR: "welcome_page_feedback_4",
-}
+};
+
+export const TENSES_PAGE = {
+    COMMON_TENSES_TITLE: "common_tenses_title",
+    EXAMPLES_TITLE: "tense_examples",
+    SENTENCE_BUILDING: "tenses_sentence_building",
+    PRACTICE_TITLE: "tense_practice",
+    СOMMENTS_TITLE: "tense_comments_title",
+    COMMENTS_POLICY_RULES_TITLE: "comments_policy_rules_title",
+    COMMENTS_POLICY_RULES_PART_ONE: "comments_policy_rules_part_one",
+    COMMENTS_POLICY_RULES_PART_TWO: "comments_policy_rules_part_two"
+};
+
+export const DICTIONARY_PAGE = {
+    TIP: "dictionary_tip",
+    UNEXISTED_WORD: "unexisted_word"
+};

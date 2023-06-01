@@ -19,6 +19,7 @@ import {
     StyledCommentRulesWrapper,
     StyledRuleIcon
 } from '../../../styled';
+import { FormattedMessage } from 'react-intl';
 
 const CommentRulesModal = ({ open, setOpen }: ICommentRulesModal) => {
 
@@ -38,11 +39,11 @@ const CommentRulesModal = ({ open, setOpen }: ICommentRulesModal) => {
                 open={open}
             >
                 <DialogTitle id="customized-dialog-title" data-testid="dialog-title">
-                    English Learning Platform Policy 📜
+                    <FormattedMessage id="comments_policy_rules_title" />
                 </DialogTitle>
                 <DialogContent dividers data-testid="dialog-content">
                     <Typography gutterBottom color="gray">
-                        As part of our policy, <strong style={{ color: "black" }}>we do not give permission</strong> for comments that include any of the following:
+                       <FormattedMessage id="comments_policy_rules_part_one" />
                     </Typography>
                     <List data-testid="dialog-list">
                         {POLICY_RULES.map((rule: string) => (
@@ -60,7 +61,7 @@ const CommentRulesModal = ({ open, setOpen }: ICommentRulesModal) => {
                         ))}
                     </List>
                     <Typography gutterBottom color="gray" data-testid="dialog-description">
-                        We take these rules seriously in order to maintain a safe and respectful community for all users. Comments that violate these rules may be removed, and repeat offenders may be banned from the platform. We encourage all users to review these rules and report any comments that violate them to our moderation team👩‍💻.
+                        <FormattedMessage id="comments_policy_rules_part_two" />
                     </Typography>
                 </DialogContent>
                 <DialogActions>

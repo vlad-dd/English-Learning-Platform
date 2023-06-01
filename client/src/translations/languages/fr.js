@@ -1,4 +1,4 @@
-import { WELCOME_PAGE } from "../constants";
+import { DICTIONARY_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -25,6 +25,22 @@ const welcome_page = {
     [WELCOME_PAGE.FEEDBACK_FOUR]: "Le fait qu'il existe des tests d'apprentissage est également une fonctionnalité intéressante, car cela me permet de me concentrer sur des domaines spécifiques avec lesquels j'ai du mal. Dans l'ensemble, je suis très satisfait de cette plateforme.",
 };
 
-const FR_TRANSLATION_BUILD = new BuildAllTranslationPages(welcome_page, "FR").buildTranslationObject();
+const tenses_page = {
+    [TENSES_PAGE.COMMON_TENSES_TITLE]: "Quels cas nous disent que c'est",
+    [TENSES_PAGE.EXAMPLES_TITLE]: "Exemples",
+    [TENSES_PAGE.SENTENCE_BUILDING]: "Construction de phrases",
+    [TENSES_PAGE.PRACTICE_TITLE]: "Pratique",
+    [TENSES_PAGE.СOMMENTS_TITLE]: "Commentaires",
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_TITLE]: "Politique de la plateforme d'apprentissage de l'anglais 📜",
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_ONE]: "Dans le cadre de notre politique, nous n'autorisons pas les commentaires qui incluent l'un des éléments suivants:",
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "Nous prenons ces règles au sérieux afin de maintenir une communauté sûre et respectueuse pour tous les utilisateurs. Les commentaires qui enfreignent ces règles peuvent être supprimés et les récidivistes peuvent être bannis de la plateforme. Nous encourageons tous les utilisateurs à consulter ces règles et à signaler tout commentaire qui les enfreint à notre équipe de modération👩‍💻."
+};
+
+const dictionary_page = { 
+    [DICTIONARY_PAGE.TIP]: "Notre fonction de recherche dans le dictionnaire vous proposera des correspondances et des alternatives possibles, afin que vous puissiez facilement trouver le mot que vous recherchez.",
+    [DICTIONARY_PAGE.UNEXISTED_WORD]: "Mot inexistant, merci de vérifier l'orthographe.",
+};
+
+const FR_TRANSLATION_BUILD = new BuildAllTranslationPages(welcome_page, tenses_page, dictionary_page, "FR").buildTranslationObject();
 
 export default FR_TRANSLATION_BUILD;

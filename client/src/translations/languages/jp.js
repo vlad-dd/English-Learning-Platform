@@ -1,4 +1,4 @@
-import { WELCOME_PAGE } from "../constants";
+import { DICTIONARY_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -23,8 +23,24 @@ const welcome_page = {
   [WELCOME_PAGE.FEEDBACK_TWO]: "単語のリスニングオプションを備えた辞書は、ネイティブスピーカーによる単語の発音を聞くことができるので、私にとって非常に役に立ちました。 英語を上達させたい人にはこのプラットフォームをぜひお勧めします。",
   [WELCOME_PAGE.FEEDBACK_THREE]: "私はここ数週間、英語学習プラットフォームを使用しています。 各テーマのテストは、学んだことを実践し、進歩を追跡できるため、非常に役立ちます。 このプラットフォームの作成に費やされた努力に感謝します.",
   [WELCOME_PAGE.FEEDBACK_FOUR]: "学習用のテストがあることも大きな特徴で、苦手な分野を重点的に学ぶことができます。 全体として、私はこのプラットフォームに非常に満足しています."
-}
+};
 
-const JP_TRANSLATION_BUILD = new BuildAllTranslationPages(welcome_page, "JP").buildTranslationObject();
+const tenses_page = {
+  [TENSES_PAGE.COMMON_TENSES_TITLE]: "どのような事例がそれを教えてくれるのか",
+  [TENSES_PAGE.EXAMPLES_TITLE]: "例",
+  [TENSES_PAGE.SENTENCE_BUILDING]: "文章構築",
+  [TENSES_PAGE.PRACTICE_TITLE]: "練習",
+  [TENSES_PAGE.СOMMENTS_TITLE]: "コメント",
+  [TENSES_PAGE.COMMENTS_POLICY_RULES_TITLE]: "英語学習プラットフォームのポリシー 📜",
+  [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_ONE]: "当社のポリシーの一環として、以下のいずれかを含むコメントは許可されません:",
+  [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "私たちは、すべてのユーザーにとって安全で敬意を持ったコミュニティを維持するために、これらのルールを真剣に受け止めています。 これらのルールに違反するコメントは削除される場合があり、違反を繰り返す場合はプラットフォームから追放される場合があります。 すべてのユーザーにこれらのルールを確認し、ルールに違反するコメントをモデレーション チームに報告することをお勧めします👩‍💻."
+};
+
+const dictionary_page = { 
+  [DICTIONARY_PAGE.TIP]: "辞書検索機能では、一致する可能性のある単語や代替語が提案されるので、探している単語を簡単に見つけることができます.",
+  [DICTIONARY_PAGE.UNEXISTED_WORD]: "存在しない単語です。スペルを確認してください.",
+};
+
+const JP_TRANSLATION_BUILD = new BuildAllTranslationPages(welcome_page, tenses_page, dictionary_page, "JP").buildTranslationObject();
 
 export default JP_TRANSLATION_BUILD;
