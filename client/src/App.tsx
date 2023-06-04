@@ -8,12 +8,16 @@ import { TRANSLATIONS } from "./translations";
 import * as selectors from "./store/selectors/index";
 
 const Root: React.FC = (): JSX.Element => {
-  
+
   const { language } = useSelector(selectors.languageTranslations);
 
   const { router } = useApplicationRouter();
-  //@ts-ignore
-  return <IntlProvider locale="fr" messages={TRANSLATIONS[language]}><Suspense children={<RouterProvider router={router} />} fallback={<LoadingSpinner size="large" />} /></IntlProvider>
+
+  return (
+    <IntlProvider locale={language} messages={TRANSLATIONS[language]}>
+      <Suspense children={<RouterProvider router={router} />} fallback={<LoadingSpinner size="large" />} />
+    </IntlProvider>
+  )
 };
 
 export default Root;

@@ -7,7 +7,7 @@ import {
   GER_TRANSLATION_BUILD
 } from './languages';
 
-export const TRANSLATIONS = {
+export const TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
   ...US_TRANSLATION_BUILD,
   ...UA_TRANSLATION_BUILD,
   ...JP_TRANSLATION_BUILD,

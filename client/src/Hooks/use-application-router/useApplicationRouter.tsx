@@ -10,7 +10,7 @@ import TestApplicationContext from "../../Tests/Context";
 import TestApplication from "../../Tests/presentational";
 import AdminPage from "../../admin-panel/presentational";
 import { ELP_USER_EXPERIENCE_ERRORS } from "../../Сommon/error-handler-page/constants";
-import EnglishLevelRoot from "../../English Level/presentational";
+import EnglishLevelRoot from "../../EnglishLevel/presentational";
 
 export const LazyApplicationRoot = lazy(() => import("../../app-root/presentational"));
 const LazyRegistration = lazy(() => import("../../authentification/Registration/presentational"));
