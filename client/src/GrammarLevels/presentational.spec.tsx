@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import GrammarLevels from "./presentational";
 import * as GrammarConfigHook from "./use-grammar-config";
-import { withApolloProvider, withReduxProvider, withRouterProvider } from '../test-utils/hocs';
+import { withApolloProvider, withIntlProvider, withReduxProvider, withRouterProvider } from '../test-utils/hocs';
 import { buildApolloError } from '../test-utils';
 
 jest.mock('react-router', () => ({
@@ -52,8 +52,7 @@ const dataMock = {
         }
     ]
 }
-
-const GrammarLevelsWithProvider = withRouterProvider(withApolloProvider(withReduxProvider(GrammarLevels)));
+const GrammarLevelsWithProvider = withRouterProvider(withApolloProvider(withReduxProvider(withIntlProvider(GrammarLevels))));
 
 describe('GrammarLevels', () => {
     const grammarConfigSpy = jest.spyOn(GrammarConfigHook, 'useGrammarConfigWidget');

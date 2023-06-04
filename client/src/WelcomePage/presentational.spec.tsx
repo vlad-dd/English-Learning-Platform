@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import { withApolloProvider, withReduxProvider, withRouterProvider } from '../test-utils/hocs';
+import { withApolloProvider, withIntlProvider, withReduxProvider, withRouterProvider } from '../test-utils/hocs';
 import { CARDS_INFORMATION_LIST } from './constants';
 import WelcomePage from './presentational';
 
 describe('Welcome Page', () => {
-   const WelcomePageWithProvider = withRouterProvider(withApolloProvider(withReduxProvider(WelcomePage)));
+   const WelcomePageWithProvider = withRouterProvider(withApolloProvider(withReduxProvider(withIntlProvider(WelcomePage))));
     beforeEach(() => {
         render(<WelcomePageWithProvider />)
     });

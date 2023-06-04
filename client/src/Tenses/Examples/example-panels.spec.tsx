@@ -1,6 +1,8 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react'
 import TenseExamplePanels from './example-panels';
+import { withIntlProvider } from '../../test-utils/hocs';
+
+const TenseExamplePanelsWithProvider = withIntlProvider(TenseExamplePanels);
 
 describe('TenseExamplePanels', () => {
     const props = [{
@@ -15,7 +17,7 @@ describe('TenseExamplePanels', () => {
     }]
 }];
     it('should render TenseExamplePanels', () => {
-        render(<TenseExamplePanels examples={props} />);
+        render(<TenseExamplePanelsWithProvider examples={props} />);
         expect(screen.getByTestId('title-component-id')).toBeInTheDocument();
         expect(screen.getByText('Examples')).toBeInTheDocument();
         expect(screen.getByText('MockHeader')).toBeInTheDocument();

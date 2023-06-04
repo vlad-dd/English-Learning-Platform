@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import TensesTable from './tenses-table';
+import { withIntlProvider } from '../../test-utils/hocs';
 
 const tableMock = [
     {
@@ -22,9 +23,11 @@ const tableMock = [
     'Does'
 ]
 
+const TensesTableWithProvider = withIntlProvider(TensesTable);
+
 describe('TensesTable', () => { 
     it('should render TensesTable', () => {
-        render(<TensesTable table={tableMock} />);
+        render(<TensesTableWithProvider table={tableMock} />);
         tableInnerHTML.forEach((innerHTML) => expect(screen.getByText(innerHTML)).toBeInTheDocument())
     });
  })

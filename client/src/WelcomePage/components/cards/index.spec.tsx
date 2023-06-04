@@ -1,12 +1,13 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import PlatformCards from ".";
-import { BrowserRouter } from "react-router-dom";
 import { CARDS_INFORMATION_LIST } from "../../constants";
+import { withIntlProvider, withRouterProvider } from "../../../test-utils/hocs";
+
+const PlatformCardsWithProvider = withRouterProvider(withIntlProvider(PlatformCards));
 
 describe('StepsGuideline', () => {
     it('should render component', () => {
-       render(<BrowserRouter><PlatformCards /></BrowserRouter>);
+       render(<PlatformCardsWithProvider />);
        expect(screen.getByTestId("platform-cards")).toBeInTheDocument();
        expect(screen.getByText("Our Goal 🎯")).toBeInTheDocument();
        expect(screen.getByText("Our platform is designed to provide comprehensive resources and tools that will help you enhance your English language proficiency.")).toBeInTheDocument();
