@@ -4,7 +4,6 @@ import { TenseApplicationProviders } from "../jest-utils";
 import * as TenseConfig from './use-tense-configuration';
 import { buildApolloError } from "../../test-utils";
 
-
 const mockedApolloResponse = {
   data: {
     countOfTenses: [{

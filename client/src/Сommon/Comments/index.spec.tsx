@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import SectionComments from ".";
-import { withApolloProvider, withReduxProvider } from "../../test-utils/hocs";
+import { withApolloProvider, withIntlProvider, withReduxProvider } from "../../test-utils/hocs";
 
 describe('SectionComments', () => {
     const renderComments = [
@@ -10,7 +10,7 @@ describe('SectionComments', () => {
     const document = 'path2';
     const refetch = jest.fn();
 
-    const SectionCommentsWithProvider = withApolloProvider(withReduxProvider(SectionComments));
+    const SectionCommentsWithProvider = withApolloProvider(withReduxProvider(withIntlProvider(SectionComments)));
 
     it('should render component correctly when renderComment exists', () => {
         render(<SectionCommentsWithProvider renderComments={renderComments} collection={collection} document={document} refetch={refetch} />);

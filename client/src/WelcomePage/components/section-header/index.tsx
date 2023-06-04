@@ -6,7 +6,9 @@ import { FormattedMessage } from "react-intl";
 const WelcomePageHeaderSection = () => {
     return (
         <HeaderWrapper>
-            <StyledTitle className="elp-title"><FormattedMessage id="welcome_page_title" /></StyledTitle>
+            <StyledTitle className="elp-title">
+                <FormattedMessage id="welcome_page_title" />
+            </StyledTitle>
             <UserCount />
         </HeaderWrapper>
     )

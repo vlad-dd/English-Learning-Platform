@@ -6,6 +6,8 @@ import { ThemeContext } from "../../../Contexts";
 import ErrorBoundary from "../../../ErrorBoundary";
 import { buildApolloClientInstance } from "../../../test-utils";
 import store from "../../../store";
+import { IntlProvider } from "react-intl";
+import { TRANSLATIONS } from "../../../translations";
 
 const apolloClient = buildApolloClientInstance();
 
@@ -15,7 +17,9 @@ const TenseApplicationProviders = ({ children, ownContextProps }: { children: JS
       <BrowserRouter>
         <ApolloProvider client={apolloClient}>
           <Provider store={store}>
-            {children}
+            <IntlProvider locale="US" messages={TRANSLATIONS["US"]}>
+             {children}
+            </IntlProvider>
           </Provider>
         </ApolloProvider>
       </BrowserRouter>

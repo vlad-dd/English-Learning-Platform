@@ -1,10 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import Dictionary from "./presentational";
 import { DictionaryConfigurationContext } from "./Context";
-import { DICTIONARY_TIP, UNEXISTED_WORD_DESCRIPTION } from "./constants";
 import { BrowserRouter } from "react-router-dom";
 import { APOLLO_GRAPHQL_ERRORS, ELP_USER_EXPERIENCE_ERRORS } from "../Сommon/error-handler-page/constants";
 import { buildApolloError } from "../test-utils";
+import { withIntlProvider } from "../test-utils/hocs";
+import { DICTIONARY_TIP } from "./constants";
+import { DICTIONARY_PAGE } from "../translations/constants";
 
 const responseMock = {
     dictionary: [
@@ -53,11 +55,12 @@ const responseMock = {
 };
 
 describe('Dictionary', () => {
+    const DictionaryWithProvider = withIntlProvider(Dictionary);
     describe('while isLoading false', () => {
         beforeEach(() => {
             render(
                 <DictionaryConfigurationContext.Provider value={{ data: responseMock, isLoading: false, searchWordInDictionary: jest.fn(), error: undefined  }}>
-                    <Dictionary />
+                    <DictionaryWithProvider />
                 </DictionaryConfigurationContext.Provider>
             )
         })
@@ -67,8 +70,9 @@ describe('Dictionary', () => {
         });
 
         it('should render tip alert', () => {
-            // expect(screen.getByText(DICTIONARY_TIP)).toBeInTheDocument();
-            // expect(screen.getByText(DICTIONARY_TIP).getAttribute('class')).toBe('ant-alert-message');
+            const tip = "Our dictionary search feature will suggest possible matches and alternatives, so you can easily find the word you're looking for.";
+            expect(screen.getByText(tip)).toBeInTheDocument();
+            expect(screen.getByText(tip).getAttribute('class')).toBe('ant-alert-message');
         });
 
         it('should render search input', () => {
@@ -91,7 +95,7 @@ describe('Dictionary', () => {
         it('should render Dictionary root', () => {
             render(
                 <DictionaryConfigurationContext.Provider value={{ data: responseMock, isLoading: true, searchWordInDictionary: jest.fn(), error: undefined }}>
-                    <Dictionary />
+                    <DictionaryWithProvider />
                 </DictionaryConfigurationContext.Provider>
             );
             expect(screen.getByTestId('loading-progress')).toBeInTheDocument();
@@ -102,12 +106,10 @@ describe('Dictionary', () => {
         it('should render Dictionary root', () => {
             render(
                 <DictionaryConfigurationContext.Provider value={{ data: responseMock, isLoading: true, searchWordInDictionary: jest.fn(), error: buildApolloError(APOLLO_GRAPHQL_ERRORS.REQUEST_FAILED_404) }}>
-                    <Dictionary />
+                    <DictionaryWithProvider />
                 </DictionaryConfigurationContext.Provider>
             );
-            screen.debug();
             expect(screen.getByTestId("error-empty-space")).toBeInTheDocument();
-            // expect(screen.getByText(UNEXISTED_WORD_DESCRIPTION)).toBeInTheDocument();
         });
     });
 
@@ -118,7 +120,7 @@ describe('Dictionary', () => {
             render(
                 <BrowserRouter>
                     <DictionaryConfigurationContext.Provider value={{ data: responseMock, isLoading: false, searchWordInDictionary: jest.fn(), error: undefined }}>
-                        <Dictionary />
+                        <DictionaryWithProvider />
                     </DictionaryConfigurationContext.Provider>
                 </BrowserRouter>
             );

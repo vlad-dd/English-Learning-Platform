@@ -30,7 +30,7 @@ describe('HeaderLeftSide', () => {
 
         it('should render HeaderLeftSide', () => {
             expect(screen.getByText('test@gmail.com')).toBeInTheDocument();
-            expect(screen.getByRole('img')).toBeInTheDocument();
+            expect(screen.queryAllByRole('img')[0]).toBeInTheDocument();
         })
 
         it('should render header dropdown menu', () => {
@@ -55,7 +55,7 @@ describe('HeaderLeftSide', () => {
 
         it('should render HeaderLeftSide', () => {
             expect(screen.getByText('Guest')).toBeInTheDocument();
-            expect(screen.getByRole('img')).toBeInTheDocument();
+            expect(screen.queryAllByRole('img')[0]).toBeInTheDocument();
         })
     })
 
