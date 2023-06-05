@@ -3,9 +3,9 @@ import { Breadcrumb } from 'antd';
 import { DEVICE_MAXIMUM } from '../../mobile-view';
 
 export const StyledBreadcrumb = styled(Breadcrumb)`
+  background: rgb(1, 14, 27);
   padding: 16px 16px;
   color: white;
-  background: rgb(0, 30, 60);
 
   @media ${DEVICE_MAXIMUM.tablet} {
     font-size: 0.85rem;
@@ -24,6 +24,9 @@ export const StyledBreadcrumb = styled(Breadcrumb)`
   }
 
 `;
+
+  
+//PREVIOUS background: rgb(0, 30, 60);
 
 //PREVIOUS
 // margin: 16px 0px;

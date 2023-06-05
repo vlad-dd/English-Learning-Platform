@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import TenseContent from "./presentational";
-import { TenseApplicationProviders } from "../jest-utils";
 import * as TenseConfig from './use-tense-configuration';
 import { buildApolloError } from "../../test-utils";
+import { withApolloProvider, withIntlProvider, withReduxProvider, withRouterProvider } from "../../test-utils/hocs";
 
 const mockedApolloResponse = {
   data: {
@@ -82,6 +82,8 @@ const tenseContentInnerHTML = [
   'Does'
 ];
 
+const TenseContentWithProvider = withRouterProvider(withApolloProvider(withReduxProvider(withIntlProvider(TenseContent))));
+
 describe("TenseContent", () => {
   const spy = jest.spyOn(TenseConfig, "useTenseConfigurationWidget");
 
@@ -89,11 +91,7 @@ describe("TenseContent", () => {
      
     beforeEach(() => {
       spy.mockReturnValue(mockedApolloResponse)
-      render(
-        <TenseApplicationProviders>
-          <TenseContent />
-        </TenseApplicationProviders>
-      );
+      render(<TenseContentWithProvider />);
     })
 
     it("should render TenseContent if data exists", () => {
@@ -135,21 +133,13 @@ describe("TenseContent", () => {
 
   it("should show loading", () => {
     spy.mockReturnValue({ ...mockedApolloResponse, loading: true })
-    render(
-      <TenseApplicationProviders>
-        <TenseContent />
-      </TenseApplicationProviders>
-    );
+    render(<TenseContentWithProvider />);
     expect(screen.getByTestId('loading-progress')).toBeInTheDocument();
   });
 
   it("should show error", () => {
     spy.mockReturnValue({ ...mockedApolloResponse, error: buildApolloError() });
-    render(
-      <TenseApplicationProviders>
-        <TenseContent />
-      </TenseApplicationProviders>
-    );
+    render(<TenseContentWithProvider />);
     expect(screen.getByTestId('error-page')).toBeInTheDocument();
   });
 });

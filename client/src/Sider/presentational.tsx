@@ -13,6 +13,7 @@ const SiderComponent = () => {
       <Sider
         data-testid="sider-menu"
         collapsible
+        style={{ background: "#010a12" }}
         collapsed={isCollapsed}
         onCollapse={() => setCollapsed()}
       >

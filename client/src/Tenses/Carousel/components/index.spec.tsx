@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import CarouselQuiz from ".";
-import { TenseApplicationProviders } from "../../jest-utils";
+import { withApolloProvider, withIntlProvider, withReduxProvider, withRouterProvider } from "../../../test-utils/hocs";
 
 jest.mock("./use-practice-data", () => ({
   usePracticeData: () => sentenceMock
@@ -24,14 +24,11 @@ const sentenceMock = [
   },
 ];
 
-describe("CarouselQuiz", () => {
+const CarouselQuizWithProvider = withRouterProvider(withApolloProvider(withReduxProvider(withIntlProvider(CarouselQuiz))));
 
+describe("CarouselQuiz", () => {
   beforeEach(() => {
-    render(
-      <TenseApplicationProviders>
-        <CarouselQuiz />
-      </TenseApplicationProviders>
-    );
+    render(<CarouselQuizWithProvider />);
   });
 
   it("should render CarouselVariant", () => {
