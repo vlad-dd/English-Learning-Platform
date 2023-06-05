@@ -4,11 +4,13 @@ import { DEVICE_MAXIMUM } from "../mobile-view";
 import { Title } from "../Сommon";
 
 export const ContentSection = styled.div`
-  background: rgb(0, 30, 60);
+  background: rgb(1, 14, 27);
   position: relative;
   padding: 24px;
   min-height: 360px;
 `;
+
+//PREVIOUS background: rgb(0, 30, 60);
 
 //PREVIOUS
 // export const ContentSection = styled.div`

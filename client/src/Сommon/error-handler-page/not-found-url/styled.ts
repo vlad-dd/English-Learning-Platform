@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledNotFoundURLContainer = styled.div`
   height: 100vh;
-  background: "white" !important;
+  background: rgb(1, 14, 27) !important;
 `;
 
 export const StyledNotFoundURLRow = styled.div`

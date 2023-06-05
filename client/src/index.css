@@ -27,7 +27,9 @@
   .ant-steps-item-container,
   .ant-layout-footer
   {
-    background: rgb(0, 30, 60);
+    /* background: rgb(0, 30, 60); */
+    background: rgb(1, 14, 27);
+    /* background: #010a12; */
     color: white;
   }
 
@@ -50,6 +52,23 @@
   .ant-layout-content .MuiTypography-root
    {
     color: white;
+  }
+
+  .ant-menu {
+    color: whitesmoke;
+    /* background: rgb(1, 14, 27) !important; */
+    background: #010a12 !important;
+  }
+
+  .ant-menu-item-selected {
+    background: #010a12 !important;
+    /* background: rgb(1, 14, 27) !important; */
+  }
+
+  .ant-layout-sider-trigger {
+    /* background: rgb(1, 14, 27) !important; */
+    background: #010a12 !important;
+    border: 0.1px solid whitesmoke;
   }
 
   .ant-layout-content .ant-breadcrumb-link,
