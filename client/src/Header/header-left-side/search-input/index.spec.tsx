@@ -1,28 +1,14 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { render, screen } from "@testing-library/react";
 import SearchInput from ".";
-import { ThemeContext } from "../../../Contexts";
-import ErrorBoundary from "../../../ErrorBoundary";
-import store from "../../../store";
+import { withReduxProvider, withRouterProvider } from "../../../test-utils/hocs";
 
-const HeaderProviders = ({ children }: { children: JSX.Element }) => {
-    return (
-        <BrowserRouter>
-            <ErrorBoundary>
-                <Provider store={store}>
-                    {children}
-                </Provider>
-            </ErrorBoundary>
-        </BrowserRouter>
-    );
-};
+const SearchInputWithProvider = withRouterProvider(withReduxProvider(SearchInput));
 
 describe('Search Input', () => {
     it('should render Autocomplete', () => {
-        render(<HeaderProviders><SearchInput /></HeaderProviders>)
+        render(<SearchInputWithProvider />);
         const input = screen.getByTestId('header-autocomplete');
         expect(input).toBeInTheDocument();
         expect(input.getAttribute("style")).toBe("width: 35vw;");
     });
-})
+});

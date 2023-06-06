@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-key */
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { render, screen } from "@testing-library/react";
 import DictionaryContext, { DictionaryConfigurationContext } from ".";
 import { extractByPath } from "../../utils/utils";
@@ -33,7 +32,6 @@ const MockComponent = () => {
 }
 
 describe('Dictionary Context', () => {
-
     it("should provide context to child component", () => {
       render(
         <DictionaryContext>

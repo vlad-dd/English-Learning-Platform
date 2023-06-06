@@ -1,11 +1,7 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react' 
+import { render, screen, fireEvent } from '@testing-library/react'
 import Login from './presentational';
-import ErrorBoundary from '../../ErrorBoundary';
-import { BrowserRouter } from 'react-router-dom';
-import store from '../../store';
 import * as ReactRedux from 'react-redux';
-import { ThemeContext } from '../../Contexts';
+import { withReduxProvider, withRouterProvider } from '../../test-utils/hocs';
 
 const mockConfig = {
     email: '',
@@ -25,25 +21,16 @@ jest.mock('../Form/use-form-configuration', () => ({
     useFormConfigurationWidget: () => mockConfig,
 }))
 
-const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
-    return (
-      <ErrorBoundary>
-        <BrowserRouter>
-          <ReactRedux.Provider store={store}>
-            {children}
-          </ReactRedux.Provider>
-        </BrowserRouter>
-      </ErrorBoundary>
-    );
-  };
 const formFields = ['Email', 'Password', 'Submit', 'Reset'];
+
+const LoginWithProvider = withRouterProvider(withReduxProvider(Login));
 
 describe('Login Form', () => {
     const selectorSpyOn = jest.spyOn(ReactRedux, 'useSelector');
     beforeEach(() => {
         selectorSpyOn.mockClear();
-        selectorSpyOn.mockReturnValue({user: [{id: 1}]});
-        render(<ApplicationProviders><Login /></ApplicationProviders>)
+        selectorSpyOn.mockReturnValue({ user: [{ id: 1 }] });
+        render(<LoginWithProvider />)
     })
     it('should render Login form', () => {
         expect(screen.getByTestId('input-form')).toBeInTheDocument();
@@ -56,7 +43,7 @@ describe('Login Form', () => {
 
     it('should call onFormSubmit after pressing Submit button', () => {
         fireEvent.click(screen.getByTestId('submit-button'));
-        expect(mockConfig.onFormSubmit).toHaveBeenCalled(); 
+        expect(mockConfig.onFormSubmit).toHaveBeenCalled();
     });
 
     it('should call handleEmail with correct value', () => {

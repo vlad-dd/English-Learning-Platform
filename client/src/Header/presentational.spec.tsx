@@ -1,24 +1,9 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
 import Header from './presentational';
-import ErrorBoundary from '../ErrorBoundary';
-import store from '../store';
-import { ThemeContext } from '../Contexts';
 import * as Hook from './use-auth';
+import { withReduxProvider, withRouterProvider } from '../test-utils/hocs';
 
-const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
-  return (
-    <ErrorBoundary>
-      <BrowserRouter>
-        <Provider store={store}>
-          {children}
-        </Provider>
-      </BrowserRouter>
-    </ErrorBoundary>
-  );
-};
+const HeaderWithProvider = withRouterProvider(withReduxProvider(Header));
 
 describe('Header', () => {
   const useAuthMock = jest.spyOn(Hook, 'useAuthWidget');
@@ -31,8 +16,8 @@ describe('Header', () => {
       setUser: jest.fn(),
       setAuthError: jest.fn()
     });
-    render(<ApplicationProviders><Header /></ApplicationProviders>)
-  })
+    render(<HeaderWithProvider />)
+  });
 
   it('should render header component', () => {
     expect(screen.getByText('test@gmail.com')).toBeInTheDocument();

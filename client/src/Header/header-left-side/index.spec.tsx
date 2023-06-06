@@ -1,35 +1,20 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import ErrorBoundary from '../../ErrorBoundary';
-import { Provider } from 'react-redux';
-import store from '../../store';
-import { ThemeContext } from '../../Contexts';
 import HeaderLeftSide from '.';
+import { withReduxProvider, withRouterProvider } from '../../test-utils/hocs';
 
-export const HeaderProviders = ({ children }: { children: JSX.Element }) => {
-    return (
-        <BrowserRouter>
-            <ErrorBoundary>
-                <Provider store={store}>
-                    {children}
-                </Provider>
-            </ErrorBoundary>
-        </BrowserRouter>
-    );
-};
+const HeaderLeftSideWithProvider = withRouterProvider(withReduxProvider(HeaderLeftSide));
 
 describe('HeaderLeftSide', () => {
     it('should render Autocomplete', () => {
-        render(<HeaderProviders><HeaderLeftSide /></HeaderProviders>)
+        render(<HeaderLeftSideWithProvider />);
         expect(screen.getByTestId('header-autocomplete')).toBeInTheDocument();
         expect(screen.getByTestId('header-autocomplete').getAttribute("style")).toBe("width: 35vw;");
     });
 
     it('should render mobile menu', () => {
-        render(<HeaderProviders><HeaderLeftSide /></HeaderProviders>)
+        render(<HeaderLeftSideWithProvider />);
         expect(screen.getByTestId('mobile-menu-icon')).toBeInTheDocument();
         fireEvent.click(screen.getByTestId('mobile-menu-icon'));
         expect(screen.getByTestId('burger-menu')).toBeInTheDocument();
     });
-})
+});
