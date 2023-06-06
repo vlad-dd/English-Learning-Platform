@@ -1,11 +1,7 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import * as ReactRedux from 'react-redux';
 import { fireEvent, render, screen } from "@testing-library/react";
 import { act } from 'react-dom/test-utils';
-import ErrorBoundary from '../ErrorBoundary';
-import store from '../store';
-import { ThemeContext } from '../Contexts';
+import { withReduxProvider, withRouterProvider } from '../test-utils/hocs';
 import SiderMenu from "./presentational";
 
 jest.mock('react-redux', () => ({
@@ -13,17 +9,7 @@ jest.mock('react-redux', () => ({
   useDispatch: jest.fn()
 }))
 
-export const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
-  return (
-    <ErrorBoundary>
-      <BrowserRouter>
-        <ReactRedux.Provider store={store}>
-          {children}
-        </ReactRedux.Provider>
-      </BrowserRouter>
-    </ErrorBoundary>
-  );
-};
+const SiderMenuWithProvider = withRouterProvider(withReduxProvider(SiderMenu));
 
 describe('Options Menu', () => {
   const useDispatchSpy = jest.spyOn(ReactRedux, 'useDispatch');
@@ -31,10 +17,10 @@ describe('Options Menu', () => {
 
   beforeEach(() => {
     useDispatchSpy.mockReturnValue(dispatch);
-    render(<ApplicationProviders><SiderMenu /></ApplicationProviders>);
-  })
+    render(<SiderMenuWithProvider />);
+  });
 
-  afterEach(() => useDispatchSpy.mockClear())
+  afterEach(() => useDispatchSpy.mockClear());
 
   it('should render options menu', () => {
     const options = ['Tenses', 'Grammar Levels', 'Dictionary', 'Releases'];

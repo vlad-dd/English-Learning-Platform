@@ -1,11 +1,6 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react' 
 import Registration from './presentational';
-import ErrorBoundary from '../../ErrorBoundary';
-import { BrowserRouter } from 'react-router-dom';
-import store from '../../store';
-import { Provider } from 'react-redux';
-import { ThemeContext } from '../../Contexts';
+import { withReduxProvider, withRouterProvider } from '../../test-utils/hocs';
 
 const mockConfig = {
     email: '',
@@ -18,26 +13,16 @@ const mockConfig = {
 
 jest.mock('../Form/use-form-configuration', () => ({
   useFormConfigurationWidget: () => mockConfig,
-}))
+}));
 
-const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
-    return (
-      <ErrorBoundary>
-        <BrowserRouter>
-          <Provider store={store}>
-            {children}
-          </Provider>
-        </BrowserRouter>
-      </ErrorBoundary>
-    );
-  };
 const formFields = ['Email', 'Password', 'Submit', 'Reset'];
 
+const RegistrationWithProvider = withRouterProvider(withReduxProvider(Registration));
+
 describe('Registration Form', () => {
-    
     beforeEach(() => {
-        render(<ApplicationProviders><Registration /></ApplicationProviders>)
-    })
+        render(<RegistrationWithProvider />);
+    });
 
     it('should render Registration form', () => {
         expect(screen.getByTestId('input-form')).toBeInTheDocument();
