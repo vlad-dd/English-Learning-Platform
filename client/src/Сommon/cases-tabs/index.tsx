@@ -3,6 +3,9 @@ import { Tabs, List } from "antd";
 import { ICases } from "../../Tenses";
 import Image from "../Image";
 
+const { Item } = List;
+const { Meta } = Item;
+
 const CasesTabs: React.FC<{ config: ICases[] }> = ({ config }) => {
   const renderCaseItems = useCallback(
     ({ key, label, icon, titles }: ICases) => ({
@@ -13,8 +16,8 @@ const CasesTabs: React.FC<{ config: ICases[] }> = ({ config }) => {
           itemLayout="vertical"
           dataSource={titles}
           renderItem={({ description }: { description: string }) => (
-            <List.Item>
-              <List.Item.Meta
+            <Item>
+              <Meta
                 avatar={
                   <Image
                     id="cases-tabs-icon"
@@ -28,7 +31,7 @@ const CasesTabs: React.FC<{ config: ICases[] }> = ({ config }) => {
                 }
                 description={description}
               />
-            </List.Item>
+            </Item>
           )}
         />
       ),

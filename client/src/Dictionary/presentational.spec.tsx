@@ -5,8 +5,6 @@ import { BrowserRouter } from "react-router-dom";
 import { APOLLO_GRAPHQL_ERRORS, ELP_USER_EXPERIENCE_ERRORS } from "../Сommon/error-handler-page/constants";
 import { buildApolloError } from "../test-utils";
 import { withIntlProvider } from "../test-utils/hocs";
-import { DICTIONARY_TIP } from "./constants";
-import { DICTIONARY_PAGE } from "../translations/constants";
 
 const responseMock = {
     dictionary: [

@@ -18,7 +18,7 @@ const SiderComponent = () => {
         onCollapse={() => setCollapsed()}
       >
         <Styled.LogoContainer>
-          <CompanyLogo defaultTheme={false} />
+          <CompanyLogo />
         </Styled.LogoContainer>
         <SiderMenu  />
       </Sider>
