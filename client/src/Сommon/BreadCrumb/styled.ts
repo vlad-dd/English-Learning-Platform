@@ -22,7 +22,11 @@ export const StyledBreadcrumb = styled(Breadcrumb)`
   @media ${DEVICE_MAXIMUM.mobileS} {
     font-size: 0.848rem;
   }
+`;
 
+export const StyledSlash = styled.p`
+  color: darkgray;
+  margin: 0 8px;
 `;
 
   

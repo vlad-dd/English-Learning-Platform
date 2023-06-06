@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { compact } from 'lodash';
 import { AiOutlineHome } from 'react-icons/ai'
 import * as selectors from '../../store/selectors/index'
-import { StyledBreadcrumb } from './styled';
+import { StyledBreadcrumb, StyledSlash } from './styled';
 
 const BreadCrumbPath = () => {
   const { path }: { path: string[] } = useSelector(selectors.tensesBCState);
@@ -12,7 +12,7 @@ const BreadCrumbPath = () => {
   return (
       <StyledBreadcrumb>
         <AiOutlineHome size={20} />
-        <p style={{ color: "darkgray", margin: "0 8px" }}>/</p>
+        <StyledSlash>/</StyledSlash>
         {path.length !== 0 ? [...path].reverse()?.map((item: string, index: number) => {
           return <StyledBreadcrumb.Item key={index}>{item}</StyledBreadcrumb.Item>;
         }) : (
