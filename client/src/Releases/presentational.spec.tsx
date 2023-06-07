@@ -3,6 +3,7 @@ import { screen, render } from '@testing-library/react'
 import Releases from './presentational'
 import * as Hook from './use-releases-timeline';
 import { buildApolloError } from '../test-utils';
+import { withRouterProvider } from '../test-utils/hocs';
 
 const response = {
     data: {
@@ -17,24 +18,26 @@ jest.mock('./use-releases-timeline', () => ({
 }))
 
 describe('Releases', () => {
+    const ReleasesWithProvider = withRouterProvider(Releases);
     const spy = jest.spyOn(Hook, 'useReleasesTimeLineWidget');
+
     it('should render Release component with configuration', () => {
        spy.mockReturnValue(response)
        const releaseInformation = ['Version: 0.0.1', 'Last Update', 'Mocked Release', 'Release is on board!', '14.02.2023']; 
-       const { getByText, getByTestId } = render(<Releases />);
-       releaseInformation.forEach((information) =>  expect(getByText(information)).toBeInTheDocument());
-       expect(getByTestId('content-section-wrapper')).toBeInTheDocument();
+       render(<ReleasesWithProvider />);
+       releaseInformation.forEach((information) =>  expect(screen.getByText(information)).toBeInTheDocument());
+       expect(screen.getByTestId('content-section-wrapper')).toBeInTheDocument();
     });
 
     it('should waiting for releases response', () => {
         spy.mockReturnValue({...response, isLoading: true})
-        render(<Releases />);
+        render(<ReleasesWithProvider />);
         expect(screen.getByTestId('loading-progress')).toBeInTheDocument();
      });
 
      it('should return error with request', () => {
         spy.mockReturnValue({...response, error: buildApolloError() })
-        const { getByText } = render(<Releases />);
-        expect(getByText('Something happened with request, ApolloError')).toBeInTheDocument();
+        render(<ReleasesWithProvider />);
+        expect(screen.getByTestId('error-page')).toBeInTheDocument();
      });
 })
