@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, Col } from "antd";
 import { CARDS_INFORMATION } from "../../../constants";
 

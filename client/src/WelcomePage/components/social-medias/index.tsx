@@ -1,16 +1,14 @@
-import React from "react";
-import { Tag } from "antd";
-import { StyledSpace } from "./styled";
-import { SOCIAL_MEDIAS } from "../../constants";
+import { StyledMedia, StyledSocialMediaTag, StyledSpace } from "./styled";
+import { SOCIAL_MEDIAS, SOCIAL_MEDIAS_DATA_TEST_ID } from "../../constants";
 
 const SocialMedias = () => {
     return (
-        <StyledSpace wrap data-testid="social-medias-section">
+        <StyledSpace data-testid={SOCIAL_MEDIAS_DATA_TEST_ID}>
             {SOCIAL_MEDIAS.map(({ id, media, icon, color }) => {
                 return (
-                    <Tag style={{ display: "flex", justifyContent: "center", alignItems: "center"}} key={id} icon={icon} color={color}>
-                        <p style={{ margin: "3px" }}>{media}</p>
-                    </Tag>
+                    <StyledSocialMediaTag key={id} icon={icon} color={color}>
+                        <StyledMedia>{media}</StyledMedia>
+                    </StyledSocialMediaTag>
                 )
             })}
         </StyledSpace>

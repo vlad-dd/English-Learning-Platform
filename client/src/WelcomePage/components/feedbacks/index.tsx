@@ -1,29 +1,22 @@
-import { List } from "antd";
-import React, { useMemo } from "react";
-import Avatar from '@mui/material/Avatar';
-import { Title } from "../../../Сommon";
-import { LEARNERS_FEEDBACK } from "../../constants";
+import React from "react";
 import { FormattedMessage } from "react-intl";
+import { Title } from "../../../Сommon";
+import { useLearnersFeedbackWidget } from "./use-learners-feedback";
+import { WELCOME_PAGE } from "../../../translations/constants";
+import { LEARNER_FEEDBACK_DATA_TEST_ID } from "../../constants";
 
-const generateNicknameAvatars = (name: string) => ({ children: `${name.split(' ')[0][0] + name.split(' ')[1][0]}` });
-  
 const LearnerFeedbacks = () => {
-    const feedbacks = useMemo(() => LEARNERS_FEEDBACK.map(({ id, title, description }) => {
-        return (
-            <List.Item key={id}>
-                <List.Item.Meta
-                    avatar={<Avatar style={{ border: "1px solid white" }} {...generateNicknameAvatars(title)} />}
-                    title={<a href="https://ant.design">{title}</a>}
-                    description={description}
-                />
-            </List.Item>
-        )
-    }), [LEARNERS_FEEDBACK])
+
+    const { feedbacks } = useLearnersFeedbackWidget();
 
     return (
         <React.Fragment>
-            <Title styles={{ paddingTop: "50px" }}><FormattedMessage id="welcome_page_feedbacks" /></Title>
-           <div data-testid="learner-feedbacks">{feedbacks}</div>
+            <Title styles={{ paddingTop: "50px" }}>
+                <FormattedMessage id={WELCOME_PAGE.FEEDBACKS_TITLE} />
+            </Title>
+            <div data-testid={LEARNER_FEEDBACK_DATA_TEST_ID}>
+                {feedbacks}
+            </div>
         </React.Fragment>
     )
 }

@@ -1,8 +1,9 @@
 import React, { useLayoutEffect, useState } from "react";
 import { size } from "lodash";
-import { GUIDELINE_STEPS } from "../../constants";
+import { GUIDELINE_STEPS, GUIDELINE_STEPS_DATA_TEST_ID } from "../../constants";
 import { StyledSteps, StyledTitle } from "./styled";
 import { FormattedMessage } from "react-intl";
+import { WELCOME_PAGE } from "../../../translations/constants";
 
 const StepsGuideline = () => {
   const [current, setCurrent] = useState(0);
@@ -15,10 +16,10 @@ const StepsGuideline = () => {
   return (
     <React.Fragment>
       <StyledTitle>
-        <FormattedMessage id="steps_guideline_title" />
+        <FormattedMessage id={WELCOME_PAGE.GUIDELINE_TITLE}/>
       </StyledTitle>
       <StyledSteps
-        data-testid="steps-guideline"
+        data-testid={GUIDELINE_STEPS_DATA_TEST_ID}
         current={current}
         onChange={() => {
           if (current < size(GUIDELINE_STEPS)) {
