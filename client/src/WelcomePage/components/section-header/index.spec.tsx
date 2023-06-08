@@ -12,4 +12,4 @@ describe('WelcomePageHeaderSection', () => {
         render(<WelcomePageHeaderSectionWithProvider />);
         HEADER_CONTENT.forEach((content: string) => expect(screen.getByText(content)).toBeInTheDocument());
     });
-})
+});
