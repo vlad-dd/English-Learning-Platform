@@ -1,6 +1,6 @@
 import { ApolloError } from "@apollo/client"
 import { ForwardedRef, RefObject } from "react"
-interface ITestItem {
+export interface ITestItem {
     id: number
     textBefore: string
     textAfter: string
@@ -12,21 +12,21 @@ interface ITestItem {
     label: string
     correctAnswer: string
 }
-interface ITestItems {
+export interface ITestItems {
     __typename: string
     type: string
     config: Array<ITestItem>
 }
-interface ITestConfiguration {
+export interface ITestConfiguration {
     getTests: Array<ITestItems>
 }
-interface ITestContext {
+export interface ITestContext {
     data: ITestConfiguration,
     isLoading: boolean
     error: ApolloError | undefined
 }
 
-interface ISubmitAnswer {
+export interface ISubmitAnswer {
     submitAnswer: (
         key: string,
         index: number,
@@ -37,9 +37,37 @@ interface ISubmitAnswer {
     submittedResult: { [key: number]: number } | undefined
 }
 
-export type {
-    ITestItem,
-    ITestItems,
-    ITestContext,
-    ISubmitAnswer
+export interface IPartialInput {
+    id: number
+    textBefore: string
+    textAfter: string
+    defaultValue: string
+    correctAnswer: string
+};
+
+export interface ISelectInput {
+    id: number,
+    firstPart: string,
+    options: Array<{ value: string, label: string }>,
+    secondPart: string,
+    correctAnswer: string
+}
+
+export interface IAnswerResult {
+    index: number
+    selectedOptions: { [key: number]: number }
+}
+
+export interface ISelect {
+    index: number
+    correctAnswer: string
+    options: Array<{ value: string, label: string }>
+    handleChange: (value: string, correctAnswer: string, index: number) => void
+    selectedOptions: { [key: number]: number }
+};
+
+export interface ITextInput {
+    index: number
+    correctAnswer: string
+    textInputRefs: ForwardedRef<RefObject<HTMLInputElement>[]>
 }

@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import { createContext } from "react";
 import { ITestContext } from "../types";
 import { useTestConfigurationWidget } from "../use-test-configuration";
 

@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import TestApplication from "./presentational";
-import { PARTIAL_TEXT_INPUT_ID, SELECT_INPUT_ID, TEXT_INPUT_ID } from "./constants";
 import { TestApplicationProviders } from "./jest-utils";
 import * as TestConfig from './use-test-configuration';
 import { extractByPath } from "../utils/utils";
 import { buildApolloError } from '../test-utils';
+import TestApplication from "./presentational";
+import { PARTIAL_TEXT_INPUT_ID, SELECT_INPUT_ID, TEXT_INPUT_ID } from "./constants";
 
 jest.mock('./components/text-input', () => () => <div data-testid='text-input'>Text Input</div>);
 jest.mock('./components/select-input', () => () => <div data-testid='select-input'>Select Input</div>);
@@ -27,13 +27,13 @@ const TestContextResponse = {
 };
 
 describe('TestApplication', () => {
-    const config = extractByPath(TestContextResponse, 'data.getTests[0]');
     const spy = jest.spyOn(TestConfig, "useTestConfigurationWidget");
+    const config = extractByPath(TestContextResponse, 'data.getTests[0]');
 
     const changeConfigType = (type: string) => ({ getTests: [{ ...config, type }] });
 
     it('should render text input units', () => {
-        spy.mockReturnValue(TestContextResponse);
+        spy.mockReturnValue({ ...TestContextResponse });
         render(
             <TestApplicationProviders>
                 <TestApplication />
@@ -44,7 +44,7 @@ describe('TestApplication', () => {
     });
 
     it('should render select input units', () => {
-        spy.mockReturnValue({ ...TestContextResponse, data: changeConfigType('select')});
+        spy.mockReturnValue({ ...TestContextResponse, data: changeConfigType("select") });
         render(
             <TestApplicationProviders>
                 <TestApplication />
@@ -54,7 +54,7 @@ describe('TestApplication', () => {
     });
 
     it('should render partial input units', () => {
-        spy.mockReturnValue({ ...TestContextResponse, data: changeConfigType('partial')});
+        spy.mockReturnValue({  ...TestContextResponse, data: changeConfigType("partial") });
         render(
             <TestApplicationProviders>
                 <TestApplication />
@@ -64,7 +64,7 @@ describe('TestApplication', () => {
     });
 
     it('should render loading sign', () => {
-        spy.mockReturnValue({ ...TestContextResponse, isLoading: true});
+        spy.mockReturnValue({ ...TestContextResponse, isLoading: true });
         render(
             <TestApplicationProviders>
                 <TestApplication />
@@ -73,7 +73,7 @@ describe('TestApplication', () => {
     });
 
     it('should render error message', () => {
-        spy.mockReturnValue({ ...TestContextResponse, error: buildApolloError()});
+        spy.mockReturnValue({ ...TestContextResponse, error: buildApolloError() });
         render(
             <TestApplicationProviders>
                 <TestApplication />
