@@ -2,7 +2,7 @@ import { ForwardedRef, RefObject, useState } from "react";
 import { size, trim } from "lodash";
 import { ISubmitAnswer } from "../types";
 
-const useSubmit = (): ISubmitAnswer => {
+const useSubmitAnswerWidget = (): ISubmitAnswer => {
     const [submittedResult, setSubmittedResult] = useState({});
 
     const submitAnswer = (key: string, index: number, correctAnswer: string, answer: string, textInputRefs?: ForwardedRef<RefObject<HTMLInputElement>[]>) => {
@@ -17,7 +17,7 @@ const useSubmit = (): ISubmitAnswer => {
         }
     }
 
-    return { submittedResult, submitAnswer }
+    return { submittedResult, submitAnswer };
 }
 
-export { useSubmit };
+export { useSubmitAnswerWidget };

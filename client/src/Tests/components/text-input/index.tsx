@@ -1,13 +1,13 @@
-import React, { RefObject, useContext, useRef } from "react";
-import { TestContext } from "../../Context";
-import { StyledLabel, StyledTextInputWrapper } from "./styled";
+import React, { RefObject, useRef } from "react";
+import { useTextInputWidget } from "./use-text-input-widget";
 import DefaultTextInput from "./default-input";
 import { ITestItem } from "../../types";
-import { extractByPath } from "../../../utils/utils";
+import { TEXT_INPUT_LABEL_DATA_TEST_ID } from "../../constants";
+import { StyledLabel, StyledTextInputWrapper } from "./styled";
 
 const TextInput = () => {
-    const { data } = useContext(TestContext)!;
-    const { config } = extractByPath(data, 'getTests[0]')
+    const { config } = useTextInputWidget();
+
     const textInputRefs = useRef<RefObject<HTMLInputElement>[]>([]);
 
     return (
@@ -15,7 +15,7 @@ const TextInput = () => {
             {config.map(({ label, correctAnswer }: ITestItem, index: number) => {
                 return (
                     <StyledTextInputWrapper key={label}>
-                        <StyledLabel data-testid="text-input-label" aria-label="mixed verbs sentence">
+                        <StyledLabel data-testid={TEXT_INPUT_LABEL_DATA_TEST_ID}>
                             {label}
                         </StyledLabel>
                         <DefaultTextInput

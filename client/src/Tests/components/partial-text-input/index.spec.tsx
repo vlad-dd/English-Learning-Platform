@@ -1,4 +1,3 @@
-import React from "react";
 import { fireEvent, render, screen } from '@testing-library/react';
 import PartialTextInput from ".";
 import { PARTIAL_TEXT_INPUT_ID } from "../../constants";
@@ -72,5 +71,4 @@ describe('PartialTextInput', () => {
             expect(inputBorder?.getAttribute('style')).toBe('border: 1px solid red;')
         });
     });
-
 });

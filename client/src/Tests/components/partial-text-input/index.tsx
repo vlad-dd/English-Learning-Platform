@@ -1,29 +1,20 @@
-import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { Input } from 'antd';
-import { get, isNil } from "lodash";
+import { isNil } from "lodash";
+import { focusNodeAfterMounting } from "../../../utils/utils";
+import { useSubmitAnswerWidget } from "../../use-submit";
+import { IPartialInput } from "../../types";
 import { BORDERS, PARTIAL_TEXT_INPUT_ID } from "../../constants";
-import { extractByPath, focusNodeAfterMounting } from "../../../utils/utils";
 import { StyledPartialInputWrapper } from "./styled";
-import { useSubmit } from "../../use-submit";
-import { TestContext } from "../../Context";
-
-interface IPartialInput {
-    id: number,
-    textBefore: string,
-    textAfter: string,
-    defaultValue: string,
-    correctAnswer: string
-}
+import { usePartialInputWidget } from "./use-partial-input-widget";
 
 const PartialTextInput = () => {
-    const { data } = useContext(TestContext)!;
-    const { config } = extractByPath(data, 'getTests[0]');
-    const [answerToSubmit, setAnswerToSubmit] = useState<string>('');
-    const { submittedResult, submitAnswer } = useSubmit();
+    const { config, answerToSubmit, setAnswerToSubmit } = usePartialInputWidget();
+    const { submittedResult, submitAnswer } = useSubmitAnswerWidget();
 
     useEffect(() => {
         setAnswerToSubmit('');
-    }, [submittedResult])
+    }, [submittedResult]);
 
     useLayoutEffect(() => {
         focusNodeAfterMounting(PARTIAL_TEXT_INPUT_ID);
