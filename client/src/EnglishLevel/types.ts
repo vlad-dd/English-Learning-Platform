@@ -12,3 +12,8 @@ export interface IPreviousAnswer {
     [key: number]: boolean
     title: string
 }
+export interface IEnglishLevel {
+    min: number
+    max: number
+    label: string
+};

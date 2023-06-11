@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Steps } from 'antd';
+import { Steps, Tag } from 'antd';
 
 export const StyledEnglishLevelRootWrapper = styled.div`
   display: flex;
@@ -27,5 +27,24 @@ export const StyledSteps = styled(Steps)`
   flex-wrap: wrap;
   position: relative;
   top: 3vh;
-
 `;
+
+export const StyledClassifiedLevelContainer = styled.div`
+  display: inline-block;
+  padding-left: 25px;
+`;
+
+export const StyledClassifiedLevelTag = styled(Tag)`
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  padding: 10px;
+`;
+
+export const StyledLevel = styled.span`
+  margin-right: 5px;
+  color: gainsboro;
+`;
+
+export const StyledQuizContainer = styled.div``;
+

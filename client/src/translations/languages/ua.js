@@ -1,4 +1,4 @@
-import { DICTIONARY_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -41,6 +41,21 @@ const dictionary_page = {
     [DICTIONARY_PAGE.UNEXISTED_WORD]: "Неіснуюче слово, перевірте його написання.",
 };
 
-const UA_TRANSLATION_BUILD = new BuildAllTranslationPages(welcome_page, tenses_page, dictionary_page, "UA").buildTranslationObject();
+const english_level_page = {
+    [ENGLISH_LEVEL_PAGE.TITLE]: "Тест на рівень володіння англійською",
+    [ENGLISH_LEVEL_PAGE.LEVEL]: "Ваш рівень англійської",
+    [ENGLISH_LEVEL_PAGE.QUIZ_TITLE]: "Вітаємо та ласкаво просимо на тестування рівня англійської мови! 🌍",
+    [ENGLISH_LEVEL_PAGE.NOTE_ONE]: "✅ Будь ласка, дайте відповідь на всі запитання.",
+    [ENGLISH_LEVEL_PAGE.NOTE_TWO]: "👀 Оцінюнвання не обмежене часом.",
+    [ENGLISH_LEVEL_PAGE.NOTE_THREE]: "🤷🏽 Якщо ви не впевнені у відповіді, будь ласка, виберіть відповідь, яка, на вашу думку, може бути правдивою."
+};
+
+
+const UA_TRANSLATION_BUILD = new BuildAllTranslationPages(
+    welcome_page, 
+    tenses_page, 
+    dictionary_page,
+    english_level_page,
+    "UA").buildTranslationObject();
 
 export default UA_TRANSLATION_BUILD;

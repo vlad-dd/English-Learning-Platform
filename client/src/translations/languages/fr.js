@@ -1,4 +1,4 @@
-import { DICTIONARY_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -41,6 +41,20 @@ const dictionary_page = {
     [DICTIONARY_PAGE.UNEXISTED_WORD]: "Mot inexistant, merci de vérifier l'orthographe.",
 };
 
-const FR_TRANSLATION_BUILD = new BuildAllTranslationPages(welcome_page, tenses_page, dictionary_page, "FR").buildTranslationObject();
+const english_level_page = {
+    [ENGLISH_LEVEL_PAGE.TITLE]: "Test de niveau de compétence en anglais",
+    [ENGLISH_LEVEL_PAGE.LEVEL]: "Votre niveau d'anglais est",
+    [ENGLISH_LEVEL_PAGE.QUIZ_TITLE]: "Salutations et bienvenue à l'évaluation des compétences en anglais ! 🌍",
+    [ENGLISH_LEVEL_PAGE.NOTE_ONE]: "✅ Veuillez essayer toutes les questions.",
+    [ENGLISH_LEVEL_PAGE.NOTE_TWO]: "👀 L'évaluation n'a pas de limite de temps.",
+    [ENGLISH_LEVEL_PAGE.NOTE_THREE]: "🤷🏽 Si vous n'êtes pas sûr de la réponse, veuillez sélectionner la réponse qui, selon vous, pourrait être vraie."
+};
+
+const FR_TRANSLATION_BUILD = new BuildAllTranslationPages(
+    welcome_page, 
+    tenses_page, 
+    dictionary_page, 
+    english_level_page,
+    "FR").buildTranslationObject();
 
 export default FR_TRANSLATION_BUILD;

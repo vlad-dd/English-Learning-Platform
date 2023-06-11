@@ -34,6 +34,15 @@ export const TENSES_PAGE = {
     COMMENTS_POLICY_RULES_PART_TWO: "comments_policy_rules_part_two"
 };
 
+export const ENGLISH_LEVEL_PAGE = {
+    TITLE: "english-level-title",
+    LEVEL: "classified-english-level",
+    QUIZ_TITLE: "quiz-title",
+    NOTE_ONE: "note-one",
+    NOTE_TWO: "note-two",
+    NOTE_THREE: "note-three"
+}
+
 export const DICTIONARY_PAGE = {
     TIP: "dictionary_tip",
     UNEXISTED_WORD: "unexisted_word"

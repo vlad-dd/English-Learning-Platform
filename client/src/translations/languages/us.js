@@ -1,4 +1,4 @@
-import { DICTIONARY_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -36,11 +36,25 @@ const tenses_page = {
     [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "We take these rules seriously in order to maintain a safe and respectful community for all users. Comments that violate these rules may be removed, and repeat offenders may be banned from the platform. We encourage all users to review these rules and report any comments that violate them to our moderation team👩‍💻."
 };
 
-const dictionary_page = { 
+const dictionary_page = {
     [DICTIONARY_PAGE.TIP]: "Our dictionary search feature will suggest possible matches and alternatives, so you can easily find the word you're looking for.",
     [DICTIONARY_PAGE.UNEXISTED_WORD]: "Unexisted word, please check the spelling",
 };
 
-const US_TRANSLATION_BUILD = new BuildAllTranslationPages(welcome_page, tenses_page, dictionary_page, "US").buildTranslationObject();
+const english_level_page = {
+    [ENGLISH_LEVEL_PAGE.TITLE]: "English Proficiency Level Test",
+    [ENGLISH_LEVEL_PAGE.LEVEL]: "Your english level is",
+    [ENGLISH_LEVEL_PAGE.QUIZ_TITLE]: "Greetings and welcome to the English proficiency assessment! 🌍",
+    [ENGLISH_LEVEL_PAGE.NOTE_ONE]: "✅ Kindly attempt all questions.",
+    [ENGLISH_LEVEL_PAGE.NOTE_TWO]: "👀 The assessment does not have time limits.",
+    [ENGLISH_LEVEL_PAGE.NOTE_THREE]: "🤷🏽 In case you're unsure of the answer, please select the answer you think could be true."
+};
+
+const US_TRANSLATION_BUILD = new BuildAllTranslationPages(
+    welcome_page,
+    tenses_page,
+    dictionary_page,
+    english_level_page,
+    "US").buildTranslationObject();
 
 export default US_TRANSLATION_BUILD;
