@@ -2,7 +2,8 @@ import { render, screen } from '@testing-library/react';
 import * as EnglishLevelWidget from './use-english-level-widget';
 import EnglishLevelRoot from './presentational';
 import { buildApolloError } from '../test-utils';
-import { withApolloProvider, withRouterProvider } from '../test-utils/hocs';
+import { withApolloProvider, withIntlProvider, withRouterProvider } from '../test-utils/hocs';
+import { CLASSIFIED_LEVEL_CONTAINER_DATA_TEST_ID } from './constants';
 
 jest.mock("react-quiz-component", () => () => <div data-testid="level-quiz-component" />);
 jest.mock("./styled", () => ({
@@ -14,7 +15,7 @@ const TEST_IDS = [
     "progress-steps-component",
 ];
 
-const EnglishLevelRootWithProvider = withRouterProvider(withApolloProvider(EnglishLevelRoot));
+const EnglishLevelRootWithProvider = withRouterProvider(withApolloProvider(withIntlProvider(EnglishLevelRoot)));
 
 describe('English Level', () => {
     const widget = jest.spyOn(EnglishLevelWidget, "useEnglishLevelWidget");
@@ -35,14 +36,14 @@ describe('English Level', () => {
         TEST_IDS.forEach((id: string) => expect(screen.getByTestId(id)).toBeInTheDocument());
         expect(screen.getByText("English Proficiency Level Test")).toBeInTheDocument();
         expect(screen.getByText("Your english level is B1")).toBeInTheDocument();
-        expect(screen.getByTestId("classified-level-container")).toBeInTheDocument();
+        expect(screen.getByTestId(CLASSIFIED_LEVEL_CONTAINER_DATA_TEST_ID)).toBeInTheDocument();
     });
 
     it('should render component after completing the condition but without the level', () => {
         widget.mockReturnValue({ ...props, classifiedLevel: null });
         render(<EnglishLevelRootWithProvider />);
         TEST_IDS.forEach((id: string) => expect(screen.getByTestId(id)).toBeInTheDocument());
-        expect(screen.queryByTestId("classified-level-container")).not.toBeInTheDocument();
+        expect(screen.queryByTestId(CLASSIFIED_LEVEL_CONTAINER_DATA_TEST_ID)).not.toBeInTheDocument();
     });
 
     it('should return loading circle if component is loading', () => {

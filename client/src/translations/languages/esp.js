@@ -1,5 +1,5 @@
 import { BuildAllTranslationPages } from "../translation-builders";
-import { DICTIONARY_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 
 const welcome_page = {
     [WELCOME_PAGE.TITLE]: "Plataforma de aprendizaje de inglés",
@@ -41,6 +41,20 @@ const dictionary_page = {
     [DICTIONARY_PAGE.UNEXISTED_WORD]: "Palabra inexistente, por favor revise la ortografía.",
 };
 
-const ESP_TRANSLATION_BUILD = new BuildAllTranslationPages(welcome_page, tenses_page, dictionary_page, "ESP").buildTranslationObject();
+const english_level_page = {
+    [ENGLISH_LEVEL_PAGE.TITLE]: "Prueba de nivel de competencia en inglés",
+    [ENGLISH_LEVEL_PAGE.LEVEL]: "Tu nivel de ingles es",
+    [ENGLISH_LEVEL_PAGE.QUIZ_TITLE]: "¡Saludos y bienvenidos a la evaluación de dominio del inglés! 🌍",
+    [ENGLISH_LEVEL_PAGE.NOTE_ONE]: "✅ Intente amablemente todas las preguntas.",
+    [ENGLISH_LEVEL_PAGE.NOTE_TWO]: "👀 La evaluación no tiene límites de tiempo.",
+    [ENGLISH_LEVEL_PAGE.NOTE_THREE]: "🤷🏽 En caso de que no estés seguro de la respuesta, selecciona la respuesta que creas que podría ser cierta."
+};
+
+const ESP_TRANSLATION_BUILD = new BuildAllTranslationPages(
+    welcome_page, 
+    tenses_page, 
+    dictionary_page, 
+    english_level_page,
+    "ESP").buildTranslationObject();
 
 export default ESP_TRANSLATION_BUILD;

@@ -1,13 +1,14 @@
 import Quiz from 'react-quiz-component';
 import { isNil, size } from 'lodash';
-import { Tag } from 'antd';
+import { FormattedMessage } from 'react-intl';
 import { MdDone } from 'react-icons/md'
 import { useEnglishLevelWidget } from './use-english-level-widget';
 import { LoadingProgress } from '../Сommon';
 import ErrorPage from '../Сommon/error-handler-page/not-found-url';
 import { ELP_USER_EXPERIENCE_ERRORS } from '../Сommon/error-handler-page/constants';
-import { ENGLISH_LEVEL_ID } from './constants';
-import { StyledEnglishLevelRootWrapper, StyledSteps, StyledTitle } from "./styled";
+import { ENGLISH_LEVEL_PAGE } from '../translations/constants';
+import { CLASSIFIED_LEVEL_CONTAINER_DATA_TEST_ID, ENGLISH_LEVEL_ID, ENGLISH_LEVEL_TITLE_CLASSNAME } from './constants';
+import { StyledClassifiedLevelContainer, StyledClassifiedLevelTag, StyledEnglishLevelRootWrapper, StyledLevel, StyledQuizContainer, StyledSteps, StyledTitle } from "./styled";
 
 const EnglishLevelRoot = () => {
     const {
@@ -39,24 +40,30 @@ const EnglishLevelRoot = () => {
 
     return (
         <>
-            <StyledTitle className="elp-title">English Proficiency Level Test</StyledTitle>
+            <StyledTitle className={ENGLISH_LEVEL_TITLE_CLASSNAME}>
+                <FormattedMessage id={ENGLISH_LEVEL_PAGE.TITLE} />
+            </StyledTitle>
             {!isNil(classifiedLevel) && (
-                <div style={{ paddingLeft: "25px", display: 'inline-block' }} data-testid="classified-level-container">
-                    <Tag style={{ display: "flex", alignItems: "center", fontSize: "1rem", padding: "10px" }}color='purple'>
-                       <span style={{ marginRight: "5px", color: "gainsboro" }}>Your english level is {classifiedLevel}</span>
+                <StyledClassifiedLevelContainer data-testid={CLASSIFIED_LEVEL_CONTAINER_DATA_TEST_ID}>
+                    <StyledClassifiedLevelTag color='purple'>
+                        <StyledLevel>
+                            <FormattedMessage id={ENGLISH_LEVEL_PAGE.LEVEL} />
+                            {"  "}
+                            {classifiedLevel}
+                        </StyledLevel>
                         <MdDone fill='green' size={20} />
-                    </Tag>
-                </div>
+                    </StyledClassifiedLevelTag>
+                </StyledClassifiedLevelContainer>
             )}
             <StyledEnglishLevelRootWrapper data-testid={ENGLISH_LEVEL_ID}>
-                <div>
+                <StyledQuizContainer>
                     <Quiz
                         shuffle
                         quiz={{ ...quiz, questions: [...quiz.questions] }}
                         onQuestionSubmit={submitCurrentAnswer}
                         onComplete={({ numberOfCorrectAnswers }: { numberOfCorrectAnswers: number }) => generateLevelFeedback(numberOfCorrectAnswers)}
                     />
-                </div>
+                </StyledQuizContainer>
                 <StyledSteps
                     current={stepIndex}
                     direction='vertical'

@@ -1,4 +1,4 @@
-import { DICTIONARY_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -41,6 +41,20 @@ const dictionary_page = {
   [DICTIONARY_PAGE.UNEXISTED_WORD]: "存在しない単語です。スペルを確認してください.",
 };
 
-const JP_TRANSLATION_BUILD = new BuildAllTranslationPages(welcome_page, tenses_page, dictionary_page, "JP").buildTranslationObject();
+const english_level_page = {
+  [ENGLISH_LEVEL_PAGE.TITLE]: "英語能力レベルテスト",
+  [ENGLISH_LEVEL_PAGE.LEVEL]: "あなたの英語レベルは",
+  [ENGLISH_LEVEL_PAGE.QUIZ_TITLE]: "こんにちは。英語能力評価へようこそ! 🌍",
+  [ENGLISH_LEVEL_PAGE.NOTE_ONE]: "✅ すべての質問に答えてください。",
+  [ENGLISH_LEVEL_PAGE.NOTE_TWO]: "👀 評価には時間制限がありません。",
+  [ENGLISH_LEVEL_PAGE.NOTE_THREE]: "🤷🏽 答えがわからない場合は、正しいと思われる答えを選択してください。"
+};
+
+const JP_TRANSLATION_BUILD = new BuildAllTranslationPages(
+  welcome_page, 
+  tenses_page, 
+  dictionary_page, 
+  english_level_page,
+  "JP").buildTranslationObject();
 
 export default JP_TRANSLATION_BUILD;
