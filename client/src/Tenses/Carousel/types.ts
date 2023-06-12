@@ -21,11 +21,10 @@ interface IUseAlertController {
 interface ICarouselInput {
     borderColor: string
     showLastBanner: boolean,
-    handleCheck: (event: KeyboardEvent<HTMLElement>, inputValue: string) => void,
-    sentences: Array<IPracticeSentences>,
-    actualSentenceIndex: number,
     value: string,
-    setValue: (inputValue: string) => void
+    handleCheck: ({ key }: any, missedPart: string) => void,
+    setValue: (inputValue: string) => void,
+    currentItem: IPracticeSentences
 }
 
 export type { IStatus, IAlerts, IPercentage, IUseAlertController, ICarouselInput };

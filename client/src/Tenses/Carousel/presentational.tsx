@@ -1,13 +1,13 @@
-import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Title } from '../../Сommon';
 import CarouselQuiz from './components';
-import { FormattedMessage } from 'react-intl';
+import { PRACTICE_TITLE_DATA_TEST_ID } from '../constants';
 
 const TensePractice = () => {
   return (
     <>
       <Title styles={{ paddingTop: '25px' }}>
-        <FormattedMessage id="tense_practice" />
+        <FormattedMessage id={PRACTICE_TITLE_DATA_TEST_ID} />
       </Title>
       <CarouselQuiz />
     </>

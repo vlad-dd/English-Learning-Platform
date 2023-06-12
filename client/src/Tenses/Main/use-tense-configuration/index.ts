@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { useQuery } from "@apollo/client";
 import * as selectors from "../../../store/selectors";
 import { GET_TENSE } from "../../graphql";
-import { breadcrumbPath } from "../../../store/reducers/bread-crumb";
 
 export const useTenseConfigurationWidget = () => {
 
@@ -15,7 +14,7 @@ export const useTenseConfigurationWidget = () => {
   const { path } = useSelector(selectors.tensesBCState);
 
   const { data, loading, error, refetch } = useQuery(GET_TENSE, {
-    variables: { tense: tense ?? path[0] },
+    variables: { tense: tense ?? path.at(0) },
   });
 
   return { data, loading, error, refetch };

@@ -1,33 +1,28 @@
-import React, { FormEvent, KeyboardEvent } from "react";
+import { FormEvent, KeyboardEvent } from "react";
 import { CarouselInput, FirstPart, SecondPart } from "../../styled";
 import { ICarouselInput } from "../../types";
+import { QUESTION_CAROUSEL_INPUT_DATA_TEST_ID } from "../../../constants";
 
 const QuestionCarouselInput = ({
   borderColor,
   showLastBanner,
-  handleCheck,
-  sentences,
-  actualSentenceIndex,
+  currentItem,
   value,
   setValue,
+  handleCheck,
 }: ICarouselInput) => {
   return (
     <>
       <CarouselInput
-        id='question-input'
-        data-testid='question-input'
+        data-testid={QUESTION_CAROUSEL_INPUT_DATA_TEST_ID}
         style={{ border: borderColor ?? '1px solid white' }}
         disabled={showLastBanner}
-        onKeyDown={(e: KeyboardEvent<HTMLElement>) =>
-          handleCheck(e, sentences?.[actualSentenceIndex].missed)
-        }
+        onKeyDown={(e: KeyboardEvent<HTMLElement>) => handleCheck(e, currentItem.missed)}
         value={value}
-        onChange={(e: FormEvent<HTMLInputElement>) =>
-          setValue(e.currentTarget.value)
-        }
+        onChange={(e: FormEvent<HTMLInputElement>) => setValue(e.currentTarget.value)}
       />
-      <FirstPart>{sentences?.[actualSentenceIndex]?.partOne}</FirstPart>{' '}
-      <SecondPart>{sentences?.[actualSentenceIndex].partTwo}</SecondPart>
+      <FirstPart>{currentItem.partOne}</FirstPart>{' '}
+      <SecondPart>{currentItem.partTwo}</SecondPart>
     </>
   );
 };

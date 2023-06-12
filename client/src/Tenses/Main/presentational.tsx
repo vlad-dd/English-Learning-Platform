@@ -1,17 +1,17 @@
 import { AlertOutlined } from "@ant-design/icons";
 import { useParams } from "react-router";
 import { size } from "lodash";
-import { TenseContext } from "../Context";
 import { ApplicationTitle, BreadcrumbPath, LoadingProgress, SectionComments } from "../../Сommon";
 import ErrorPage from "../../Сommon/error-handler-page/not-found-url";
+import { ELP_USER_EXPERIENCE_ERRORS } from "../../Сommon/error-handler-page/constants";
+import { extractByPath } from "../../utils/utils";
+import { TenseContext } from "../Context";
 import { useTenseConfigurationWidget } from "./use-tense-configuration";
 import TensesTable from "../Table/tenses-table";
 import TensePractice from "../Carousel/presentational";
 import MostCommonCases from "../Cases/cases-tabs";
 import TenseExamplePanels from "../Examples/example-panels";
-import { ELP_USER_EXPERIENCE_ERRORS } from "../../Сommon/error-handler-page/constants";
 import { ContentSection, StyledAlert } from "../styled";
-import { extractByPath } from "../../utils/utils";
 
 const TenseContent = (): JSX.Element => {
   const { tense } = useParams();

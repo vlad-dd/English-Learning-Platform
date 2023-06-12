@@ -1,7 +1,6 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
-import TensesTable from './tenses-table';
 import { withIntlProvider } from '../../test-utils/hocs';
+import TensesTable from './tenses-table';
 
 const tableMock = [
     {
