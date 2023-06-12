@@ -1,32 +1,29 @@
-import React, { KeyboardEvent } from "react";
+import { KeyboardEvent, FormEvent } from "react";
 import { CarouselInput, FirstPart, SecondPart } from "../../styled";
 import { ICarouselInput } from "../../types";
+import { DEFAULT_CAROUSEL_INPUT_DATA_TEST_ID } from "../../../constants";
 
 const DefaultCarouselInput = ({
   borderColor,
   showLastBanner,
-  handleCheck,
-  sentences,
-  actualSentenceIndex,
   value,
+  currentItem,
   setValue,
+  handleCheck,
 }: ICarouselInput) => {
   return (
     <>
-    <FirstPart>{sentences?.[actualSentenceIndex].partOne}</FirstPart>
-    <CarouselInput
-      id='practice-input'
-      data-testid='practice-input'
-      style={{ border: borderColor ?? '1px solid white' }}
-      disabled={showLastBanner}
-      onKeyDown={(e: KeyboardEvent<HTMLElement>) =>
-        handleCheck(e, sentences?.[actualSentenceIndex].missed)
-      }
-      value={value}
-      onChange={(e: React.FormEvent<HTMLInputElement>) => setValue(e.currentTarget.value)}
-    />
-    <SecondPart>{sentences?.[actualSentenceIndex].partTwo}</SecondPart>
-  </>
+      <FirstPart>{currentItem.partOne}</FirstPart>
+      <CarouselInput
+        data-testid={DEFAULT_CAROUSEL_INPUT_DATA_TEST_ID}
+        style={{ border: borderColor ?? '1px solid white' }}
+        disabled={showLastBanner}
+        onKeyDown={(e: KeyboardEvent<HTMLElement>) => handleCheck(e, currentItem.missed)}
+        value={value}
+        onChange={(e: FormEvent<HTMLInputElement>) => setValue(e.currentTarget.value)}
+      />
+      <SecondPart>{currentItem.partTwo}</SecondPart>
+    </>
   );
 };
 

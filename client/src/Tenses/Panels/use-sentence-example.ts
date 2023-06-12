@@ -5,5 +5,5 @@ export const useSentenceExamples = () => {
 
   const data = useSelector(selectors.tenseConfiguration);
 
-    return { examples: data[0]?.examples };
+    return { examples: data.at(0)?.examples };
 }

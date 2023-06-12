@@ -3,6 +3,7 @@ import TenseContent from "./presentational";
 import * as TenseConfig from './use-tense-configuration';
 import { buildApolloError } from "../../test-utils";
 import { withApolloProvider, withIntlProvider, withReduxProvider, withRouterProvider } from "../../test-utils/hocs";
+import { DEFAULT_CAROUSEL_INPUT_DATA_TEST_ID } from "../constants";
 
 const mockedApolloResponse = {
   data: {
@@ -96,8 +97,8 @@ describe("TenseContent", () => {
 
     it("should render TenseContent if data exists", () => {
       tenseContentInnerHTML.forEach((innerHTML) => expect(screen.getByText(innerHTML)).toBeInTheDocument());
-      expect(screen.queryAllByText('Noun')[0]).toBeInTheDocument();
-      expect(screen.queryAllByText('Auxiliar')[0]).toBeInTheDocument();
+      expect(screen.queryAllByText('Noun').at(0)).toBeInTheDocument();
+      expect(screen.queryAllByText('Auxiliar').at(0)).toBeInTheDocument();
     });
 
     it("should render cases", () => {
@@ -115,12 +116,13 @@ describe("TenseContent", () => {
     });
 
     it("should render practice carousel", () => {
+      const defaultInput = screen.getByTestId(DEFAULT_CAROUSEL_INPUT_DATA_TEST_ID);
       expect(screen.getByText('Mocked Part One')).toBeInTheDocument();
-      expect(screen.getByTestId('practice-input')).toBeInTheDocument();
-      fireEvent.change(screen.getByTestId('practice-input'), { target: { value: 'Mocked Missed Correct Value' } });
-      expect(screen.getByTestId('practice-input').getAttribute('value')).toBe('Mocked Missed Correct Value');
-      fireEvent.keyDown(screen.getByTestId('practice-input'), { key: 'Enter' });
-      expect(screen.getByTestId('practice-input').getAttribute('disabled')).toBe("");
+      expect(defaultInput).toBeInTheDocument();
+      fireEvent.change(defaultInput, { target: { value: 'Mocked Missed Correct Value' } });
+      expect(defaultInput.getAttribute('value')).toBe('Mocked Missed Correct Value');
+      fireEvent.keyDown(defaultInput, { key: 'Enter' });
+      expect(defaultInput.getAttribute('disabled')).toBe("");
     });
 
     it("should render comment section", () => {

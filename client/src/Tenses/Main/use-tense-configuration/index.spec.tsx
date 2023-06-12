@@ -1,5 +1,5 @@
 import { MockedProvider } from "@apollo/client/testing";
-import { act, renderHook, waitFor } from "@testing-library/react";
+import { renderHook, waitFor } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { useTenseConfigurationWidget } from ".";
 import store from "../../../store";
