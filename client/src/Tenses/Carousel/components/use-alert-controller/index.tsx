@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { size } from 'lodash';
 import { Alert } from 'antd';
 import { ProgressBar } from '../../../../Сommon';
-import { IAlerts, IPercentage, IUseAlertController } from '../../types';
+import { IAlerts, IPercentage, IUseAlertController } from '../../../types';
 import { ALERT_MESSAGES, ALERT_STATUS } from '../../../constants';
 import { StyledPercentage } from '../../styled';
 

@@ -1,4 +1,5 @@
-import { IStatus } from "./Carousel/types";
+import { IStatus } from "./types";
+
 
 export const PRACTICE_TITLE_DATA_TEST_ID = "tense_practice";
 export const CAROUSEL_QUIZ_DATA_TEST_ID = "carousel-quiz";

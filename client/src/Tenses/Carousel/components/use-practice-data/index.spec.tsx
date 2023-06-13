@@ -1,9 +1,7 @@
-import React from 'react';
-import { renderHook } from "@testing-library/react"
-import { usePracticeData } from "."
-import * as Config from '../../../../Hooks';
-import { get } from 'lodash';
+import { renderHook } from "@testing-library/react";
 import { extractByPath } from '../../../../utils/utils';
+import * as Config from '../../../../Hooks';
+import { usePracticeData } from ".";
 
 jest.mock("../../../../Hooks");
 
@@ -23,7 +21,6 @@ const practice = [
 
 describe('usePracticeData', () => {
   it('should return practice data', () => {
-
     const practiceDataSpy: any = jest.spyOn(Config, "useConfigurationWidget");
     const mockExtractValueByPath = jest.fn(() => ({ practice }));
     practiceDataSpy.mockReturnValue({ extractValueByPath: mockExtractValueByPath });

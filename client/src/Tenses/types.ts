@@ -1,20 +1,22 @@
+import { Dispatch, ReactNode, SetStateAction } from "react";
 import { ICasesTabs } from "../Сommon/types";
-interface IPracticeSentences {
+export interface IPracticeSentences {
   __typename: string
   id: number;
+  label: string;
   missed: string;
   partOne: string;
   partTwo: string;
 }
 
-interface IResponseColumn {
+export interface IResponseColumn {
   title: string;
   dataIndex: string;
   key: string;
   render: () => JSX.Element;
 }
 
-interface IDataTable {
+export interface IDataTable {
   auxiliar: string;
   auxiliar_1: string;
   key: string;
@@ -23,33 +25,32 @@ interface IDataTable {
   type: string;
 }
 
-interface IResponseDataSentence {
+export interface IResponseDataSentence {
   id: number;
   sentence: string;
 }
 
-interface IResponseData {
+export interface IResponseData {
   affirmative: IResponseDataSentence[];
   negative: IResponseDataSentence[];
   questions: IResponseDataSentence[];
   table: IDataTable;
   tip: string;
 }
-
-interface IBFFResponse {
+export interface IBFFResponse {
   columns: IResponseColumn[];
   data: IResponseData;
   practice: IPracticeSentences[];
   cases: ICasesTabs[];
 }
 
-type IExamples = {
+export type IExamples = {
   affirmative: IResponseDataSentence[];
   question: IResponseDataSentence[];
   negative: IResponseDataSentence[];
 };
 
-type IExamplePanel = {
+export type IExamplePanel = {
   __typename: string
   key: number;
   header: string;
@@ -60,21 +61,45 @@ type IExamplePanel = {
     sentence: string;
   }[]
 };
-interface ICases {
+export interface ICases {
   icon: string;
   key: string;
   label: string;
   titles: { description: string }[]
 }
 
-export type {
-  IResponseColumn,
-  IDataTable,
-  IResponseDataSentence,
-  IPracticeSentences,
-  IResponseData,
-  IBFFResponse,
-  IExamplePanel,
-  IExamples,
-  ICases
+export interface IStatus {
+  [key: string]: string
+}
+
+export interface IAlerts {
+  [key: string]: React.ReactNode
+}
+
+export interface IPercentage {
+  [key: string]: React.ReactNode
+}
+
+export interface IUseAlertController {
+  points: number,
+  sentences: IPracticeSentences[],
+  alert: string
+}
+export interface ICarouselInput {
+  borderColor: string
+  showLastBanner: boolean,
+  value: string,
+  handleCheck: ({ key }: any, missedPart: string) => void,
+  setValue: Dispatch<SetStateAction<string>>,
+  currentItem: Omit<IPracticeSentences, "label">
 };
+
+export type IQuestionProps = Omit<ICarouselInput, "currentItem">;
+export interface ICarouselWidget {
+  sentences: IPracticeSentences[]
+  actualSentenceIndex: number
+  alertController: ReactNode
+  questionProps: IQuestionProps
+  nullifyProgress: () => void
+}
+
