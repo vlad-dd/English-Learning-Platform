@@ -25,7 +25,7 @@ const CarouselQuiz = () => {
     nullifyProgress()
   }, [JSON.stringify(sentences)]);
 
-  const { label, ...currentItem } = sentences?.find((_: IPracticeSentences, i: number) => i === actualSentenceIndex);
+  const { label, ...currentItem } = sentences?.find((_: IPracticeSentences, i: number) => i === actualSentenceIndex)!;
 
   return (
     <Carousel data-testid={CAROUSEL_QUIZ_DATA_TEST_ID} adaptiveHeight dotPosition='left'>
@@ -38,7 +38,8 @@ const CarouselQuiz = () => {
           {label == 'Question' ?
             <QuestionCarouselInput currentItem={currentItem} {...questionProps} />
             :
-            <DefaultCarouselInput currentItem={currentItem} {...questionProps} />}
+            <DefaultCarouselInput currentItem={currentItem} {...questionProps} />
+          }
         </ContentBlock>
       </CarouselContainer>
     </Carousel>

@@ -1,6 +1,6 @@
 import { FormEvent, KeyboardEvent } from "react";
 import { CarouselInput, FirstPart, SecondPart } from "../../styled";
-import { ICarouselInput } from "../../types";
+import { ICarouselInput } from "../../../types";
 import { QUESTION_CAROUSEL_INPUT_DATA_TEST_ID } from "../../../constants";
 
 const QuestionCarouselInput = ({
