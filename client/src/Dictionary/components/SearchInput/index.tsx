@@ -1,40 +1,38 @@
-import React, { useContext, useState } from "react";
+import { FormattedMessage } from "react-intl";
 import { Button } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-import { DictionaryConfigurationContext } from "../../Context";
+import { DICTIONARY_PAGE } from "../../../translations/constants";
+import { useSearchInputWidget } from "./use-search-input-widget";
+import { DICTIONARY_SEARCH_BUTTON_DATA_TEST_ID, DICTIONARY_SEARCH_INPUT_DATA_TEST_ID, DICTIONARY_SEARCH_INPUT_PLACEHOLDER } from "../../constants";
 import { StyledSpace, StyledSearch } from './styled';
 
 const SearchInput = () => {
 
-  const [toSearch, setToSearch] = useState<string>('');
-
-  const { searchWordInDictionary, isLoading } = useContext(DictionaryConfigurationContext)
+  const { toSearch, isLoading, setToSearch, searchWordInDictionary } = useSearchInputWidget();
 
   return (
     <StyledSpace direction="vertical">
       <StyledSearch
-        data-testid="dictionary-search-input"
-        placeholder="Search word..."
+        data-testid={DICTIONARY_SEARCH_INPUT_DATA_TEST_ID}
+        placeholder={DICTIONARY_SEARCH_INPUT_PLACEHOLDER}
         allowClear
         value={toSearch}
         onKeyDown={({ key }) => {
-            if (key === 'Enter') searchWordInDictionary({ variables: { word: toSearch } })
+          if (key === 'Enter') searchWordInDictionary({ variables: { word: toSearch } })
         }}
         enterButton={
           <Button
-            data-testid="dictionary-search-button"
+            data-testid={DICTIONARY_SEARCH_BUTTON_DATA_TEST_ID}
             loading={isLoading}
             type="primary"
             icon={<SearchOutlined />}
-            onClick={() =>
-                searchWordInDictionary({ variables: { word: toSearch } })
-            }
+            onClick={() => searchWordInDictionary({ variables: { word: toSearch } })}
           >
-            Search
+            <FormattedMessage id={DICTIONARY_PAGE.SEARCH_BUTTON} />
           </Button>
         }
         size="large"
-        onChange={(e) => setToSearch(e.target.value)}
+        onChange={({ target: { value } }) => setToSearch(value)}
       />
     </StyledSpace>
   );

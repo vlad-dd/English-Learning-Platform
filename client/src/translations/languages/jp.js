@@ -39,6 +39,10 @@ const tenses_page = {
 const dictionary_page = { 
   [DICTIONARY_PAGE.TIP]: "辞書検索機能では、一致する可能性のある単語や代替語が提案されるので、探している単語を簡単に見つけることができます.",
   [DICTIONARY_PAGE.UNEXISTED_WORD]: "存在しない単語です。スペルを確認してください.",
+  [DICTIONARY_PAGE.PRONUNCIATION_TITLE]: "発音",
+  [DICTIONARY_PAGE.UNEXISTED_SOUND]: "この単語の音声ファイルはありません",
+  [DICTIONARY_PAGE.SEARCH_BUTTON]: "検索",
+  [DICTIONARY_PAGE.TRANSCRIPTION]: "転写"
 };
 
 const english_level_page = {

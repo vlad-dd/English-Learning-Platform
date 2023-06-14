@@ -1,10 +1,16 @@
-import { render, screen } from "@testing-library/react";
-import Dictionary from "./presentational";
-import { DictionaryConfigurationContext } from "./Context";
 import { BrowserRouter } from "react-router-dom";
-import { APOLLO_GRAPHQL_ERRORS, ELP_USER_EXPERIENCE_ERRORS } from "../Сommon/error-handler-page/constants";
+import { render, screen } from "@testing-library/react";
 import { buildApolloError } from "../test-utils";
 import { withIntlProvider } from "../test-utils/hocs";
+import { APOLLO_GRAPHQL_ERRORS, ELP_USER_EXPERIENCE_ERRORS } from "../Сommon/error-handler-page/constants";
+import { DictionaryConfigurationContext } from "./Context";
+import Dictionary from "./presentational";
+import {
+    CONTENT_SECTION_WRAPPER_DATA_TEST_ID,
+    DICTIONARY_SEARCH_INPUT_DATA_TEST_ID,
+    DICTIONARY_WRAPPER_DATA_TEST_ID,
+    ERROR_EMPTY_SPACE_DATA_TEST_ID
+} from "./constants";
 
 const responseMock = {
     dictionary: [
@@ -57,14 +63,14 @@ describe('Dictionary', () => {
     describe('while isLoading false', () => {
         beforeEach(() => {
             render(
-                <DictionaryConfigurationContext.Provider value={{ data: responseMock, isLoading: false, searchWordInDictionary: jest.fn(), error: undefined  }}>
+                <DictionaryConfigurationContext.Provider value={{ data: responseMock, isLoading: false, searchWordInDictionary: jest.fn(), error: undefined }}>
                     <DictionaryWithProvider />
                 </DictionaryConfigurationContext.Provider>
             )
         })
         it('should render Dictionary root', () => {
-            expect(screen.getByTestId('content-section-wrapper')).toBeInTheDocument();
-            expect(screen.getByTestId('dictionary-wrapper')).toBeInTheDocument();
+            expect(screen.getByTestId(CONTENT_SECTION_WRAPPER_DATA_TEST_ID)).toBeInTheDocument();
+            expect(screen.getByTestId(DICTIONARY_WRAPPER_DATA_TEST_ID)).toBeInTheDocument();
         });
 
         it('should render tip alert', () => {
@@ -74,10 +80,9 @@ describe('Dictionary', () => {
         });
 
         it('should render search input', () => {
-            const searchInputId = 'dictionary-search-input';
-            expect(screen.getByTestId(searchInputId)).toBeInTheDocument();
+            expect(screen.getByTestId(DICTIONARY_SEARCH_INPUT_DATA_TEST_ID)).toBeInTheDocument();
             expect(screen.getByText('Search')).toBeInTheDocument();
-            expect(screen.getByTestId(searchInputId).getAttribute("placeholder")).toBe('Search word...');
+            expect(screen.getByTestId(DICTIONARY_SEARCH_INPUT_DATA_TEST_ID).getAttribute("placeholder")).toBe('Search word...');
         });
 
         it('should render word definitions table', () => {
@@ -107,7 +112,7 @@ describe('Dictionary', () => {
                     <DictionaryWithProvider />
                 </DictionaryConfigurationContext.Provider>
             );
-            expect(screen.getByTestId("error-empty-space")).toBeInTheDocument();
+            expect(screen.getByTestId(ERROR_EMPTY_SPACE_DATA_TEST_ID)).toBeInTheDocument();
         });
     });
 
@@ -123,7 +128,7 @@ describe('Dictionary', () => {
                 </BrowserRouter>
             );
             expect(screen.getByTestId("error-page")).toBeInTheDocument();
-            expect(screen.getByText(ELP_USER_EXPERIENCE_ERRORS.BAD_CONNECTION)).toBeInTheDocument(); 
+            expect(screen.getByText(ELP_USER_EXPERIENCE_ERRORS.BAD_CONNECTION)).toBeInTheDocument();
         });
     });
 });

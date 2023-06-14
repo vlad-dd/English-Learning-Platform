@@ -1,27 +1,28 @@
 import { Alert, Empty } from 'antd';
-import SearchInput from "./components/SearchInput";
-import { DictionaryConfigurationContext } from "./Context";
+import { FormattedMessage } from 'react-intl';
 import { LoadingProgress } from '../Сommon';
-import { useConfigurationWidget } from "../Hooks";
-import AudioPlayer from "./components/AudioPlayer";
-import Meanings from "./components/Meanings";
 import ErrorPage from '../Сommon/error-handler-page/not-found-url';
 import { APOLLO_GRAPHQL_ERRORS, ELP_USER_EXPERIENCE_ERRORS } from '../Сommon/error-handler-page/constants';
-import { DICTIONARY_TIP, UNEXISTED_WORD_DESCRIPTION } from './constants';
-import { DictionaryWrapper, DictionaryContent, StyledDictionaryErrorContainer } from "./styled";
+import { useConfigurationWidget } from "../Hooks";
+import { DictionaryConfigurationContext } from "./Context";
+import SearchInput from "./components/SearchInput";
+import AudioPlayer from "./components/AudioPlayer";
+import Meanings from "./components/Meanings";
+import { CONTENT_SECTION_WRAPPER_DATA_TEST_ID, DICTIONARY_TIP_ID, DICTIONARY_WRAPPER_DATA_TEST_ID, ERROR_EMPTY_SPACE_DATA_TEST_ID, UNEXISTED_WORD_ID } from './constants';
 import { ContentSection } from "../Tenses/styled";
+import { DictionaryWrapper, DictionaryContent, StyledDictionaryErrorContainer, StyledServerError } from "./styled";
 
 const Dictionary = () => {
   const { renderApplicationGate, isLoading, error } = useConfigurationWidget(DictionaryConfigurationContext);
 
   if (!window.navigator.onLine) {
     return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.BAD_CONNECTION} />
-  }
+  };
 
   return (
-    <ContentSection data-testid="content-section-wrapper">
-      <DictionaryWrapper data-testid="dictionary-wrapper">
-        <Alert message={DICTIONARY_TIP} type="info" showIcon />
+    <ContentSection data-testid={CONTENT_SECTION_WRAPPER_DATA_TEST_ID}>
+      <DictionaryWrapper data-testid={DICTIONARY_WRAPPER_DATA_TEST_ID}>
+        <Alert message={<FormattedMessage id={DICTIONARY_TIP_ID} />} type="info" showIcon />
         <SearchInput />
         {renderApplicationGate() && (
           <DictionaryContent>
@@ -34,12 +35,12 @@ const Dictionary = () => {
           {error && (
             error.message === APOLLO_GRAPHQL_ERRORS["REQUEST_FAILED_404"] ?
               <Empty
-                data-testid="error-empty-space"
-                description={UNEXISTED_WORD_DESCRIPTION}
+                data-testid={ERROR_EMPTY_SPACE_DATA_TEST_ID}
+                description={<FormattedMessage id={UNEXISTED_WORD_ID} />}
                 imageStyle={{ height: "40vh" }}
               />
               :
-              <div>{ELP_USER_EXPERIENCE_ERRORS.SERVER_ERROR}</div>
+              <StyledServerError>{ELP_USER_EXPERIENCE_ERRORS.SERVER_ERROR}</StyledServerError>
           )}
         </StyledDictionaryErrorContainer>
       </DictionaryWrapper>

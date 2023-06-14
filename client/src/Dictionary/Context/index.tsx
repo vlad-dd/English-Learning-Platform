@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import { createContext } from 'react';
 import { noop } from 'lodash';
 import { DictionaryResponseType, useDictionaryWidget } from '../Hooks/use-dictionary';
 

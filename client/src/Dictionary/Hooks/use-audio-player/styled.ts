@@ -111,3 +111,5 @@ export const FlagImage = styled.img`
     width: 70vw;
   }
 `;
+
+export const StyledDescription = styled.div``;
