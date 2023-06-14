@@ -39,6 +39,10 @@ const tenses_page = {
 const dictionary_page = {
     [DICTIONARY_PAGE.TIP]: "Our dictionary search feature will suggest possible matches and alternatives, so you can easily find the word you're looking for.",
     [DICTIONARY_PAGE.UNEXISTED_WORD]: "Unexisted word, please check the spelling",
+    [DICTIONARY_PAGE.PRONUNCIATION_TITLE]: "Pronunciation",
+    [DICTIONARY_PAGE.UNEXISTED_SOUND]: "There is no audio file for this word",
+    [DICTIONARY_PAGE.SEARCH_BUTTON]: "Search",
+    [DICTIONARY_PAGE.TRANSCRIPTION]: "Transcription"
 };
 
 const english_level_page = {

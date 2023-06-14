@@ -39,6 +39,10 @@ const tenses_page = {
 const dictionary_page = { 
     [DICTIONARY_PAGE.TIP]: "Наша функція пошуку в словнику запропонує можливі збіги та альтернативи, щоб ви могли легко знайти потрібне слово.",
     [DICTIONARY_PAGE.UNEXISTED_WORD]: "Неіснуюче слово, перевірте його написання.",
+    [DICTIONARY_PAGE.PRONUNCIATION_TITLE]: "Вимова",
+    [DICTIONARY_PAGE.UNEXISTED_SOUND]: "Для цього слова немає звукового файлу",
+    [DICTIONARY_PAGE.SEARCH_BUTTON]: "Пошук",
+    [DICTIONARY_PAGE.TRANSCRIPTION]: "Транскрипція"
 };
 
 const english_level_page = {

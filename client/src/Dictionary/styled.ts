@@ -9,3 +9,5 @@ export const DictionaryContent = styled.div`
 export const StyledDictionaryErrorContainer = styled.div`
   padding-top: 25px;
 `;
+
+export const StyledServerError = styled.div``;

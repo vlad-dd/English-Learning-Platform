@@ -1,24 +1,21 @@
 
-interface IAudioPlayer {
+export interface IAudioPlayer {
     audio: string
     text: string
-}
+};
 
-interface IDefinitions {
+export interface IDefinitions {
     __typename: string
     definition: string
     antonyms: string[]
     synonyms: string[]
     example: string
-}
+};
 
-interface IMeanings {
+export interface IMeanings {
     __typename: string
     antonyms: string[]
     synonyms: string[]
     definitions: IDefinitions[]
     partOfSpeech: string
-
-}
-
-export type { IAudioPlayer, IDefinitions, IMeanings };
+};

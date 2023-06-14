@@ -45,5 +45,9 @@ export const ENGLISH_LEVEL_PAGE = {
 
 export const DICTIONARY_PAGE = {
     TIP: "dictionary_tip",
-    UNEXISTED_WORD: "unexisted_word"
+    UNEXISTED_WORD: "unexisted_word",
+    PRONUNCIATION_TITLE: "pronunciation_title",
+    UNEXISTED_SOUND: "unexisted_audio_file",
+    SEARCH_BUTTON: "search_button",
+    TRANSCRIPTION: "word_transcription"
 };

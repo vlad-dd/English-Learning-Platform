@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { DEVICE_MAXIMUM } from "../../../mobile-view";
 
 export const AudioPlayerWrapper = styled.div`
   display: flex;

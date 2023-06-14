@@ -39,6 +39,10 @@ const tenses_page = {
 const dictionary_page = { 
     [DICTIONARY_PAGE.TIP]: "Notre fonction de recherche dans le dictionnaire vous proposera des correspondances et des alternatives possibles, afin que vous puissiez facilement trouver le mot que vous recherchez.",
     [DICTIONARY_PAGE.UNEXISTED_WORD]: "Mot inexistant, merci de vérifier l'orthographe.",
+    [DICTIONARY_PAGE.PRONUNCIATION_TITLE]: "Prononciation",
+    [DICTIONARY_PAGE.UNEXISTED_SOUND]: "Il n'y a pas de fichier audio pour ce mot",
+    [DICTIONARY_PAGE.SEARCH_BUTTON]: "Recherche",
+    [DICTIONARY_PAGE.TRANSCRIPTION]: "Transcription"
 };
 
 const english_level_page = {
