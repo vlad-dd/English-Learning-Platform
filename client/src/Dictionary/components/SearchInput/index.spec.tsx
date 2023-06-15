@@ -1,10 +1,12 @@
-import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
-import SearchInput from ".";
+import { withIntlProvider } from "../../../test-utils/hocs";
 import { DictionaryConfigurationContext } from "../../Context";
+import { DICTIONARY_SEARCH_BUTTON_DATA_TEST_ID, DICTIONARY_SEARCH_INPUT_DATA_TEST_ID } from "../../constants";
+import SearchInput from ".";
+
+const SearchInputWithProvider = withIntlProvider(SearchInput);
 
 describe("SearchInput", () => {
-
   const contextConfiguration = {
     data: {},
     isLoading: false,
@@ -15,27 +17,27 @@ describe("SearchInput", () => {
   beforeEach(() => {
     render(
       <DictionaryConfigurationContext.Provider value={contextConfiguration}>
-        <SearchInput />
+        <SearchInputWithProvider />
       </DictionaryConfigurationContext.Provider>
     );
   });
 
   it("should render SearchInput", () => {
-    expect(screen.getByTestId("dictionary-search-input")).toBeInTheDocument();
-    expect(screen.getByTestId("dictionary-search-button")).toBeInTheDocument();
+    expect(screen.getByTestId(DICTIONARY_SEARCH_INPUT_DATA_TEST_ID)).toBeInTheDocument();
+    expect(screen.getByTestId(DICTIONARY_SEARCH_BUTTON_DATA_TEST_ID)).toBeInTheDocument();
     expect(screen.getByText("Search")).toBeInTheDocument();
   });
 
   it("should fill the input value and call searchWordInDictionary if button was pressed", () => {
-    const input = screen.getByTestId("dictionary-search-input");
+    const input = screen.getByTestId(DICTIONARY_SEARCH_INPUT_DATA_TEST_ID);
     fireEvent.change(input, { target: { value: 'toSearch' } });
-    fireEvent.click(screen.getByTestId("dictionary-search-button"));
+    fireEvent.click(screen.getByTestId(DICTIONARY_SEARCH_BUTTON_DATA_TEST_ID));
     expect(contextConfiguration.searchWordInDictionary).toHaveBeenCalledWith({ variables: { word: "toSearch" } });
     expect(contextConfiguration.searchWordInDictionary).toHaveBeenCalledTimes(1);
   });
 
   it("should fill the input value and call searchWordInDictionary if enter was pressed ", () => {
-    const input = screen.getByTestId("dictionary-search-input");
+    const input = screen.getByTestId(DICTIONARY_SEARCH_INPUT_DATA_TEST_ID);
     fireEvent.change(input, { target: { value: 'search-value' } });
     fireEvent.keyDown(input, { key: 'Enter' });
     expect(contextConfiguration.searchWordInDictionary).toHaveBeenCalledWith({ variables: { word: "search-value" } });

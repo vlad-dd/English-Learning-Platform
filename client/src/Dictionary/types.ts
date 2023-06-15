@@ -19,3 +19,13 @@ export interface IMeanings {
     definitions: IDefinitions[]
     partOfSpeech: string
 };
+
+
+export interface IAudioPlayerWidgetMock {
+    current: {
+        audioPlayers: {
+            audio: string
+            text: string
+        }[]
+    };
+};
