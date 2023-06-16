@@ -40,3 +40,5 @@ export const StyledInputLengthError = styled.p`
 `;
 
 export const StyledInputLengthContainer = styled.div``;
+
+export const StyledModalTitle = styled.h3``;

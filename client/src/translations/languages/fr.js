@@ -1,4 +1,4 @@
-import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -54,11 +54,20 @@ const english_level_page = {
     [ENGLISH_LEVEL_PAGE.NOTE_THREE]: "🤷🏽 Si vous n'êtes pas sûr de la réponse, veuillez sélectionner la réponse qui, selon vous, pourrait être vraie."
 };
 
+const support_team = {
+    [SUPPORT_TEAM.SEND_REPORT_MODAL_TITLE]: "Signaler le problème👷‍♂️",
+    [SUPPORT_TEAM.SEND_REPORT_MODAL_FEEDBACK_TITLE]: "Votre rapport a été envoyé avec succès !",
+    [SUPPORT_TEAM.SEND_REPORT_MODAL_NUMBER]: "Signaler le numéro:",
+    [SUPPORT_TEAM.SEND_REPORT_MODAL_THANK_MESSAGE]: "Merci d'avoir rendu notre service meilleur !",
+    [SUPPORT_TEAM.SEND_REPORT_SUBMIT_BUTTON]: "Envoyer"
+};
+
 const FR_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page, 
     tenses_page, 
     dictionary_page, 
     english_level_page,
+    support_team,
     "FR").buildTranslationObject();
 
 export default FR_TRANSLATION_BUILD;

@@ -1,4 +1,4 @@
-import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -55,11 +55,21 @@ const english_level_page = {
 };
 
 
+const support_team = {
+    [SUPPORT_TEAM.SEND_REPORT_MODAL_TITLE]: "Повідомити про проблему👷‍♂️",
+    [SUPPORT_TEAM.SEND_REPORT_MODAL_FEEDBACK_TITLE]: "Ваш звіт успішно надіслано!",
+    [SUPPORT_TEAM.SEND_REPORT_MODAL_NUMBER]: "Номер звіту:",
+    [SUPPORT_TEAM.SEND_REPORT_MODAL_THANK_MESSAGE]: "Дякуємо, що робите наш сервіс кращим!",
+    [SUPPORT_TEAM.SEND_REPORT_SUBMIT_BUTTON]: "Надіслати"
+}
+
+
 const UA_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page, 
     tenses_page, 
     dictionary_page,
     english_level_page,
+    support_team,
     "UA").buildTranslationObject();
 
 export default UA_TRANSLATION_BUILD;

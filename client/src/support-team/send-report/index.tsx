@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { FormattedMessage } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal, Tooltip } from "antd";
 import { closeSendReportModal } from "../../store/reducers/send-report-modal";
 import { reportModalState } from "../../store/selectors";
 import { SendReportForm, ReportResult, ReportServiceIcon } from "./components";
-import { StyledSendReportWrapper } from "./styled";
+import { REPORT_SERVICE_MODAL_DATA_TEST_ID, TOOLTIP_TITLE } from "../constants";
+import { SUPPORT_TEAM } from "../../translations/constants";
+import { StyledModalTitle, StyledSendReportWrapper } from "./styled";
 
 const SendReportModal = () => {
   const dispatch = useDispatch();
@@ -12,10 +15,13 @@ const SendReportModal = () => {
   const [isSubmitted, setSubmitted] = useState(false);
   return (
     <StyledSendReportWrapper>
-      <Tooltip title="Report about the Problem">
+      <Tooltip title={TOOLTIP_TITLE}>
         <Modal
-          data-testid="report-service-modal"
-          title={<h3>Report about the Problem👷‍♂️</h3>}
+          data-testid={REPORT_SERVICE_MODAL_DATA_TEST_ID}
+          title={
+            <StyledModalTitle>
+              <FormattedMessage id={SUPPORT_TEAM.SEND_REPORT_MODAL_TITLE} />
+            </StyledModalTitle>}
           open={isOpen}
           onOk={() => dispatch(closeSendReportModal())}
           onCancel={() => dispatch(closeSendReportModal())}
@@ -23,7 +29,7 @@ const SendReportModal = () => {
           {isSubmitted && <ReportResult />}
           <SendReportForm
             isSubmitted={isSubmitted}
-            setSubmitted={setSubmitted} 
+            setSubmitted={setSubmitted}
           />
         </Modal>
         <ReportServiceIcon />
