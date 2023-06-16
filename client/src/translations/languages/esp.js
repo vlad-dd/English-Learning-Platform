@@ -1,5 +1,5 @@
 import { BuildAllTranslationPages } from "../translation-builders";
-import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 
 const welcome_page = {
     [WELCOME_PAGE.TITLE]: "Plataforma de aprendizaje de inglés",
@@ -54,11 +54,20 @@ const english_level_page = {
     [ENGLISH_LEVEL_PAGE.NOTE_THREE]: "🤷🏽 En caso de que no estés seguro de la respuesta, selecciona la respuesta que creas que podría ser cierta."
 };
 
+const support_team = {
+    [SUPPORT_TEAM.SEND_REPORT_MODAL_TITLE]: "Informe sobre el problema👷‍♂️",
+    [SUPPORT_TEAM.SEND_REPORT_MODAL_FEEDBACK_TITLE]: "¡Su informe fue enviado con éxito!",
+    [SUPPORT_TEAM.SEND_REPORT_MODAL_NUMBER]: "Numero de reporte:",
+    [SUPPORT_TEAM.SEND_REPORT_MODAL_THANK_MESSAGE]: "¡Gracias por mejorar nuestro servicio!",
+    [SUPPORT_TEAM.SEND_REPORT_SUBMIT_BUTTON]: "Enviar"
+};
+
 const ESP_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page, 
     tenses_page, 
     dictionary_page, 
     english_level_page,
+    support_team,
     "ESP").buildTranslationObject();
 
 export default ESP_TRANSLATION_BUILD;

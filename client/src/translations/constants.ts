@@ -51,3 +51,11 @@ export const DICTIONARY_PAGE = {
     SEARCH_BUTTON: "search_button",
     TRANSCRIPTION: "word_transcription"
 };
+
+export const SUPPORT_TEAM = {
+    SEND_REPORT_MODAL_TITLE: "send_report_modal_title",
+    SEND_REPORT_MODAL_FEEDBACK_TITLE: "send_report_modal_feedback_title",
+    SEND_REPORT_MODAL_NUMBER: "send_report_modal_number",
+    SEND_REPORT_MODAL_THANK_MESSAGE: "send_report_modal_thank_message",
+    SEND_REPORT_SUBMIT_BUTTON: "send_report_submit_button",
+}

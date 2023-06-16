@@ -1,11 +1,23 @@
-import React from "react";
+import { FormattedMessage } from "react-intl";
 import { Form, Select } from "antd";
 import { LoadingButton } from "@mui/lab";
 import SendIcon from '@mui/icons-material/Send';
 import TextArea from "antd/lib/input/TextArea";
-import useReportWidget from "./use-report-widget";
 import { ISendReportForm } from "../../../types";
-import { ELP_APPLICATIONS, MAX_TEXT_AREA_LENGTH, MIN_TEXT_AREA_LENGTH, REPORT_FORM_LABELS } from "../../../constants";
+import { SUPPORT_TEAM } from "../../../../translations/constants";
+import useReportWidget from "./use-report-widget";
+import {
+    ELP_APPLICATIONS,
+    MAX_TEXT_AREA_LENGTH,
+    MIN_TEXT_AREA_LENGTH,
+    REPORT_FORM_LABELS,
+    SEND_REPORT_FORM_DATA_TEST_ID,
+    SEND_REPORT_MAX_LENGTH_GATE_DATA_TEST_ID,
+    SEND_REPORT_MIN_LENGTH_GATE_DATA_TEST_ID,
+    SEND_REPORT_SELECT_REASON_DATA_TEST_ID,
+    SEND_REPORT_SUBMIT_BUTTON_DATA_TEST_ID,
+    SEND_REPORT_TEXTAREA_DATA_TEST_ID
+} from "../../../constants";
 import {
     StyledForm,
     StyledInputLengthContainer,
@@ -31,30 +43,30 @@ const SendReportForm = ({ isSubmitted, setSubmitted }: ISendReportForm) => {
     return (
         <>
             <StyledForm
-                data-testid="send-report-form"
+                data-testid={SEND_REPORT_FORM_DATA_TEST_ID}
                 labelCol={{ span: 6 }}
                 hidden={isSubmitted}
                 wrapperCol={{ span: 12 }}>
                 <Item required label={REPORT_FORM_LABELS.FOUND_IN}>
                     <Select
-                        data-testid="send-report-select-reason"
+                        data-testid={SEND_REPORT_SELECT_REASON_DATA_TEST_ID}
                         onSelect={selectApplication}
                         options={ELP_APPLICATIONS}
                     />
                 </Item>
                 <Item required label={REPORT_FORM_LABELS.DESCRIPTION}>
                     <TextArea
-                        data-testid="send-report-textarea"
+                        data-testid={SEND_REPORT_TEXTAREA_DATA_TEST_ID}
                         onBlur={() => setTouchedByMouse(true)}
                         maxLength={MAX_TEXT_AREA_LENGTH}
                         minLength={MIN_TEXT_AREA_LENGTH}
                         onChange={({ target: { value } }) => handleTextArea(value)}
                     />
-                    <StyledInputLengthContainer data-testid="send-report-min-length-gate">
+                    <StyledInputLengthContainer data-testid={SEND_REPORT_MIN_LENGTH_GATE_DATA_TEST_ID}>
                         {minLengthGate}
                     </StyledInputLengthContainer>
 
-                    <StyledInputLengthContainer data-testid="send-report-max-length-gate">
+                    <StyledInputLengthContainer data-testid={SEND_REPORT_MAX_LENGTH_GATE_DATA_TEST_ID}>
                         {maxLengthGate}
                     </StyledInputLengthContainer>
                 </Item>
@@ -62,7 +74,7 @@ const SendReportForm = ({ isSubmitted, setSubmitted }: ISendReportForm) => {
 
             <SubmitButtonWrapper>
                 <LoadingButton
-                    data-testid="send-report-submit"
+                    data-testid={SEND_REPORT_SUBMIT_BUTTON_DATA_TEST_ID}
                     variant="contained"
                     endIcon={<SendIcon />}
                     loading={isLoading}
@@ -74,7 +86,7 @@ const SendReportForm = ({ isSubmitted, setSubmitted }: ISendReportForm) => {
                         !isLoading && setSubmitted(true)
                     }}
                 >
-                    Send
+                    <FormattedMessage id={SUPPORT_TEAM.SEND_REPORT_SUBMIT_BUTTON} />
                 </LoadingButton>
             </SubmitButtonWrapper>
         </>

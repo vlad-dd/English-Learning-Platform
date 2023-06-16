@@ -32,7 +32,7 @@ const useReportWidget = (): ReportWidget => {
     const sendReport = () => {
         const { application, description } = report;
         sendApplicationReport({ variables: { application, description } });
-    }
+    };
 
     return {
         report,
