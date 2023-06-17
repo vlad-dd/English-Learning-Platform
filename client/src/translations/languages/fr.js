@@ -59,7 +59,9 @@ const support_team = {
     [SUPPORT_TEAM.SEND_REPORT_MODAL_FEEDBACK_TITLE]: "Votre rapport a été envoyé avec succès !",
     [SUPPORT_TEAM.SEND_REPORT_MODAL_NUMBER]: "Signaler le numéro:",
     [SUPPORT_TEAM.SEND_REPORT_MODAL_THANK_MESSAGE]: "Merci d'avoir rendu notre service meilleur !",
-    [SUPPORT_TEAM.SEND_REPORT_SUBMIT_BUTTON]: "Envoyer"
+    [SUPPORT_TEAM.SEND_REPORT_SUBMIT_BUTTON]: "Envoyer",
+    [SUPPORT_TEAM.SEND_REPORT_INPUT_MIN_LENGTH_ERROR_DATA_TEST_ID]: "Vous devez écrire au moins 10 symboles !",
+    [SUPPORT_TEAM.SEND_REPORT_INPUT_MAX_LENGTH_ERROR_DATA_TEST_ID]: "Vous avez atteint le maximum de symboles !"
 };
 
 const FR_TRANSLATION_BUILD = new BuildAllTranslationPages(

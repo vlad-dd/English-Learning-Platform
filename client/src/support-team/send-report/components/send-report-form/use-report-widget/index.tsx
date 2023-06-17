@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { useMutation } from "@apollo/client";
+import { FormattedMessage } from "react-intl";
 import { SEND_APPLICATION_REPORT_MUTATION } from "../../../../graphql";
 import { IReport, ReportWidget } from "../../../../types";
+import { SUPPORT_TEAM } from "../../../../../translations/constants";
 import { MAX_TEXT_AREA_LENGTH, MIN_TEXT_AREA_LENGTH } from "../../../../constants";
 import { StyledInputLengthError } from '../../../styled';
 
@@ -13,8 +15,16 @@ const useReportWidget = (): ReportWidget => {
     const minLengthError = report.description.length < MIN_TEXT_AREA_LENGTH;
     const maxLengthError = report.description.length === MAX_TEXT_AREA_LENGTH;
 
-    const minLengthGate = (minLengthError && touchedByMouse) ? <StyledInputLengthError>You should write at least 10 symbols!</StyledInputLengthError> : '';
-    const maxLengthGate = maxLengthError ? <StyledInputLengthError>You have reached max of symbols!</StyledInputLengthError> : '';
+    const minLengthGate = (minLengthError && touchedByMouse) ?
+        <StyledInputLengthError>
+            <FormattedMessage id={SUPPORT_TEAM.SEND_REPORT_INPUT_MIN_LENGTH_ERROR_DATA_TEST_ID} />
+        </StyledInputLengthError>
+        : '';
+    const maxLengthGate = maxLengthError ?
+        <StyledInputLengthError>
+            <FormattedMessage id={SUPPORT_TEAM.SEND_REPORT_INPUT_MAX_LENGTH_ERROR_DATA_TEST_ID} />
+        </StyledInputLengthError>
+        : '';
 
     const isDisabled = (report.application === '' && report.description === '')
         || (report.application === '')

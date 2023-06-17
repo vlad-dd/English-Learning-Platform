@@ -60,7 +60,9 @@ const support_team = {
     [SUPPORT_TEAM.SEND_REPORT_MODAL_FEEDBACK_TITLE]: "Ваш звіт успішно надіслано!",
     [SUPPORT_TEAM.SEND_REPORT_MODAL_NUMBER]: "Номер звіту:",
     [SUPPORT_TEAM.SEND_REPORT_MODAL_THANK_MESSAGE]: "Дякуємо, що робите наш сервіс кращим!",
-    [SUPPORT_TEAM.SEND_REPORT_SUBMIT_BUTTON]: "Надіслати"
+    [SUPPORT_TEAM.SEND_REPORT_SUBMIT_BUTTON]: "Надіслати",
+    [SUPPORT_TEAM.SEND_REPORT_INPUT_MIN_LENGTH_ERROR_DATA_TEST_ID]: "Ви повинні написати не менше 10 символів!",
+    [SUPPORT_TEAM.SEND_REPORT_INPUT_MAX_LENGTH_ERROR_DATA_TEST_ID]: "Ви досягли максимальної кількості символів!"
 }
 
 
