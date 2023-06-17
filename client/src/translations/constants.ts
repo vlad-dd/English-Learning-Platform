@@ -58,4 +58,6 @@ export const SUPPORT_TEAM = {
     SEND_REPORT_MODAL_NUMBER: "send_report_modal_number",
     SEND_REPORT_MODAL_THANK_MESSAGE: "send_report_modal_thank_message",
     SEND_REPORT_SUBMIT_BUTTON: "send_report_submit_button",
+    SEND_REPORT_INPUT_MIN_LENGTH_ERROR_DATA_TEST_ID: "send_report_input_min_length_error",
+    SEND_REPORT_INPUT_MAX_LENGTH_ERROR_DATA_TEST_ID: "send_report_input_max_length_error"
 }

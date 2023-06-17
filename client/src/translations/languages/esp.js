@@ -59,7 +59,9 @@ const support_team = {
     [SUPPORT_TEAM.SEND_REPORT_MODAL_FEEDBACK_TITLE]: "¡Su informe fue enviado con éxito!",
     [SUPPORT_TEAM.SEND_REPORT_MODAL_NUMBER]: "Numero de reporte:",
     [SUPPORT_TEAM.SEND_REPORT_MODAL_THANK_MESSAGE]: "¡Gracias por mejorar nuestro servicio!",
-    [SUPPORT_TEAM.SEND_REPORT_SUBMIT_BUTTON]: "Enviar"
+    [SUPPORT_TEAM.SEND_REPORT_SUBMIT_BUTTON]: "Enviar",
+    [SUPPORT_TEAM.SEND_REPORT_INPUT_MIN_LENGTH_ERROR_DATA_TEST_ID]: "¡Debes escribir al menos 10 símbolos!",
+    [SUPPORT_TEAM.SEND_REPORT_INPUT_MAX_LENGTH_ERROR_DATA_TEST_ID]: "¡Has alcanzado el máximo de símbolos!"
 };
 
 const ESP_TRANSLATION_BUILD = new BuildAllTranslationPages(

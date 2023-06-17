@@ -59,7 +59,9 @@ const support_team = {
     [SUPPORT_TEAM.SEND_REPORT_MODAL_FEEDBACK_TITLE]: "Your Report Was Successfully Sent!",
     [SUPPORT_TEAM.SEND_REPORT_MODAL_NUMBER]: "Report number:",
     [SUPPORT_TEAM.SEND_REPORT_MODAL_THANK_MESSAGE]: "Thank you for making our service better!",
-    [SUPPORT_TEAM.SEND_REPORT_SUBMIT_BUTTON]: "Send"
+    [SUPPORT_TEAM.SEND_REPORT_SUBMIT_BUTTON]: "Send",
+    [SUPPORT_TEAM.SEND_REPORT_INPUT_MIN_LENGTH_ERROR_DATA_TEST_ID]: "You should write at least 10 symbols!",
+    [SUPPORT_TEAM.SEND_REPORT_INPUT_MAX_LENGTH_ERROR_DATA_TEST_ID]: "You have reached max of symbols!"
 }
 
 const US_TRANSLATION_BUILD = new BuildAllTranslationPages(
