@@ -1,4 +1,4 @@
-import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -64,12 +64,28 @@ const support_team = {
   [SUPPORT_TEAM.SEND_REPORT_INPUT_MAX_LENGTH_ERROR_DATA_TEST_ID]: "シンボルの最大数に達しました!"
 };
 
+const user_profile_modal = {
+  [APPLICATION_MODALS.REPORT_USER_PROFILE_MODAL_TITLE]: "不適切なユーザーを報告する👮‍♀️",
+  [APPLICATION_MODALS.REPORT_USER_PROFILE_MODAL_DESCRIPTION]: "ユーザー苦情機能を使用すると、英語学習プラットフォームのポリシーに違反していると思われる行為やコンテンツを報告できます。 当社はすべての苦情を真摯に受け止め、当社のプラットフォームがすべてのユーザーにとって安全で居心地の良い空間であることを保証するよう努めています。",
+  [APPLICATION_MODALS.PROFILE_MODAL_CLOSE_BUTTON]: "近い"
+};
+
+const application_modals = {
+  ...user_profile_modal
+};
+
+const application_root = {
+  ...application_modals,
+  [APPLICATION_ROOT.FOOTER_AUTHOR_INFORMATION]: "英語学習プラットフォーム ©2022 作成者"
+};
+
 const JP_TRANSLATION_BUILD = new BuildAllTranslationPages(
   welcome_page, 
   tenses_page, 
   dictionary_page, 
   english_level_page,
   support_team,
+  application_root,
   "JP").buildTranslationObject();
 
 export default JP_TRANSLATION_BUILD;

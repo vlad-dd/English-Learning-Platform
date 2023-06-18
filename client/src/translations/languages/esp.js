@@ -1,5 +1,5 @@
 import { BuildAllTranslationPages } from "../translation-builders";
-import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 
 const welcome_page = {
     [WELCOME_PAGE.TITLE]: "Plataforma de aprendizaje de inglés",
@@ -36,7 +36,7 @@ const tenses_page = {
     [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "Tomamos estas reglas en serio para mantener una comunidad segura y respetuosa para todos los usuarios. Los comentarios que violen estas reglas pueden eliminarse y los infractores reincidentes pueden ser expulsados de la plataforma. Alentamos a todos los usuarios a revisar estas reglas y reportar cualquier comentario que las viole a nuestro equipo de moderación👩‍💻."
 };
 
-const dictionary_page = { 
+const dictionary_page = {
     [DICTIONARY_PAGE.TIP]: "Nuestra función de búsqueda de diccionario sugerirá posibles coincidencias y alternativas, para que pueda encontrar fácilmente la palabra que está buscando.",
     [DICTIONARY_PAGE.UNEXISTED_WORD]: "Palabra inexistente, por favor revise la ortografía.",
     [DICTIONARY_PAGE.PRONUNCIATION_TITLE]: "Pronunciación",
@@ -64,12 +64,28 @@ const support_team = {
     [SUPPORT_TEAM.SEND_REPORT_INPUT_MAX_LENGTH_ERROR_DATA_TEST_ID]: "¡Has alcanzado el máximo de símbolos!"
 };
 
+const user_profile_modal = {
+    [APPLICATION_MODALS.REPORT_USER_PROFILE_MODAL_TITLE]: "Reportar Usuario Inapropiado👮‍♀️",
+    [APPLICATION_MODALS.REPORT_USER_PROFILE_MODAL_DESCRIPTION]: "Nuestra función de quejas de usuarios le permite informar cualquier comportamiento o contenido que crea que viola nuestras políticas de English Learning Platform. Tomamos todas las quejas con seriedad y nos esforzamos por garantizar que nuestra plataforma sea un espacio seguro y acogedor para todos los usuarios.",
+    [APPLICATION_MODALS.PROFILE_MODAL_CLOSE_BUTTON]: "Cerca"
+};
+
+const application_modals = {
+    ...user_profile_modal
+};
+
+const application_root = {
+    ...application_modals,
+    [APPLICATION_ROOT.FOOTER_AUTHOR_INFORMATION]: "English Learning Platform ©2022 Creado por"
+};
+
 const ESP_TRANSLATION_BUILD = new BuildAllTranslationPages(
-    welcome_page, 
-    tenses_page, 
-    dictionary_page, 
+    welcome_page,
+    tenses_page,
+    dictionary_page,
     english_level_page,
     support_team,
+    application_root,
     "ESP").buildTranslationObject();
 
 export default ESP_TRANSLATION_BUILD;

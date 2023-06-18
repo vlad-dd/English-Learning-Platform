@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import ProfileModal from '.';
 import * as ReactRedux from 'react-redux';
-import { COMMUNICATION_BLOCK_ID, MAIN_INFORMATION_BLOCK_ID, PROFILE_MODAL_ID } from './constants';
+import { COMMUNICATION_BLOCK_DATA_TEST_ID, MAIN_INFORMATION_BLOCK_DATA_TEST_ID, PROFILE_MODAL_DATA_TEST_ID } from './constants';
 import { closeUserProfileModal } from '../../../store/reducers/user-profile-modal';
 import { withApolloProvider, withRouterProvider } from '../../../test-utils/hocs';
 
@@ -26,12 +26,12 @@ describe('Profile modal', () => {
     });
 
     it('should render profile', () => {
-        expect(screen.getByTestId(MAIN_INFORMATION_BLOCK_ID)).toBeInTheDocument();
-        expect(screen.getByTestId(COMMUNICATION_BLOCK_ID)).toBeInTheDocument();
+        expect(screen.getByTestId(MAIN_INFORMATION_BLOCK_DATA_TEST_ID)).toBeInTheDocument();
+        expect(screen.getByTestId(COMMUNICATION_BLOCK_DATA_TEST_ID)).toBeInTheDocument();
     });
 
     it('should call dispatch if user has closed the modal through escape', () => {
-        fireEvent.keyDown(screen.getByTestId(PROFILE_MODAL_ID), { key: "Escape" });
+        fireEvent.keyDown(screen.getByTestId(PROFILE_MODAL_DATA_TEST_ID), { key: "Escape" });
         expect(dispatch).toBeCalledTimes(1);
         expect(dispatch).toBeCalledWith(closeUserProfileModal());
     });

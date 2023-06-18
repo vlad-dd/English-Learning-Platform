@@ -1,7 +1,12 @@
 import { Tag } from "antd";
+import { IUserAchievements } from "../../types";
 
-const UserAchievements = ({ achievements }: any) => {
-    return achievements?.map(({ achievement, color }: any) => <Tag color={color}>{achievement}</Tag>)
+const UserAchievements = ({ achievements }: { achievements: IUserAchievements[] }): JSX.Element => {
+    return (
+        <>
+            {achievements.map(({ achievement, color }) => <Tag color={color} children={achievement} />)}
+        </>
+    )
 }
 
 export default UserAchievements;

@@ -1,4 +1,4 @@
-import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -36,7 +36,7 @@ const tenses_page = {
     [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "Nous prenons ces règles au sérieux afin de maintenir une communauté sûre et respectueuse pour tous les utilisateurs. Les commentaires qui enfreignent ces règles peuvent être supprimés et les récidivistes peuvent être bannis de la plateforme. Nous encourageons tous les utilisateurs à consulter ces règles et à signaler tout commentaire qui les enfreint à notre équipe de modération👩‍💻."
 };
 
-const dictionary_page = { 
+const dictionary_page = {
     [DICTIONARY_PAGE.TIP]: "Notre fonction de recherche dans le dictionnaire vous proposera des correspondances et des alternatives possibles, afin que vous puissiez facilement trouver le mot que vous recherchez.",
     [DICTIONARY_PAGE.UNEXISTED_WORD]: "Mot inexistant, merci de vérifier l'orthographe.",
     [DICTIONARY_PAGE.PRONUNCIATION_TITLE]: "Prononciation",
@@ -64,12 +64,28 @@ const support_team = {
     [SUPPORT_TEAM.SEND_REPORT_INPUT_MAX_LENGTH_ERROR_DATA_TEST_ID]: "Vous avez atteint le maximum de symboles !"
 };
 
+const user_profile_modal = {
+    [APPLICATION_MODALS.REPORT_USER_PROFILE_MODAL_TITLE]: "Signaler un utilisateur inapproprié👮‍♀️",
+    [APPLICATION_MODALS.REPORT_USER_PROFILE_MODAL_DESCRIPTION]: "Notre fonctionnalité de plainte des utilisateurs vous permet de signaler tout comportement ou contenu qui, selon vous, enfreint nos politiques de la plate-forme d'apprentissage de l'anglais. Nous prenons toutes les plaintes au sérieux et nous nous efforçons de faire en sorte que notre plateforme soit un espace sûr et accueillant pour tous les utilisateurs.",
+    [APPLICATION_MODALS.PROFILE_MODAL_CLOSE_BUTTON]: "Fermer"
+};
+
+const application_modals = {
+    ...user_profile_modal
+};
+
+const application_root = {
+    ...application_modals,
+    [APPLICATION_ROOT.FOOTER_AUTHOR_INFORMATION]: "Plateforme d'apprentissage de l'anglais ©2022 Créé par"
+};
+
 const FR_TRANSLATION_BUILD = new BuildAllTranslationPages(
-    welcome_page, 
-    tenses_page, 
-    dictionary_page, 
+    welcome_page,
+    tenses_page,
+    dictionary_page,
     english_level_page,
     support_team,
+    application_root,
     "FR").buildTranslationObject();
 
 export default FR_TRANSLATION_BUILD;

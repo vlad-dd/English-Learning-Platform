@@ -1,13 +1,14 @@
 import { ProgressBar } from "../../../../../Сommon";
-import { StyledUserProgressContainer } from "../../styled";
+import { IUserProgress } from "../../types";
+import { StyledUserProgressContainer, StyledUserProgressLabel } from "../../styled";
 
-const UserProgressContainer = ({ progress }: any) => {
+const UserProgressContainer = ({ progress }: { progress: IUserProgress[] }) => {
     return (
         <StyledUserProgressContainer>
-            {progress.map(({ label, percent }: any) => {
+            {progress.map(({ label, percent }) => {
                 return (
                     <>
-                        <span>{label}</span>
+                        <StyledUserProgressLabel>{label}</StyledUserProgressLabel>
                         <ProgressBar type="line" percent={percent} width={40} />
                     </>
                 )

@@ -60,4 +60,18 @@ export const SUPPORT_TEAM = {
     SEND_REPORT_SUBMIT_BUTTON: "send_report_submit_button",
     SEND_REPORT_INPUT_MIN_LENGTH_ERROR_DATA_TEST_ID: "send_report_input_min_length_error",
     SEND_REPORT_INPUT_MAX_LENGTH_ERROR_DATA_TEST_ID: "send_report_input_max_length_error"
+};
+
+export const USER_PROFILE_MODAL = {
+    REPORT_USER_PROFILE_MODAL_TITLE: "report_user_profile_modal_title",
+    REPORT_USER_PROFILE_MODAL_DESCRIPTION: "report_user_profile_modal_description",
+    PROFILE_MODAL_CLOSE_BUTTON: "profile_modal_close_button"
 }
+
+export const APPLICATION_MODALS = {
+    ...USER_PROFILE_MODAL,
+}
+
+export const APPLICATION_ROOT = {
+    FOOTER_AUTHOR_INFORMATION: "footer_author_information",
+};
