@@ -1,11 +1,12 @@
-import { StyledTabLabel } from "../../styled";
+import { ITabActionLabel } from "../../types";
+import { StyledTabLabel, StyledTabLabelContainer } from "../../styled";
 
-const TabActionLabel = ({ label, Icon }: any) => {
+const TabActionLabel = ({ label, Icon }: ITabActionLabel) => {
     return (
-        <StyledTabLabel>
-            <span style={{ marginRight: "5px" }}>{label}</span>
+        <StyledTabLabelContainer>
+            <StyledTabLabel>{label}</StyledTabLabel>
             <Icon />
-        </StyledTabLabel>
+        </StyledTabLabelContainer>
     )
 }
 

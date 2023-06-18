@@ -1,4 +1,4 @@
-import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -64,12 +64,28 @@ const support_team = {
     [SUPPORT_TEAM.SEND_REPORT_INPUT_MAX_LENGTH_ERROR_DATA_TEST_ID]: "Sie haben die maximale Anzahl an Symbolen erreicht!"
 };
 
+const user_profile_modal = {
+    [APPLICATION_MODALS.REPORT_USER_PROFILE_MODAL_TITLE]: "Unangemessenen Benutzer melden👮‍♀️",
+    [APPLICATION_MODALS.REPORT_USER_PROFILE_MODAL_DESCRIPTION]: "Mit unserer Benutzerbeschwerdefunktion können Sie jedes Verhalten oder jeden Inhalt melden, von dem Sie glauben, dass er gegen unsere Richtlinien der English Learning Platform verstößt. Wir nehmen alle Beschwerden ernst und bemühen uns sicherzustellen, dass unsere Plattform ein sicherer und einladender Ort für alle Benutzer ist.",
+    [APPLICATION_MODALS.PROFILE_MODAL_CLOSE_BUTTON]: "Schließen"
+};
+
+const application_modals = {
+    ...user_profile_modal
+};
+
+const application_root = {
+    ...application_modals,
+    [APPLICATION_ROOT.FOOTER_AUTHOR_INFORMATION]: "Englisch-Lernplattform ©2022 Erstellt von"
+};
+
 const GER_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page, 
     tenses_page, 
     dictionary_page, 
     english_level_page,
     support_team,
+    application_root,
     "GER").buildTranslationObject();
 
 export default GER_TRANSLATION_BUILD;

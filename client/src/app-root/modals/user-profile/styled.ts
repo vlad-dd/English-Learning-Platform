@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Box, DialogActions } from '@mui/material';
+import { Tag } from "antd";
 
 export const StyledUserProfileBox = styled(Box)`
   position: absolute;
@@ -74,12 +75,23 @@ export const StyledDialogActions = styled(DialogActions)`
   width: 100%;
 `;
 
-export const StyledTabLabel = styled.div`
+export const StyledTabLabelContainer = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const StyledTabLabel = styled.span`
+  margin-right: 5px;
 `;
 
 export const StyledUserProgressContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const StyledActivityTag = styled(Tag)`
+  border-radius: 50px;
+  font-size: 0.8rem;
+`;
+
+export const StyledUserProgressLabel = styled.span``;

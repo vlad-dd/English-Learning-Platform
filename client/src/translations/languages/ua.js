@@ -1,4 +1,4 @@
-import { DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -63,8 +63,22 @@ const support_team = {
     [SUPPORT_TEAM.SEND_REPORT_SUBMIT_BUTTON]: "Надіслати",
     [SUPPORT_TEAM.SEND_REPORT_INPUT_MIN_LENGTH_ERROR_DATA_TEST_ID]: "Ви повинні написати не менше 10 символів!",
     [SUPPORT_TEAM.SEND_REPORT_INPUT_MAX_LENGTH_ERROR_DATA_TEST_ID]: "Ви досягли максимальної кількості символів!"
-}
+};
 
+const user_profile_modal = {
+    [APPLICATION_MODALS.REPORT_USER_PROFILE_MODAL_TITLE]: "Повідомити про невідповідного користувача👮‍♀️",
+    [APPLICATION_MODALS.REPORT_USER_PROFILE_MODAL_DESCRIPTION]: "Наша функція подання скарг користувачів дозволяє вам повідомляти про будь-яку поведінку чи вміст, які, на вашу думку, порушують нашу політику English Learning Platform. Ми серйозно ставимося до всіх скарг і прагнемо, щоб наша платформа була безпечною та приємною для всіх користувачів.",
+    [APPLICATION_MODALS.PROFILE_MODAL_CLOSE_BUTTON]: "Закрити"
+};
+
+const application_modals = {
+   ...user_profile_modal
+};
+
+const application_root = {
+    ...application_modals,
+    [APPLICATION_ROOT.FOOTER_AUTHOR_INFORMATION]: "Платформа для вивчення англійської мови ©2022 Створено"
+};
 
 const UA_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page, 
@@ -72,6 +86,7 @@ const UA_TRANSLATION_BUILD = new BuildAllTranslationPages(
     dictionary_page,
     english_level_page,
     support_team,
+    application_root,
     "UA").buildTranslationObject();
 
 export default UA_TRANSLATION_BUILD;

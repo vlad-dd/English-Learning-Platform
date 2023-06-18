@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import * as CommunicationBlockWidget from '../../use-communication-widget';
-import { COMMUNICATION_BLOCK_ID } from '../../constants';
+import { COMMUNICATION_BLOCK_DATA_TEST_ID } from '../../constants';
 import CommunicationBlock from '.';
 import { withApolloProvider } from '../../../../../test-utils/hocs';
 
@@ -30,7 +30,7 @@ describe('Communication Block', () => {
     it('should render component with opened report dialog', () => {
         widgetSpy.mockReturnValue(props);
         render(<CommunicationBlockWithProvider />);
-        expect(screen.getByTestId(COMMUNICATION_BLOCK_ID)).toBeInTheDocument();
+        expect(screen.getByTestId(COMMUNICATION_BLOCK_DATA_TEST_ID)).toBeInTheDocument();
         expect(screen.getByTestId("report-modal-dialog")).toBeInTheDocument();
         REPORT_DIALOG_TEXT.forEach((text: string) => expect(screen.getByText(text)).toBeInTheDocument());
     });
