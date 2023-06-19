@@ -1,22 +1,7 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
-import store from "../store";
+import { withIntlProvider, withReduxProvider, withRouterProvider } from "../test-utils/hocs";
+import { APPLICATION_LAYOUT_DATA_TEST_ID } from "./constants";
 import ApplicationRoot from "./presentational";
-import { Provider } from "react-redux";
-import ErrorBoundary from "../ErrorBoundary";
-
-const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
-  return (
-    <ErrorBoundary>
-      <BrowserRouter>
-        <Provider store={store}>
-          {children}
-        </Provider>
-      </BrowserRouter>
-    </ErrorBoundary>
-  );
-};
 
 const MockTree = () => {
   return (
@@ -27,20 +12,21 @@ const MockTree = () => {
   );
 };
 
+const ApplicationRootWithProviders = withRouterProvider(withReduxProvider(withIntlProvider(ApplicationRoot)));
+const MockTreeWithProviders = withRouterProvider(withReduxProvider(MockTree));
+
 describe("ApplicationRoot", () => {
-    beforeEach(() => {
-        render(
-            <ApplicationProviders>
-                <>
-                    <ApplicationRoot />
-                    <MockTree />
-                </>
-            </ApplicationProviders>
-        );
-    });
+  beforeEach(() => {
+    render(
+      <>
+        <ApplicationRootWithProviders />
+        <MockTreeWithProviders />
+      </>
+    );
+  });
 
   it("should render sider menu", () => {
-    expect(screen.getByTestId("application-layout")).toBeInTheDocument();
+    expect(screen.getByTestId(APPLICATION_LAYOUT_DATA_TEST_ID)).toBeInTheDocument();
     expect(screen.getByText("Tenses")).toBeInTheDocument();
     expect(screen.getByText("Grammar Levels")).toBeInTheDocument();
     expect(screen.getByText("Dictionary")).toBeInTheDocument();
