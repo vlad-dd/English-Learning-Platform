@@ -1,8 +1,11 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { withApolloProvider, withIntlProvider } from '../../../../../test-utils/hocs';
 import * as CommunicationBlockWidget from '../../use-communication-widget';
-import { COMMUNICATION_BLOCK_DATA_TEST_ID } from '../../constants';
 import CommunicationBlock from '.';
-import { withApolloProvider } from '../../../../../test-utils/hocs';
+import {
+    COMMUNICATION_BLOCK_DATA_TEST_ID,
+    REPORT_USER_BUTTON_DATA_TEST_ID
+} from '../../constants';
 
 jest.mock("../../use-communication-widget");
 
@@ -25,7 +28,7 @@ describe('Communication Block', () => {
         isLoading: false,
         error: undefined
     };
-    const CommunicationBlockWithProvider = withApolloProvider(CommunicationBlock);
+    const CommunicationBlockWithProvider = withApolloProvider(withIntlProvider(CommunicationBlock));
     const widgetSpy = jest.spyOn(CommunicationBlockWidget, "useCommunicationBlockWidget");
     it('should render component with opened report dialog', () => {
         widgetSpy.mockReturnValue(props);
@@ -36,15 +39,15 @@ describe('Communication Block', () => {
     });
 
     it('should render component without report dialog', () => {
-        widgetSpy.mockReturnValue({...props, isOpen: false});
+        widgetSpy.mockReturnValue({ ...props, isOpen: false });
         render(<CommunicationBlockWithProvider />);
         COMMUNICATION_BLOCK_TEST_IDS.forEach((id: string) => expect(screen.getByTestId(id)).toBeInTheDocument());
     });
 
     it('should call handleOpening if user pressed report button ', () => {
-        widgetSpy.mockReturnValue({...props, isOpen: false});
+        widgetSpy.mockReturnValue({ ...props, isOpen: false });
         render(<CommunicationBlockWithProvider />);
-        fireEvent.click(screen.getByTestId("report-user-button"));
+        fireEvent.click(screen.getByTestId(REPORT_USER_BUTTON_DATA_TEST_ID));
         expect(props.handleOpening).toBeCalledTimes(1);
     });
 
