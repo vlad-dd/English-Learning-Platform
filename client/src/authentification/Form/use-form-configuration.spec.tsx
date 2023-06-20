@@ -8,6 +8,7 @@ import ErrorBoundary from "../../ErrorBoundary";
 import store from "../../store";
 import FireBaseAPI from "../firebase-api";
 import { useFormConfigurationWidget } from "./use-form-configuration";
+import { ACTION_NAVIGATE_PATH, FORM_ACTIONS } from "../constants";
 
 const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
   return (
@@ -26,7 +27,7 @@ describe("Use Form Configuration", () => {
 
   describe("Login", () => {
     beforeEach(() => {
-      config = renderHook(() => useFormConfigurationWidget("login", "/"), {
+      config = renderHook(() => useFormConfigurationWidget(FORM_ACTIONS.LOGIN, ACTION_NAVIGATE_PATH.HOME), {
         wrapper: ApplicationProviders,
       });
     });
@@ -71,7 +72,7 @@ describe("Use Form Configuration", () => {
   describe("Registration", () => {
     beforeEach(() => {
       config = renderHook(
-        () => useFormConfigurationWidget("registration", "/login"),
+        () => useFormConfigurationWidget(FORM_ACTIONS.REGISTRATION, ACTION_NAVIGATE_PATH.LOGIN),
         {
           wrapper: ApplicationProviders,
         }

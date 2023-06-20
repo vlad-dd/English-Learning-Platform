@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-import { Form } from "antd";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
-import * as STRINGS from "./strings";
 import FireBaseAPI from "../firebase-api";
+import { NavigatePath, UserAction } from "../types";
+import { FORM_ACTIONS } from "../constants";
 
-interface Props {
-    action?: "login" | "registration";
-    navigatePath?: "/" | "/login";
-  }
-
-export const useFormConfigurationWidget = (action: "login" | "registration", navigatePath: "/" | "/login") => {
+export const useFormConfigurationWidget = (action: UserAction, navigatePath: NavigatePath) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState<string>("");
@@ -24,13 +19,13 @@ export const useFormConfigurationWidget = (action: "login" | "registration", nav
     setPassword(value);
   };
 
-  const onFormSubmit = (e: React.SyntheticEvent) => {
+  const onFormSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    if (action === STRINGS.ACTIONS.LOGIN) {
-      FireBaseAPI.handleSignIn(email, password, navigate, navigatePath);
+    if (action === FORM_ACTIONS.LOGIN) {
+      await FireBaseAPI.handleSignIn(email, password, navigate, navigatePath);
     }
-    if (action === STRINGS.ACTIONS.REGISTRATION) {
-      FireBaseAPI.handleRegistration(
+    if (action === FORM_ACTIONS.REGISTRATION) {
+      await FireBaseAPI.handleRegistration(
         email,
         password,
         navigate,

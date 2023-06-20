@@ -1,10 +1,9 @@
-import React from 'react';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import store from '../../store';
 import AntForm from '.';
-import { BrowserRouter } from 'react-router-dom';
+import { ACTION_NAVIGATE_PATH, FORM_ACTIONS } from '../constants';
 
 export default {
     title: 'Auth/Form',
@@ -24,14 +23,14 @@ const AntFormTemplate: ComponentStory<typeof AntForm> = (args) => <AntForm {...a
 
 export const RegistrationForm = AntFormTemplate.bind({});
 RegistrationForm.args = {
-    action: "registration",
-    navigatePath: "/login"
+    action: FORM_ACTIONS.REGISTRATION,
+    navigatePath: ACTION_NAVIGATE_PATH.LOGIN
 }
 
 export const LoginForm = AntFormTemplate.bind({});
 LoginForm.args = {
-    action: "login",
-    navigatePath: "/"
+    action: FORM_ACTIONS.LOGIN,
+    navigatePath: ACTION_NAVIGATE_PATH.HOME
 }
 
 
