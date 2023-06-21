@@ -1,4 +1,4 @@
-import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -79,6 +79,12 @@ const application_root = {
     [APPLICATION_ROOT.FOOTER_AUTHOR_INFORMATION]: "Englisch-Lernplattform ©2022 Erstellt von"
 };
 
+const grammar_levels = {
+    [GRAMMAR_LEVELS.EXPLANATION]: "Erklärung von",
+    [GRAMMAR_LEVELS.USE_CASES]: "Anwendungsfälle für",
+    [GRAMMAR_LEVELS.CONSOLIDATION_OF_KNOWLEDGE]: "Konsolidierung des Wissens"
+};
+
 const GER_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page, 
     tenses_page, 
@@ -86,6 +92,7 @@ const GER_TRANSLATION_BUILD = new BuildAllTranslationPages(
     english_level_page,
     support_team,
     application_root,
+    grammar_levels,
     "GER").buildTranslationObject();
 
 export default GER_TRANSLATION_BUILD;

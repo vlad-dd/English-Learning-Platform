@@ -1,8 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import GrammarLevels from "./presentational";
-import * as GrammarConfigHook from "./use-grammar-config";
 import { withApolloProvider, withIntlProvider, withReduxProvider, withRouterProvider } from '../test-utils/hocs';
 import { buildApolloError } from '../test-utils';
+import * as GrammarConfigHook from "./use-grammar-config";
+import GrammarLevels from "./presentational";
+import {
+    GRAMMAR_LEVELS_CONTENT_SECTION_DATA_TEST_ID,
+    GRAMMAR_LEVEL_DESCRIPTION_DATA_TEST_ID
+} from './constants';
 
 jest.mock('react-router', () => ({
     ...jest.requireActual('react-router'),
@@ -66,7 +70,7 @@ describe('GrammarLevels', () => {
         });
 
         it('should render GrammarLevels root', () => {
-            expect(screen.getByTestId("grammar-levels-content-section")).toBeInTheDocument();
+            expect(screen.getByTestId(GRAMMAR_LEVELS_CONTENT_SECTION_DATA_TEST_ID)).toBeInTheDocument();
         });
 
         it('should render titles', () => {
@@ -84,7 +88,7 @@ describe('GrammarLevels', () => {
             const formAndUsage = `Plural demonstrative adjectives can be used with or without a noun. When used without a noun, they function as pronouns. Example: "I like these, but those are better."`;
             const conclusion = `Plural demonstrative adjectives are essential in English because they help clarify which specific items or objects are being referred to in a sentence. By using "those," "them," and "these," English speakers can indicate distance, proximity, and relevance to the speaker or listener. It's important to use these adjectives correctly to avoid confusion and effectively communicate ideas.`;
             const grammarLevelContent = ['Introduction', introductionContent, 'Form and Usage', formAndUsage, 'Conclusion', conclusion]
-            expect(screen.getByTestId("grammar-level-content")).toBeInTheDocument();
+            expect(screen.getByTestId(GRAMMAR_LEVEL_DESCRIPTION_DATA_TEST_ID)).toBeInTheDocument();
             grammarLevelContent.forEach((content: string) => expect(screen.getByText(content)).toBeInTheDocument());
         });
 
@@ -107,21 +111,21 @@ describe('GrammarLevels', () => {
         it('should start quiz and render questions', () => {
             const startQuizButton = document.getElementsByClassName('startQuizBtn btn')[0];
             const questionConfigurationText = [
-                'Which of these objects is closest to you?', 
-                'Single Selection', 
-                'Pick 1', 
+                'Which of these objects is closest to you?',
+                'Single Selection',
+                'Pick 1',
                 'this table',
                 'that table',
                 'those tables',
                 'these tables'
             ];
-            questionConfigurationText.forEach((text:string) =>  expect(screen.queryByText(text)).not.toBeInTheDocument());
+            questionConfigurationText.forEach((text: string) => expect(screen.queryByText(text)).not.toBeInTheDocument());
             fireEvent.click(startQuizButton);
-            questionConfigurationText.forEach((text:string) =>  expect(screen.getByText(text)).toBeInTheDocument());
+            questionConfigurationText.forEach((text: string) => expect(screen.getByText(text)).toBeInTheDocument());
         });
     });
 
-    describe('should return Loading sign if isLoading is true', () => { 
+    describe('should return Loading sign if isLoading is true', () => {
         it('should return Loading sign', () => {
             grammarConfigSpy.mockReturnValue({ data: [], isLoading: true, error: undefined, refetch })
             render(<GrammarLevelsWithProvider />);
@@ -129,7 +133,7 @@ describe('GrammarLevels', () => {
         });
     })
 
-    describe('should return error message if error exists', () => { 
+    describe('should return error message if error exists', () => {
         it('should return Loading sign', () => {
             grammarConfigSpy.mockReturnValue({ data: [], isLoading: false, error: buildApolloError(), refetch })
             render(<GrammarLevelsWithProvider />);
