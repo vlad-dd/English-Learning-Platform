@@ -1,4 +1,4 @@
-import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, REPORT_USER_PROFILE_MODAL, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, GRAMMAR_LEVELS, REPORT_USER_PROFILE_MODAL, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -67,6 +67,7 @@ const support_team = {
 const user_profile_modal = {
     [APPLICATION_MODALS.REPORT_USER_PROFILE_MODAL_TITLE]: "Report Inappropriate User👮‍♀️",
     [APPLICATION_MODALS.REPORT_USER_PROFILE_MODAL_DESCRIPTION]: "Our user complaint feature allows you to report any behavior or content that you believe violates our English Learning Platform policies. We take all complaints seriously and strive to ensure that our platform is a safe and welcoming space for all users.",
+    [APPLICATION_MODALS.PROFILE_MODAL_CLOSE_BUTTON]: "Close"
 };
 
 const application_modals = {
@@ -78,6 +79,12 @@ const application_root = {
     [APPLICATION_ROOT.FOOTER_AUTHOR_INFORMATION]: "English Learning Platform ©2022 Created by",
 };
 
+const grammar_levels = {
+    [GRAMMAR_LEVELS.EXPLANATION]: "Explanation Of",
+    [GRAMMAR_LEVELS.USE_CASES]: "Use Cases For",
+    [GRAMMAR_LEVELS.CONSOLIDATION_OF_KNOWLEDGE]: "Consolidation Of Knowledge"
+}
+
 const US_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page,
     tenses_page,
@@ -85,6 +92,7 @@ const US_TRANSLATION_BUILD = new BuildAllTranslationPages(
     english_level_page,
     support_team,
     application_root,
+    grammar_levels,
     "US"
 ).buildTranslationObject();
 

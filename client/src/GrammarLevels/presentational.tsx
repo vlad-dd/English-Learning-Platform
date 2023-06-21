@@ -1,23 +1,25 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 import { Alert, Divider } from "antd";
 import Quiz from 'react-quiz-component';
 import { useParams } from "react-router";
 import { AlertOutlined } from "@ant-design/icons";
-import { ContentSection } from "../Tenses/styled";
-import { BreadcrumbPath, CasesTabs, LoadingProgress, SectionComments, Title } from "../Сommon";
-import { useGrammarConfigWidget } from "./use-grammar-config";
-import { GrammarLevelDescription, QuizWrapper } from "./styles";
+import { size } from "lodash";
 import ErrorPage from "../Сommon/error-handler-page/not-found-url";
 import { ELP_USER_EXPERIENCE_ERRORS } from "../Сommon/error-handler-page/constants";
+import { BreadcrumbPath, CasesTabs, LoadingProgress, SectionComments, Title } from "../Сommon";
 import { extractByPath } from "../utils/utils";
+import { GRAMMAR_LEVELS } from "../translations/constants";
+import { ContentSection } from "../Tenses/styled";
+import { useGrammarConfigWidget } from "./use-grammar-config";
+import { GRAMMAR_LEVELS_CONTENT_SECTION_DATA_TEST_ID, GRAMMAR_LEVEL_DESCRIPTION_DATA_TEST_ID } from "./constants";
+import { GrammarLevelDescription, QuizWrapper } from "./styles";
 
 const GrammarLevels = () => {
     const { level, theme } = useParams();
     const { data, isLoading, error, refetch } = useGrammarConfigWidget();
-    const config = extractByPath(data, 'grammarByLevel[0]');
-    const quiz = extractByPath(data, 'grammarByLevel[0].quiz');
 
-    if (!level || !theme || isLoading) {
+    if (!size(data) || !theme || isLoading) {
         return <LoadingProgress />;
     }
 
@@ -33,22 +35,33 @@ const GrammarLevels = () => {
         }
     }
 
+    const { title, tip, explanation, content, cases, comments, quiz } = extractByPath(data, 'grammarByLevel[0]');
+
     return (
         <React.Fragment>
             <BreadcrumbPath />
-            <ContentSection data-testid="grammar-levels-content-section">
-                <Title styles={{ fontSize: "2.5rem" }}>{config.title}</Title>
-                <Alert icon={<AlertOutlined />} message={config.tip} showIcon />
-                <Title styles={{ paddingTop: '25px' }}>Explanation Of {config.explanation}</Title>
-                <GrammarLevelDescription dangerouslySetInnerHTML={{ __html: config.content }} style={{ fontSize: "1rem", fontFamily: 'inherit', paddingTop: "15px", paddingBottom: "15px" }} data-testid="grammar-level-content" />
-                <Title styles={{ paddingTop: '25px' }}>Use Cases For {config.explanation}</Title>
-                <CasesTabs config={config.cases} />
+            <ContentSection data-testid={GRAMMAR_LEVELS_CONTENT_SECTION_DATA_TEST_ID}>
+                <Title styles={{ fontSize: "2.5rem" }}>{title}</Title>
+                <Alert icon={<AlertOutlined />} message={tip} showIcon />
+                <Title styles={{ paddingTop: '25px' }}>
+                    <FormattedMessage id={GRAMMAR_LEVELS.EXPLANATION} /> {explanation}
+                </Title>
+                <GrammarLevelDescription
+                    data-testid={GRAMMAR_LEVEL_DESCRIPTION_DATA_TEST_ID}
+                    dangerouslySetInnerHTML={{ __html: content }}
+                />
+                <Title styles={{ paddingTop: '25px' }}>
+                    <FormattedMessage id={GRAMMAR_LEVELS.USE_CASES} /> {explanation}
+                </Title>
+                <CasesTabs config={cases} />
                 <Divider />
                 <QuizWrapper>
-                    <Title>Consolidation Of Knowledge</Title>
+                    <Title>
+                        <FormattedMessage id={GRAMMAR_LEVELS.CONSOLIDATION_OF_KNOWLEDGE} />
+                    </Title>
                     <Quiz quiz={{ ...quiz, questions: [...quiz.questions] }} shuffle />
                 </QuizWrapper>
-                <SectionComments renderComments={config.comments} refetch={refetch} collection={level!} document={theme!} />
+                <SectionComments renderComments={comments} refetch={refetch} collection={level!} document={theme!} />
             </ContentSection>
         </React.Fragment>
     )

@@ -1,9 +1,9 @@
+import { Provider } from "react-redux";
 import { MockedProvider } from "@apollo/client/testing";
 import { renderHook, waitFor } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { useGrammarConfigWidget } from ".";
 import store from "../../store";
 import { GET_GRAMMAR_BY_LEVEL_AND_THEME } from "../graphql";
+import { useGrammarConfigWidget } from ".";
 
 const dataMock = {
   grammarByLevel: [

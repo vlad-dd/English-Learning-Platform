@@ -1,4 +1,4 @@
-import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -80,6 +80,12 @@ const application_root = {
     [APPLICATION_ROOT.FOOTER_AUTHOR_INFORMATION]: "Платформа для вивчення англійської мови ©2022 Створено"
 };
 
+const grammar_levels = {
+    [GRAMMAR_LEVELS.EXPLANATION]: "Пояснення",
+    [GRAMMAR_LEVELS.USE_CASES]: "Випадки використання для",
+    [GRAMMAR_LEVELS.CONSOLIDATION_OF_KNOWLEDGE]: "Закріплення Знань"
+};
+
 const UA_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page, 
     tenses_page, 
@@ -87,6 +93,7 @@ const UA_TRANSLATION_BUILD = new BuildAllTranslationPages(
     english_level_page,
     support_team,
     application_root,
+    grammar_levels,
     "UA").buildTranslationObject();
 
 export default UA_TRANSLATION_BUILD;

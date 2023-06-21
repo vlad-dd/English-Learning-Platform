@@ -8,7 +8,7 @@ export const useGrammarConfigWidget = () => {
     const { path } = useSelector(selectors.tensesBCState);
     const { level, theme } = useParams();
 
-    const { data, loading, error, refetch } = useQuery(GET_GRAMMAR_BY_LEVEL_AND_THEME, { variables: { level: path[1] ?? level, theme: path[0] ?? theme } });
+    const { data, loading, error, refetch } = useQuery(GET_GRAMMAR_BY_LEVEL_AND_THEME, { variables: { level: path.at(1) ?? level, theme: path.at(0) ?? theme } });
 
     return { data, isLoading: loading, error, refetch }
 }

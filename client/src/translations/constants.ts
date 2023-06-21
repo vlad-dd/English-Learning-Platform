@@ -75,3 +75,9 @@ export const APPLICATION_MODALS = {
 export const APPLICATION_ROOT = {
     FOOTER_AUTHOR_INFORMATION: "footer_author_information",
 };
+
+export const GRAMMAR_LEVELS = {
+    EXPLANATION: "grammar_levels_explanation",
+    USE_CASES: "grammar_levels_use_cases",
+    CONSOLIDATION_OF_KNOWLEDGE: "grammar_levels_consolidation_of_knowledge"
+}
