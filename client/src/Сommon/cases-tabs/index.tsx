@@ -1,49 +1,17 @@
-import React, { useCallback } from "react";
-import { Tabs, List } from "antd";
+import React from "react";
 import { ICases } from "../../Tenses";
-import Image from "../Image";
-
-const { Item } = List;
-const { Meta } = Item;
+import { useRenderCaseItemsWidget } from "./use-render-case-items";
+import { CASES_TABS_DATA_TEST_ID } from "./constants";
+import { StyledTabs } from "./styled";
 
 const CasesTabs: React.FC<{ config: ICases[] }> = ({ config }) => {
-  const renderCaseItems = useCallback(
-    ({ key, label, icon, titles }: ICases) => ({
-      label,
-      key,
-      children: (
-        <List
-          itemLayout="vertical"
-          dataSource={titles}
-          renderItem={({ description }: { description: string }) => (
-            <Item>
-              <Meta
-                avatar={
-                  <Image
-                    id="cases-tabs-icon"
-                    url={icon}
-                    styles={{
-                      objectFit: "cover",
-                      height: "16px",
-                      width: "16px",
-                    }}
-                  />
-                }
-                description={description}
-              />
-            </Item>
-          )}
-        />
-      ),
-    }),
-    [config]
-  );
+
+  const { renderCaseItems } = useRenderCaseItemsWidget(config);
 
   return (
-    <Tabs
-      data-testid="cases-tabs-id"
-      items={config?.map(renderCaseItems)}
-      style={{ marginLeft: "8px" }}
+    <StyledTabs
+      data-testid={CASES_TABS_DATA_TEST_ID}
+      items={config.map(renderCaseItems)}
       defaultActiveKey="1"
     />
   );

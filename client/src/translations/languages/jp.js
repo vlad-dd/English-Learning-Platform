@@ -33,7 +33,13 @@ const tenses_page = {
   [TENSES_PAGE.СOMMENTS_TITLE]: "コメント",
   [TENSES_PAGE.COMMENTS_POLICY_RULES_TITLE]: "英語学習プラットフォームのポリシー 📜",
   [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_ONE]: "当社のポリシーの一環として、以下のいずれかを含むコメントは許可されません:",
-  [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "私たちは、すべてのユーザーにとって安全で敬意を持ったコミュニティを維持するために、これらのルールを真剣に受け止めています。 これらのルールに違反するコメントは削除される場合があり、違反を繰り返す場合はプラットフォームから追放される場合があります。 すべてのユーザーにこれらのルールを確認し、ルールに違反するコメントをモデレーション チームに報告することをお勧めします👩‍💻."
+  [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "私たちは、すべてのユーザーにとって安全で敬意を持ったコミュニティを維持するために、これらのルールを真剣に受け止めています。 これらのルールに違反するコメントは削除される場合があり、違反を繰り返す場合はプラットフォームから追放される場合があります。 すべてのユーザーにこれらのルールを確認し、ルールに違反するコメントをモデレーション チームに報告することをお勧めします👩‍💻.",
+  [TENSES_PAGE.COMMENTS_POLICY_RULES_SUBMIT_BUTTON]: "とった！",
+  [TENSES_PAGE.COMMENTS_COUNT_TITLE]: "コメント",
+  [TENSES_PAGE.REPORT_PARTICULAR_COMMENT_BUTTON]: "報告",
+  [TENSES_PAGE.REPORT_COMMENT_DIALOG_TITLE]: "不適切なコメントを報告👮‍♀️",
+  [TENSES_PAGE.REPORT_COMMENT_DIALOG_DESCRIPTION]: "使いやすいコメント報告機能を使用すると、英語学習プラットフォームのポリシーに一致しないコメントを迅速かつ簡単に報告できます。 私たちは、当社のプラットフォームがすべてのユーザーにとって安全で敬意を持った空間であることを保証したいと考えており、この目標を達成するには皆様のご協力が必要です。",
+  [TENSES_PAGE.ADD_COMMENT_BUTTON]: "送信"
 };
 
 const dictionary_page = { 

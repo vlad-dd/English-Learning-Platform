@@ -15,8 +15,8 @@ const ModalActions = ({ selectedReason, additionalInformation, createReportAppea
                 color="info"
                 disabled={!selectedReason}
                 loading={isLoading}
-                onClick={() => {
-                    createReportAppeal(selectedReason, additionalInformation);
+                onClick={async() => {
+                    await createReportAppeal(selectedReason, additionalInformation);
                     successMessage('Thank you for helping us to make our platform better!');
                     handleClose();
                 }}

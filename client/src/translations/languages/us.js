@@ -33,7 +33,13 @@ const tenses_page = {
     [TENSES_PAGE.СOMMENTS_TITLE]: "Comments",
     [TENSES_PAGE.COMMENTS_POLICY_RULES_TITLE]: "English Learning Platform Policy 📜",
     [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_ONE]: "As part of our policy, we do not give permission for comments that include any of the following:",
-    [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "We take these rules seriously in order to maintain a safe and respectful community for all users. Comments that violate these rules may be removed, and repeat offenders may be banned from the platform. We encourage all users to review these rules and report any comments that violate them to our moderation team👩‍💻."
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "We take these rules seriously in order to maintain a safe and respectful community for all users. Comments that violate these rules may be removed, and repeat offenders may be banned from the platform. We encourage all users to review these rules and report any comments that violate them to our moderation team👩‍💻.",
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_SUBMIT_BUTTON]: "Got it!",
+    [TENSES_PAGE.COMMENTS_COUNT_TITLE]: "Comments",
+    [TENSES_PAGE.REPORT_PARTICULAR_COMMENT_BUTTON]: "Report",
+    [TENSES_PAGE.REPORT_COMMENT_DIALOG_TITLE]: "Report Inappropriate Comment👮‍♀️",
+    [TENSES_PAGE.REPORT_COMMENT_DIALOG_DESCRIPTION]: "Our easy-to-use comment reporting feature allows you to quickly and easily report any comments that do not match our English Learning Platform policy. We want to ensure that our platform is a safe and respectful space for all users, and we rely on your help to achieve this goal.",
+    [TENSES_PAGE.ADD_COMMENT_BUTTON]: "Send"
 };
 
 const dictionary_page = {

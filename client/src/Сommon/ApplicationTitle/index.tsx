@@ -1,6 +1,7 @@
+import { IApplicationTitle } from "./types";
 import { StyledApplicationTitle } from "./styled";
 
-const ApplicationTitle = ({ children }: { children: JSX.Element | string }) => {
+const ApplicationTitle = ({ children }: IApplicationTitle) => {
     return (
         <StyledApplicationTitle>
             {children}

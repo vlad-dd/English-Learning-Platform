@@ -1,35 +1,34 @@
 import { ApolloError } from "@apollo/client"
-
-interface IComment {
+export interface IComment {
     __typename: string
     id: string
     date: string
     comment: string
-    email: string | undefined
+    email?: string | undefined
 }
-interface ISectionComments {
+export interface ISectionComments {
     renderComments: Array<IComment>
     refetch: () => void
     collection: string
     document: string
 }
 
-interface ICommentRulesModal {
+export interface ICommentRulesModal {
     open: boolean
     setOpen: (flag: boolean) => void
 }
 
-interface IReportCommentModal {
+export interface IReportCommentModal {
     isOpen: boolean
     setOpen: (flag: boolean) => void
     commentID: string
 }
 
-interface IAdditionalInput {
-    setAdditionalInformation: (value: string) => void 
+export interface IAdditionalInput {
+    setAdditionalInformation: (value: string) => void
 }
 
-interface IModalActions {
+export interface IModalActions {
     selectedReason: string
     isLoading: boolean
     error: undefined | ApolloError
@@ -37,23 +36,21 @@ interface IModalActions {
     handleClose: () => void
 }
 
-interface ISelectReportReason {
+export interface ISelectReportReason {
     selectedReason: string
     setSelectedReason: (value: string) => void
 }
 
-interface ISendCommentEditor {
+export interface ISendCommentEditor {
     addComment: (html: string) => void
     isLoading: boolean
-}
+};
 
-export type {
-    ISectionComments,
-    IComment,
-    ICommentRulesModal,
-    IReportCommentModal,
-    IAdditionalInput,
-    IModalActions,
-    ISelectReportReason,
-    ISendCommentEditor,
-}
+export interface IParticularComment {
+    commentID: string,
+    comment: string
+};
+
+export interface ICommentsList {
+    comments: Array<IComment>
+};

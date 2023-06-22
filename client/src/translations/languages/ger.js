@@ -33,7 +33,13 @@ const tenses_page = {
     [TENSES_PAGE.СOMMENTS_TITLE]: "Kommentare",
     [TENSES_PAGE.COMMENTS_POLICY_RULES_TITLE]: "Richtlinie zur Englisch-Lernplattform 📜",
     [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_ONE]: "Im Rahmen unserer Richtlinien gestatten wir keine Kommentare, die Folgendes enthalten:",
-    [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "Wir nehmen diese Regeln ernst, um eine sichere und respektvolle Community für alle Benutzer aufrechtzuerhalten. Kommentare, die gegen diese Regeln verstoßen, können entfernt werden und Wiederholungstäter können von der Plattform verbannt werden. Wir ermutigen alle Benutzer, diese Regeln zu überprüfen und alle Kommentare, die gegen diese Regeln verstoßen, unserem Moderationsteam zu melden👩‍💻."
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "Wir nehmen diese Regeln ernst, um eine sichere und respektvolle Community für alle Benutzer aufrechtzuerhalten. Kommentare, die gegen diese Regeln verstoßen, können entfernt werden und Wiederholungstäter können von der Plattform verbannt werden. Wir ermutigen alle Benutzer, diese Regeln zu überprüfen und alle Kommentare, die gegen diese Regeln verstoßen, unserem Moderationsteam zu melden👩‍💻.",
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_SUBMIT_BUTTON]: "Habe es!",
+    [TENSES_PAGE.COMMENTS_COUNT_TITLE]: "Kommentare",
+    [TENSES_PAGE.REPORT_PARTICULAR_COMMENT_BUTTON]: "Bericht",
+    [TENSES_PAGE.REPORT_COMMENT_DIALOG_TITLE]: "Unangemessenen Kommentar melden👮‍♀️",
+    [TENSES_PAGE.REPORT_COMMENT_DIALOG_DESCRIPTION]: "Mit unserer benutzerfreundlichen Funktion zum Melden von Kommentaren können Sie schnell und einfach alle Kommentare melden, die nicht mit unseren Richtlinien für die English Learning Platform übereinstimmen. Wir möchten sicherstellen, dass unsere Plattform ein sicherer und respektvoller Ort für alle Benutzer ist, und sind auf Ihre Hilfe angewiesen, um dieses Ziel zu erreichen.",
+    [TENSES_PAGE.ADD_COMMENT_BUTTON]: "Schicken"
 };
 
 const dictionary_page = { 
