@@ -33,7 +33,13 @@ const tenses_page = {
     [TENSES_PAGE.СOMMENTS_TITLE]: "Comentarios",
     [TENSES_PAGE.COMMENTS_POLICY_RULES_TITLE]: "Política de la plataforma de aprendizaje de inglés 📜",
     [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_ONE]: "Como parte de nuestra política, no damos permiso para comentarios que incluyan alguno de los siguientes:",
-    [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "Tomamos estas reglas en serio para mantener una comunidad segura y respetuosa para todos los usuarios. Los comentarios que violen estas reglas pueden eliminarse y los infractores reincidentes pueden ser expulsados de la plataforma. Alentamos a todos los usuarios a revisar estas reglas y reportar cualquier comentario que las viole a nuestro equipo de moderación👩‍💻."
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "Tomamos estas reglas en serio para mantener una comunidad segura y respetuosa para todos los usuarios. Los comentarios que violen estas reglas pueden eliminarse y los infractores reincidentes pueden ser expulsados de la plataforma. Alentamos a todos los usuarios a revisar estas reglas y reportar cualquier comentario que las viole a nuestro equipo de moderación👩‍💻.",
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_SUBMIT_BUTTON]: "¡Entiendo!",
+    [TENSES_PAGE.COMMENTS_COUNT_TITLE]: "Comentarios",
+    [TENSES_PAGE.REPORT_PARTICULAR_COMMENT_BUTTON]: "Informe",
+    [TENSES_PAGE.REPORT_COMMENT_DIALOG_TITLE]: "Reportar comentario inapropiado👮‍♀️",
+    [TENSES_PAGE.REPORT_COMMENT_DIALOG_DESCRIPTION]: "Nuestra función de informe de comentarios fácil de usar le permite informar rápida y fácilmente cualquier comentario que no coincida con nuestra política de la Plataforma de aprendizaje de inglés. Queremos asegurarnos de que nuestra plataforma sea un espacio seguro y respetuoso para todos los usuarios, y contamos con su ayuda para lograr este objetivo.",
+    [TENSES_PAGE.ADD_COMMENT_BUTTON]: "Enviar"
 };
 
 const dictionary_page = {

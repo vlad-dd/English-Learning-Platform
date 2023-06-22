@@ -33,7 +33,13 @@ const tenses_page = {
     [TENSES_PAGE.СOMMENTS_TITLE]: "Commentaires",
     [TENSES_PAGE.COMMENTS_POLICY_RULES_TITLE]: "Politique de la plateforme d'apprentissage de l'anglais 📜",
     [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_ONE]: "Dans le cadre de notre politique, nous n'autorisons pas les commentaires qui incluent l'un des éléments suivants:",
-    [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "Nous prenons ces règles au sérieux afin de maintenir une communauté sûre et respectueuse pour tous les utilisateurs. Les commentaires qui enfreignent ces règles peuvent être supprimés et les récidivistes peuvent être bannis de la plateforme. Nous encourageons tous les utilisateurs à consulter ces règles et à signaler tout commentaire qui les enfreint à notre équipe de modération👩‍💻."
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_PART_TWO]: "Nous prenons ces règles au sérieux afin de maintenir une communauté sûre et respectueuse pour tous les utilisateurs. Les commentaires qui enfreignent ces règles peuvent être supprimés et les récidivistes peuvent être bannis de la plateforme. Nous encourageons tous les utilisateurs à consulter ces règles et à signaler tout commentaire qui les enfreint à notre équipe de modération👩‍💻.",
+    [TENSES_PAGE.COMMENTS_POLICY_RULES_SUBMIT_BUTTON]: "J'ai compris!",
+    [TENSES_PAGE.COMMENTS_COUNT_TITLE]: "Commentaires",
+    [TENSES_PAGE.REPORT_PARTICULAR_COMMENT_BUTTON]: "Rapport",
+    [TENSES_PAGE.REPORT_COMMENT_DIALOG_TITLE]: "Signaler un commentaire inapproprié👮‍♀️",
+    [TENSES_PAGE.REPORT_COMMENT_DIALOG_DESCRIPTION]: "Notre fonction de signalement des commentaires facile à utiliser vous permet de signaler rapidement et facilement tout commentaire qui ne correspond pas à notre politique de plateforme d'apprentissage de l'anglais. Nous voulons nous assurer que notre plateforme est un espace sûr et respectueux pour tous les utilisateurs, et nous comptons sur votre aide pour atteindre cet objectif.",
+    [TENSES_PAGE.ADD_COMMENT_BUTTON]: "Envoyer"
 };
 
 const dictionary_page = {

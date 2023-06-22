@@ -31,7 +31,13 @@ export const TENSES_PAGE = {
     СOMMENTS_TITLE: "tense_comments_title",
     COMMENTS_POLICY_RULES_TITLE: "comments_policy_rules_title",
     COMMENTS_POLICY_RULES_PART_ONE: "comments_policy_rules_part_one",
-    COMMENTS_POLICY_RULES_PART_TWO: "comments_policy_rules_part_two"
+    COMMENTS_POLICY_RULES_PART_TWO: "comments_policy_rules_part_two",
+    COMMENTS_POLICY_RULES_SUBMIT_BUTTON: "comments_policy_rules_submit_button",
+    COMMENTS_COUNT_TITLE: "comments_count_title",
+    REPORT_PARTICULAR_COMMENT_BUTTON: "report_particular_comment_button",
+    REPORT_COMMENT_DIALOG_TITLE: "report_comment_dialog_title",
+    REPORT_COMMENT_DIALOG_DESCRIPTION: "report_comment_dialog_description",
+    ADD_COMMENT_BUTTON: "add_comment_button"
 };
 
 export const ENGLISH_LEVEL_PAGE = {
