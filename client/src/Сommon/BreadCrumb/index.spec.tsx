@@ -2,9 +2,7 @@
 import { render, screen } from "@testing-library/react";
 import * as ReactRouterDOM from "react-router-dom";
 import * as ReactRedux from "react-redux";
-import store from "../../store";
-import ErrorBoundary from "../../ErrorBoundary";
-import { ThemeContext } from "../../Contexts";
+import { withReduxProvider, withRouterProvider } from "../../test-utils/hocs";
 import BreadCrumbPath from ".";
 
 jest.mock("react-router-dom", () => ({
@@ -17,17 +15,7 @@ jest.mock("react-redux", () => ({
   useSelector: jest.fn()
 }));
 
-const ApplicationProviders = ({ children }: { children: JSX.Element }) => {
-  return (
-    <ReactRouterDOM.BrowserRouter>
-      <ErrorBoundary>
-        <ReactRedux.Provider store={store}>
-          {children}
-        </ReactRedux.Provider>
-      </ErrorBoundary>
-    </ReactRouterDOM.BrowserRouter>
-  );
-};
+const BreadCrumbPathWithProvider = withRouterProvider(withReduxProvider(BreadCrumbPath));
 
 describe("BreadCrumb", () => {
   const URLParts = ['my', 'url', 'to', 'page'];
@@ -38,11 +26,7 @@ describe("BreadCrumb", () => {
   it("should render path from state if user has clicked on menu options", () => {
     reactReduxSpy.mockReturnValue({ path: URLParts });
     reactRouterDOMSpy.mockReturnValue({ pathname: "" });
-    render(
-      <ApplicationProviders>
-        <BreadCrumbPath />
-      </ApplicationProviders>
-    );
+    render(<BreadCrumbPathWithProvider />);
     expect(screen.getByRole("navigation")).toBeInTheDocument();
     URLParts.forEach((part: string) => expect(screen.getByText(part)).toBeInTheDocument());
   });
@@ -50,11 +34,7 @@ describe("BreadCrumb", () => {
   it('should render path from window location if user has gone by url', () => {
     reactReduxSpy.mockReturnValue({ path: [] });
     reactRouterDOMSpy.mockReturnValue({ pathname: stringURLParts });
-    render(
-      <ApplicationProviders>
-        <BreadCrumbPath />
-      </ApplicationProviders>
-    );
+    render(<BreadCrumbPathWithProvider />);
     stringURLParts.split('/').forEach((part: string) => expect(screen.getByText(part)).toBeInTheDocument())
   });
 

@@ -8,5 +8,8 @@ export interface IReportDialog {
     createReportAppeal: (reason: string, additionalInformation: string) => void
     isLoading: boolean
     error: undefined | ApolloError
+};
 
-}
+export interface IAdditionalInput {
+    setAdditionalInformation: (text: string) => void
+};

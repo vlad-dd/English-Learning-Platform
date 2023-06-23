@@ -1,7 +1,13 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import CommentRulesModal from '.';
-import { POLICY_RULES } from "../../../constants";
 import { withIntlProvider } from "../../../../../test-utils/hocs";
+import CommentRulesModal from '.';
+import { 
+    COMMENT_RULES_WRAPPER_DATA_TEST_ID, 
+    COMMENT_RULE_TOOLTIP_TITLE, 
+    DIALOG_TITLE_DATA_TEST_ID, 
+    RULES_ICON_DATA_TEST_ID,
+    POLICY_RULES, 
+} from "../../../constants";
 
 const DIALOG_NODES_ID = [
     'dialog-rules',
@@ -19,15 +25,15 @@ describe('CommentRulesModal', () => {
 
     it('should not show content if it is closed', () => {
         render(<CommentRulesModalWithProvider open={false} setOpen={setOpen} />);
-        expect(screen.getByTestId("comment-rules-wrapper")).toBeInTheDocument();
-        expect(screen.queryByTestId("dialog-title")).not.toBeInTheDocument();
+        expect(screen.getByTestId(COMMENT_RULES_WRAPPER_DATA_TEST_ID)).toBeInTheDocument();
+        expect(screen.queryByTestId(DIALOG_TITLE_DATA_TEST_ID)).not.toBeInTheDocument();
     });
 
     it('should show the tooltip text', async () => {
         render(<CommentRulesModalWithProvider open={false} setOpen={setOpen} />);
-        const icon = screen.getByTestId("rules-icon");
+        const icon = screen.getByTestId(RULES_ICON_DATA_TEST_ID);
         fireEvent.mouseOver(icon);
-        await waitFor(() =>  expect(screen.getByText("Rules")).toBeInTheDocument());
+        await waitFor(() =>  expect(screen.getByText(COMMENT_RULE_TOOLTIP_TITLE)).toBeInTheDocument());
     });
 
     it('should show content if it is opened', () => {
@@ -42,7 +48,7 @@ describe('CommentRulesModal', () => {
 
     it('should call setOpen function', () => {
         render(<CommentRulesModalWithProvider open={false} setOpen={setOpen} />);
-        fireEvent.click(screen.getByTestId("rules-icon"));
+        fireEvent.click(screen.getByTestId(RULES_ICON_DATA_TEST_ID));
         expect(setOpen).toHaveBeenCalledTimes(1);
     });
 });

@@ -1,4 +1,4 @@
-import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -39,7 +39,9 @@ const tenses_page = {
   [TENSES_PAGE.REPORT_PARTICULAR_COMMENT_BUTTON]: "報告",
   [TENSES_PAGE.REPORT_COMMENT_DIALOG_TITLE]: "不適切なコメントを報告👮‍♀️",
   [TENSES_PAGE.REPORT_COMMENT_DIALOG_DESCRIPTION]: "使いやすいコメント報告機能を使用すると、英語学習プラットフォームのポリシーに一致しないコメントを迅速かつ簡単に報告できます。 私たちは、当社のプラットフォームがすべてのユーザーにとって安全で敬意を持った空間であることを保証したいと考えており、この目標を達成するには皆様のご協力が必要です。",
-  [TENSES_PAGE.ADD_COMMENT_BUTTON]: "送信"
+  [TENSES_PAGE.ADD_COMMENT_BUTTON]: "送信",
+  [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_TITLE]: "追加情報を追加したいですか?",
+  [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL]: "追加情報"
 };
 
 const dictionary_page = { 
@@ -91,6 +93,11 @@ const grammar_levels = {
   [GRAMMAR_LEVELS.CONSOLIDATION_OF_KNOWLEDGE]: "知識の統合"
 };
 
+const error_page = {
+  [ERROR_PAGE.TITLE]: "ええとああ！ トラブルに巻き込まれてしまいました！",
+  [ERROR_PAGE.ERROR_PAGE_HOME_BUTTON]: "家"
+};
+
 const JP_TRANSLATION_BUILD = new BuildAllTranslationPages(
   welcome_page, 
   tenses_page, 
@@ -99,6 +106,7 @@ const JP_TRANSLATION_BUILD = new BuildAllTranslationPages(
   support_team,
   application_root,
   grammar_levels,
+  error_page,
   "JP").buildTranslationObject();
 
 export default JP_TRANSLATION_BUILD;

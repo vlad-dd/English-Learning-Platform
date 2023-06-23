@@ -29,3 +29,5 @@ export const ErrorDefinitionWarning = styled.h2`
   font-size: 3em;
   font-weight: bold;
 `;
+
+export const StyledError = styled.p``;

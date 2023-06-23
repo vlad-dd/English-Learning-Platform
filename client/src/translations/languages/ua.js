@@ -1,4 +1,4 @@
-import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -39,7 +39,9 @@ const tenses_page = {
     [TENSES_PAGE.REPORT_PARTICULAR_COMMENT_BUTTON]: "Поскаржитися",
     [TENSES_PAGE.REPORT_COMMENT_DIALOG_TITLE]: "Повідомити про неприйнятний коментар👮‍♀️",
     [TENSES_PAGE.REPORT_COMMENT_DIALOG_DESCRIPTION]: "Наша проста у використанні функція звітування про коментарі дозволяє швидко та легко повідомляти про будь-які коментарі, які не відповідають нашій політиці English Learning Platform. Ми хочемо переконатися, що наша платформа є безпечним і шанобливим простором для всіх користувачів, і ми покладаємося на вашу допомогу для досягнення цієї мети.",
-    [TENSES_PAGE.ADD_COMMENT_BUTTON]: "Надіслати"
+    [TENSES_PAGE.ADD_COMMENT_BUTTON]: "Надіслати",
+    [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_TITLE]: "Хочете додати додаткову інформацію?",
+    [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL]: "Додаткова інформація"
 };
 
 const dictionary_page = { 
@@ -92,6 +94,11 @@ const grammar_levels = {
     [GRAMMAR_LEVELS.CONSOLIDATION_OF_KNOWLEDGE]: "Закріплення Знань"
 };
 
+const error_page = {
+    [ERROR_PAGE.TITLE]: "ОЙ-ОЙ! Ви потрапили в біду!",
+    [ERROR_PAGE.ERROR_PAGE_HOME_BUTTON]: "ДІМ"
+};
+
 const UA_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page, 
     tenses_page, 
@@ -100,6 +107,7 @@ const UA_TRANSLATION_BUILD = new BuildAllTranslationPages(
     support_team,
     application_root,
     grammar_levels,
+    error_page,
     "UA").buildTranslationObject();
 
 export default UA_TRANSLATION_BUILD;

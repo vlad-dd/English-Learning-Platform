@@ -1,6 +1,10 @@
-import { CircularProgress } from "@mui/material";
+import { LOADING_PROGRESS_DATA_TEST_ID } from "./constants";
+import { StyledCircularProgress } from "./styled";
 
-
-const LoadingProgress = () => <CircularProgress data-testid="loading-progress" style={{ position: "absolute", top: "70%", left: "50%" }} />
+const LoadingProgress = () => (
+    <StyledCircularProgress
+        data-testid={LOADING_PROGRESS_DATA_TEST_ID}
+    />
+)
 
 export default LoadingProgress;

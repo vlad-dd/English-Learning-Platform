@@ -37,6 +37,8 @@ export const TENSES_PAGE = {
     REPORT_PARTICULAR_COMMENT_BUTTON: "report_particular_comment_button",
     REPORT_COMMENT_DIALOG_TITLE: "report_comment_dialog_title",
     REPORT_COMMENT_DIALOG_DESCRIPTION: "report_comment_dialog_description",
+    REPORT_DIALOG_ADDITIONAL_INPUT_TITLE: "report_dialog_additional_input_title",
+    REPORT_DIALOG_ADDITIONAL_INPUT_LABEL: "report_dialog_additional_input_label",
     ADD_COMMENT_BUTTON: "add_comment_button"
 };
 
@@ -86,4 +88,9 @@ export const GRAMMAR_LEVELS = {
     EXPLANATION: "grammar_levels_explanation",
     USE_CASES: "grammar_levels_use_cases",
     CONSOLIDATION_OF_KNOWLEDGE: "grammar_levels_consolidation_of_knowledge"
+}
+
+export const ERROR_PAGE = {
+    TITLE: "error_page_title",
+    ERROR_PAGE_HOME_BUTTON: "error_page_home_button"
 }
