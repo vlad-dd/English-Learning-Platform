@@ -1,11 +1,9 @@
-import { renderHook, act, render, waitFor } from '@testing-library/react'
-import useCommentUpdatingWidget from '.'
-import { MockedProvider } from '@apollo/client/testing'
-import { ADD_COMMENT } from '../graphql';
+import { renderHook, act, waitFor } from '@testing-library/react'
 import * as Apollo from '@apollo/client';
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { ADD_COMMENT } from '../graphql';
 import store from '../../../store';
+import useCommentUpdatingWidget from '.'
 
 jest.mock("@apollo/client", () => ({
   ...jest.requireActual("@apollo/client"),
@@ -20,9 +18,9 @@ const client = new Apollo.ApolloClient({
 const EXPECTED_COLLECTION_ITEM = {
   variables:
     { collection: "posts", comment: "<div>some html text</div>", id: "1" }
-}
+};
 
-const wrapper = ({ children }: any) => <Provider store={store}><Apollo.ApolloProvider client={client} children={children} /></Provider>;
+const wrapper = ({ children }: { children: JSX.Element }) => <Provider store={store}><Apollo.ApolloProvider client={client} children={children} /></Provider>;
 
 describe('useCommentUpdatingWidget', () => {
   const refetch = jest.fn();
@@ -63,7 +61,5 @@ describe('useCommentUpdatingWidget', () => {
       expect(mutateFunction).not.toHaveBeenCalledTimes(1);
       expect(refetch).not.toHaveBeenCalledTimes(1);
     });
-    
   });
-
-})
+});

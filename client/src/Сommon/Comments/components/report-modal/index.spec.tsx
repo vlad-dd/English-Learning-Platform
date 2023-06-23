@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { withApolloProvider } from "../../../../test-utils/hocs";
+import { withApolloProvider, withIntlProvider } from "../../../../test-utils/hocs";
 import ReportCommentModal from ".";
 
 const NODE_ENTITIES_CONTENT = [
@@ -7,7 +7,7 @@ const NODE_ENTITIES_CONTENT = [
     'Our easy-to-use comment reporting feature allows you to quickly and easily report any comments that do not match our English Learning Platform policy. We want to ensure that our platform is a safe and respectful space for all users, and we rely on your help to achieve this goal.'
 ];
 
-const ReportCommentModalWithProvider = withApolloProvider(ReportCommentModal);
+const ReportCommentModalWithProvider = withApolloProvider(withIntlProvider(ReportCommentModal));
 
 describe('ReportCommentModal', () => {
     const commentID = 'testID';

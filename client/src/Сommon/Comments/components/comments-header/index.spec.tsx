@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import CommentsHeader from ".";
 import { size } from "lodash";
 import { withIntlProvider } from "../../../../test-utils/hocs";
+import CommentsHeader from ".";
 
 const COMMENT_NODES_IDS = [
     'comments-header',
@@ -19,6 +19,6 @@ describe('Comments Header', () => {
     it('should render comments header nodes', () => {
         render(<CommentsHeaderWithProvider comments={COMMENT_MOCK}/>);
         COMMENT_NODES_IDS.forEach((nodeID: string) => expect(screen.getByTestId(nodeID)).toBeInTheDocument());
-        expect(screen.getByText(`${size(COMMENT_MOCK)} Comment`)).toBeInTheDocument();
+        expect(screen.getByText(`${size(COMMENT_MOCK)} Comments`)).toBeInTheDocument();
     });
 });

@@ -1,4 +1,4 @@
-import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -39,7 +39,9 @@ const tenses_page = {
     [TENSES_PAGE.REPORT_PARTICULAR_COMMENT_BUTTON]: "Rapport",
     [TENSES_PAGE.REPORT_COMMENT_DIALOG_TITLE]: "Signaler un commentaire inapproprié👮‍♀️",
     [TENSES_PAGE.REPORT_COMMENT_DIALOG_DESCRIPTION]: "Notre fonction de signalement des commentaires facile à utiliser vous permet de signaler rapidement et facilement tout commentaire qui ne correspond pas à notre politique de plateforme d'apprentissage de l'anglais. Nous voulons nous assurer que notre plateforme est un espace sûr et respectueux pour tous les utilisateurs, et nous comptons sur votre aide pour atteindre cet objectif.",
-    [TENSES_PAGE.ADD_COMMENT_BUTTON]: "Envoyer"
+    [TENSES_PAGE.ADD_COMMENT_BUTTON]: "Envoyer",
+    [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_TITLE]: "Vous souhaitez ajouter une information supplémentaire?",
+    [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL]: "Informations Complémentaires"
 };
 
 const dictionary_page = {
@@ -91,6 +93,11 @@ const grammar_levels = {
     [GRAMMAR_LEVELS.CONSOLIDATION_OF_KNOWLEDGE]: "Consolidation des connaissances"
 };
 
+const error_page = {
+    [ERROR_PAGE.TITLE]: "Euh OH ! Vous avez des ennuis !",
+    [ERROR_PAGE.ERROR_PAGE_HOME_BUTTON]: "MAISON"
+};
+
 const FR_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page,
     tenses_page,
@@ -99,6 +106,7 @@ const FR_TRANSLATION_BUILD = new BuildAllTranslationPages(
     support_team,
     application_root,
     grammar_levels,
+    error_page,
     "FR").buildTranslationObject();
 
 export default FR_TRANSLATION_BUILD;

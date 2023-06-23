@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 export interface IProgressBarProps {
-    type:  'circle' | 'line' | 'dashboard';
+    type: 'circle' | 'line' | 'dashboard';
     width: number;
     percent: number
 };

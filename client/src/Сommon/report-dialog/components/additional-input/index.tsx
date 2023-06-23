@@ -1,22 +1,29 @@
 import React, { memo } from "react";
+import { FormattedMessage } from "react-intl";
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import { useBoolean } from "../../../../Hooks";
-// import { IAdditionalInput } from "../../../../types";
+import { IAdditionalInput } from "../../types";
+import { TENSES_PAGE } from "../../../../translations/constants";
+import { StyledAdditionalInputTitle } from "../../styled";
 
-const AdditionalInput = memo(({ setAdditionalInformation }: any) => {
+const AdditionalInput = memo(({ setAdditionalInformation }: IAdditionalInput) => {
     const [showAdditionalInput, setShowAdditionalInput] = useBoolean();
     return (
         <React.Fragment>
-            <h3 style={{ marginTop: "20px" }}>Want to add an additional information?</h3>
-            <Switch checked={showAdditionalInput} onClick={() => setShowAdditionalInput((prev: boolean) => !prev)} />
+            <StyledAdditionalInputTitle>
+                <FormattedMessage id={TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_TITLE} />
+            </StyledAdditionalInputTitle>
+            <Switch
+                checked={showAdditionalInput}
+                onClick={() => setShowAdditionalInput((prev: boolean) => !prev)} />
             {showAdditionalInput && (
                 <TextField
-                  label="Additional information"
-                  inputProps={{ "data-testid": "additional-report-modal-input" }}
-                  fullWidth
-                  autoFocus
-                  onChange={(e) => setAdditionalInformation(e.target.value)}
+                    label={<FormattedMessage id={TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL} />}
+                    inputProps={{ "data-testid": "additional-report-modal-input" }}
+                    fullWidth
+                    autoFocus
+                    onChange={({ target: { value } }) => setAdditionalInformation(value)}
                 />
             )}
         </React.Fragment>

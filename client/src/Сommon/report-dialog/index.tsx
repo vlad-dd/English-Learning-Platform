@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
@@ -6,29 +5,31 @@ import DialogTitle from '@mui/material/DialogTitle';
 import SelectReportReason from './components/select-report-reason';
 import AdditionalInput from './components/additional-input';
 import ModalActions from './components/dialog-actions';
+import { useReportDialogWidget } from './use-report-dialog-widget';
 import { IReportDialog } from './types';
-import { REPORT_DIALOG_ERROR_MESSAGE } from './constants';
+import { StyledErrorMessage } from './styled';
+import {
+    REPORT_DIALOG_CONTENT_DATA_TEST_ID,
+    REPORT_DIALOG_ERROR_MESSAGE,
+    REPORT_MODAL_DIALOG_DATA_TEST_ID
+} from './constants';
 
 const ReportDialog = ({ isOpen, error, handleClose, isLoading, createReportAppeal, title, description }: IReportDialog) => {
-    const [selectedReason, setSelectedReason] = useState('');
-    const [additionalInformation, setAdditionalInformation] = useState('');
 
-    useEffect(() => {
-        setSelectedReason("");
-    }, [isOpen])
+    const { selectedReason, additionalInformation, setSelectedReason, setAdditionalInformation } = useReportDialogWidget(isOpen);
 
     return (
         <Dialog
-            data-testid="report-modal-dialog"
+            data-testid={REPORT_MODAL_DIALOG_DATA_TEST_ID}
             open={isOpen || !!error}
             onClose={handleClose}
         >
             <DialogTitle>{title}</DialogTitle>
             {!(!!error) ?
                 <>
-                    <DialogContent data-testid="report-dialog-content">
+                    <DialogContent data-testid={REPORT_DIALOG_CONTENT_DATA_TEST_ID}>
                         <DialogContentText>
-                           {description}
+                            {description}
                         </DialogContentText>
                         <SelectReportReason selectedReason={selectedReason} setSelectedReason={setSelectedReason} />
                         <AdditionalInput setAdditionalInformation={setAdditionalInformation} />
@@ -44,7 +45,9 @@ const ReportDialog = ({ isOpen, error, handleClose, isLoading, createReportAppea
                 </>
 
                 :
-                <div>{REPORT_DIALOG_ERROR_MESSAGE}</div>
+                <StyledErrorMessage>
+                    {REPORT_DIALOG_ERROR_MESSAGE}
+                </StyledErrorMessage>
             }
         </Dialog>
     )

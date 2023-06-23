@@ -1,3 +1,7 @@
+
+export const NOT_FOUND_URL_CONTAINER_CLASSNAME = "not-found-url-container";
+export const ERROR_PAGE_DATA_TEST_ID = "error-page";
+
 export const ELP_USER_EXPERIENCE_ERRORS = {
     BAD_URL: `Oops! It looks like you tried to access an uncharted territory in space. Unfortunately, the planet you are looking for does not exist or may have been destroyed. Please check your coordinates and try again.`,
     BAD_CONNECTION: `It seems we're experiencing a communication error with our home planet. Please check your Internet connection.`,
@@ -7,4 +11,8 @@ export const ELP_USER_EXPERIENCE_ERRORS = {
 
 export const APOLLO_GRAPHQL_ERRORS = {
     REQUEST_FAILED_404: "Request failed with status code 404"
-}
+};
+
+export const NAVIGATION_PATHS = {
+    HOME: "/"
+};

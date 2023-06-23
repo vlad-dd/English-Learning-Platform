@@ -1,14 +1,12 @@
 import React from 'react';
 import { Space, Spin } from 'antd';
+import { ILoadingSpinner } from './types';
+import { LOADING_SPINNER_DATA_TEST_ID } from './constants';
 import { SpinnerWrapper } from './styled';
-
-interface ILoadingSpinner {
-  size: 'small' | 'default' | 'large';
-}
 
 const LoadingSpinner: React.FC<ILoadingSpinner> = ({ size }) => {
   return (
-    <SpinnerWrapper data-testid="loading-spinner">
+    <SpinnerWrapper data-testid={LOADING_SPINNER_DATA_TEST_ID}>
       <Space>
         <Spin size={size} />
       </Space>

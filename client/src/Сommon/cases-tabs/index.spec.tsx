@@ -1,6 +1,7 @@
 import { render, fireEvent, screen } from "@testing-library/react";
-import CasesTabs from ".";
 import { ICases } from "../../Tenses";
+import CasesTabs from ".";
+import { CASES_TABS_DATA_TEST_ID } from "./constants";
 
 const props: ICases[] = [
   {
@@ -29,7 +30,7 @@ describe("CasesTabs", () => {
   });
   
   it("should be in the document", () => {
-    expect(screen.getByTestId("cases-tabs-id")).toBeInTheDocument();
+    expect(screen.getByTestId(CASES_TABS_DATA_TEST_ID)).toBeInTheDocument();
   });
 
   it("should render affirmative part", () => {
