@@ -2,6 +2,8 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { withApolloProvider, withIntlProvider, withReduxProvider, withRouterProvider } from '../test-utils/hocs';
 import { LOADING_PROGRESS_DATA_TEST_ID } from '../Сommon/LoadingProgress/constants';
 import { ERROR_PAGE_DATA_TEST_ID } from '../Сommon/error-handler-page/constants';
+import { TITLE_COMPONENT_DATA_TEST_ID } from '../Сommon/Title/constants';
+import { CASES_TABS_DATA_TEST_ID, CASES_TABS_ICON_DATA_TEST_ID } from '../Сommon/cases-tabs/constants';
 import { buildApolloError } from '../test-utils';
 import * as GrammarConfigHook from "./use-grammar-config";
 import GrammarLevels from "./presentational";
@@ -77,7 +79,7 @@ describe('GrammarLevels', () => {
 
         it('should render titles', () => {
             const titles = ['Plural', 'Explanation Of Plural Demonstrative Objective', 'Use Cases For Plural Demonstrative Objective', 'Consolidation Of Knowledge']
-            expect(screen.queryAllByTestId("title-component-id").length).toBe(5);
+            expect(screen.queryAllByTestId(TITLE_COMPONENT_DATA_TEST_ID).length).toBe(5);
             titles.forEach((title: string) => expect(screen.getByText(title)).toBeInTheDocument());
         });
 
@@ -95,11 +97,11 @@ describe('GrammarLevels', () => {
         });
 
         it('should render cases', () => {
-            expect(screen.getByTestId("cases-tabs-id")).toBeInTheDocument();
-            expect(screen.getByTestId("cases-tabs-icon")).toBeInTheDocument();
+            expect(screen.getByTestId(CASES_TABS_DATA_TEST_ID)).toBeInTheDocument();
+            expect(screen.getByTestId(CASES_TABS_ICON_DATA_TEST_ID)).toBeInTheDocument();
             expect(screen.getByText('Cases Tab Mock')).toBeInTheDocument();
             expect(screen.getByText('Cases Tab Mocked Description')).toBeInTheDocument();
-            expect(screen.getByTestId("cases-tabs-icon").getAttribute('src')).toBe('icon.png');
+            expect(screen.getByTestId(CASES_TABS_ICON_DATA_TEST_ID).getAttribute('src')).toBe('icon.png');
         });
 
         it('should render quizes', () => {
