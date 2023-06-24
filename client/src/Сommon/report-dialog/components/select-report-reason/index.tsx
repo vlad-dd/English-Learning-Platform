@@ -1,26 +1,37 @@
-import React, { memo } from "react";
-import Box from '@mui/material/Box';
+import { memo } from "react";
+import { FormattedMessage } from "react-intl";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { POLICY_RULES } from "../../constants";
+import { ISelectReportReason } from "../../types";
+import { TENSES_PAGE } from "../../../../translations/constants";
+import {
+    POLICY_RULES,
+    REASON_SELECTOR_DATA_TEST_ID,
+    SELECT_REASON_BOX_DATA_TEST_ID,
+    SELECT_REASON_INPUT_LABEL_ID,
+    SELECT_REPORT_REASON_LABEL
+} from "../../constants";
+import { StyledBox } from "../../styled";
 
-const SelectReportReason = memo(({ selectedReason, setSelectedReason }: any) => {
+const SelectReportReason = memo(({ selectedReason, setSelectedReason }: ISelectReportReason) => {
     return (
-        <Box marginTop="20px" sx={{ minWidth: 120 }} data-testid="select-reason-box">
+        <StyledBox data-testid={SELECT_REASON_BOX_DATA_TEST_ID} sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Reason</InputLabel>
+                <InputLabel id={SELECT_REASON_INPUT_LABEL_ID}>
+                    <FormattedMessage id={TENSES_PAGE.REPORT_DIALOG_REASON_INPUT_LABEL} />
+                </InputLabel>
                 <Select
-                    data-testid="reason-selector"
-                    label="Reason"
+                    data-testid={REASON_SELECTOR_DATA_TEST_ID}
+                    label={SELECT_REPORT_REASON_LABEL}
                     value={selectedReason}
-                    onChange={(e) => setSelectedReason(e.target.value)}
+                    onChange={({ target: { value } }) => setSelectedReason(value)}
                 >
                     {POLICY_RULES.map((reason) => <MenuItem key={reason} value={reason}>{reason}</MenuItem>)}
                 </Select>
             </FormControl>
-        </Box>
+        </StyledBox>
     )
 });
 

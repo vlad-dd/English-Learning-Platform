@@ -36,8 +36,4 @@ export const COMMENT_REACTIONS_STATE = {
 
 export const COMMENT_USER_STATUS = {
     VISITOR: "Visitor"
-}
-
-export const SYSTEM_FEEDBACK_MESSAGES = {
-    SUCCESS: "Comment has been added!"
 };

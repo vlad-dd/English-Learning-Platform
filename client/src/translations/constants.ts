@@ -39,6 +39,9 @@ export const TENSES_PAGE = {
     REPORT_COMMENT_DIALOG_DESCRIPTION: "report_comment_dialog_description",
     REPORT_DIALOG_ADDITIONAL_INPUT_TITLE: "report_dialog_additional_input_title",
     REPORT_DIALOG_ADDITIONAL_INPUT_LABEL: "report_dialog_additional_input_label",
+    REPORT_DIALOG_ACTIONS_CANCEL_BUTTON: "report_dialog_actions_cancel_button",
+    REPORT_DIALOG_ACTIONS_SEND_BUTTON: "report_dialog_actions_send_button",
+    REPORT_DIALOG_REASON_INPUT_LABEL: "report_dialog_reason_input_label",
     ADD_COMMENT_BUTTON: "add_comment_button"
 };
 

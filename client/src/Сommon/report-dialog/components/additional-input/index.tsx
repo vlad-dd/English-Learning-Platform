@@ -6,6 +6,7 @@ import { useBoolean } from "../../../../Hooks";
 import { IAdditionalInput } from "../../types";
 import { TENSES_PAGE } from "../../../../translations/constants";
 import { StyledAdditionalInputTitle } from "../../styled";
+import { ADDITIONAL_REPORT_MODAL_INPUT_DATA_TEST_ID } from "../../constants";
 
 const AdditionalInput = memo(({ setAdditionalInformation }: IAdditionalInput) => {
     const [showAdditionalInput, setShowAdditionalInput] = useBoolean();
@@ -20,7 +21,7 @@ const AdditionalInput = memo(({ setAdditionalInformation }: IAdditionalInput) =>
             {showAdditionalInput && (
                 <TextField
                     label={<FormattedMessage id={TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL} />}
-                    inputProps={{ "data-testid": "additional-report-modal-input" }}
+                    inputProps={{ "data-testid": ADDITIONAL_REPORT_MODAL_INPUT_DATA_TEST_ID }}
                     fullWidth
                     autoFocus
                     onChange={({ target: { value } }) => setAdditionalInformation(value)}
@@ -28,6 +29,6 @@ const AdditionalInput = memo(({ setAdditionalInformation }: IAdditionalInput) =>
             )}
         </React.Fragment>
     )
-})
+});
 
 export default AdditionalInput;

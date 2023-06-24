@@ -5,7 +5,7 @@ import { size } from "lodash";
 import { ADD_COMMENT } from "../graphql";
 import { successMessage } from "../../../utils/utils";
 import * as selector from '../../../store/selectors';
-import { SYSTEM_FEEDBACK_MESSAGES } from "../constants";
+import { SYSTEM_FEEDBACK_MESSAGES } from "../../constants";
 
 const useCommentUpdatingWidget = (refetch: () => void, collection: string, document: string)  => {
     const [comment, setComment] = useState<string>('');

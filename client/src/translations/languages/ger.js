@@ -41,7 +41,10 @@ const tenses_page = {
     [TENSES_PAGE.REPORT_COMMENT_DIALOG_DESCRIPTION]: "Mit unserer benutzerfreundlichen Funktion zum Melden von Kommentaren können Sie schnell und einfach alle Kommentare melden, die nicht mit unseren Richtlinien für die English Learning Platform übereinstimmen. Wir möchten sicherstellen, dass unsere Plattform ein sicherer und respektvoller Ort für alle Benutzer ist, und sind auf Ihre Hilfe angewiesen, um dieses Ziel zu erreichen.",
     [TENSES_PAGE.ADD_COMMENT_BUTTON]: "Schicken",
     [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_TITLE]: "Möchten Sie zusätzliche Informationen hinzufügen?",
-    [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL]: "Weitere Informationen"
+    [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL]: "Weitere Informationen",
+    [TENSES_PAGE.REPORT_DIALOG_ACTIONS_CANCEL_BUTTON]: "Stornieren",
+    [TENSES_PAGE.REPORT_DIALOG_ACTIONS_SEND_BUTTON]: "Schicken",
+    [TENSES_PAGE.REPORT_DIALOG_REASON_INPUT_LABEL]: "Grund"
 };
 
 const dictionary_page = { 

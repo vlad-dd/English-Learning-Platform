@@ -41,7 +41,10 @@ const tenses_page = {
     [TENSES_PAGE.REPORT_COMMENT_DIALOG_DESCRIPTION]: "Наша проста у використанні функція звітування про коментарі дозволяє швидко та легко повідомляти про будь-які коментарі, які не відповідають нашій політиці English Learning Platform. Ми хочемо переконатися, що наша платформа є безпечним і шанобливим простором для всіх користувачів, і ми покладаємося на вашу допомогу для досягнення цієї мети.",
     [TENSES_PAGE.ADD_COMMENT_BUTTON]: "Надіслати",
     [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_TITLE]: "Хочете додати додаткову інформацію?",
-    [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL]: "Додаткова інформація"
+    [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL]: "Додаткова інформація",
+    [TENSES_PAGE.REPORT_DIALOG_ACTIONS_CANCEL_BUTTON]: "Скасувати",
+    [TENSES_PAGE.REPORT_DIALOG_ACTIONS_SEND_BUTTON]: "Надіслати",
+    [TENSES_PAGE.REPORT_DIALOG_REASON_INPUT_LABEL]: "Причина"
 };
 
 const dictionary_page = { 
