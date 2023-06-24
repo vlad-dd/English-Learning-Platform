@@ -1,5 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { withApolloProvider, withIntlProvider, withReduxProvider, withRouterProvider } from '../test-utils/hocs';
+import { LOADING_PROGRESS_DATA_TEST_ID } from '../Сommon/LoadingProgress/constants';
+import { ERROR_PAGE_DATA_TEST_ID } from '../Сommon/error-handler-page/constants';
 import { buildApolloError } from '../test-utils';
 import * as GrammarConfigHook from "./use-grammar-config";
 import GrammarLevels from "./presentational";
@@ -129,15 +131,15 @@ describe('GrammarLevels', () => {
         it('should return Loading sign', () => {
             grammarConfigSpy.mockReturnValue({ data: [], isLoading: true, error: undefined, refetch })
             render(<GrammarLevelsWithProvider />);
-            expect(screen.getByTestId('loading-progress')).toBeInTheDocument();
+            expect(screen.getByTestId(LOADING_PROGRESS_DATA_TEST_ID)).toBeInTheDocument();
         });
     })
 
     describe('should return error message if error exists', () => {
-        it('should return Loading sign', () => {
-            grammarConfigSpy.mockReturnValue({ data: [], isLoading: false, error: buildApolloError(), refetch })
+        it('should return error page', () => {
+            grammarConfigSpy.mockReturnValue({ data: [{}], isLoading: false, error: buildApolloError(), refetch })
             render(<GrammarLevelsWithProvider />);
-            expect(screen.getByTestId('error-page')).toBeInTheDocument();
+            expect(screen.getByTestId(ERROR_PAGE_DATA_TEST_ID)).toBeInTheDocument();
         });
     });
 });

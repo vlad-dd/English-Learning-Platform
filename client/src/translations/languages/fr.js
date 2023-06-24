@@ -41,7 +41,10 @@ const tenses_page = {
     [TENSES_PAGE.REPORT_COMMENT_DIALOG_DESCRIPTION]: "Notre fonction de signalement des commentaires facile à utiliser vous permet de signaler rapidement et facilement tout commentaire qui ne correspond pas à notre politique de plateforme d'apprentissage de l'anglais. Nous voulons nous assurer que notre plateforme est un espace sûr et respectueux pour tous les utilisateurs, et nous comptons sur votre aide pour atteindre cet objectif.",
     [TENSES_PAGE.ADD_COMMENT_BUTTON]: "Envoyer",
     [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_TITLE]: "Vous souhaitez ajouter une information supplémentaire?",
-    [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL]: "Informations Complémentaires"
+    [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL]: "Informations Complémentaires",
+    [TENSES_PAGE.REPORT_DIALOG_ACTIONS_CANCEL_BUTTON]: "Annuler",
+    [TENSES_PAGE.REPORT_DIALOG_ACTIONS_SEND_BUTTON]: "Envoyer",
+    [TENSES_PAGE.REPORT_DIALOG_REASON_INPUT_LABEL]: "Raison"
 };
 
 const dictionary_page = {

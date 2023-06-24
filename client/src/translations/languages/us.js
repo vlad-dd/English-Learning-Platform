@@ -41,7 +41,10 @@ const tenses_page = {
     [TENSES_PAGE.REPORT_COMMENT_DIALOG_DESCRIPTION]: "Our easy-to-use comment reporting feature allows you to quickly and easily report any comments that do not match our English Learning Platform policy. We want to ensure that our platform is a safe and respectful space for all users, and we rely on your help to achieve this goal.",
     [TENSES_PAGE.ADD_COMMENT_BUTTON]: "Send",
     [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_TITLE]: "Want to add an additional information?",
-    [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL]: "Additional information"
+    [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL]: "Additional information",
+    [TENSES_PAGE.REPORT_DIALOG_ACTIONS_CANCEL_BUTTON]: "Cancel",
+    [TENSES_PAGE.REPORT_DIALOG_ACTIONS_SEND_BUTTON]: "Send",
+    [TENSES_PAGE.REPORT_DIALOG_REASON_INPUT_LABEL]: "Reason"
 };
 
 const dictionary_page = {

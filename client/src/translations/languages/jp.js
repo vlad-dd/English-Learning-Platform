@@ -41,7 +41,10 @@ const tenses_page = {
   [TENSES_PAGE.REPORT_COMMENT_DIALOG_DESCRIPTION]: "使いやすいコメント報告機能を使用すると、英語学習プラットフォームのポリシーに一致しないコメントを迅速かつ簡単に報告できます。 私たちは、当社のプラットフォームがすべてのユーザーにとって安全で敬意を持った空間であることを保証したいと考えており、この目標を達成するには皆様のご協力が必要です。",
   [TENSES_PAGE.ADD_COMMENT_BUTTON]: "送信",
   [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_TITLE]: "追加情報を追加したいですか?",
-  [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL]: "追加情報"
+  [TENSES_PAGE.REPORT_DIALOG_ADDITIONAL_INPUT_LABEL]: "追加情報",
+  [TENSES_PAGE.REPORT_DIALOG_ACTIONS_CANCEL_BUTTON]: "キャンセル",
+  [TENSES_PAGE.REPORT_DIALOG_ACTIONS_SEND_BUTTON]: "送信",
+  [TENSES_PAGE.REPORT_DIALOG_REASON_INPUT_LABEL]: "理由"
 };
 
 const dictionary_page = { 

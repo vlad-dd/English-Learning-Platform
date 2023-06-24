@@ -1,6 +1,6 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Title from '.';
+import { TITLE_COMPONENT_DATA_TEST_ID } from './constants';
 
 describe('Image', () => {
 
@@ -12,6 +12,6 @@ describe('Image', () => {
     it('should render title with passed style attributes', () => {
         render(<Title styles={{ color: "black" }}>Another Title Text</Title>)
         expect(screen.getByText('Another Title Text')).toBeInTheDocument();
-        expect(screen.getByTestId('title-component-id').getAttribute('style')).toBe('color: black;');
+        expect(screen.getByTestId(TITLE_COMPONENT_DATA_TEST_ID).getAttribute('style')).toBe('color: black;');
     })
 })

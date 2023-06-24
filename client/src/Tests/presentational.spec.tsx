@@ -5,6 +5,9 @@ import { extractByPath } from "../utils/utils";
 import { buildApolloError } from '../test-utils';
 import TestApplication from "./presentational";
 import { PARTIAL_TEXT_INPUT_ID, SELECT_INPUT_ID, TEXT_INPUT_ID } from "./constants";
+import { ERROR_PAGE_DATA_TEST_ID } from '../Сommon/error-handler-page/constants';
+import { withIntlProvider } from '../test-utils/hocs';
+import { LOADING_PROGRESS_DATA_TEST_ID } from '../Сommon/LoadingProgress/constants';
 
 jest.mock('./components/text-input', () => () => <div data-testid='text-input'>Text Input</div>);
 jest.mock('./components/select-input', () => () => <div data-testid='select-input'>Select Input</div>);
@@ -26,6 +29,8 @@ const TestContextResponse = {
     error: undefined
 };
 
+const TestApplicationWithIntlProvider = withIntlProvider(TestApplication);
+
 describe('TestApplication', () => {
     const spy = jest.spyOn(TestConfig, "useTestConfigurationWidget");
     const config = extractByPath(TestContextResponse, 'data.getTests[0]');
@@ -36,7 +41,7 @@ describe('TestApplication', () => {
         spy.mockReturnValue({ ...TestContextResponse });
         render(
             <TestApplicationProviders>
-                <TestApplication />
+                <TestApplicationWithIntlProvider />
             </TestApplicationProviders>
         )
         expect(screen.getByTestId(TEXT_INPUT_ID)).toBeInTheDocument();
@@ -47,7 +52,7 @@ describe('TestApplication', () => {
         spy.mockReturnValue({ ...TestContextResponse, data: changeConfigType("select") });
         render(
             <TestApplicationProviders>
-                <TestApplication />
+                <TestApplicationWithIntlProvider />
             </TestApplicationProviders>)
         expect(screen.getByTestId(SELECT_INPUT_ID)).toBeInTheDocument();
         expect(screen.getByText("Select Input")).toBeInTheDocument();
@@ -57,7 +62,7 @@ describe('TestApplication', () => {
         spy.mockReturnValue({  ...TestContextResponse, data: changeConfigType("partial") });
         render(
             <TestApplicationProviders>
-                <TestApplication />
+                <TestApplicationWithIntlProvider />
             </TestApplicationProviders>);
         expect(screen.getByTestId(PARTIAL_TEXT_INPUT_ID)).toBeInTheDocument();
         expect(screen.getByText("Partial Input")).toBeInTheDocument();
@@ -67,17 +72,17 @@ describe('TestApplication', () => {
         spy.mockReturnValue({ ...TestContextResponse, isLoading: true });
         render(
             <TestApplicationProviders>
-                <TestApplication />
+                <TestApplicationWithIntlProvider />
             </TestApplicationProviders>)
-        expect(screen.getByTestId("loading-progress")).toBeInTheDocument();
+        expect(screen.getByTestId(LOADING_PROGRESS_DATA_TEST_ID)).toBeInTheDocument();
     });
 
     it('should render error message', () => {
         spy.mockReturnValue({ ...TestContextResponse, error: buildApolloError() });
         render(
             <TestApplicationProviders>
-                <TestApplication />
+                <TestApplicationWithIntlProvider />
             </TestApplicationProviders>)
-        expect(screen.getByTestId("error-page")).toBeInTheDocument();
+        expect(screen.getByTestId(ERROR_PAGE_DATA_TEST_ID)).toBeInTheDocument();
     });
 });

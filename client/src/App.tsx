@@ -15,7 +15,7 @@ const Root: React.FC = (): JSX.Element => {
 
   return (
     <IntlProvider locale={language} messages={TRANSLATIONS[language]}>
-      <Suspense children={<RouterProvider router={router} />} fallback={<LoadingSpinner size="large" />} />
+        <Suspense children={<RouterProvider router={router} />} fallback={<LoadingSpinner size="large" />} />
     </IntlProvider>
   )
 };

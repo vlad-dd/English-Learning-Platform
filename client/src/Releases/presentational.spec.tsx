@@ -3,7 +3,10 @@ import { screen, render } from '@testing-library/react'
 import Releases from './presentational'
 import * as Hook from './use-releases-timeline';
 import { buildApolloError } from '../test-utils';
-import { withRouterProvider } from '../test-utils/hocs';
+import { withIntlProvider, withRouterProvider } from '../test-utils/hocs';
+import { CONTENT_SECTION_WRAPPER_DATA_TEST_ID } from '../Dictionary/constants';
+import { LOADING_PROGRESS_DATA_TEST_ID } from '../Сommon/LoadingProgress/constants';
+import { ERROR_PAGE_DATA_TEST_ID } from '../Сommon/error-handler-page/constants';
 
 const response = {
     data: {
@@ -18,7 +21,7 @@ jest.mock('./use-releases-timeline', () => ({
 }))
 
 describe('Releases', () => {
-    const ReleasesWithProvider = withRouterProvider(Releases);
+    const ReleasesWithProvider = withRouterProvider(withIntlProvider(Releases));
     const spy = jest.spyOn(Hook, 'useReleasesTimeLineWidget');
 
     it('should render Release component with configuration', () => {
@@ -26,18 +29,18 @@ describe('Releases', () => {
        const releaseInformation = ['Version: 0.0.1', 'Last Update', 'Mocked Release', 'Release is on board!', '14.02.2023']; 
        render(<ReleasesWithProvider />);
        releaseInformation.forEach((information) =>  expect(screen.getByText(information)).toBeInTheDocument());
-       expect(screen.getByTestId('content-section-wrapper')).toBeInTheDocument();
+       expect(screen.getByTestId(CONTENT_SECTION_WRAPPER_DATA_TEST_ID)).toBeInTheDocument();
     });
 
     it('should waiting for releases response', () => {
         spy.mockReturnValue({...response, isLoading: true})
         render(<ReleasesWithProvider />);
-        expect(screen.getByTestId('loading-progress')).toBeInTheDocument();
+        expect(screen.getByTestId(LOADING_PROGRESS_DATA_TEST_ID)).toBeInTheDocument();
      });
 
      it('should return error with request', () => {
         spy.mockReturnValue({...response, error: buildApolloError() })
         render(<ReleasesWithProvider />);
-        expect(screen.getByTestId('error-page')).toBeInTheDocument();
+        expect(screen.getByTestId(ERROR_PAGE_DATA_TEST_ID)).toBeInTheDocument();
      });
 })
