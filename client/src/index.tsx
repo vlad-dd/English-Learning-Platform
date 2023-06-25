@@ -8,6 +8,7 @@ import "./index.css";
 import { ApolloProvider } from "@apollo/client";
 import Root from "./App";
 import { buildApolloClientInstance } from "./test-utils";
+import { StyledEngineProvider } from "@mui/material";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,6 +16,7 @@ const root = ReactDOM.createRoot(
 const apolloClientInstance = buildApolloClientInstance();
 
 root.render(
+  <StyledEngineProvider injectFirst>
     <ErrorBoundary>
       <ApolloProvider client={apolloClientInstance}>
         <Provider store={store}>
@@ -22,6 +24,7 @@ root.render(
         </Provider>
       </ApolloProvider>
     </ErrorBoundary>
+  </StyledEngineProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

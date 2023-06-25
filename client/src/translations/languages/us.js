@@ -1,4 +1,4 @@
-import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, REPORT_USER_PROFILE_MODAL, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, REPORT_USER_PROFILE_MODAL, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -101,6 +101,17 @@ const error_page = {
     [ERROR_PAGE.ERROR_PAGE_HOME_BUTTON]: "HOME"
 };
 
+const admin_panel = {
+    [ADMIN_PANEL.TITLE]: "Admin Control Dashboard",
+    [ADMIN_PANEL.DOWNLOAD_FULL_REPORT_BUTTON]: "Download Report",
+    [ADMIN_PANEL.LINE_CHART_TITLE]: "Line Chart Of Reports By Application",
+    [ADMIN_PANEL.ALL_APPLICATION_REPORTS]: "Get All Applications Reports",
+    [ADMIN_PANEL.FILE]: "File",
+    [ADMIN_PANEL.DOWNLOAD_FILE_DIALOG_TITLE]: "Do you really want to download reports for this application?",
+    [ADMIN_PANEL.DOWNLOAD_FILE_DIALOG_DESCRIPTION]: "This file provides a comprehensive analysis of the issues encountered in current application during a specific time period. The document presents a detailed overview of the issues, their frequency, and their impact on the application's performance and user experience.",
+    [ADMIN_PANEL.DISPLAY_IN_BROWSER_FILE]: "Display in browser"
+};
+
 const US_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page,
     tenses_page,
@@ -110,6 +121,7 @@ const US_TRANSLATION_BUILD = new BuildAllTranslationPages(
     application_root,
     grammar_levels,
     error_page,
+    admin_panel,
     "US"
 ).buildTranslationObject();
 

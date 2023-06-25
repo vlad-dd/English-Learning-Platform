@@ -96,4 +96,15 @@ export const GRAMMAR_LEVELS = {
 export const ERROR_PAGE = {
     TITLE: "error_page_title",
     ERROR_PAGE_HOME_BUTTON: "error_page_home_button"
-}
+};
+
+export const ADMIN_PANEL = {
+    TITLE: "admin_panel_title",
+    DOWNLOAD_FULL_REPORT_BUTTON: "admin_panel_download_full_report_button",
+    LINE_CHART_TITLE: "admin_panel_linechart_title",
+    ALL_APPLICATION_REPORTS: "admin_panel_all_application_reports",
+    FILE: "admin_panel_file",
+    DOWNLOAD_FILE_DIALOG_TITLE: "admin_panel_download_file_dialog_title",
+    DOWNLOAD_FILE_DIALOG_DESCRIPTION: "admin_panel_download_file_dialog_description",
+    DISPLAY_IN_BROWSER_FILE: "display_in_browser_file"
+};
