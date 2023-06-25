@@ -1,5 +1,5 @@
 import { BuildAllTranslationPages } from "../translation-builders";
-import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 
 const welcome_page = {
     [WELCOME_PAGE.TITLE]: "Plataforma de aprendizaje de inglés",
@@ -99,7 +99,17 @@ const grammar_levels = {
 const error_page = {
     [ERROR_PAGE.TITLE]: "¡UH OH! ¡Te has metido en el lío!",
     [ERROR_PAGE.ERROR_PAGE_HOME_BUTTON]: "HOGAR"
-}
+};
+
+const admin_panel = {
+    [ADMIN_PANEL.TITLE]: "Panel de control de administración",
+    [ADMIN_PANEL.DOWNLOAD_FULL_REPORT_BUTTON]: "Descargar Informe",
+    [ADMIN_PANEL.LINE_CHART_TITLE]: "Gráfico de líneas de informes por aplicación",
+    [ADMIN_PANEL.ALL_APPLICATION_REPORTS]: "Obtenga todos los informes de aplicaciones",
+    [ADMIN_PANEL.FILE]: "Archivo",
+    [ADMIN_PANEL.DOWNLOAD_FILE_DIALOG_TITLE]: "¿Realmente desea descargar informes para esta aplicación?",
+    [ADMIN_PANEL.DISPLAY_IN_BROWSER_FILE]: "Mostrar en el navegador"
+};
 
 const ESP_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page,
@@ -110,6 +120,7 @@ const ESP_TRANSLATION_BUILD = new BuildAllTranslationPages(
     application_root,
     grammar_levels,
     error_page,
+    admin_panel,
     "ESP").buildTranslationObject();
 
 export default ESP_TRANSLATION_BUILD;

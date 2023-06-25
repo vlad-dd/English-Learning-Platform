@@ -1,21 +1,27 @@
-import { Button } from "@mui/material"
+import { FormattedMessage } from "react-intl";
 import { AiOutlineFilePdf } from 'react-icons/ai';
-import { StyledReportBlock } from "../styled"
+import { ADMIN_PANEL } from "../../../../translations/constants";
 import { IApplicationReportBlock } from "../../../types";
 import { APPLICATION_REPORT_BLOCK_ID } from "../../../constants";
+import {
+    StyledApplicationName,
+    StyledDate,
+    StyledParticularLineChartReport,
+    StyledReportBlock
+} from "../styled"
 
 const ApplicationReportBlock = ({ setIsOpen, application, date }: IApplicationReportBlock) => {
     return (
         <StyledReportBlock data-testid={APPLICATION_REPORT_BLOCK_ID}>
-            <span>{application}</span>
-            <span>{date}</span>
-            <Button
+            <StyledApplicationName>{application}</StyledApplicationName>
+            <StyledDate>{date}</StyledDate>
+            <StyledParticularLineChartReport
                 variant="outlined"
                 onClick={() => setIsOpen(true)}
-                style={{ height: "30px", display: "flex", gap: "10px", border: "1px solid purple", color: "white" }}>
+            >
                 <AiOutlineFilePdf size={18} />
-                File
-            </Button>
+                <FormattedMessage id={ADMIN_PANEL.FILE} />
+            </StyledParticularLineChartReport>
         </StyledReportBlock>
     )
 };

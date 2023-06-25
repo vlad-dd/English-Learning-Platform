@@ -1,4 +1,4 @@
-import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -102,6 +102,17 @@ const error_page = {
     [ERROR_PAGE.ERROR_PAGE_HOME_BUTTON]: "ДІМ"
 };
 
+const admin_panel = {
+    [ADMIN_PANEL.TITLE]: "Інформаційна панель адміністратора",
+    [ADMIN_PANEL.DOWNLOAD_FULL_REPORT_BUTTON]: "Завантажити звіт",
+    [ADMIN_PANEL.LINE_CHART_TITLE]: "Лінійна діаграма звітів за заявками",
+    [ADMIN_PANEL.ALL_APPLICATION_REPORTS]: "Звіти про всі програми",
+    [ADMIN_PANEL.FILE]: "Файл",
+    [ADMIN_PANEL.DOWNLOAD_FILE_DIALOG_TITLE]: "Ви дійсно хочете завантажити звіти для цієї програми?",
+    [ADMIN_PANEL.DOWNLOAD_FILE_DIALOG_DESCRIPTION]: "Цей файл містить вичерпний аналіз проблем, які виникли в поточній програмі протягом певного періоду часу. У документі наведено детальний огляд проблем, їх частоту та вплив на продуктивність програми та взаємодію з користувачем.",
+    [ADMIN_PANEL.DISPLAY_IN_BROWSER_FILE]: "Відображення в браузері"
+};
+
 const UA_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page, 
     tenses_page, 
@@ -111,6 +122,7 @@ const UA_TRANSLATION_BUILD = new BuildAllTranslationPages(
     application_root,
     grammar_levels,
     error_page,
+    admin_panel,
     "UA").buildTranslationObject();
 
 export default UA_TRANSLATION_BUILD;

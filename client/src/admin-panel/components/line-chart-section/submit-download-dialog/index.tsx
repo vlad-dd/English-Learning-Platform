@@ -1,7 +1,11 @@
+import { FormattedMessage } from "react-intl";
 import { Button, Dialog, DialogActions, DialogContentText, DialogTitle } from "@mui/material";
 //@ts-ignore
 import statisicPDF from './elp-stat.pdf';
 import { ISubmitDownloadDialog } from "../../../types";
+import { ALERT_DIALOG_DESCRIPTION_ID, ALERT_DIALOG_TITLE_ID } from "../../../constants";
+import { ADMIN_PANEL } from "../../../../translations/constants";
+import { StyledFileLink } from "../styled";
 
 const SubmitDownloadDialog = ({ isOpen, setIsOpen }: ISubmitDownloadDialog) => {
     return (
@@ -9,20 +13,20 @@ const SubmitDownloadDialog = ({ isOpen, setIsOpen }: ISubmitDownloadDialog) => {
             <Dialog
                 open={isOpen}
                 onClose={() => setIsOpen(false)}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title">
-                    Do you really want to download reports for [Application Name]?
+                <DialogTitle id={ALERT_DIALOG_TITLE_ID}>
+                    <FormattedMessage id={ADMIN_PANEL.DOWNLOAD_FILE_DIALOG_TITLE} />
                 </DialogTitle>
                 <DialogTitle>
-                    <DialogContentText id="alert-dialog-description">
-                        This file provides a comprehensive analysis of the issues encountered in the [Application Name] during a specific time period. The document presents a detailed overview of the issues, their frequency, and their impact on the application's performance and user experience.
+                    <DialogContentText id={ALERT_DIALOG_DESCRIPTION_ID}>
+                     <FormattedMessage id={ADMIN_PANEL.DOWNLOAD_FILE_DIALOG_DESCRIPTION} />
                     </DialogContentText>
                 </DialogTitle>
                 <DialogActions>
                     <Button onClick={() => setIsOpen(false)}>
-                        <a href={statisicPDF} target="_blank">Display in browser</a>
+                        <StyledFileLink href={statisicPDF} target="_blank">
+                            <FormattedMessage id={ADMIN_PANEL.DISPLAY_IN_BROWSER_FILE} />
+                        </StyledFileLink>
                     </Button>
                 </DialogActions>
             </Dialog>

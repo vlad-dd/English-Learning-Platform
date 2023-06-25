@@ -1,4 +1,4 @@
-import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -101,6 +101,17 @@ const error_page = {
   [ERROR_PAGE.ERROR_PAGE_HOME_BUTTON]: "家"
 };
 
+const admin_panel = {
+  [ADMIN_PANEL.TITLE]: "管理者コントロールダッシュボード",
+  [ADMIN_PANEL.DOWNLOAD_FULL_REPORT_BUTTON]: "レポートのダウンロード",
+  [ADMIN_PANEL.LINE_CHART_TITLE]: "アプリケーション別レポートの折れ線グラフ",
+  [ADMIN_PANEL.ALL_APPLICATION_REPORTS]: "すべてのアプリケーション レポートを取得する",
+  [ADMIN_PANEL.FILE]: "ファイル",
+  [ADMIN_PANEL.DOWNLOAD_FILE_DIALOG_TITLE]: "本当にこのアプリケーションのレポートをダウンロードしますか?",
+  [ADMIN_PANEL.DOWNLOAD_FILE_DIALOG_DESCRIPTION]: "このファイルは、特定の期間中に現在のアプリケーションで発生した問題の包括的な分析を提供します。 このドキュメントでは、問題、その頻度、アプリケーションのパフォーマンスとユーザー エクスペリエンスへの影響の詳細な概要が示されています。",
+  [ADMIN_PANEL.DISPLAY_IN_BROWSER_FILE]: "ブラウザで表示する"
+};
+
 const JP_TRANSLATION_BUILD = new BuildAllTranslationPages(
   welcome_page, 
   tenses_page, 
@@ -110,6 +121,7 @@ const JP_TRANSLATION_BUILD = new BuildAllTranslationPages(
   application_root,
   grammar_levels,
   error_page,
+  admin_panel,
   "JP").buildTranslationObject();
 
 export default JP_TRANSLATION_BUILD;

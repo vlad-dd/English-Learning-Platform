@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import LineChartSection from './presentational';
-import { DOWNLOAD_ALL_REPORTS_BUTTON_ID, LINE_CHART_SECTION } from '../../constants';
+import { LINE_CHART_SECTION } from '../../constants';
+import { withIntlProvider } from '../../../test-utils/hocs';
 
 jest.mock("react-chartjs-2", () => ({
     Line: () => <div data-testid="line-chart" />
@@ -16,9 +17,11 @@ const DATA_TEST_IDS = [
     "download-all-reports-button"
 ];
 
+const LineChartSectionWithProvider = withIntlProvider(LineChartSection);
+
 describe('Line Chart Section', () => {
     it('should render component', () => {
-        render(<LineChartSection />);
+        render(<LineChartSectionWithProvider />);
         expect(screen.getByTestId(LINE_CHART_SECTION)).toBeInTheDocument();
         expect(screen.getByText("Line Chart Of Reports By Application")).toBeInTheDocument();
         DATA_TEST_IDS.forEach((id: string) => expect(screen.getByTestId(id)).toBeInTheDocument());

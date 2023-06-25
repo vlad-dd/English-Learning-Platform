@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import PieCard from '.';
-import { PIE_CARD_ID } from '../../../constants';
 
 const PROCESS_TAG_CONTENT = [
     "Priority: Main",

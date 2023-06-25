@@ -1,4 +1,4 @@
-import { APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -101,6 +101,16 @@ const error_page = {
     [ERROR_PAGE.ERROR_PAGE_HOME_BUTTON]: "HEIM"
 };
 
+const admin_panel = {
+    [ADMIN_PANEL.TITLE]: "Admin-Kontroll-Dashboard",
+    [ADMIN_PANEL.DOWNLOAD_FULL_REPORT_BUTTON]: "Bericht herunterladen",
+    [ADMIN_PANEL.LINE_CHART_TITLE]: "Liniendiagramm der Berichte nach Anwendung",
+    [ADMIN_PANEL.ALL_APPLICATION_REPORTS]: "Erhalten Sie alle Anwendungsberichte",
+    [ADMIN_PANEL.FILE]: "Datei",
+    [ADMIN_PANEL.DOWNLOAD_FILE_DIALOG_TITLE]: "Möchten Sie wirklich Berichte für diese Anwendung herunterladen?",
+    [ADMIN_PANEL.DISPLAY_IN_BROWSER_FILE]: "Anzeige im Browser"
+};
+
 const GER_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page, 
     tenses_page, 
@@ -110,6 +120,7 @@ const GER_TRANSLATION_BUILD = new BuildAllTranslationPages(
     application_root,
     grammar_levels,
     error_page,
+    admin_panel,
     "GER").buildTranslationObject();
 
 export default GER_TRANSLATION_BUILD;

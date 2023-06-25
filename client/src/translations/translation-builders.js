@@ -8,6 +8,7 @@ export class BuildAllTranslationPages {
         app_root,
         grammar_levels,
         error_page,
+        admin_panel,
         key) {
         this.key = key;
         this.welcome_page = welcome_page;
@@ -18,6 +19,7 @@ export class BuildAllTranslationPages {
         this.app_root = app_root;
         this.grammar_levels = grammar_levels;
         this.error_page = error_page;
+        this.admin_panel = admin_panel;
     };
     buildTranslationObject() {
         return {
@@ -29,7 +31,8 @@ export class BuildAllTranslationPages {
                 ...this.support_team,
                 ...this.app_root,
                 ...this.grammar_levels,
-                ...this.error_page
+                ...this.error_page,
+                ...this.admin_panel
             }
         }
     };
