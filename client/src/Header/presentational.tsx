@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAuthWidget } from './use-auth';
 import HeaderLeftSide from './header-left-side';
 import HeaderRightSide from './header-right-side';
