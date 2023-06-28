@@ -1,18 +1,19 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import HeaderLeftSide from '.';
 import { withReduxProvider, withRouterProvider } from '../../test-utils/hocs';
+import { HEADER_AUTOCOMPLETE_DATA_TEST_ID } from '../constants';
+import HeaderLeftSide from '.';
 
 const HeaderLeftSideWithProvider = withRouterProvider(withReduxProvider(HeaderLeftSide));
 
 describe('HeaderLeftSide', () => {
+    beforeEach(() => {
+      render(<HeaderLeftSideWithProvider />);
+    });
     it('should render Autocomplete', () => {
-        render(<HeaderLeftSideWithProvider />);
-        expect(screen.getByTestId('header-autocomplete')).toBeInTheDocument();
-        expect(screen.getByTestId('header-autocomplete').getAttribute("style")).toBe("width: 35vw;");
+        expect(screen.getByTestId(HEADER_AUTOCOMPLETE_DATA_TEST_ID)).toBeInTheDocument();
     });
 
     it('should render mobile menu', () => {
-        render(<HeaderLeftSideWithProvider />);
         expect(screen.getByTestId('mobile-menu-icon')).toBeInTheDocument();
         fireEvent.click(screen.getByTestId('mobile-menu-icon'));
         expect(screen.getByTestId('burger-menu')).toBeInTheDocument();

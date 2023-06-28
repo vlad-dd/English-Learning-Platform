@@ -1,6 +1,10 @@
 import styled from 'styled-components';
+import { Image, Select } from 'antd';
+import { FiDatabase } from 'react-icons/fi';
 import { DEVICE_MAXIMUM } from '../mobile-view';
 import Autocomplete from '@mui/material/Autocomplete';
+import { Menu } from 'antd';
+import { Avatar } from '@mui/material';
 
 export const HeaderWrapper = styled.div`
   background: #010a12;
@@ -51,12 +55,39 @@ export const MenuItem = styled.span`
 export const StyledAutoComplete = styled(Autocomplete)`
   background: white;
   border-radius: 30px;
+  width: 35vw;
 
   @media ${DEVICE_MAXIMUM.tablet} {
     display: none;
   }
 `;
 
+export const StyledAccountOptionsMenu = styled(Menu)`
+  cursor: pointer;
+`;
 
+export const StyledSelect = styled(Select)`
+  width: 70px;
+  margin-right: 15px;
+`;
 
+export const StyledLanguageOption = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
+export const StyledLanguageIcon = styled.img`
+  height: 14px;
+  width: 20px;
+`;
+
+export const StyledDatabaseIcon = styled(FiDatabase)`
+  cursor: pointer;
+  margin-right: 30px;
+  font-size: 1.2rem;
+`;
+
+export const StyledUserAvatar = styled(Avatar)`
+  object-fit: cover;
+`;

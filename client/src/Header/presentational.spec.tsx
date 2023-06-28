@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import Header from './presentational';
-import * as Hook from './use-auth';
 import { withReduxProvider, withRouterProvider } from '../test-utils/hocs';
+import * as Hook from './use-auth';
+import Header from './presentational';
 
 const HeaderWithProvider = withRouterProvider(withReduxProvider(Header));
 

@@ -18,6 +18,8 @@ const focusNodeAfterMounting = (id: string) => document.getElementById(id)?.focu
 const generateNicknameAvatars = (name: string) => ({ children: `${name.split(' ')[0][0] + name.split(' ')[1][0]}` });
 
 const successMessage = (text: string) => (() => message.success(text))();
+const errorMessage = (text: string) => (() => message.error(text))();
+const warningMessage = (text: string) => (() => message.warning(text))();
 
 const extractByPath = (data: any, path: string) => get(data, path);
 
@@ -26,5 +28,7 @@ export {
   focusNodeAfterMounting,
   generateNicknameAvatars,
   successMessage,
-  extractByPath
+  extractByPath,
+  errorMessage,
+  warningMessage
 };

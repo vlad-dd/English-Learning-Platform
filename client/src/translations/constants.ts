@@ -108,3 +108,8 @@ export const ADMIN_PANEL = {
     DOWNLOAD_FILE_DIALOG_DESCRIPTION: "admin_panel_download_file_dialog_description",
     DISPLAY_IN_BROWSER_FILE: "display_in_browser_file"
 };
+
+export const HEADER = {
+    PROFILE_ACCOUNT_OPTION: "header_profile_account_option",
+    PROFILE_SIGN_OUT: "header_profile_sign_out"
+};
