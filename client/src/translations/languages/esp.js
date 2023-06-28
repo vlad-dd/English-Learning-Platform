@@ -1,5 +1,5 @@
 import { BuildAllTranslationPages } from "../translation-builders";
-import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, HEADER, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 
 const welcome_page = {
     [WELCOME_PAGE.TITLE]: "Plataforma de aprendizaje de inglés",
@@ -111,6 +111,11 @@ const admin_panel = {
     [ADMIN_PANEL.DISPLAY_IN_BROWSER_FILE]: "Mostrar en el navegador"
 };
 
+const header = {
+    [HEADER.PROFILE_ACCOUNT_OPTION]: "Perfil",
+    [HEADER.PROFILE_SIGN_OUT]: "Desconectar"
+};
+
 const ESP_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page,
     tenses_page,
@@ -121,6 +126,7 @@ const ESP_TRANSLATION_BUILD = new BuildAllTranslationPages(
     grammar_levels,
     error_page,
     admin_panel,
+    header,
     "ESP").buildTranslationObject();
 
 export default ESP_TRANSLATION_BUILD;

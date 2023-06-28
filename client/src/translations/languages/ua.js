@@ -1,4 +1,4 @@
-import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, HEADER, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -113,6 +113,11 @@ const admin_panel = {
     [ADMIN_PANEL.DISPLAY_IN_BROWSER_FILE]: "Відображення в браузері"
 };
 
+const header = {
+    [HEADER.PROFILE_ACCOUNT_OPTION]: "Профіль",
+    [HEADER.PROFILE_SIGN_OUT]: "Вийти з аккаунта"
+};
+
 const UA_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page, 
     tenses_page, 
@@ -123,6 +128,7 @@ const UA_TRANSLATION_BUILD = new BuildAllTranslationPages(
     grammar_levels,
     error_page,
     admin_panel,
+    header,
     "UA").buildTranslationObject();
 
 export default UA_TRANSLATION_BUILD;

@@ -1,4 +1,4 @@
-import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, REPORT_USER_PROFILE_MODAL, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../constants";
+import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, REPORT_USER_PROFILE_MODAL, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE, HEADER } from "../constants";
 import { BuildAllTranslationPages } from "../translation-builders";
 
 const welcome_page = {
@@ -112,6 +112,11 @@ const admin_panel = {
     [ADMIN_PANEL.DISPLAY_IN_BROWSER_FILE]: "Display in browser"
 };
 
+const header = {
+    [HEADER.PROFILE_ACCOUNT_OPTION]: "Profile",
+    [HEADER.PROFILE_SIGN_OUT]: "Sign out"
+};
+
 const US_TRANSLATION_BUILD = new BuildAllTranslationPages(
     welcome_page,
     tenses_page,
@@ -122,6 +127,7 @@ const US_TRANSLATION_BUILD = new BuildAllTranslationPages(
     grammar_levels,
     error_page,
     admin_panel,
+    header,
     "US"
 ).buildTranslationObject();
 

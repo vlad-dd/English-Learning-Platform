@@ -1,9 +1,11 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { noop } from 'lodash';
+import { withIntlProvider, withReduxProvider, withRouterProvider } from '../../test-utils/hocs';
+import { APPLICATION_USER_STATUS } from '../../Сommon/constants';
 import HeaderRightSide from '.';
-import { withReduxProvider, withRouterProvider } from '../../test-utils/hocs';
+import { HEADER_DROPDOWN_MENU_DATA_TEST_ID } from '../constants';
 
-const HeaderRightSideWithProvider = withRouterProvider(withReduxProvider(HeaderRightSide));
+const HeaderRightSideWithProvider = withRouterProvider(withReduxProvider(withIntlProvider(HeaderRightSide)));
 
 describe('HeaderLeftSide', () => {
 
@@ -16,13 +18,13 @@ describe('HeaderLeftSide', () => {
 
         it('should render HeaderLeftSide', () => {
             expect(screen.getByText('test@gmail.com')).toBeInTheDocument();
-            expect(screen.queryAllByRole('img')[0]).toBeInTheDocument();
+            expect(screen.queryAllByRole('img').at(0)).toBeInTheDocument();
         });
 
         it('should render header dropdown menu', () => {
             const menuItems = ['Profile', 'Sign out'];
             fireEvent.click(screen.getByText('test@gmail.com'))
-            expect(screen.getByTestId("header-dropdown-menu")).toBeInTheDocument();
+            expect(screen.getByTestId(HEADER_DROPDOWN_MENU_DATA_TEST_ID)).toBeInTheDocument();
             menuItems.forEach((menuItem) => expect(screen.getByText(menuItem)).toBeInTheDocument())
         });
 
@@ -39,8 +41,8 @@ describe('HeaderLeftSide', () => {
         });
 
         it('should render HeaderLeftSide', () => {
-            expect(screen.getByText('Guest')).toBeInTheDocument();
-            expect(screen.queryAllByRole('img')[0]).toBeInTheDocument();
+            expect(screen.getByText(APPLICATION_USER_STATUS.GUEST)).toBeInTheDocument();
+            expect(screen.queryAllByRole('img').at(0)).toBeInTheDocument();
         });
     });
 });

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { getAuth, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
+import { getAuth, signOut } from 'firebase/auth';
+import { isNil, size } from 'lodash';
 import { auth } from '../authentification/firebase';
-import { message } from 'antd';
 import { register } from '../store/reducers/registration';
+import { errorMessage, successMessage, warningMessage } from "../utils/utils";
 import { APPLICATION_NAVIGATION, SYSTEM_FEEDBACK_MESSAGES } from '../Сommon/constants';
-import { size } from 'lodash';
 
 export const useAuthWidget = () => {
   const navigate = useNavigate();
@@ -14,17 +14,14 @@ export const useAuthWidget = () => {
   const [enteredUser, setUser] = useState<any>(null);
   const [authError, setAuthError] = useState<any>(null);
 
-  const success = () => message.success(SYSTEM_FEEDBACK_MESSAGES.LOGGED_IN);
-  const error = () => message.error(authError);
-
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
-      if (authUser !== null) {
+      if (!isNil(authUser)) {
         setUser(authUser);
-        dispatch(register(authUser))
-        !!size(enteredUser) && setTimeout(() => success());
-        !!size(authError) && setTimeout(() => error());
-      }
+        dispatch(register(authUser));
+        !!size(enteredUser) && setTimeout(() => successMessage(SYSTEM_FEEDBACK_MESSAGES.LOGGED_IN));
+        !!size(authError) && setTimeout(() => errorMessage(authError));
+      };
     });
   }, [enteredUser]);
 
@@ -33,7 +30,7 @@ export const useAuthWidget = () => {
     signOut(auth)
       .then(() => {
         setUser(null);
-        setTimeout(() => message.warning(SYSTEM_FEEDBACK_MESSAGES.LOGGING_OUT));
+        setTimeout(() => warningMessage(SYSTEM_FEEDBACK_MESSAGES.LOGGING_OUT));
         setTimeout(() => {
           navigate(APPLICATION_NAVIGATION.LOGIN);
         }, 3000);

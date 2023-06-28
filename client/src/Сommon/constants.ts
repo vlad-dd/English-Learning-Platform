@@ -5,5 +5,10 @@ export const SYSTEM_FEEDBACK_MESSAGES = {
 };
 
 export const APPLICATION_NAVIGATION = {
-    LOGIN: "/login"
+    LOGIN: "/login",
+    ADMIN_PANEL: "/admin-panel"
+};
+
+export const APPLICATION_USER_STATUS = {
+    GUEST: "Guest"
 }

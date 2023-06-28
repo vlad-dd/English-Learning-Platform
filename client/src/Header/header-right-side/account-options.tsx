@@ -1,25 +1,27 @@
-import {
-  UserOutlined,
-  StarOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
-import { Menu } from 'antd';
-import { MenuItem } from '../styled';
 import { useDispatch } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
+import { UserOutlined, SettingOutlined } from '@ant-design/icons';
 import { openUserProfileModal } from '../../store/reducers/user-profile-modal';
+import { HEADER } from '../../translations/constants';
+import { IAccountOptions } from '../types';
+import { HEADER_DROPDOWN_MENU_DATA_TEST_ID } from '../constants';
+import { MenuItem, StyledAccountOptionsMenu } from '../styled';
 
-const AccountOptions = ({ handleSignOut }: { handleSignOut: () => void }) => {
+const AccountOptions = ({ handleSignOut }: IAccountOptions) => {
   const dispatch = useDispatch();
   return (
-    <Menu
-      data-testid="header-dropdown-menu"
-      style={{ cursor: "pointer" }}
+    <StyledAccountOptionsMenu
+      data-testid={HEADER_DROPDOWN_MENU_DATA_TEST_ID}
       items={[
         {
           label: (
             <>
               <UserOutlined />
-              <MenuItem onClick={() => dispatch(openUserProfileModal())}>Profile</MenuItem>
+              <MenuItem
+                onClick={() => dispatch(openUserProfileModal())}
+              >
+                <FormattedMessage id={HEADER.PROFILE_ACCOUNT_OPTION} />
+              </MenuItem>
             </>
           ),
           key: '0',
@@ -31,8 +33,10 @@ const AccountOptions = ({ handleSignOut }: { handleSignOut: () => void }) => {
           label: (
             <>
               <SettingOutlined />
-              <MenuItem onClick={handleSignOut}>
-                Sign out
+              <MenuItem
+                onClick={handleSignOut}
+              >
+                <FormattedMessage id={HEADER.PROFILE_SIGN_OUT} />
               </MenuItem>
             </>
           ),
