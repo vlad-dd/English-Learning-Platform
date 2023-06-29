@@ -1,7 +1,8 @@
 import * as ReactRedux from 'react-redux';
-import { fireEvent, render, screen } from "@testing-library/react";
 import { act } from 'react-dom/test-utils';
+import { fireEvent, render, screen } from "@testing-library/react";
 import { withReduxProvider, withRouterProvider } from '../test-utils/hocs';
+import { MENU_OPTIONS_DATA_TEST_ID } from './constants';
 import SiderMenu from "./presentational";
 
 jest.mock('react-redux', () => ({
@@ -24,13 +25,13 @@ describe('Options Menu', () => {
 
   it('should render options menu', () => {
     const options = ['Tenses', 'Grammar Levels', 'Dictionary', 'Releases'];
-    expect(screen.getByTestId('options-menu')).toBeInTheDocument();
+    expect(screen.getByTestId(MENU_OPTIONS_DATA_TEST_ID)).toBeInTheDocument();
     options.forEach(option => expect(screen.getByText(option)).toBeInTheDocument());
   });
 
   it('should render present options menu', () => {
     const options = ['Simple', 'Continuous', 'Perfect', 'Perfect C'];
-    expect(screen.getByTestId('options-menu')).toBeInTheDocument();
+    expect(screen.getByTestId(MENU_OPTIONS_DATA_TEST_ID)).toBeInTheDocument();
     act(() => fireEvent.click(screen.getByText('Tenses')))
     act(() => fireEvent.click(screen.getByText('Present')))
     options.forEach(option => expect(screen.getByText(option)).toBeInTheDocument());
