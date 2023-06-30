@@ -1,3 +1,4 @@
+import { ITranslationRoot } from './types';
 import {
   US_TRANSLATION_BUILD,
   UA_TRANSLATION_BUILD,
@@ -7,7 +8,7 @@ import {
   GER_TRANSLATION_BUILD
 } from './languages';
 
-export const TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
+export const TRANSLATIONS: { [key: string]: ITranslationRoot } = {
   ...US_TRANSLATION_BUILD,
   ...UA_TRANSLATION_BUILD,
   ...JP_TRANSLATION_BUILD,

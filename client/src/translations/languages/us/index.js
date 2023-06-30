@@ -1,5 +1,5 @@
-import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, REPORT_USER_PROFILE_MODAL, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE, HEADER } from "../constants";
-import { BuildAllTranslationPages } from "../translation-builders";
+import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, REPORT_USER_PROFILE_MODAL, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE, HEADER } from "../../constants";
+import { BuildAllTranslationPages } from "../../translation-builders";
 
 const welcome_page = {
     [WELCOME_PAGE.TITLE]: "English Learning Platform",
