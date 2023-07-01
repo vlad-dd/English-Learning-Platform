@@ -13,10 +13,6 @@ import { ContentSection } from '../Tenses/styled';
 
 const WelcomePage = () => {
 
-  if (!window.navigator.onLine) {
-    return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.BAD_CONNECTION} />
-  }
-
   return (
     <>
       <ContentSection data-testid={WELCOME_PAGE_SECTION_DATA_TEST_ID}>

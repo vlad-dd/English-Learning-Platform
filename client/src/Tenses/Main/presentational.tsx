@@ -22,10 +22,6 @@ const TenseContent = (): JSX.Element => {
     return <LoadingProgress />
   }
 
-  if (!window.navigator.onLine) {
-    return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.BAD_CONNECTION} />
-  }
-
   if (error) {
     if (error.networkError) {
       return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.SERVER_ERROR} />
