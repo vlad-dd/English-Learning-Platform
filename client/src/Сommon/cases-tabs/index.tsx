@@ -1,10 +1,10 @@
 import React from "react";
-import { ICases } from "../../Tenses";
 import { useRenderCaseItemsWidget } from "./use-render-case-items";
+import { ICasesTabsProps } from "./types";
 import { CASES_TABS_DATA_TEST_ID } from "./constants";
 import { StyledTabs } from "./styled";
 
-const CasesTabs: React.FC<{ config: ICases[] }> = ({ config }) => {
+const CasesTabs: React.FC<ICasesTabsProps> = ({ config }) => {
 
   const { renderCaseItems } = useRenderCaseItemsWidget(config);
 

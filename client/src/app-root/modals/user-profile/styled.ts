@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Box, DialogActions } from '@mui/material';
+import { Avatar, Box, DialogActions } from '@mui/material';
 import { Tag } from "antd";
 
 export const StyledUserProfileBox = styled(Box)`
@@ -95,3 +95,10 @@ export const StyledActivityTag = styled(Tag)`
 `;
 
 export const StyledUserProgressLabel = styled.span``;
+
+export const StyledUserProfileAvatar = styled(Avatar)`
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  cursor: pointer;
+`;

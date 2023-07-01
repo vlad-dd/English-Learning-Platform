@@ -1,5 +1,4 @@
 import { SendReportModal } from '../support-team';
-import ErrorPage from '../Сommon/error-handler-page/not-found-url';
 import {
   WelcomePageHeaderSection,
   PlatformCards,
@@ -7,7 +6,6 @@ import {
   LearnerFeedbacks,
   SocialMedias
 } from './components';
-import { ELP_USER_EXPERIENCE_ERRORS } from '../Сommon/error-handler-page/constants';
 import { WELCOME_PAGE_SECTION_DATA_TEST_ID } from './constants';
 import { ContentSection } from '../Tenses/styled';
 

@@ -3,6 +3,8 @@ import { Tag } from "antd";
 import { Avatar, List, IconButton } from "@mui/material";
 import RuleIcon from '@mui/icons-material/Rule';
 import ListItem from '@mui/material/ListItem';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 
 export const StyledSectionCommentsWrapper = styled.div``;
 
@@ -88,3 +90,16 @@ export const StyledRuleIcon = styled(RuleIcon)`
 `;
 
 export const StyledCommentRulesWrapper = styled.div``;
+
+export const StyledListItemIcon = styled(Avatar)`
+  background: rgb(0, 30, 60);
+`;
+
+export const StyledThumbUpIcon = styled(ThumbUpIcon)`
+  height: 20px;
+`;
+
+export const StyledThumbDownAltIcon = styled(ThumbDownAltIcon)`
+  height: 20px;
+`;
+

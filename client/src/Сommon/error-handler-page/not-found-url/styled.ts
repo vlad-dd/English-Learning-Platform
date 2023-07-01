@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button } from "@mui/material";
 
 export const StyledNotFoundURLContainer = styled.div`
   height: 100vh;
@@ -31,3 +32,9 @@ export const ErrorDefinitionWarning = styled.h2`
 `;
 
 export const StyledError = styled.p``;
+
+export const StyledHomeButton = styled(Button)`
+  border: 1px solid purple;
+  color: white;
+  width: 8vw;
+`;

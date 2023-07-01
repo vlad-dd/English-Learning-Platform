@@ -10,7 +10,6 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
 import WorkIcon from '@mui/icons-material/RuleSharp';
 import Divider from '@mui/material/Divider';
 import { TENSES_PAGE } from '../../../../../translations/constants';
@@ -30,6 +29,7 @@ import {
 } from '../../../constants';
 import {
     StyledCommentRulesWrapper,
+    StyledListItemIcon,
     StyledRuleIcon
 } from '../../../styled';
 
@@ -66,9 +66,9 @@ const CommentRulesModal = ({ open, setOpen }: ICommentRulesModal) => {
                             <>
                                 <ListItem>
                                     <ListItemAvatar>
-                                        <Avatar style={{ background: "rgb(0, 30, 60)" }}>
+                                        <StyledListItemIcon>
                                             <WorkIcon />
-                                        </Avatar>
+                                        </StyledListItemIcon>
                                     </ListItemAvatar>
                                     <ListItemText primary={rule} />
                                 </ListItem>

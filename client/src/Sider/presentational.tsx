@@ -1,19 +1,16 @@
-import { Layout } from 'antd';
-import * as Styled from './styled';
 import SiderMenu from '../Menu/presentational';
 import { useBoolean } from '../Hooks';
-import './index.css';
 import CompanyLogo from './company-logo';
-
-const { Sider } = Layout;
+import './index.css';
+import { SIDER_MENU_DATA_TEST_ID } from './constants';
+import * as Styled from './styled';
 
 const SiderComponent = () => {
   const [isCollapsed, setCollapsed] = useBoolean(false);
   return (
-      <Sider
-        data-testid="sider-menu"
+      <Styled.StyledLayoutSider
+        data-testid={SIDER_MENU_DATA_TEST_ID}
         collapsible
-        style={{ background: "#010a12" }}
         collapsed={isCollapsed}
         onCollapse={() => setCollapsed()}
       >
@@ -21,7 +18,7 @@ const SiderComponent = () => {
           <CompanyLogo />
         </Styled.LogoContainer>
         <SiderMenu  />
-      </Sider>
+      </Styled.StyledLayoutSider>
   );
 };
 

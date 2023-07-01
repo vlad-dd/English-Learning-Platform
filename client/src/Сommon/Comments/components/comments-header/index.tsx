@@ -33,7 +33,6 @@ const CommentsHeader = ({ comments }: { comments: Array<IComment> }) => {
             <StyledRuleSection data-testid={COMMENT_RULE_SECTION_DATA_TEST_ID}>
                 <CommentRulesModal open={isRulesModalOpen} setOpen={setIsRulesModalOpen} />
             </StyledRuleSection>
-
         </StyledCommentsHeader>
     );
 };

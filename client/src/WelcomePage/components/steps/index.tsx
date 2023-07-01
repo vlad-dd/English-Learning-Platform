@@ -1,9 +1,9 @@
 import React, { useLayoutEffect, useState } from "react";
+import { FormattedMessage } from "react-intl";
 import { size } from "lodash";
+import { WELCOME_PAGE } from "../../../translations/constants";
 import { GUIDELINE_STEPS, GUIDELINE_STEPS_DATA_TEST_ID } from "../../constants";
 import { StyledSteps, StyledTitle } from "./styled";
-import { FormattedMessage } from "react-intl";
-import { WELCOME_PAGE } from "../../../translations/constants";
 
 const StepsGuideline = () => {
   const [current, setCurrent] = useState(0);

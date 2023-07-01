@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { Card, Col, List, Space, Tag } from "antd";
+import { Card, Col, List, Tag } from "antd";
 import { GoLinkExternal } from "react-icons/go";
-import { StyledListElement } from "../styled";
+import { StyledListElement, StyledSpace } from "../styled";
 import { CARDS_INFORMATION_LIST } from "../../../constants";
 import { FormattedMessage } from "react-intl";
 import { WELCOME_PAGE } from "../../../../translations/constants";
@@ -13,8 +13,7 @@ const ListCard = () => {
             >
                 <List
                     size="small">
-                    <Space
-                        style={{ display: "flex", flexDirection: "row" }}
+                    <StyledSpace
                         size={[0, 8]}
                         wrap
                     >
@@ -26,7 +25,7 @@ const ListCard = () => {
                                 </Link>
                             </StyledListElement>
                         ))}
-                    </Space>
+                    </StyledSpace>
                 </List>
             </Card>
         </Col>

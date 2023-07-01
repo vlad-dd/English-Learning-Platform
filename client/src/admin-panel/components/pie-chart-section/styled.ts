@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Pie } from "react-chartjs-2";
 import { Card, Typography } from "@mui/material"
 
 export const StyledPieChartSectionWrapper = styled.div`
@@ -26,4 +27,10 @@ export const StyledTotalUsersContainer = styled.div`
   justify-content: left;
   align-items: center;
   gap: 8px;
+`;
+
+export const StyledPie = styled(Pie)`
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
 `;
