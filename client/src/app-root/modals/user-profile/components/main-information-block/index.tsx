@@ -1,18 +1,18 @@
-import { Avatar, Divider } from "@mui/material";
+import { Divider } from "@mui/material";
 import { Tag } from "antd";
 import { MAIN_INFORMATION_BLOCK_DATA_TEST_ID } from "../../constants";
 import {
     StyledInformationTag,
     StyledMainInformationBlock,
-    StyledUserAvatarWrapper
+    StyledUserAvatarWrapper,
+    StyledUserProfileAvatar
 } from "../../styled";
 
 const MainInformationBlock = () => {
     return (
         <StyledMainInformationBlock data-testid={MAIN_INFORMATION_BLOCK_DATA_TEST_ID}>
             <StyledUserAvatarWrapper>
-                <Avatar
-                    style={{ height: "200px", width: "200px", objectFit: "cover", cursor: "pointer" }}
+                <StyledUserProfileAvatar
                     alt="avatar"
                     src="https://ichef.bbci.co.uk/images/ic/640x360/p01gz4lb.jpg" />
             </StyledUserAvatarWrapper>

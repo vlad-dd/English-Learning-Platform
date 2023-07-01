@@ -115,20 +115,4 @@ describe('Dictionary', () => {
             expect(screen.getByTestId(ERROR_EMPTY_SPACE_DATA_TEST_ID)).toBeInTheDocument();
         });
     });
-
-    describe('when user has a bad connection', () => {
-        it('should show that connection is bad', () => {
-            const windowNavigatorSpy = jest.spyOn(window.navigator, 'onLine', 'get');
-            windowNavigatorSpy.mockReturnValue(false);
-            render(
-                <BrowserRouter>
-                    <DictionaryConfigurationContext.Provider value={{ data: responseMock, isLoading: false, searchWordInDictionary: jest.fn(), error: undefined }}>
-                        <DictionaryWithProvider />
-                    </DictionaryConfigurationContext.Provider>
-                </BrowserRouter>
-            );
-            expect(screen.getByTestId("error-page")).toBeInTheDocument();
-            expect(screen.getByText(ELP_USER_EXPERIENCE_ERRORS.BAD_CONNECTION)).toBeInTheDocument();
-        });
-    });
 });

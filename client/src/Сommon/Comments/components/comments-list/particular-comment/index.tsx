@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { Link, Tooltip } from "@mui/material";
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import { useBoolean } from "../../../../../Hooks";
 import ReportCommentModal from "../../report-modal";
 import { IParticularComment } from "../../../types";
@@ -17,6 +15,8 @@ import {
     StyledCommentContainer,
     StyledCommentReactions,
     StyledIconButton,
+    StyledThumbDownAltIcon,
+    StyledThumbUpIcon,
 } from "../../../styled";
 
 const ParticularComment = ({ commentID, comment }: IParticularComment) => {
@@ -41,16 +41,14 @@ const ParticularComment = ({ commentID, comment }: IParticularComment) => {
                     onClick={likeComment}
                     color="secondary"
                 >
-                    <ThumbUpIcon
-                        style={{ height: "20px" }}
+                    <StyledThumbUpIcon
                         className={`${commentLike && !commentDislike ? COMMENT_REACTIONS_STATE.LIKED_BUTTON : ''}`}
                     />
                 </StyledIconButton>
                 <StyledIconButton
                     onClick={dislikeComment}
                     color="secondary">
-                    <ThumbDownAltIcon
-                        style={{ height: "20px" }}
+                    <StyledThumbDownAltIcon
                         className={`${commentDislike && !commentLike ? COMMENT_REACTIONS_STATE.DISLIKED_BUTTON : ''}`}
                     />
                 </StyledIconButton>

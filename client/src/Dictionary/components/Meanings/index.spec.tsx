@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { DictionaryConfigurationContext } from "../../Context";
 import Meanings from ".";
+import { DEFINITIONS_TABLE_DATA_TEST_ID } from '../../constants';
 
 const dictionaryMock = [{
     meanings: [{
@@ -27,8 +28,8 @@ describe('Meanings', () => {
     });
 
     it('should render Meanings Table', () => {
-        expect(screen.getByTestId('definitions-table')).toBeInTheDocument();
-        expect(screen.getByTestId('definitions-table').className).toBe('ant-table');
+        expect(screen.getByTestId(DEFINITIONS_TABLE_DATA_TEST_ID)).toBeInTheDocument();
+        expect(screen.getByTestId(DEFINITIONS_TABLE_DATA_TEST_ID).className).toBe('ant-table');
     });
 
     it('should render Meanings Part Of Speech', () => {

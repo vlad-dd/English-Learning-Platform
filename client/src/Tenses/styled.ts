@@ -1,7 +1,10 @@
-import { Table, Alert } from "antd";
+import { Table, Alert, List } from "antd";
 import styled from "styled-components";
 import { DEVICE_MAXIMUM } from "../mobile-view";
 import { Title } from "../Сommon";
+import { Avatar } from "@mui/material";
+
+const { Item: { Meta } } = List;
 
 export const ContentSection = styled.div`
   background: rgb(1, 14, 27);
@@ -10,6 +13,15 @@ export const ContentSection = styled.div`
   min-height: 360px;
 `;
 
+export const StyledMeta = styled(Meta)`
+  padding: 15px;
+`;
+
+export const StyledPanelIcon = styled(Avatar)`
+  height: 16px;
+  width: 16px;
+  object-fit: cover;
+`;
 //PREVIOUS background: rgb(0, 30, 60);
 
 //PREVIOUS

@@ -1,3 +1,4 @@
+
 export const DICTIONARY_TIP_ID = "dictionary_tip";
 export const UNEXISTED_WORD_ID = "unexisted_word";
 export const COUNTRY_AUDIO_ID = "country_audio";
@@ -8,6 +9,7 @@ export const UNEXISTED_AUDIO_FILE_DATA_TEST_ID = "unexisted-audio-file";
 export const DICTIONARY_SEARCH_INPUT_DATA_TEST_ID = "dictionary-search-input";
 export const DICTIONARY_SEARCH_INPUT_PLACEHOLDER = "Search word...";
 export const DICTIONARY_SEARCH_BUTTON_DATA_TEST_ID = "dictionary-search-button";
+export const DEFINITIONS_TABLE_DATA_TEST_ID = "definitions-table";
 
 export const AUDIO_PRONOUNCE = { 
     US: '-us.mp3',

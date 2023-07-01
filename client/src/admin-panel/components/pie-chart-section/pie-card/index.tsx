@@ -4,11 +4,11 @@ import { FaUserPlus } from "react-icons/fa";
 import { IPieCard } from "../../../types";
 import { PIE_CHART_CONFIG } from "../../../constants";
 import {
+    StyledPie,
     StyledPieCard,
     StyledTotalUsersContainer,
     StyledTypography
 } from "../styled";
-import { Pie } from "react-chartjs-2";
 
 const PieCard = ({ id, title, value }: IPieCard) => {
     return (
@@ -35,7 +35,7 @@ const PieCard = ({ id, title, value }: IPieCard) => {
                 </StyledTypography>
             </CardContent>
             <CardContent>
-            <Pie data={PIE_CHART_CONFIG} style={{ height: "150px", width: "150px", objectFit: "cover" }} />
+            <StyledPie data={PIE_CHART_CONFIG} />
             </CardContent>
         </StyledPieCard>
     )

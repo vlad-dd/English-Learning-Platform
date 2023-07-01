@@ -10,7 +10,7 @@ export const StyledServiceButton = styled(Button)`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #1890ff;
+  background: #1890ff !important;
   border-radius: 50%;
   height: 40px;
   width: 40px;

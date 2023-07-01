@@ -6,7 +6,8 @@ export const SYSTEM_FEEDBACK_MESSAGES = {
 
 export const APPLICATION_NAVIGATION = {
     LOGIN: "/login",
-    ADMIN_PANEL: "/admin-panel"
+    ADMIN_PANEL: "/admin-panel",
+    HOME: "/"
 };
 
 export const APPLICATION_USER_STATUS = {

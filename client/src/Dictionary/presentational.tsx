@@ -15,10 +15,6 @@ import { DictionaryWrapper, DictionaryContent, StyledDictionaryErrorContainer, S
 const Dictionary = () => {
   const { renderApplicationGate, isLoading, error } = useConfigurationWidget(DictionaryConfigurationContext);
 
-  if (!window.navigator.onLine) {
-    return <ErrorPage error={ELP_USER_EXPERIENCE_ERRORS.BAD_CONNECTION} />
-  };
-
   return (
     <ContentSection data-testid={CONTENT_SECTION_WRAPPER_DATA_TEST_ID}>
       <DictionaryWrapper data-testid={DICTIONARY_WRAPPER_DATA_TEST_ID}>

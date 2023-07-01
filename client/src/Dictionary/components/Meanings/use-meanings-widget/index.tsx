@@ -5,6 +5,7 @@ import { DictionaryConfigurationContext } from "../../../Context";
 import { IDefinitions, IMeanings } from "../../../types";
 import { columns } from "../constants";
 import { StyledDefinition, StyledTable } from "../styled";
+import { DEFINITIONS_TABLE_DATA_TEST_ID } from "../../../constants";
 
 export const useMeaningsWidget = () => {
     const { data } = useContext(DictionaryConfigurationContext);
@@ -24,7 +25,7 @@ export const useMeaningsWidget = () => {
             },
         ];
 
-        return <StyledTable data-testid="definitions-table" columns={columns} dataSource={dataSource} />;
+        return <StyledTable data-testid={DEFINITIONS_TABLE_DATA_TEST_ID} columns={columns} dataSource={dataSource} />;
     };
 
     return {

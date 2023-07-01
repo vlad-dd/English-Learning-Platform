@@ -1,10 +1,8 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import BreadCrumbPath from '.';
 import { Provider } from 'react-redux';
-import store from '../../store';
 import { breadcrumbPath } from '../../store/reducers/bread-crumb';
+import store from '../../store';
+import BreadCrumbPath from '.';
 
 export default {
   title: 'Common/BreadCrumbPath',

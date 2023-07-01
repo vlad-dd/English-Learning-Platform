@@ -1,8 +1,9 @@
 import { useCallback } from "react";
 import { List } from "antd";
 import { ICases } from "../../../Tenses";
-import Image from "../../Image";
+import { IListRenderItem } from "../types";
 import { CASES_TABS_ICON_DATA_TEST_ID } from "../constants";
+import { StyledAvatar } from "../styled";
 
 const { Item } = List;
 const { Meta } = Item;
@@ -16,18 +17,13 @@ export const useRenderCaseItemsWidget = (config: ICases[]) => {
                 <List
                     itemLayout="vertical"
                     dataSource={titles}
-                    renderItem={({ description }: { description: string }) => (
+                    renderItem={({ description }: IListRenderItem) => (
                         <Item>
                             <Meta
                                 avatar={
-                                    <Image
+                                    <StyledAvatar
                                         id={CASES_TABS_ICON_DATA_TEST_ID}
-                                        url={icon}
-                                        styles={{
-                                            objectFit: "cover",
-                                            height: "16px",
-                                            width: "16px",
-                                        }}
+                                        src={icon}
                                     />
                                 }
                                 description={description}

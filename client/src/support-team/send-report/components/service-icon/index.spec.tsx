@@ -24,7 +24,6 @@ jest.mock('react-redux', () => ({
     it('should render component correctly', () => {
         const iconButton = screen.getByTestId(REPORT_SERVICE_ICON_DATA_TEST_ID);
         expect(iconButton).toBeInTheDocument();
-        expect(iconButton.getAttribute("style")).toBe("background: rgb(24, 144, 255);");
         expect(screen.getByRole("img").getAttribute("aria-label")).toBe("customer-service")
     });
 

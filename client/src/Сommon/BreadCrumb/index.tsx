@@ -3,10 +3,11 @@ import { useLocation } from 'react-router-dom';
 import { compact, size } from 'lodash';
 import { AiOutlineHome } from 'react-icons/ai'
 import * as selectors from '../../store/selectors/index'
+import { IBreadcrumbPath } from './types';
 import { StyledBreadcrumb, StyledSlash } from './styled';
 
 const BreadCrumbPath = () => {
-  const { path }: { path: string[] } = useSelector(selectors.tensesBCState);
+  const { path }: IBreadcrumbPath = useSelector(selectors.tensesBCState);
   const { pathname } = useLocation();
 
   const renderBreadCrumb = (item: string, index: number) => {

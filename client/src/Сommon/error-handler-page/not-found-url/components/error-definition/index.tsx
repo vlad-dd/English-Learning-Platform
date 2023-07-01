@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
-import { Button } from "@mui/material";
 import { IErrorDefition } from "../../../types";
 import { ERROR_PAGE } from "../../../../../translations/constants";
 import { NAVIGATION_PATHS } from "../../../constants";
 import {
     ErrorDefinitionWarning,
     ErrorDefinitonWrapper,
-    StyledError
+    StyledError,
+    StyledHomeButton
 } from "../../styled";
 
 const NotFoundURLErrorDefiniton = ({ error }: IErrorDefition) => {
@@ -20,11 +20,9 @@ const NotFoundURLErrorDefiniton = ({ error }: IErrorDefition) => {
                 {error}
             </StyledError>
             <Link to={NAVIGATION_PATHS.HOME}>
-                <Button
-                    style={{ border: "1px solid purple", color: "white", width: "8vw" }}
-                >
+                <StyledHomeButton>
                     <FormattedMessage id={ERROR_PAGE.ERROR_PAGE_HOME_BUTTON} />
-                </Button>
+                </StyledHomeButton>
             </Link>
         </ErrorDefinitonWrapper>
     )

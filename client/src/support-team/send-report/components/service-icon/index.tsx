@@ -10,8 +10,8 @@ const ReportServiceIcon = () => {
         <StyledServiceButton
             data-testid={REPORT_SERVICE_ICON_DATA_TEST_ID}
             onClick={() => dispatch(openSendReportModal())}
-            style={{ background: '#1890ff' }}>
-            <CustomerServiceOutlined style={{ color: "white" }} />
+        >
+            <CustomerServiceOutlined />
         </StyledServiceButton>
     )
 

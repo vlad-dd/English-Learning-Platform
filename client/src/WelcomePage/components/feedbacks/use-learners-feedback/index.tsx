@@ -1,7 +1,6 @@
-import { useMemo } from "react";
 import { List } from "antd";
-import { Avatar } from "@mui/material";
 import { LEARNERS_FEEDBACK } from "../../../constants";
+import { StyledUserFeedbackAvatar } from "../../../styled";
 
 const { Item } = List;
 const { Meta } = Item;
@@ -14,7 +13,7 @@ export const useLearnersFeedbackWidget = () => {
         return (
             <Item key={id}>
                 <Meta
-                    avatar={<Avatar style={{ border: "1px solid white" }} {...generateNicknameAvatars(title)} />}
+                    avatar={<StyledUserFeedbackAvatar {...generateNicknameAvatars(title)} />}
                     title={<a href="https://ant.design">{title}</a>}
                     description={description}
                 />
