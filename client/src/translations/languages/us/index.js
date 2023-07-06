@@ -1,5 +1,5 @@
 import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, REPORT_USER_PROFILE_MODAL, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE, HEADER } from "../../constants";
-import { BuildAllTranslationPages } from "../../translation-builders";
+import { TranslationBuilder } from "../../translation-builders";
 
 const welcome_page = {
     [WELCOME_PAGE.TITLE]: "English Learning Platform",
@@ -117,7 +117,7 @@ const header = {
     [HEADER.PROFILE_SIGN_OUT]: "Sign out"
 };
 
-const US_TRANSLATION_BUILD = new BuildAllTranslationPages(
+const US_TRANSLATION_BUILD = new TranslationBuilder(
     welcome_page,
     tenses_page,
     dictionary_page,
@@ -127,8 +127,6 @@ const US_TRANSLATION_BUILD = new BuildAllTranslationPages(
     grammar_levels,
     error_page,
     admin_panel,
-    header,
-    "US"
-).buildTranslationObject();
+    header).buildTranslation("US");
 
 export default US_TRANSLATION_BUILD;
