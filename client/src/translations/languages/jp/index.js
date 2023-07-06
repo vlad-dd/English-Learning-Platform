@@ -1,5 +1,5 @@
 import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, HEADER, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../../constants";
-import { BuildAllTranslationPages } from "../../translation-builders";
+import { TranslationBuilder } from "../../translation-builders";
 
 const welcome_page = {
   [WELCOME_PAGE.TITLE]: "英語学習プラットフォーム",
@@ -117,7 +117,7 @@ const header = {
   [HEADER.PROFILE_SIGN_OUT]: "サインアウト"
 };
 
-const JP_TRANSLATION_BUILD = new BuildAllTranslationPages(
+const JP_TRANSLATION_BUILD = new TranslationBuilder(
   welcome_page, 
   tenses_page, 
   dictionary_page, 
@@ -127,7 +127,6 @@ const JP_TRANSLATION_BUILD = new BuildAllTranslationPages(
   grammar_levels,
   error_page,
   admin_panel,
-  header,
-  "JP").buildTranslationObject();
+  header).buildTranslation("JP");
 
 export default JP_TRANSLATION_BUILD;

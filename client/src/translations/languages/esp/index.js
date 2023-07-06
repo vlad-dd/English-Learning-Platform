@@ -1,4 +1,4 @@
-import { BuildAllTranslationPages } from "../../translation-builders";
+import { TranslationBuilder } from "../../translation-builders";
 import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, HEADER, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../../constants";
 
 const welcome_page = {
@@ -116,7 +116,7 @@ const header = {
     [HEADER.PROFILE_SIGN_OUT]: "Desconectar"
 };
 
-const ESP_TRANSLATION_BUILD = new BuildAllTranslationPages(
+const ESP_TRANSLATION_BUILD = new TranslationBuilder(
     welcome_page,
     tenses_page,
     dictionary_page,
@@ -126,7 +126,6 @@ const ESP_TRANSLATION_BUILD = new BuildAllTranslationPages(
     grammar_levels,
     error_page,
     admin_panel,
-    header,
-    "ESP").buildTranslationObject();
+    header).buildTranslation("ESP");
 
 export default ESP_TRANSLATION_BUILD;

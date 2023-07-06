@@ -16,3 +16,5 @@ export const TRANSLATIONS: { [key: string]: ITranslationRoot } = {
   ...ESP_TRANSLATION_BUILD,
   ...GER_TRANSLATION_BUILD
 };
+
+console.log("TRANSLATIONS", TRANSLATIONS)
