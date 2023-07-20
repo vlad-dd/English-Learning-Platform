@@ -7,6 +7,7 @@
     <li>🌀 TypeScript (typescript)</li>
     <li>🚀 Apollo Client (@apollo/client)</li>
     <li>💎 Material-UI (@mui/material)</li>
+    <li>🐋 Docker (Docker)</li>
     <li>📖 Storybook (@storybook/react)</li>
     <li>🔥 Firebase (firebase)</li>
     <li>🌐 GraphQL (graphql)</li>
