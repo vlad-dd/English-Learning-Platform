@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Dropdown, Space } from 'antd';
 import { isNil } from 'lodash';
+import { BiSupport } from "react-icons/bi";
 import { setTranslationLanguage } from '../../store/reducers/translation';
 import { APPLICATION_NAVIGATION, APPLICATION_USER_STATUS } from '../../Сommon/constants';
 import AccountOptions from './account-options';
@@ -14,6 +15,7 @@ import {
   StyledLanguageOption,
   StyledLanguageSelector,
   StyledSelect,
+  StyledSupportIcon,
   StyledUserAvatar,
   UserEmail
 } from '../styled';
@@ -39,9 +41,14 @@ const HeaderRightSide = ({ enteredUser, handleSignOut }: IHeaderRightSide) => {
           ))}
         </StyledSelect>
         {enteredUser?.email === ADMIN_EMAIL ?
-          <Link to={APPLICATION_NAVIGATION.ADMIN_PANEL}>
-            <StyledDatabaseIcon />
-          </Link>
+          <div>
+            <Link to="/support-team">
+              <StyledSupportIcon />
+            </Link>
+            <Link to={APPLICATION_NAVIGATION.ADMIN_PANEL}>
+              <StyledDatabaseIcon />
+            </Link>
+          </div>
           : ''}
       </StyledLanguageSelector>
       {!isNil(enteredUser) ? (

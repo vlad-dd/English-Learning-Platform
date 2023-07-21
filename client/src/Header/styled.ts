@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { Image, Select } from 'antd';
+import { Select } from 'antd';
 import { FiDatabase } from 'react-icons/fi';
+import { BiSupport } from "react-icons/bi";
 import { DEVICE_MAXIMUM } from '../mobile-view';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Menu } from 'antd';
@@ -90,4 +91,10 @@ export const StyledDatabaseIcon = styled(FiDatabase)`
 
 export const StyledUserAvatar = styled(Avatar)`
   object-fit: cover;
+`;
+
+export const StyledSupportIcon = styled(BiSupport)`
+  cursor: pointer;
+  margin-right: 30px;
+  font-size: 1.2rem;
 `;

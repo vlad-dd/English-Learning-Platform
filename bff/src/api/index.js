@@ -33,6 +33,15 @@ const BFF_API_QUERIES = {
     getEnglishLevelTest() {
         return getDoc(doc(database, 'english-level-test', 'english-level-test'));
     },
+    getApplicationReports() {
+        return getDoc(doc(database, 'Support', 'Report-App'));
+    },
+    getCommentReports() {
+        return getDoc(doc(database, 'Support', 'Report-Comment'));
+    },
+    getUserReports() {
+        return getDoc(doc(database, 'Support', 'Report-User'));
+    },
 };
 
 const BFF_MUTATIONS = {

@@ -11,6 +11,7 @@ import TestApplication from "../../Tests/presentational";
 import AdminPage from "../../admin-panel/presentational";
 import { ELP_USER_EXPERIENCE_ERRORS } from "../../Сommon/error-handler-page/constants";
 import EnglishLevelRoot from "../../EnglishLevel/presentational";
+import SupportPanel from "../../support-panel/presentational";
 
 export const LazyApplicationRoot = lazy(() => import("../../app-root/presentational"));
 const LazyRegistration = lazy(() => import("../../authentification/Registration/presentational"));
@@ -71,6 +72,10 @@ const useApplicationRouter = () => {
         element: (
           <AdminPage />
         ),
+      },
+      {
+        path: "/support-team",
+        element: <SupportPanel />,
       },
     ]
     },
