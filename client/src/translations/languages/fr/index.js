@@ -1,4 +1,4 @@
-import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, HEADER, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../../constants";
+import { ADMIN_PANEL, APPLICATION_MODALS, APPLICATION_ROOT, DICTIONARY_PAGE, ENGLISH_LEVEL_PAGE, ERROR_PAGE, GRAMMAR_LEVELS, HEADER, SUPPORT_PANEL, SUPPORT_TEAM, TENSES_PAGE, WELCOME_PAGE } from "../../constants";
 import { TranslationBuilder } from "../../translation-builders";
 
 const welcome_page = {
@@ -116,6 +116,10 @@ const header = {
     [HEADER.PROFILE_SIGN_OUT]: "Se Déconnecter"
 };
 
+const support_panel = {
+    [SUPPORT_PANEL.TITLE]: "Équipe du panneau d'assistance👨‍💻"
+};
+
 const FR_TRANSLATION_BUILD = new TranslationBuilder(
     welcome_page,
     tenses_page,
@@ -126,6 +130,7 @@ const FR_TRANSLATION_BUILD = new TranslationBuilder(
     grammar_levels,
     error_page,
     admin_panel,
+    support_panel,
     header).buildTranslation("FR");
 
 export default FR_TRANSLATION_BUILD;

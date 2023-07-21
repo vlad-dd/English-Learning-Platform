@@ -113,3 +113,7 @@ export const HEADER = {
     PROFILE_ACCOUNT_OPTION: "header_profile_account_option",
     PROFILE_SIGN_OUT: "header_profile_sign_out"
 };
+
+export const SUPPORT_PANEL = {
+    TITLE: "support_panel_title"
+}
