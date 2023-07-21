@@ -5,6 +5,9 @@ type Query {
     grammarByLevel(level: String!, theme: String!): [GrammarLevel]!
     getTests(part: String!, theme: String!): [Tests]!
     getEnglishLevelTest: [EnglishLevelQuestion]!
+    getApplicationReports: ApplicationReportsBucket!
+    getCommentReports: CommentReportsBucket!
+    getUserReports: UserReportsBucket!
 }
 
 type EnglishLevelQuestion {
@@ -212,4 +215,47 @@ type TestConfiguration {
 type SelectInputOptions {
     value: String
     label: String
+}
+
+type ApplicationReportsBucket {
+    reports: [ApplicationReports]!
+}
+
+type ApplicationReports {
+    id: String
+    report: ApplicationReport
+}
+
+type ApplicationReport{
+    application: String
+    description: String
+}
+
+type CommentReportsBucket {
+    reports: [CommentReports]!
+}
+
+type CommentReports {
+    id: String
+    report: CommentReport
+}
+
+type CommentReport{
+    additionalInformation: String
+    comment: String
+    reason: String
+}
+
+type UserReportsBucket {
+    reports: [UserReports]!
+}
+
+type UserReports {
+    id: String
+    report: CommentReport
+}
+
+type UserReport{
+    additionalInformation: String
+    reason: String
 }

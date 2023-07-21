@@ -28,6 +28,19 @@ const resolvers = {
       const data = await BFF_API_QUERIES.getEnglishLevelTest();
       const configuration = get([data.data()], '[0].testing.questions')
       return configuration;
+    },
+    getApplicationReports: async () => {
+      const data = await BFF_API_QUERIES.getApplicationReports();
+      return data.data();
+    },
+    getCommentReports: async () => {
+      const data = await BFF_API_QUERIES.getCommentReports();
+      return data.data();
+    },
+    getUserReports: async () => {
+      const data = await BFF_API_QUERIES.getUserReports();
+      return data.data();
+
     }
   },
   Mutation: {
